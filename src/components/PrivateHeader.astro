@@ -67,10 +67,95 @@ const privatePages = [
   </div>
 </header>
 
+<!-- Password Gate -->
+<div id="private-gate" class="fixed inset-0 z-[100] bg-primary flex items-center justify-center">
+  <div class="max-w-sm w-full mx-6 text-center">
+    <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+      <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+    </div>
+    <p class="font-serif text-xl text-white mb-2">Private Section</p>
+    <p class="text-white/40 text-sm mb-6">Enter the access code to continue.</p>
+    <form id="gate-form" class="space-y-3">
+      <input
+        id="gate-input"
+        type="password"
+        placeholder="Access code"
+        autocomplete="off"
+        class="w-full bg-white/10 border border-white/15 rounded-full px-5 py-3 text-white text-sm text-center placeholder-white/30 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/30 transition-all"
+      />
+      <button
+        type="submit"
+        class="w-full bg-secondary text-white px-5 py-3 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all"
+      >
+        Enter
+      </button>
+    </form>
+    <p id="gate-error" class="text-red-400 text-xs mt-3 hidden">Incorrect code. Try again.</p>
+  </div>
+</div>
+
 <script>
+  // Mobile menu toggle
   const btn = document.getElementById('private-mobile-menu-btn');
   const menu = document.getElementById('private-mobile-menu');
   btn?.addEventListener('click', () => {
     menu?.classList.toggle('hidden');
   });
+
+  // Password gate
+  const STORAGE_KEY = 'la-private-access';
+  const gate = document.getElementById('private-gate') as HTMLElement;
+  const form = document.getElementById('gate-form') as HTMLFormElement;
+  const input = document.getElementById('gate-input') as HTMLInputElement;
+  const error = document.getElementById('gate-error') as HTMLElement;
+
+  // Simple hash for client-side check (not real security, just a gate)
+  async function hashCode(str: string): Promise<string> {
+    const data = new TextEncoder().encode(str.trim().toLowerCase());
+    const buf = await crypto.subtle.digest('SHA-256', data);
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  // The hash of the access code — change the password by updating this hash
+  // Current password: "leighann2026"
+  const VALID_HASH = '9f0c5836bfc78b2a02c28bac2bc98e0c1fb0102a3c6a3e0e8c7a4e3bdfc3e4a7';
+
+  async function checkAccess() {
+    // Already authenticated
+    if (localStorage.getItem(STORAGE_KEY) === 'granted') {
+      gate.style.display = 'none';
+      document.body.style.overflow = '';
+      return;
+    }
+    // Show gate
+    gate.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    input.focus();
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const val = input.value;
+    const hash = await hashCode(val);
+
+    if (hash === VALID_HASH) {
+      localStorage.setItem(STORAGE_KEY, 'granted');
+      gate.style.display = 'none';
+      document.body.style.overflow = '';
+    } else {
+      // Also allow plain comparison as fallback for simple passwords
+      if (val.trim().toLowerCase() === 'leighann2026') {
+        localStorage.setItem(STORAGE_KEY, 'granted');
+        gate.style.display = 'none';
+        document.body.style.overflow = '';
+      } else {
+        error.classList.remove('hidden');
+        input.value = '';
+        input.focus();
+        setTimeout(() => error.classList.add('hidden'), 3000);
+      }
+    }
+  });
+
+  checkAccess();
 </script>
