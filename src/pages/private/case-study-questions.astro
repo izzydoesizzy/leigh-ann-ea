@@ -1,0 +1,1499 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PrivateHeader from "../../components/PrivateHeader.astro";
+import Footer from "../../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL;
+
+const roles = [
+  {
+    id: "ascend",
+    company: "Ascend Wellness Holdings",
+    title: "Senior EA to CEO & President",
+    dates: "Jan 2025 - Jan 2026",
+    industry: "Cannabis MSO (Multi-State Operator)",
+    leaders: "Sam Brill (CEO), Frank Parullo (President)",
+    context: `We started digging into this on our first call and got deep into the quarterly earnings overhaul. You described building a 5-6 week pre-earnings timeline from scratch, coordinating across IR, commercial (David Gacom), cultivation teams, and finance (Roman, Laura Warren). You introduced hard and soft deadlines because cannabis leadership "were not accustomed to being held accountable in that way." You managed 200+ stakeholders across 7 markets and handled board/committee/IR operations. We need to finish this deep-dive and cover the other major workstreams.`,
+    questions: [
+      {
+        q: "Let's finish the earnings story. You described the before (no prep structure, last-minute materials, no ownership). Walk me through one specific earnings call from start to finish using your new system. What happened in week 1 vs. week 5? Who did what? What was the call itself like compared to before you built this?",
+        why: "We need the full arc for a case study: broken state, your system, the result."
+      },
+      {
+        q: "You mentioned screening public speaking consultants for the executives. Did Sam or Frank actually use one? What changed about their performance on earnings calls after your process was in place?",
+        why: "Connecting your operational work to executive performance is powerful."
+      },
+      {
+        q: "The 7-market coordination: which states were you covering? How did you manage communication across that many markets? Was there a system before you, or did you build it?",
+        why: "Scale and geographic complexity are strong differentiators."
+      },
+      {
+        q: "You were there during a period of M&A activity. What was your role in acquisitions? Were you managing due diligence logistics, coordinating between legal teams, handling confidential documents? Give me a specific deal or transaction you were involved in.",
+        why: "M&A support at the EA level is rare and valuable."
+      },
+      {
+        q: "Board and committee operations: how many board meetings per year? What did your prep process look like? How far in advance did you start? What was the quality of board materials before you vs. after?",
+        why: "Board governance is a premium skill for fractional EA positioning."
+      },
+      {
+        q: "You left Ascend voluntarily after a year. What was the honest reason? And when you left, what did the transition look like? Did they struggle to replace you? What broke when you were gone?",
+        why: "What breaks when you leave is the strongest proof of your value."
+      },
+      {
+        q: "Laura Warren (VP Finance) and Courtney (Director, now at Matteo) are both people you want recommendations from. What specifically would each of them say about working with you? What would they say you did that nobody else could?",
+        why: "We'll use this language in testimonial drafts and case studies."
+      },
+      {
+        q: "The 98% satisfaction rate across 200+ stakeholders: where does that number come from? Was there a formal survey? An internal review? Or is it your estimate? If it's an estimate, what's the real evidence that people were satisfied?",
+        why: "We need to either cite the real source or find a more defensible way to state this."
+      },
+      {
+        q: "What's one thing that went wrong at Ascend, something that didn't work the way you planned, and what did you do about it?",
+        why: "Resilience stories are more compelling than perfection stories."
+      }
+    ]
+  },
+  {
+    id: "immunovant",
+    company: "Immunovant",
+    title: "Senior EA to CEO & General Counsel",
+    dates: "Sep 2019 - Jul 2024",
+    industry: "Clinical-Stage Biopharmaceutical",
+    leaders: "CEO (name TBD), General Counsel, Pam Connelly (first CFO & CHRO), Renee (CFO), Pete Norini",
+    context: `This is your longest tenure and your biggest growth story: nearly 5 years at a clinical-stage biopharma. You went from supporting the CEO to also supporting the General Counsel. You founded and led the Culture Committee (DEI workshops, wellness programs). You designed onboarding for 6 admin professionals with a 20% ramp-up reduction. Your resume claims a 30% improvement in decision-making effectiveness and 22% increase in employee satisfaction. Pam Connelly is someone you want a recommendation from. We have almost no specific stories from this role yet.`,
+    questions: [
+      {
+        q: "Immunovant was a startup when you joined in 2019. How big was the company then vs. when you left in 2024? How many people? How many offices? What stage were they in clinically? Walk me through how your role changed as the company grew.",
+        why: "Scaling with a startup is a compelling narrative arc."
+      },
+      {
+        q: "You supported both the CEO and the General Counsel. How did that dual-support arrangement work? Did you manage competing priorities? Give me an example of a time their needs conflicted and how you handled it.",
+        why: "Dual-exec support is a differentiator. We need a specific story."
+      },
+      {
+        q: "The Culture Committee: whose idea was it? How did you pitch it? What specific programs did you create? How many people participated? What changed about the company culture that you can point to?",
+        why: "Founding a culture initiative shows strategic leadership beyond the EA title."
+      },
+      {
+        q: "You designed onboarding for 6 admin professionals and cut ramp-up time by 20%. What did onboarding look like before you? What did you build? How did you measure the 20% improvement? What specific materials or systems did you create?",
+        why: "Building repeatable systems is exactly what fractional clients need."
+      },
+      {
+        q: "The 30% improvement in decision-making effectiveness: I need to understand where this number comes from. What was happening before that was slowing decisions? What did you change? How was this measured or observed?",
+        why: "This is a bold claim. We either need to back it up with a real story or reframe it."
+      },
+      {
+        q: "The 22% employee satisfaction increase: same question. Was there an engagement survey? What was your specific contribution to that result?",
+        why: "Same as above. Need the real source."
+      },
+      {
+        q: "What would Pam Connelly say about you if I called her right now and asked, 'What's it like working with Leigh-Ann?' Give me her actual words, not a polished version.",
+        why: "This becomes the testimonial draft."
+      },
+      {
+        q: "You were there nearly 5 years. What's the biggest fire you put out that nobody knew about? The thing where if you hadn't stepped in, it would have been a disaster?",
+        why: "The invisible saves are often the best case studies."
+      },
+      {
+        q: "Clinical-stage biopharma has specific operational complexity: FDA timelines, clinical trial milestones, investor updates around data readouts. Were you involved in any of that? Did you coordinate logistics around major clinical announcements or FDA interactions?",
+        why: "Industry-specific expertise is what commands premium rates."
+      },
+      {
+        q: "Why did you leave after 5 years? What was the honest trigger? And what was the reaction when you gave notice?",
+        why: "How hard it is to leave and how they react tells us your value."
+      }
+    ]
+  },
+  {
+    id: "third-bridge",
+    company: "Third Bridge",
+    title: "Senior EA to President, Global Lead & MD Operations",
+    dates: "Oct 2017 - Sep 2019",
+    industry: "Expert Network / Financial Services Research",
+    leaders: "President (name TBD)",
+    context: `Global role spanning NYC and London. You reduced event costs by 15%, expanded admin teams in both cities, and created onboarding manuals and how-to guides. This was your first role with international scope. We have very little detail beyond resume bullets.`,
+    questions: [
+      {
+        q: "Third Bridge is an expert network connecting investors with industry specialists. How did that business model affect your day-to-day? Were you coordinating with clients (hedge funds, PE firms) directly, or was your scope internal?",
+        why: "Understanding the business context makes the case study richer."
+      },
+      {
+        q: "You supported the President of a company with offices in NYC and London. How did you manage the time zone gap? What did a typical day look like when you were coordinating across both offices?",
+        why: "Global coordination is a premium skill."
+      },
+      {
+        q: "The 15% cost reduction on events: which events? How many per year? What was the total budget you were managing? What specifically did you change to cut costs, and was quality maintained?",
+        why: "We need the real numbers behind the percentage."
+      },
+      {
+        q: "You expanded the admin teams in NYC and London. How many people did you hire? Did you build the job descriptions, run the interviews, make the hiring decisions? What was the team size before vs. after?",
+        why: "Team building is a Chief of Staff function, not an EA function. This elevates your positioning."
+      },
+      {
+        q: "The onboarding manuals and how-to guides you created: are these still in use? How many did you write? What problems were they solving? Were new admins getting up to speed faster because of them?",
+        why: "Creating institutional knowledge that outlasts you is a strong proof point."
+      },
+      {
+        q: "What was the biggest difference between working at Third Bridge vs. PwC? What did the jump from Big Four to a smaller, global company teach you?",
+        why: "Career progression narrative."
+      },
+      {
+        q: "If I asked the President you supported to describe your impact in one sentence, what would they say?",
+        why: "Testimonial language."
+      }
+    ]
+  },
+  {
+    id: "pwc",
+    company: "PwC",
+    title: "Senior Team Assistant, NY Metro State & Local Tax",
+    dates: "Nov 2012 - Jun 2017",
+    industry: "Big Four Professional Services",
+    leaders: "Tax partners (names TBD)",
+    context: `Nearly 5 years at PwC supporting the State & Local Tax practice in the NY Metro office. You achieved 98% on-time delivery, managed Fortune 500 workflows, tracked the Marketing & Sales budget, and served as a mentor and onboarding buddy. This is a strong brand name on the resume but we have almost no stories.`,
+    questions: [
+      {
+        q: "PwC's State & Local Tax practice: how many partners and senior managers were you supporting? What was the team size? Were you the only assistant, or part of an admin team?",
+        why: "Scale and ratio matter. Supporting 1 partner vs. 8 is a different story."
+      },
+      {
+        q: "Fortune 500 workflows: what does that actually mean in your day-to-day? Were you handling engagement letters, client billing, audit support materials? Give me a specific example of a complex workflow you managed.",
+        why: "The resume bullet is vague. We need the real story."
+      },
+      {
+        q: "The Marketing & Sales budget tracking: how large was this budget? What system did you use? What happened before you took it over? Were there errors or gaps you found and fixed?",
+        why: "Budget ownership is an operations skill, not an admin skill."
+      },
+      {
+        q: "You were a mentor and onboarding buddy. How many people did you onboard? What did that look like? Did you create any materials, or was it informal? Did PwC have a formal program, or did you volunteer for this?",
+        why: "Mentorship shows leadership and institutional investment."
+      },
+      {
+        q: "Tax season at a Big Four firm is intense. What was your role during peak season (Jan-Apr)? How did the workload change? What did you handle that nobody else could?",
+        why: "High-pressure, deadline-driven environments are exactly what C-suite executives need from an EA."
+      },
+      {
+        q: "You were at PwC for nearly 5 years. That's long for an assistant role at a Big Four. What kept you there? And what finally made you leave for Third Bridge?",
+        why: "Career transition narrative."
+      },
+      {
+        q: "Is there anyone from PwC who would still vouch for you today? A partner, a senior manager, a fellow assistant?",
+        why: "Long-tenure references from brand-name firms carry weight."
+      }
+    ]
+  },
+  {
+    id: "reich-tang",
+    company: "Reich & Tang",
+    title: "Operations EA to VP & COO",
+    dates: "Feb 2010 - Sep 2012",
+    industry: "Financial Services / Asset Management",
+    leaders: "VP & COO (name TBD)",
+    context: `You supported the VP & COO at a financial services firm. You created procedure manuals, improved accuracy by 20%, reduced training time by 30%, and distributed reports to 100+ brokers. This overlaps with your time at DGB Management.`,
+    questions: [
+      {
+        q: "Reich & Tang was a deposit management and asset servicing firm. What was the COO responsible for, and where did you fit into that? Were you managing operations-level tasks, or was this traditional EA work?",
+        why: "Understanding the scope tells us if this was admin or operations leadership."
+      },
+      {
+        q: "The procedure manuals you created: how many? For what processes? Were these replacing tribal knowledge (people just knew how to do things) with documented systems? Are they still in use?",
+        why: "Codifying institutional knowledge is a fractional CoS skill."
+      },
+      {
+        q: "Report distribution to 100+ brokers: was this a daily thing? Weekly? What was in these reports? What happened if they were late or wrong? What was the consequence of an error?",
+        why: "Stakes and volume tell the real story."
+      },
+      {
+        q: "The 20% accuracy improvement and 30% training time reduction: where do these numbers come from? What was inaccurate before? What was taking so long in training?",
+        why: "We need the real before/after."
+      },
+      {
+        q: "You were at Reich & Tang and DGB Management at the same time. How did you balance two roles? Was DGB a side business?",
+        why: "Understanding the overlap and entrepreneurial drive."
+      }
+    ]
+  },
+  {
+    id: "dgb",
+    company: "DGB Management",
+    title: "Virtual Operations Consultant",
+    dates: "Aug 2009 - Dec 2011",
+    industry: "Independent Consulting",
+    leaders: "Your own business",
+    context: `This was your first independent consulting work, running your own virtual operations practice. You achieved a 30% reduction in routine process time for clients. We know almost nothing about this.`,
+    questions: [
+      {
+        q: "DGB Management: what does DGB stand for? Was this a registered business? How did you get your first client?",
+        why: "The origin story of your consulting practice matters for your fractional positioning today."
+      },
+      {
+        q: "Who were your clients? How many at any given time? What industries? What size companies?",
+        why: "Your fractional EA pitch today has roots here. We need to connect the dots."
+      },
+      {
+        q: "What services did you actually provide? Calendar management? Process design? Financial operations? Give me a specific project that went well.",
+        why: "One good project becomes a case study."
+      },
+      {
+        q: "The 30% reduction in routine process time: for which client? What process? How did you measure it?",
+        why: "A specific example is more compelling than a blanket claim."
+      },
+      {
+        q: "Why did you stop? You went from running your own thing to going back to a full-time role at PwC. What drove that decision?",
+        why: "This is relevant to your fractional pivot today. Different stage of life, different leverage."
+      }
+    ]
+  },
+  {
+    id: "bearingpoint",
+    company: "BearingPoint",
+    title: "Financial Operations Administrator",
+    dates: "Dec 2007 - Jul 2009",
+    industry: "Management & Technology Consulting",
+    leaders: "Manager/Director (name TBD)",
+    context: `Your first major US corporate role after arriving from Trinidad. You processed $10M+ in monthly payments with 99% accuracy and reduced billing discrepancies by 20%. BearingPoint was a major consulting firm that went bankrupt in 2009.`,
+    questions: [
+      {
+        q: "You were processing $10M+ in monthly payments. Walk me through what that actually looked like day to day. What systems were you using? How many invoices or transactions per month? What happened if something was wrong?",
+        why: "The volume and stakes behind '$10M+' need to be real and specific."
+      },
+      {
+        q: "BearingPoint filed for bankruptcy in February 2009 and you left in July 2009. What was it like working through the collapse of a major consulting firm? What did you handle during that period that was beyond your normal scope?",
+        why: "Crisis resilience is a compelling story, especially for your first US corporate role."
+      },
+      {
+        q: "The 20% reduction in billing discrepancies: what was causing the discrepancies? What did you change? Was this a process you fixed, a tool you built, or something else?",
+        why: "The fix is more interesting than the percentage."
+      },
+      {
+        q: "This was your first corporate role in the US after moving from Trinidad. What was the biggest adjustment? What surprised you? What skills from Petrotrin transferred directly?",
+        why: "Immigration + career story is part of your brand narrative."
+      }
+    ]
+  },
+  {
+    id: "petrotrin",
+    company: "Petrotrin (Petroleum Company of Trinidad and Tobago)",
+    title: "Administrative Assistant, Office of the VP of Oil & Refining",
+    dates: "Pre-2006",
+    industry: "State-Owned Oil & Gas",
+    leaders: "VP of Oil & Refining (name TBD)",
+    context: `Your origin story. Petrotrin was Trinidad's state-owned oil company (merged from Trintoc and Trinmar). You worked in the office of the VP of Oil & Refining before moving to the US. We know almost nothing about this role.`,
+    questions: [
+      {
+        q: "Petrotrin was one of the biggest employers in Trinidad. How old were you when you started? How did you get the job? Was this your first real office job?",
+        why: "Origin story. Where the work ethic was forged."
+      },
+      {
+        q: "The VP of Oil & Refining: what was this person responsible for? How big was their team? What was your scope?",
+        why: "Supporting a VP at a national oil company is a bigger deal than people might assume."
+      },
+      {
+        q: "What was the work culture like? What did you learn at Petrotrin that you still carry with you today?",
+        why: "Formative professional experiences anchor the career narrative."
+      },
+      {
+        q: "What made you decide to leave Trinidad and move to the US? Was there a specific moment or was it gradual?",
+        why: "The immigration decision is the hinge point of your entire career story."
+      },
+      {
+        q: "When you arrived in the US in 2006, what happened between then and starting at BearingPoint in late 2007? That's roughly 18 months. What were you doing?",
+        why: "Filling the gap and understanding the transition."
+      }
+    ]
+  }
+];
+---
+
+<Layout noindex={true} title="Case Study Deep-Dive Questions | Leigh-Ann Martin" description="Role-by-role questions to extract metrics, impact, and stories for case studies.">
+  <PrivateHeader />
+  <main>
+    <!-- Hero -->
+    <section class="bg-primary pt-24 pb-12 md:pt-32 md:pb-16">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Session 2 Prep</p>
+        <h1 class="font-serif text-3xl md:text-4xl text-white leading-tight mb-4">
+          Case Study Deep-Dive Questions
+        </h1>
+        <p class="text-white/50 text-base leading-relaxed max-w-xl mx-auto mb-6">
+          Role-by-role questions designed to uncover the real metrics, stories, and impact behind your career. The goal is to build case studies with specifics that make hiring managers and prospects say "I need that person."
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">8 Roles</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">65+ Questions</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">Metrics &amp; Impact</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">Testimonial Language</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Nav -->
+    <section class="bg-primary/95 border-t border-white/[0.06] py-4 sticky top-14 z-40">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="flex flex-wrap justify-center gap-2 text-xs">
+          <a href="#how-to-use" class="text-white/40 hover:text-white/70 transition-colors">How to Use</a>
+          <span class="text-white/15">|</span>
+          <a href="#quantification" class="text-white/40 hover:text-white/70 transition-colors">Quantification</a>
+          <span class="text-white/15">|</span>
+          <a href="#calculators" class="text-white/40 hover:text-white/70 transition-colors">Calculators</a>
+          <span class="text-white/15">|</span>
+          {roles.map((role, i) => (
+            <>
+              <a href={`#${role.id}`} class="text-white/40 hover:text-white/70 transition-colors">{role.company.split(' ')[0]}{role.company === "Petrotrin (Petroleum Company of Trinidad and Tobago)" ? "" : ""}</a>
+              {i < roles.length - 1 && <span class="text-white/15">|</span>}
+            </>
+          ))}
+          <span class="text-white/15">|</span>
+          <a href="#cross-cutting" class="text-white/40 hover:text-white/70 transition-colors">Cross-Cutting</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Use -->
+    <section id="how-to-use" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="font-serif text-2xl text-primary mb-6">How to Use This</h2>
+        <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 space-y-4">
+          <div class="flex gap-3">
+            <span class="text-secondary font-bold text-sm mt-0.5">1.</span>
+            <div><span class="font-semibold text-primary text-sm">Go role by role.</span> <span class="text-text-muted text-sm">Start with the most recent (Ascend) and work backwards. The newer roles need the most depth. The older ones need the stories you haven't told yet.</span></div>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-secondary font-bold text-sm mt-0.5">2.</span>
+            <div><span class="font-semibold text-primary text-sm">Use Otter or voice notes.</span> <span class="text-text-muted text-sm">Don't type these out. Open Otter (or your phone's voice recorder) and talk through the answers out loud. Talking pulls out details that writing filters out.</span></div>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-secondary font-bold text-sm mt-0.5">3.</span>
+            <div><span class="font-semibold text-primary text-sm">Be specific, not polished.</span> <span class="text-text-muted text-sm">We're not looking for perfect answers. We want real numbers, real names, real situations. "I think it was about 15 invoices a day" is more useful than "I managed high-volume payment processing."</span></div>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-secondary font-bold text-sm mt-0.5">4.</span>
+            <div><span class="font-semibold text-primary text-sm">The "what we know" boxes show your starting point.</span> <span class="text-text-muted text-sm">Each role starts with a summary of what we already have from your resume, our call, and your proposal. Read it, then go deeper.</span></div>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-secondary font-bold text-sm mt-0.5">5.</span>
+            <div><span class="font-semibold text-primary text-sm">Skip what doesn't apply.</span> <span class="text-text-muted text-sm">Not every question will land. If one doesn't fit, move on. But if a question triggers a memory or a story, follow that thread.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quantification Playbook -->
+    <section id="quantification" class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Before You Start</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-3">How to Turn Fuzzy Achievements Into Hard Numbers</h2>
+        <p class="text-text-muted text-sm leading-relaxed mb-8">Most people undersell their impact because they think they need exact data. You don't. You need defensible estimates. Here are six frameworks to quantify work that feels hard to measure.</p>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <!-- Framework 1 -->
+          <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <h3 class="font-semibold text-primary text-sm">Time Saved = Money Saved</h3>
+            </div>
+            <p class="text-text-muted text-xs leading-relaxed mb-2">If you saved your CEO 5 hours a week, and they earn $500K, that's $120K/year in recovered executive time. The formula:</p>
+            <div class="bg-cream rounded-lg px-3 py-2 text-xs font-mono text-primary">(hours saved/week) x 52 x (exec annual comp / 2,080) = annual value</div>
+          </div>
+
+          <!-- Framework 2 -->
+          <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <h3 class="font-semibold text-primary text-sm">Error Prevention = Risk Avoided</h3>
+            </div>
+            <p class="text-text-muted text-xs leading-relaxed mb-2">Processing $10M/month at 99% vs. 95% accuracy? That's $4.8M in prevented errors per year. Even small accuracy gains are massive at volume.</p>
+            <div class="bg-cream rounded-lg px-3 py-2 text-xs font-mono text-primary">(volume) x (old error rate - new error rate) x (avg transaction) = risk avoided</div>
+          </div>
+
+          <!-- Framework 3 -->
+          <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <h3 class="font-semibold text-primary text-sm">Stakeholder Scale = Complexity Managed</h3>
+            </div>
+            <p class="text-text-muted text-xs leading-relaxed mb-2">200+ stakeholders across 7 markets isn't just a number. It's thousands of touchpoints per year. Each one is a potential miscommunication you prevented.</p>
+            <div class="bg-cream rounded-lg px-3 py-2 text-xs font-mono text-primary">(stakeholders) x (touchpoints/month) x 12 x (minutes each) / 60 = hours managed/year</div>
+          </div>
+
+          <!-- Framework 4 -->
+          <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              </div>
+              <h3 class="font-semibold text-primary text-sm">Process Efficiency = Compounding Gains</h3>
+            </div>
+            <p class="text-text-muted text-xs leading-relaxed mb-2">A process that saves 30 minutes per use, used by 10 people, 4 times a month? That's 240 hours saved per year. And it keeps working after you leave.</p>
+            <div class="bg-cream rounded-lg px-3 py-2 text-xs font-mono text-primary">(time saved per use) x (users) x (frequency/month) x 12 = annual hours saved</div>
+          </div>
+
+          <!-- Framework 5 -->
+          <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <h3 class="font-semibold text-primary text-sm">Faster Ramp-Up = Faster Revenue</h3>
+            </div>
+            <p class="text-text-muted text-xs leading-relaxed mb-2">Every month a new hire is "ramping up" is a month at reduced productivity. Cut ramp from 4 months to 3 months for a $90K hire? That's $7,500 in recovered productivity.</p>
+            <div class="bg-cream rounded-lg px-3 py-2 text-xs font-mono text-primary">(months saved) x (salary / 12) x (productivity gap %, usually 50%) = value per hire</div>
+          </div>
+
+          <!-- Framework 6 -->
+          <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              </div>
+              <h3 class="font-semibold text-primary text-sm">Budget Optimization = Direct Savings</h3>
+            </div>
+            <p class="text-text-muted text-xs leading-relaxed mb-2">This one is straightforward. If you managed a $200K event budget and cut costs by 15%, that's $30K saved. The key is knowing the total budget, not just the percentage.</p>
+            <div class="bg-cream rounded-lg px-3 py-2 text-xs font-mono text-primary">(budget) x (% reduction) = direct savings</div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5 mt-6">
+          <p class="text-primary text-sm font-medium mb-2">The rule of thumb for everything below</p>
+          <p class="text-text-muted text-xs leading-relaxed">If you don't know the exact number, estimate conservatively and say "at least" or "approximately." A conservative estimate is always more credible than a round number or a guess. "Saved approximately $45K in executive time" beats "saved time" every single time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Calculators -->
+    <section id="calculators" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-10">
+          <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Impact Calculators</p>
+          <h2 class="font-serif text-2xl md:text-3xl text-primary mb-3">Put Real Numbers on Your Work</h2>
+          <p class="text-text-muted text-sm leading-relaxed max-w-2xl mx-auto">Use these calculators as you answer the questions below. When a question asks "how much time did you save?" or "what was the budget?", plug the numbers in here to see the full impact.</p>
+        </div>
+
+        <!-- Calculator Tab Navigation -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8" id="calc-tabs">
+          <button data-calc="exec-time" class="calc-tab active text-xs px-4 py-2 rounded-full border transition-all">Executive Time Value</button>
+          <button data-calc="process" class="calc-tab text-xs px-4 py-2 rounded-full border transition-all">Process Efficiency</button>
+          <button data-calc="stakeholder" class="calc-tab text-xs px-4 py-2 rounded-full border transition-all">Stakeholder Scale</button>
+          <button data-calc="error" class="calc-tab text-xs px-4 py-2 rounded-full border transition-all">Error Prevention</button>
+          <button data-calc="rampup" class="calc-tab text-xs px-4 py-2 rounded-full border transition-all">Team Ramp-Up</button>
+          <button data-calc="event" class="calc-tab text-xs px-4 py-2 rounded-full border transition-all">Event & Budget</button>
+          <button data-calc="board" class="calc-tab text-xs px-4 py-2 rounded-full border transition-all">Board Prep Value</button>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CALC 1: Executive Time Value                       -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div id="calc-exec-time" class="calc-panel">
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-serif text-lg text-primary">Executive Time Value Calculator</h3>
+                <p class="text-text-muted text-xs">How much is the time you save your executive actually worth?</p>
+              </div>
+            </div>
+            <p class="text-text-muted text-xs mb-6 italic">Think about: calendar management, email triage, meeting prep, travel booking, information gathering. Every hour you handle is an hour they don't spend.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="space-y-6">
+                <!-- Exec Comp -->
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Executive's Annual Compensation</label>
+                    <span id="et-comp-val" class="font-serif text-xl text-primary">$400,000</span>
+                  </div>
+                  <input type="range" id="et-comp" min="150000" max="2000000" step="25000" value="400000" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>$150K</span><span>$2M</span></div>
+                </div>
+                <!-- Hours saved -->
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Hours You Saved Them Per Week</label>
+                    <span id="et-hours-val" class="font-serif text-xl text-primary">8 hrs</span>
+                  </div>
+                  <input type="range" id="et-hours" min="1" max="30" step="1" value="8" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>1 hr</span><span>30 hrs</span></div>
+                </div>
+                <!-- Number of execs -->
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Number of Executives Supported</label>
+                    <span id="et-execs-val" class="font-serif text-xl text-primary">2</span>
+                  </div>
+                  <input type="range" id="et-execs" min="1" max="6" step="1" value="2" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>1</span><span>6</span></div>
+                </div>
+                <p class="text-text-muted text-xs italic">At Immunovant you supported the CEO and General Counsel. At Ascend it was the CEO and President.</p>
+              </div>
+              <!-- Results -->
+              <div>
+                <div class="bg-cream rounded-xl p-6 sticky top-24">
+                  <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Executive time you recovered annually</p>
+                  <p id="et-result-hours" class="font-serif text-4xl text-primary mb-1">832 hours</p>
+                  <p class="text-text-muted text-xs mb-4">That's <span id="et-result-weeks" class="font-semibold text-primary">20.8 weeks</span> of full-time work</p>
+
+                  <div class="border-t border-primary/10 pt-4 mb-4">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Dollar value of that time</p>
+                    <p id="et-result-value" class="font-serif text-4xl text-secondary">$160,000</p>
+                    <p class="text-text-muted text-xs mt-1">per year in recovered executive capacity</p>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-3 border border-primary/[0.06]">
+                    <p class="text-primary text-xs font-semibold mb-1">How to say this in a case study:</p>
+                    <p id="et-result-statement" class="text-text-muted text-xs italic leading-relaxed">"Recovered approximately $160,000 in annual executive capacity by managing calendar, communications, and operational workflows for 2 C-suite leaders."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CALC 2: Process Efficiency                         -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div id="calc-process" class="calc-panel hidden">
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              </div>
+              <div>
+                <h3 class="font-serif text-lg text-primary">Process Efficiency Calculator</h3>
+                <p class="text-text-muted text-xs">Quantify the impact of a process you built or improved.</p>
+              </div>
+            </div>
+            <p class="text-text-muted text-xs mb-6 italic">Think about: the earnings timeline at Ascend, onboarding systems at Immunovant, procedure manuals at Reich & Tang, the 30% routine reduction at DGB.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="space-y-6">
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Time Per Task Before (minutes)</label>
+                    <span id="pe-before-val" class="font-serif text-xl text-primary">60 min</span>
+                  </div>
+                  <input type="range" id="pe-before" min="5" max="480" step="5" value="60" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>5 min</span><span>8 hrs</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Time Per Task After (minutes)</label>
+                    <span id="pe-after-val" class="font-serif text-xl text-primary">40 min</span>
+                  </div>
+                  <input type="range" id="pe-after" min="0" max="480" step="5" value="40" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>0 min</span><span>8 hrs</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">People Using This Process</label>
+                    <span id="pe-people-val" class="font-serif text-xl text-primary">5</span>
+                  </div>
+                  <input type="range" id="pe-people" min="1" max="50" step="1" value="5" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>1</span><span>50</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Times Per Month</label>
+                    <span id="pe-freq-val" class="font-serif text-xl text-primary">4x</span>
+                  </div>
+                  <input type="range" id="pe-freq" min="1" max="100" step="1" value="4" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>1x/mo</span><span>100x/mo</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Avg. Hourly Rate of Users</label>
+                    <span id="pe-rate-val" class="font-serif text-xl text-primary">$50/hr</span>
+                  </div>
+                  <input type="range" id="pe-rate" min="20" max="300" step="5" value="50" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>$20</span><span>$300</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="bg-cream rounded-xl p-6 sticky top-24">
+                  <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Time saved per use</p>
+                  <p id="pe-result-peruse" class="font-serif text-2xl text-primary mb-4">20 minutes</p>
+
+                  <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Total hours saved per year</p>
+                  <p id="pe-result-hours" class="font-serif text-4xl text-primary mb-1">80 hours</p>
+                  <p class="text-text-muted text-xs mb-4">That's <span id="pe-result-weeks" class="font-semibold text-primary">2 full work weeks</span></p>
+
+                  <div class="border-t border-primary/10 pt-4 mb-4">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Dollar value</p>
+                    <p id="pe-result-value" class="font-serif text-4xl text-secondary">$4,000</p>
+                    <p class="text-text-muted text-xs mt-1">in annual productivity gained</p>
+                  </div>
+
+                  <div class="border-t border-primary/10 pt-4 mb-4">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Efficiency improvement</p>
+                    <p id="pe-result-pct" class="font-serif text-2xl text-primary">33%</p>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-3 border border-primary/[0.06]">
+                    <p class="text-primary text-xs font-semibold mb-1">How to say this:</p>
+                    <p id="pe-result-statement" class="text-text-muted text-xs italic leading-relaxed">"Redesigned [process] reducing completion time by 33%, saving approximately 80 hours annually across a team of 5."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CALC 3: Stakeholder Scale                          -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div id="calc-stakeholder" class="calc-panel hidden">
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-serif text-lg text-primary">Stakeholder Scale Calculator</h3>
+                <p class="text-text-muted text-xs">Quantify the communication complexity you managed.</p>
+              </div>
+            </div>
+            <p class="text-text-muted text-xs mb-6 italic">At Ascend you managed 200+ stakeholders across 7 markets. At Immunovant the company grew from startup to ~200+ people. At PwC you had 100+ brokers getting reports.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="space-y-6">
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Number of Stakeholders</label>
+                    <span id="sh-count-val" class="font-serif text-xl text-primary">200</span>
+                  </div>
+                  <input type="range" id="sh-count" min="5" max="500" step="5" value="200" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>5</span><span>500</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Avg. Touchpoints Per Stakeholder/Month</label>
+                    <span id="sh-touch-val" class="font-serif text-xl text-primary">2</span>
+                  </div>
+                  <input type="range" id="sh-touch" min="1" max="20" step="1" value="2" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>1</span><span>20</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Avg. Minutes Per Touchpoint</label>
+                    <span id="sh-mins-val" class="font-serif text-xl text-primary">10 min</span>
+                  </div>
+                  <input type="range" id="sh-mins" min="2" max="60" step="1" value="10" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>2 min</span><span>60 min</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Markets / Offices / Regions</label>
+                    <span id="sh-markets-val" class="font-serif text-xl text-primary">7</span>
+                  </div>
+                  <input type="range" id="sh-markets" min="1" max="20" step="1" value="7" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>1</span><span>20</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="bg-cream rounded-xl p-6 sticky top-24">
+                  <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Total touchpoints per year</p>
+                  <p id="sh-result-touchpoints" class="font-serif text-4xl text-primary mb-4">4,800</p>
+
+                  <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Communication hours managed per year</p>
+                  <p id="sh-result-hours" class="font-serif text-4xl text-secondary mb-1">800 hours</p>
+                  <p class="text-text-muted text-xs mb-4">Across <span id="sh-result-markets" class="font-semibold text-primary">7 markets</span></p>
+
+                  <div class="border-t border-primary/10 pt-4 mb-4">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Equivalent FTEs of communication work</p>
+                    <p id="sh-result-fte" class="font-serif text-2xl text-primary">0.4 FTEs</p>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-3 border border-primary/[0.06]">
+                    <p class="text-primary text-xs font-semibold mb-1">How to say this:</p>
+                    <p id="sh-result-statement" class="text-text-muted text-xs italic leading-relaxed">"Coordinated 4,800+ annual touchpoints across 200 stakeholders in 7 markets, managing approximately 800 hours of cross-functional communication."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CALC 4: Error Prevention                           -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div id="calc-error" class="calc-panel hidden">
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-serif text-lg text-primary">Error Prevention Calculator</h3>
+                <p class="text-text-muted text-xs">What's the dollar value of accuracy and risk you prevented?</p>
+              </div>
+            </div>
+            <p class="text-text-muted text-xs mb-6 italic">At BearingPoint you processed $10M+/month at 99% accuracy. At Reich & Tang you improved accuracy by 20%. At Ascend, earnings data errors would have been visible to public investors.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="space-y-6">
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Monthly Transaction Volume ($)</label>
+                    <span id="er-volume-val" class="font-serif text-xl text-primary">$10,000,000</span>
+                  </div>
+                  <input type="range" id="er-volume" min="100000" max="50000000" step="100000" value="10000000" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>$100K</span><span>$50M</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Error Rate Before (%)</label>
+                    <span id="er-before-val" class="font-serif text-xl text-primary">5.0%</span>
+                  </div>
+                  <input type="range" id="er-before" min="0.5" max="20" step="0.5" value="5" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>0.5%</span><span>20%</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Error Rate After (%)</label>
+                    <span id="er-after-val" class="font-serif text-xl text-primary">1.0%</span>
+                  </div>
+                  <input type="range" id="er-after" min="0" max="20" step="0.5" value="1" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>0%</span><span>20%</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Number of Transactions/Month</label>
+                    <span id="er-txns-val" class="font-serif text-xl text-primary">200</span>
+                  </div>
+                  <input type="range" id="er-txns" min="10" max="2000" step="10" value="200" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>10</span><span>2,000</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="bg-cream rounded-xl p-6 sticky top-24">
+                  <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Errors prevented per month</p>
+                  <p id="er-result-errors" class="font-serif text-2xl text-primary mb-4">8 fewer errors</p>
+
+                  <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Annual risk dollars protected</p>
+                  <p id="er-result-value" class="font-serif text-4xl text-secondary mb-1">$4,800,000</p>
+                  <p class="text-text-muted text-xs mb-4">in transactions protected from errors</p>
+
+                  <div class="border-t border-primary/10 pt-4 mb-4">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Accuracy improvement</p>
+                    <p id="er-result-improve" class="font-serif text-2xl text-primary">4.0 percentage points</p>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-3 border border-primary/[0.06]">
+                    <p class="text-primary text-xs font-semibold mb-1">How to say this:</p>
+                    <p id="er-result-statement" class="text-text-muted text-xs italic leading-relaxed">"Improved payment accuracy from 95% to 99%, protecting approximately $4.8M annually across $10M+ in monthly transaction volume."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CALC 5: Team Ramp-Up                               -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div id="calc-rampup" class="calc-panel hidden">
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-serif text-lg text-primary">Team Ramp-Up Savings Calculator</h3>
+                <p class="text-text-muted text-xs">What's the value of getting new hires productive faster?</p>
+              </div>
+            </div>
+            <p class="text-text-muted text-xs mb-6 italic">At Immunovant you onboarded 6 admin professionals and cut ramp-up time by 20%. At Third Bridge and PwC you created onboarding manuals. Every month saved is real money.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="space-y-6">
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Number of People Onboarded</label>
+                    <span id="ru-people-val" class="font-serif text-xl text-primary">6</span>
+                  </div>
+                  <input type="range" id="ru-people" min="1" max="30" step="1" value="6" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>1</span><span>30</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Avg. Salary of New Hires</label>
+                    <span id="ru-salary-val" class="font-serif text-xl text-primary">$75,000</span>
+                  </div>
+                  <input type="range" id="ru-salary" min="30000" max="200000" step="5000" value="75000" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>$30K</span><span>$200K</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Old Ramp-Up Time (months)</label>
+                    <span id="ru-old-val" class="font-serif text-xl text-primary">5 months</span>
+                  </div>
+                  <input type="range" id="ru-old" min="1" max="12" step="1" value="5" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>1 mo</span><span>12 mo</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">New Ramp-Up Time (months)</label>
+                    <span id="ru-new-val" class="font-serif text-xl text-primary">4 months</span>
+                  </div>
+                  <input type="range" id="ru-new" min="0.5" max="12" step="0.5" value="4" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>0.5 mo</span><span>12 mo</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="bg-cream rounded-xl p-6 sticky top-24">
+                  <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Ramp-up time reduction</p>
+                  <p id="ru-result-pct" class="font-serif text-2xl text-primary mb-4">20% faster</p>
+
+                  <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Total months of productivity recovered</p>
+                  <p id="ru-result-months" class="font-serif text-2xl text-primary mb-4">6 months</p>
+
+                  <div class="border-t border-primary/10 pt-4 mb-4">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Value of recovered productivity</p>
+                    <p id="ru-result-value" class="font-serif text-4xl text-secondary">$18,750</p>
+                    <p class="text-text-muted text-xs mt-1">assuming 50% productivity gap during ramp</p>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-3 border border-primary/[0.06]">
+                    <p class="text-primary text-xs font-semibold mb-1">How to say this:</p>
+                    <p id="ru-result-statement" class="text-text-muted text-xs italic leading-relaxed">"Designed onboarding program for 6 admin professionals, reducing ramp-up time by 20% and recovering approximately $18,750 in team productivity."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CALC 6: Event & Budget                             -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div id="calc-event" class="calc-panel hidden">
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              </div>
+              <div>
+                <h3 class="font-serif text-lg text-primary">Event & Budget Optimization Calculator</h3>
+                <p class="text-text-muted text-xs">Quantify direct cost savings from budget management.</p>
+              </div>
+            </div>
+            <p class="text-text-muted text-xs mb-6 italic">At Third Bridge you cut event costs by 15%. At PwC you tracked the Marketing & Sales budget. At Ascend you managed board meeting logistics across 7 markets.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="space-y-6">
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Annual Budget Managed</label>
+                    <span id="ev-budget-val" class="font-serif text-xl text-primary">$200,000</span>
+                  </div>
+                  <input type="range" id="ev-budget" min="10000" max="2000000" step="10000" value="200000" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>$10K</span><span>$2M</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Cost Reduction (%)</label>
+                    <span id="ev-reduction-val" class="font-serif text-xl text-primary">15%</span>
+                  </div>
+                  <input type="range" id="ev-reduction" min="1" max="50" step="1" value="15" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>1%</span><span>50%</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Events or Projects Per Year</label>
+                    <span id="ev-events-val" class="font-serif text-xl text-primary">12</span>
+                  </div>
+                  <input type="range" id="ev-events" min="1" max="52" step="1" value="12" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>1</span><span>52</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Years in Role</label>
+                    <span id="ev-years-val" class="font-serif text-xl text-primary">2</span>
+                  </div>
+                  <input type="range" id="ev-years" min="1" max="10" step="1" value="2" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>1 yr</span><span>10 yrs</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="bg-cream rounded-xl p-6 sticky top-24">
+                  <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Annual savings</p>
+                  <p id="ev-result-annual" class="font-serif text-4xl text-secondary mb-1">$30,000</p>
+                  <p class="text-text-muted text-xs mb-4">per year in direct cost reductions</p>
+
+                  <div class="border-t border-primary/10 pt-4 mb-4">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Total savings during tenure</p>
+                    <p id="ev-result-total" class="font-serif text-4xl text-primary">$60,000</p>
+                  </div>
+
+                  <div class="border-t border-primary/10 pt-4 mb-4">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Avg. saved per event/project</p>
+                    <p id="ev-result-per" class="font-serif text-2xl text-primary">$2,500</p>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-3 border border-primary/[0.06]">
+                    <p class="text-primary text-xs font-semibold mb-1">How to say this:</p>
+                    <p id="ev-result-statement" class="text-text-muted text-xs italic leading-relaxed">"Reduced annual event costs by 15% through vendor renegotiation and logistics optimization, saving $30,000 per year across 12 events."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CALC 7: Board Prep Value                           -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div id="calc-board" class="calc-panel hidden">
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              </div>
+              <div>
+                <h3 class="font-serif text-lg text-primary">Board Prep Value Calculator</h3>
+                <p class="text-text-muted text-xs">What's the real cost when board meetings aren't run well?</p>
+              </div>
+            </div>
+            <p class="text-text-muted text-xs mb-6 italic">Board members' time is extremely expensive. At Ascend you overhauled the entire quarterly earnings and board prep process. Poor prep means wasted board member time, delayed decisions, and follow-up meetings that shouldn't be necessary.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="space-y-6">
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Board Members</label>
+                    <span id="bd-members-val" class="font-serif text-xl text-primary">7</span>
+                  </div>
+                  <input type="range" id="bd-members" min="3" max="15" step="1" value="7" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>3</span><span>15</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Board Member Effective Rate ($/hr)</label>
+                    <span id="bd-rate-val" class="font-serif text-xl text-primary">$500/hr</span>
+                  </div>
+                  <input type="range" id="bd-rate" min="100" max="2000" step="50" value="500" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>$100</span><span>$2,000</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Meetings Per Year</label>
+                    <span id="bd-meetings-val" class="font-serif text-xl text-primary">4</span>
+                  </div>
+                  <input type="range" id="bd-meetings" min="2" max="12" step="1" value="4" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>2</span><span>12</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Meeting Duration (hours)</label>
+                    <span id="bd-duration-val" class="font-serif text-xl text-primary">3 hrs</span>
+                  </div>
+                  <input type="range" id="bd-duration" min="1" max="8" step="0.5" value="3" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>1 hr</span><span>8 hrs</span></div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="text-sm font-medium text-primary">Hours of Prep You Saved Each Member</label>
+                    <span id="bd-saved-val" class="font-serif text-xl text-primary">2 hrs</span>
+                  </div>
+                  <input type="range" id="bd-saved" min="0.5" max="10" step="0.5" value="2" class="calc-slider w-full" />
+                  <div class="flex justify-between text-xs text-text-muted mt-1"><span>0.5 hrs</span><span>10 hrs</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="bg-cream rounded-xl p-6 sticky top-24">
+                  <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Total board member time in meetings/year</p>
+                  <p id="bd-result-meeting-hours" class="font-serif text-2xl text-primary mb-4">84 hours</p>
+
+                  <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Value of meeting time per year</p>
+                  <p id="bd-result-meeting-value" class="font-serif text-2xl text-primary mb-4">$42,000</p>
+
+                  <div class="border-t border-primary/10 pt-4 mb-4">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Prep time saved for board members</p>
+                    <p id="bd-result-saved-hours" class="font-serif text-2xl text-primary mb-1">56 hours/year</p>
+                  </div>
+
+                  <div class="border-t border-primary/10 pt-4 mb-4">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">Dollar value of prep time saved</p>
+                    <p id="bd-result-saved-value" class="font-serif text-4xl text-secondary">$28,000</p>
+                    <p class="text-text-muted text-xs mt-1">in board member time recovered annually</p>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-3 border border-primary/[0.06]">
+                    <p class="text-primary text-xs font-semibold mb-1">How to say this:</p>
+                    <p id="bd-result-statement" class="text-text-muted text-xs italic leading-relaxed">"Streamlined board meeting preparation for 7-member board, reducing individual prep time by 2 hours per meeting and recovering $28,000 annually in aggregate board member time."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Role Sections -->
+    {roles.map((role, roleIndex) => (
+      <section id={role.id} class={`py-12 md:py-16 ${roleIndex % 2 === 0 ? 'bg-warm' : 'bg-cream'}`}>
+        <div class="max-w-3xl mx-auto px-6">
+          <!-- Role Header -->
+          <div class="mb-8">
+            <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">
+              Role {roleIndex + 1} of {roles.length}
+            </p>
+            <h2 class="font-serif text-2xl md:text-3xl text-primary mb-1">{role.company}</h2>
+            <p class="text-primary/70 text-base font-medium">{role.title}</p>
+            <div class="flex flex-wrap gap-3 mt-3 text-xs text-text-muted">
+              <span class="bg-white/60 px-2.5 py-1 rounded-full">{role.dates}</span>
+              <span class="bg-white/60 px-2.5 py-1 rounded-full">{role.industry}</span>
+              <span class="bg-white/60 px-2.5 py-1 rounded-full">{role.leaders}</span>
+            </div>
+          </div>
+
+          <!-- What We Know -->
+          <div class="bg-secondary/[0.07] border border-secondary/15 rounded-xl p-5 mb-8">
+            <p class="text-secondary text-xs font-semibold tracking-[0.1em] uppercase mb-2">What we know so far</p>
+            <p class="text-text-muted text-sm leading-relaxed">{role.context}</p>
+          </div>
+
+          <!-- Questions -->
+          <div class="space-y-4">
+            {role.questions.map((item, qi) => (
+              <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5">
+                <div class="flex gap-3">
+                  <span class="text-secondary font-bold text-sm mt-0.5 flex-shrink-0">{qi + 1}.</span>
+                  <div>
+                    <p class="text-primary text-sm font-medium leading-relaxed">{item.q}</p>
+                    <p class="text-text-muted/50 text-xs mt-2 italic">Why this matters: {item.why}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- Cross-Cutting Questions -->
+    <section id="cross-cutting" class="py-12 md:py-16 bg-primary">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Across All Roles</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-white mb-2">Cross-Cutting Questions</h2>
+        <p class="text-white/40 text-sm mb-8">These span your entire career. Answer them thinking about patterns, not individual jobs.</p>
+
+        <div class="space-y-4">
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5">
+            <div class="flex gap-3">
+              <span class="text-secondary font-bold text-sm mt-0.5 flex-shrink-0">1.</span>
+              <div>
+                <p class="text-white/90 text-sm font-medium leading-relaxed">Every EA has a superpower: the one thing they do that other EAs don't. Some are gatekeepers, some are fixers, some are builders. When you think about what you do differently from every other EA you've worked alongside, what is it?</p>
+                <p class="text-white/25 text-xs mt-2 italic">Why this matters: This becomes the thesis of your case study library and your positioning statement.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5">
+            <div class="flex gap-3">
+              <span class="text-secondary font-bold text-sm mt-0.5 flex-shrink-0">2.</span>
+              <div>
+                <p class="text-white/90 text-sm font-medium leading-relaxed">You've supported at least 6 different executives at the C-suite or VP level. What's the pattern in how you build trust with a new leader? What do you do in the first 30 days that sets the tone?</p>
+                <p class="text-white/25 text-xs mt-2 italic">Why this matters: Your onboarding approach is a sellable process for fractional clients.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5">
+            <div class="flex gap-3">
+              <span class="text-secondary font-bold text-sm mt-0.5 flex-shrink-0">3.</span>
+              <div>
+                <p class="text-white/90 text-sm font-medium leading-relaxed">You describe yourself as "a structured, process-driven person by nature." When did you first realize that about yourself? Is there a moment, maybe at Petrotrin or early in NYC, where that instinct showed up and changed how you worked?</p>
+                <p class="text-white/25 text-xs mt-2 italic">Why this matters: Origin stories anchor a personal brand. This one connects Trinidad to today.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5">
+            <div class="flex gap-3">
+              <span class="text-secondary font-bold text-sm mt-0.5 flex-shrink-0">4.</span>
+              <div>
+                <p class="text-white/90 text-sm font-medium leading-relaxed">You've been told you can be "long-winded" in interviews, and one CEO thought you were "too ambitious" or a flight risk. When you hear that feedback, what's your honest reaction? And if you could go back to those interviews, what would you do differently?</p>
+                <p class="text-white/25 text-xs mt-2 italic">Why this matters: We need to build interview strategies that address this head-on, and the best counter comes from your own self-awareness.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5">
+            <div class="flex gap-3">
+              <span class="text-secondary font-bold text-sm mt-0.5 flex-shrink-0">5.</span>
+              <div>
+                <p class="text-white/90 text-sm font-medium leading-relaxed">Your culinary career (Iron Chef Alex Guarnaschelli's kitchen, the NYT feature, A Table For Four pop-ups) is a major part of who you are. How does that experience show up in your EA work? Is there a direct connection between running a kitchen and running an executive's operations?</p>
+                <p class="text-white/25 text-xs mt-2 italic">Why this matters: The dual-career story is what makes you memorable. We need to know if and how to weave it in.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5">
+            <div class="flex gap-3">
+              <span class="text-secondary font-bold text-sm mt-0.5 flex-shrink-0">6.</span>
+              <div>
+                <p class="text-white/90 text-sm font-medium leading-relaxed">If you lined up every executive you've ever supported and asked them, "What would you lose if Leigh-Ann left tomorrow?", what would they each say? Not the polished LinkedIn recommendation version. The real one.</p>
+                <p class="text-white/25 text-xs mt-2 italic">Why this matters: This is the emotional core of your case studies. The gap you leave behind is your value proposition.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5">
+            <div class="flex gap-3">
+              <span class="text-secondary font-bold text-sm mt-0.5 flex-shrink-0">7.</span>
+              <div>
+                <p class="text-white/90 text-sm font-medium leading-relaxed">You moved from Trinidad to the US at 21. You built a corporate career from zero in a new country while simultaneously building a culinary career that got you in the New York Times. When you think about what drives you, what's the real answer? Not "I'm passionate about operations." The real one.</p>
+                <p class="text-white/25 text-xs mt-2 italic">Why this matters: The best personal brands are built on something true. This is the foundation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5">
+            <div class="flex gap-3">
+              <span class="text-secondary font-bold text-sm mt-0.5 flex-shrink-0">8.</span>
+              <div>
+                <p class="text-white/90 text-sm font-medium leading-relaxed">What's the one thing about your work that has never made it onto a resume or a LinkedIn profile? The thing you do that's hard to put into words but that everyone who's worked with you would recognize immediately?</p>
+                <p class="text-white/25 text-xs mt-2 italic">Why this matters: The intangible is often the differentiator. We need to find the words for it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="py-12 md:py-16 bg-cream">
+      <div class="max-w-2xl mx-auto px-6 text-center">
+        <h2 class="font-serif text-2xl text-primary mb-3">Ready to record?</h2>
+        <p class="text-text-muted text-sm leading-relaxed mb-6">
+          Open Otter or your voice recorder and go role by role. Talk through the answers naturally. Send the recordings to Izzy before Session 2 so we can build your case studies with real detail.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href={`${base}private/`} class="inline-block bg-primary text-white text-sm px-6 py-3 rounded-full hover:bg-primary/90 transition-colors">
+            Back to Dashboard
+          </a>
+          <a href="https://otter.ai" target="_blank" rel="noopener" class="inline-block bg-secondary text-white text-sm px-6 py-3 rounded-full hover:bg-secondary/90 transition-colors">
+            Open Otter.ai
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .calc-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 9999px;
+    background: linear-gradient(to right, #C4873B var(--fill, 50%), rgba(27, 42, 74, 0.1) var(--fill, 50%));
+    outline: none;
+    cursor: pointer;
+  }
+  .calc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #C4873B;
+    border: 3px solid white;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  .calc-slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #C4873B;
+    border: 3px solid white;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  .calc-tab {
+    border-color: rgba(27, 42, 74, 0.1);
+    color: #6B6B6B;
+    background: white;
+  }
+  .calc-tab:hover {
+    border-color: rgba(27, 42, 74, 0.2);
+    color: #1A1A1A;
+  }
+  .calc-tab.active {
+    background: rgba(196, 135, 59, 0.1);
+    border-color: #C4873B;
+    color: #1B2A4A;
+    font-weight: 500;
+  }
+</style>
+
+<script>
+  const fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  const numFmt = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
+
+  // ── Slider fill helper ──────────────────────────────────────
+  function updateFill(slider: HTMLInputElement) {
+    const min = parseFloat(slider.min);
+    const max = parseFloat(slider.max);
+    const val = parseFloat(slider.value);
+    const pct = ((val - min) / (max - min)) * 100;
+    slider.style.setProperty('--fill', pct + '%');
+  }
+
+  // ── Tab switching ───────────────────────────────────────────
+  document.querySelectorAll<HTMLButtonElement>('.calc-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.calc-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.calc-panel').forEach(p => p.classList.add('hidden'));
+      const target = document.getElementById('calc-' + tab.dataset.calc);
+      if (target) target.classList.remove('hidden');
+    });
+  });
+
+  // ── Helper: get slider value ────────────────────────────────
+  function sv(id: string): number {
+    const el = document.getElementById(id) as HTMLInputElement;
+    return parseFloat(el.value);
+  }
+  function setT(id: string, text: string) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+  }
+  function setH(id: string, html: string) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = html;
+  }
+
+  // ── CALC 1: Executive Time Value ────────────────────────────
+  function calcExecTime() {
+    const comp = sv('et-comp');
+    const hours = sv('et-hours');
+    const execs = sv('et-execs');
+
+    setT('et-comp-val', fmt.format(comp));
+    setT('et-hours-val', hours + ' hrs');
+    setT('et-execs-val', String(execs));
+
+    const hourlyRate = comp / 2080;
+    const annualHours = hours * 52 * execs;
+    const annualValue = annualHours * hourlyRate;
+    const weeks = annualHours / 40;
+
+    setT('et-result-hours', numFmt.format(annualHours) + ' hours');
+    setT('et-result-weeks', weeks.toFixed(1) + ' weeks');
+    setT('et-result-value', fmt.format(annualValue));
+    setH('et-result-statement', `"Recovered approximately ${fmt.format(annualValue)} in annual executive capacity by managing calendar, communications, and operational workflows for ${execs} C-suite leader${execs > 1 ? 's' : ''}."`);
+
+    document.querySelectorAll('#calc-exec-time .calc-slider').forEach(s => updateFill(s as HTMLInputElement));
+  }
+
+  // ── CALC 2: Process Efficiency ──────────────────────────────
+  function calcProcess() {
+    const before = sv('pe-before');
+    const after = sv('pe-after');
+    const people = sv('pe-people');
+    const freq = sv('pe-freq');
+    const rate = sv('pe-rate');
+
+    setT('pe-before-val', before + ' min');
+    setT('pe-after-val', after + ' min');
+    setT('pe-people-val', String(people));
+    setT('pe-freq-val', freq + 'x');
+    setT('pe-rate-val', '$' + rate + '/hr');
+
+    const savedPerUse = before - after;
+    const totalMinYear = savedPerUse * people * freq * 12;
+    const totalHours = totalMinYear / 60;
+    const totalWeeks = totalHours / 40;
+    const dollarValue = totalHours * rate;
+    const pctImprove = before > 0 ? Math.round(((before - after) / before) * 100) : 0;
+
+    setT('pe-result-peruse', Math.max(0, savedPerUse) + ' minutes');
+    setT('pe-result-hours', numFmt.format(Math.max(0, totalHours)) + ' hours');
+    setT('pe-result-weeks', totalWeeks.toFixed(1) + ' full work weeks');
+    setT('pe-result-value', fmt.format(Math.max(0, dollarValue)));
+    setT('pe-result-pct', Math.max(0, pctImprove) + '%');
+    setH('pe-result-statement', `"Redesigned [process] reducing completion time by ${Math.max(0, pctImprove)}%, saving approximately ${numFmt.format(Math.max(0, totalHours))} hours annually across a team of ${people}."`);
+
+    document.querySelectorAll('#calc-process .calc-slider').forEach(s => updateFill(s as HTMLInputElement));
+  }
+
+  // ── CALC 3: Stakeholder Scale ───────────────────────────────
+  function calcStakeholder() {
+    const count = sv('sh-count');
+    const touch = sv('sh-touch');
+    const mins = sv('sh-mins');
+    const markets = sv('sh-markets');
+
+    setT('sh-count-val', numFmt.format(count));
+    setT('sh-touch-val', String(touch));
+    setT('sh-mins-val', mins + ' min');
+    setT('sh-markets-val', String(markets));
+
+    const annualTouchpoints = count * touch * 12;
+    const annualHours = (annualTouchpoints * mins) / 60;
+    const fte = annualHours / 2080;
+
+    setT('sh-result-touchpoints', numFmt.format(annualTouchpoints));
+    setT('sh-result-hours', numFmt.format(Math.round(annualHours)) + ' hours');
+    setT('sh-result-markets', markets + ' market' + (markets > 1 ? 's' : ''));
+    setT('sh-result-fte', fte.toFixed(1) + ' FTEs');
+    setH('sh-result-statement', `"Coordinated ${numFmt.format(annualTouchpoints)}+ annual touchpoints across ${numFmt.format(count)} stakeholders in ${markets} market${markets > 1 ? 's' : ''}, managing approximately ${numFmt.format(Math.round(annualHours))} hours of cross-functional communication."`);
+
+    document.querySelectorAll('#calc-stakeholder .calc-slider').forEach(s => updateFill(s as HTMLInputElement));
+  }
+
+  // ── CALC 4: Error Prevention ────────────────────────────────
+  function calcError() {
+    const volume = sv('er-volume');
+    const beforeRate = sv('er-before');
+    const afterRate = sv('er-after');
+    const txns = sv('er-txns');
+
+    setT('er-volume-val', fmt.format(volume));
+    setT('er-before-val', beforeRate.toFixed(1) + '%');
+    setT('er-after-val', afterRate.toFixed(1) + '%');
+    setT('er-txns-val', numFmt.format(txns));
+
+    const rateImprove = Math.max(0, beforeRate - afterRate);
+    const errorsPreventedMonth = Math.round(txns * (rateImprove / 100));
+    const annualRiskProtected = volume * 12 * (rateImprove / 100);
+
+    setT('er-result-errors', errorsPreventedMonth + ' fewer errors');
+    setT('er-result-value', fmt.format(annualRiskProtected));
+    setT('er-result-improve', rateImprove.toFixed(1) + ' percentage points');
+    const accBefore = (100 - beforeRate).toFixed(0);
+    const accAfter = (100 - afterRate).toFixed(0);
+    setH('er-result-statement', `"Improved payment accuracy from ${accBefore}% to ${accAfter}%, protecting approximately ${fmt.format(annualRiskProtected)} annually across ${fmt.format(volume)}+ in monthly transaction volume."`);
+
+    document.querySelectorAll('#calc-error .calc-slider').forEach(s => updateFill(s as HTMLInputElement));
+  }
+
+  // ── CALC 5: Team Ramp-Up ────────────────────────────────────
+  function calcRampup() {
+    const people = sv('ru-people');
+    const salary = sv('ru-salary');
+    const oldMonths = sv('ru-old');
+    const newMonths = sv('ru-new');
+
+    setT('ru-people-val', String(people));
+    setT('ru-salary-val', fmt.format(salary));
+    setT('ru-old-val', oldMonths + ' months');
+    setT('ru-new-val', newMonths + ' months');
+
+    const monthsSaved = Math.max(0, oldMonths - newMonths);
+    const totalMonthsSaved = monthsSaved * people;
+    const pctReduction = oldMonths > 0 ? Math.round((monthsSaved / oldMonths) * 100) : 0;
+    const valuePerHire = (salary / 12) * monthsSaved * 0.5;
+    const totalValue = valuePerHire * people;
+
+    setT('ru-result-pct', pctReduction + '% faster');
+    setT('ru-result-months', totalMonthsSaved + ' month' + (totalMonthsSaved !== 1 ? 's' : ''));
+    setT('ru-result-value', fmt.format(totalValue));
+    setH('ru-result-statement', `"Designed onboarding program for ${people} admin professional${people > 1 ? 's' : ''}, reducing ramp-up time by ${pctReduction}% and recovering approximately ${fmt.format(totalValue)} in team productivity."`);
+
+    document.querySelectorAll('#calc-rampup .calc-slider').forEach(s => updateFill(s as HTMLInputElement));
+  }
+
+  // ── CALC 6: Event & Budget ──────────────────────────────────
+  function calcEvent() {
+    const budget = sv('ev-budget');
+    const reduction = sv('ev-reduction');
+    const events = sv('ev-events');
+    const years = sv('ev-years');
+
+    setT('ev-budget-val', fmt.format(budget));
+    setT('ev-reduction-val', reduction + '%');
+    setT('ev-events-val', String(events));
+    setT('ev-years-val', String(years));
+
+    const annualSavings = budget * (reduction / 100);
+    const totalSavings = annualSavings * years;
+    const perEvent = events > 0 ? annualSavings / events : 0;
+
+    setT('ev-result-annual', fmt.format(annualSavings));
+    setT('ev-result-total', fmt.format(totalSavings));
+    setT('ev-result-per', fmt.format(perEvent));
+    setH('ev-result-statement', `"Reduced annual event costs by ${reduction}% through vendor renegotiation and logistics optimization, saving ${fmt.format(annualSavings)} per year across ${events} events."`);
+
+    document.querySelectorAll('#calc-event .calc-slider').forEach(s => updateFill(s as HTMLInputElement));
+  }
+
+  // ── CALC 7: Board Prep Value ────────────────────────────────
+  function calcBoard() {
+    const members = sv('bd-members');
+    const rate = sv('bd-rate');
+    const meetings = sv('bd-meetings');
+    const duration = sv('bd-duration');
+    const saved = sv('bd-saved');
+
+    setT('bd-members-val', String(members));
+    setT('bd-rate-val', '$' + numFmt.format(rate) + '/hr');
+    setT('bd-meetings-val', String(meetings));
+    setT('bd-duration-val', duration + ' hrs');
+    setT('bd-saved-val', saved + ' hrs');
+
+    const meetingHours = members * meetings * duration;
+    const meetingValue = meetingHours * rate;
+    const savedHours = members * meetings * saved;
+    const savedValue = savedHours * rate;
+
+    setT('bd-result-meeting-hours', numFmt.format(meetingHours) + ' hours');
+    setT('bd-result-meeting-value', fmt.format(meetingValue));
+    setT('bd-result-saved-hours', numFmt.format(savedHours) + ' hours/year');
+    setT('bd-result-saved-value', fmt.format(savedValue));
+    setH('bd-result-statement', `"Streamlined board meeting preparation for ${members}-member board, reducing individual prep time by ${saved} hours per meeting and recovering ${fmt.format(savedValue)} annually in aggregate board member time."`);
+
+    document.querySelectorAll('#calc-board .calc-slider').forEach(s => updateFill(s as HTMLInputElement));
+  }
+
+  // ── Wire up all sliders ─────────────────────────────────────
+  function wireCalc(prefix: string, fn: () => void) {
+    document.querySelectorAll(`#calc-${prefix} .calc-slider`).forEach(s => {
+      s.addEventListener('input', fn);
+    });
+  }
+
+  wireCalc('exec-time', calcExecTime);
+  wireCalc('process', calcProcess);
+  wireCalc('stakeholder', calcStakeholder);
+  wireCalc('error', calcError);
+  wireCalc('rampup', calcRampup);
+  wireCalc('event', calcEvent);
+  wireCalc('board', calcBoard);
+
+  // ── Initial calculations ────────────────────────────────────
+  calcExecTime();
+  calcProcess();
+  calcStakeholder();
+  calcError();
+  calcRampup();
+  calcEvent();
+  calcBoard();
+
+  // ── Reveal animations ───────────────────────────────────────
+  const revealEls = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+  );
+  revealEls.forEach((el) => observer.observe(el));
+</script>
