@@ -1,0 +1,14 @@
+---
+interface Props {
+  metric: string;
+  label: string;
+  highlight?: boolean;
+}
+
+const { metric, label, highlight = false } = Astro.props;
+---
+
+<div class="bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-6 text-center">
+  <p class={`font-serif text-2xl md:text-3xl ${highlight ? 'text-secondary' : 'text-white'}`}>{metric}</p>
+  <p class="text-white/50 text-sm mt-1">{label}</p>
+</div>

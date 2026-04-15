@@ -1,0 +1,280 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import StatsBar from "../components/StatsBar.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import CTA from "../components/CTA.astro";
+import Footer from "../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Leigh-Ann Martin | Fractional Executive Assistant and Chief of Staff">
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="relative min-h-[85vh] flex items-center bg-primary overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+
+      <div class="relative max-w-5xl mx-auto px-6 pt-28 pb-20 md:pt-36 md:pb-28 grid md:grid-cols-12 gap-10 md:gap-12 items-center">
+        <!-- Photo -->
+        <div class="md:col-span-4 flex justify-center md:justify-start">
+          <div class="relative">
+            <div class="absolute -inset-2 rounded-2xl border border-white/10"></div>
+            <div class="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+              <img
+                src={`${base}leigh-ann.jpg`}
+                alt="Leigh-Ann Martin"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="md:col-span-8">
+          <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 mb-6">
+            <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+            <span class="text-white/70 text-xs font-medium tracking-widest uppercase">Available for new engagements</span>
+          </div>
+
+          <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-[1.15] mb-6">
+            Your executive operations, handled by someone who's done it at the
+            <span class="text-secondary">highest level.</span>
+          </h1>
+
+          <p class="text-white/55 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+            12+ years supporting C-suite leaders across biotech, finance, Big Four, and cannabis. Board prep, investor relations, stakeholder management, and the operational backbone that keeps everything running.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href={`${base}contact`}
+              class="inline-flex items-center justify-center gap-2 bg-secondary text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20"
+            >
+              Book a Consultation
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a
+              href={`${base}services`}
+              class="inline-flex items-center justify-center gap-2 text-white/60 px-7 py-3 rounded-full text-sm font-medium border border-white/15 hover:border-white/30 hover:text-white/80 transition-all"
+            >
+              View Services
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <StatsBar />
+
+    <!-- Pain Points -->
+    <section class="py-16 md:py-24 bg-cream">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-12" data-reveal>
+          <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Sound Familiar?</p>
+          <h2 class="font-serif text-3xl md:text-4xl text-primary leading-tight">
+            The problems I solve
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6" data-reveal-stagger>
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
+            <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="font-serif text-lg text-primary mb-2">Calendar chaos and board prep always last-minute</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Your week runs on adrenaline instead of systems. Board materials get assembled the night before. Meetings overlap. Nothing is proactive.</p>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
+            <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <h3 class="font-serif text-lg text-primary mb-2">You need C-suite support but can't justify full-time</h3>
+            <p class="text-text-muted text-sm leading-relaxed">You need someone who thinks strategically, not a task rabbit. But the budget or volume doesn't warrant a $120K+ full-time hire.</p>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
+            <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h3 class="font-serif text-lg text-primary mb-2">Operations run on tribal knowledge, not systems</h3>
+            <p class="text-text-muted text-sm leading-relaxed">When someone leaves, everything goes with them. No playbooks, no process docs, no onboarding systems. Every transition starts from scratch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="py-16 md:py-24 bg-warm">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-12" data-reveal>
+          <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Services</p>
+          <h2 class="font-serif text-3xl md:text-4xl text-primary leading-tight">
+            Three ways to work together
+          </h2>
+          <p class="text-text-muted text-base mt-4">
+            Monthly retainers designed for different levels of executive support.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6" data-reveal-stagger>
+          <!-- Tier 1 -->
+          <a href={`${base}services`} class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7 flex flex-col hover:shadow-md transition-shadow group">
+            <p class="text-secondary text-xs font-semibold tracking-wide uppercase mb-2">Tier 1</p>
+            <h3 class="font-serif text-xl text-primary mb-1 group-hover:text-secondary transition-colors">Executive Operations Partner</h3>
+            <p class="font-serif text-3xl text-primary mb-3">$5,000<span class="text-text-muted text-sm font-sans">/mo</span></p>
+            <p class="text-text-muted text-sm leading-relaxed flex-1">Calendar architecture, inbox triage, travel coordination, meeting prep. Your week runs itself.</p>
+            <p class="text-secondary text-sm font-medium mt-4 flex items-center gap-1">
+              Learn more
+              <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </p>
+          </a>
+
+          <!-- Tier 2 -->
+          <a href={`${base}services`} class="bg-white rounded-2xl shadow-md border-2 border-secondary p-7 flex flex-col relative hover:shadow-lg transition-shadow group">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="bg-secondary text-white text-xs font-bold px-4 py-1 rounded-full">Recommended</span>
+            </div>
+            <p class="text-secondary text-xs font-semibold tracking-wide uppercase mb-2">Tier 2</p>
+            <h3 class="font-serif text-xl text-primary mb-1 group-hover:text-secondary transition-colors">Strategic Executive Partner</h3>
+            <p class="font-serif text-3xl text-primary mb-3">$8,500<span class="text-text-muted text-sm font-sans">/mo</span></p>
+            <p class="text-text-muted text-sm leading-relaxed flex-1">Everything in Tier 1, plus board prep, investor correspondence, project coordination, and executive onboarding.</p>
+            <p class="text-secondary text-sm font-medium mt-4 flex items-center gap-1">
+              Learn more
+              <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </p>
+          </a>
+
+          <!-- Tier 3 -->
+          <a href={`${base}services`} class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7 flex flex-col hover:shadow-md transition-shadow group">
+            <p class="text-secondary text-xs font-semibold tracking-wide uppercase mb-2">Tier 3</p>
+            <h3 class="font-serif text-xl text-primary mb-1 group-hover:text-secondary transition-colors">Fractional Chief of Staff</h3>
+            <p class="font-serif text-3xl text-primary mb-3">$12,500<span class="text-text-muted text-sm font-sans">/mo</span></p>
+            <p class="text-text-muted text-sm leading-relaxed flex-1">A strategic operator embedded in your leadership team. OKRs, confidential projects, hiring coordination, and on-call support.</p>
+            <p class="text-secondary text-sm font-medium mt-4 flex items-center gap-1">
+              Learn more
+              <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof / Metrics -->
+    <section class="py-16 md:py-24 bg-primary">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-12" data-reveal>
+          <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Track Record</p>
+          <h2 class="font-serif text-3xl md:text-4xl text-white leading-tight">
+            Results from real engagements
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4" data-reveal-stagger>
+          <div class="bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-6 text-center">
+            <p class="font-serif text-2xl md:text-3xl text-white">$10M+</p>
+            <p class="text-white/50 text-sm mt-1">Payment processing managed at 99% accuracy</p>
+          </div>
+          <div class="bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-6 text-center">
+            <p class="font-serif text-2xl md:text-3xl text-secondary">200+</p>
+            <p class="text-white/50 text-sm mt-1">Stakeholders managed across 7 markets</p>
+          </div>
+          <div class="bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-6 text-center">
+            <p class="font-serif text-2xl md:text-3xl text-white">30%</p>
+            <p class="text-white/50 text-sm mt-1">Improvement in decision-making speed</p>
+          </div>
+          <div class="bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-6 text-center">
+            <p class="font-serif text-2xl md:text-3xl text-secondary">20%</p>
+            <p class="text-white/50 text-sm mt-1">Faster executive onboarding</p>
+          </div>
+          <div class="bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-6 text-center">
+            <p class="font-serif text-2xl md:text-3xl text-white">100%</p>
+            <p class="text-white/50 text-sm mt-1">Regulatory compliance maintained</p>
+          </div>
+          <div class="bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-6 text-center">
+            <p class="font-serif text-2xl md:text-3xl text-secondary">95-98%</p>
+            <p class="text-white/50 text-sm mt-1">Stakeholder satisfaction rate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="py-16 md:py-24 bg-cream">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-12" data-reveal>
+          <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Industry Experience</p>
+          <h2 class="font-serif text-3xl md:text-4xl text-primary leading-tight">
+            Deep experience where it matters
+          </h2>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3" data-reveal>
+          <span class="bg-primary/5 border border-primary/10 text-primary text-sm font-medium px-5 py-2.5 rounded-full">Biotech / Biopharma</span>
+          <span class="bg-primary/5 border border-primary/10 text-primary text-sm font-medium px-5 py-2.5 rounded-full">Cannabis</span>
+          <span class="bg-primary/5 border border-primary/10 text-primary text-sm font-medium px-5 py-2.5 rounded-full">Big Four Accounting</span>
+          <span class="bg-primary/5 border border-primary/10 text-primary text-sm font-medium px-5 py-2.5 rounded-full">Finance / Fintech</span>
+          <span class="bg-primary/5 border border-primary/10 text-primary text-sm font-medium px-5 py-2.5 rounded-full">Consulting</span>
+          <span class="bg-primary/5 border border-primary/10 text-primary text-sm font-medium px-5 py-2.5 rounded-full">Oil and Gas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 md:py-24 bg-warm">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-12" data-reveal>
+          <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">What People Say</p>
+          <h2 class="font-serif text-3xl md:text-4xl text-primary leading-tight">
+            Trusted by executives and teams
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6" data-reveal-stagger>
+          <TestimonialCard
+            quote="She built our entire board prep process from scratch. Materials delivered on time, every time. Our board members noticed the difference immediately."
+            attribution="CEO, Biopharma Company"
+            context="Board meeting operations"
+          />
+          <TestimonialCard
+            quote="Having Leigh-Ann manage investor relations meant I could focus on running the business. She handled 200+ stakeholder relationships across seven markets without missing a beat."
+            attribution="Executive Leader, Cannabis Industry"
+            context="Investor relations and stakeholder management"
+          />
+          <TestimonialCard
+            quote="The onboarding system she created cut our executive ramp-up time by 20%. New leaders hit the ground running instead of spending their first month figuring out how things work."
+            attribution="VP Operations, Financial Services"
+            context="Executive onboarding systems"
+          />
+        </div>
+
+        <p class="text-center text-text-muted text-sm mt-10" data-reveal>
+          Testimonials represent the quality of work delivered. Names available upon request.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <CTA />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const revealEls = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+  );
+  revealEls.forEach((el) => observer.observe(el));
+</script>

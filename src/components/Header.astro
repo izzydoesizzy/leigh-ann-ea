@@ -1,0 +1,53 @@
+---
+const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg shadow-sm">
+  <nav class="max-w-5xl mx-auto px-6 flex items-center justify-between h-16">
+    <a href={base} class="font-serif text-xl text-primary font-semibold">Leigh-Ann Martin</a>
+
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-btn" class="sm:hidden text-text-muted hover:text-primary transition-colors" aria-label="Toggle menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+
+    <!-- Desktop nav -->
+    <div class="hidden sm:flex items-center gap-6">
+      <a href={`${base}services`} class={`text-sm font-medium transition-colors ${currentPath.includes('services') ? 'text-primary' : 'text-text-muted hover:text-primary'}`}>Services</a>
+      <a href={`${base}about`} class={`text-sm font-medium transition-colors ${currentPath.includes('about') ? 'text-primary' : 'text-text-muted hover:text-primary'}`}>About</a>
+      <a href={`${base}contact`} class={`text-sm font-medium transition-colors ${currentPath.includes('contact') ? 'text-primary' : 'text-text-muted hover:text-primary'}`}>Contact</a>
+      <a
+        href={`${base}contact`}
+        class="bg-secondary text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all"
+      >
+        Book a Call
+      </a>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div id="mobile-menu" class="hidden sm:hidden border-t border-primary/[0.06] bg-white/95 backdrop-blur-lg">
+    <div class="px-6 py-4 space-y-3">
+      <a href={`${base}services`} class="block text-sm font-medium text-text-muted hover:text-primary transition-colors">Services</a>
+      <a href={`${base}about`} class="block text-sm font-medium text-text-muted hover:text-primary transition-colors">About</a>
+      <a href={`${base}contact`} class="block text-sm font-medium text-text-muted hover:text-primary transition-colors">Contact</a>
+      <a
+        href={`${base}contact`}
+        class="inline-block bg-secondary text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all"
+      >
+        Book a Call
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

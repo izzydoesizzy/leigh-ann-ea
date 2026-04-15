@@ -1,0 +1,223 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import FAQ from "../components/FAQ.astro";
+import CTA from "../components/CTA.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Services | Leigh-Ann Martin — Fractional Executive Partner">
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="bg-primary pt-28 pb-16 md:pt-36 md:pb-20">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Services</p>
+        <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-6">
+          Executive operations support, built around what you actually need
+        </h1>
+        <p class="text-white/55 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+          Monthly retainers for ongoing partnership. Project-based engagements for specific deliverables. Start wherever makes sense.
+        </p>
+      </div>
+    </section>
+
+    <!-- Retainer Packages -->
+    <section class="py-16 md:py-24 bg-cream">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-12" data-reveal>
+          <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Monthly Retainers</p>
+          <h2 class="font-serif text-3xl md:text-4xl text-primary leading-tight">
+            Three tiers of partnership
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6" data-reveal-stagger>
+          <ServiceCard
+            tier="Tier 1"
+            title="Executive Operations Partner"
+            price="$5,000"
+            tagline="Your week runs itself."
+            items={[
+              "Calendar architecture and management",
+              "Inbox triage and response system",
+              "Travel and expense coordination",
+              "Meeting prep, agendas, and follow-ups",
+              "Weekly 30-min sync call",
+            ]}
+            bestFor="Solo executives or small teams who need their operational backend handled."
+          />
+
+          <ServiceCard
+            tier="Tier 2"
+            title="Strategic Executive Partner"
+            price="$8,500"
+            tagline="Your board meetings are flawless."
+            featured={true}
+            items={[
+              "Everything in Tier 1",
+              "Board meeting prep (materials, logistics, minutes, action tracking)",
+              "Investor and stakeholder correspondence",
+              "Cross-functional project coordination",
+              "Executive onboarding systems",
+              "Internal comms drafting",
+              "Quarterly operations review",
+            ]}
+            bestFor="C-suite executives who need a right hand for high-stakes operations, board work, and investor relations."
+          />
+
+          <ServiceCard
+            tier="Tier 3"
+            title="Fractional Chief of Staff"
+            price="$12,500"
+            tagline="A strategic operator running the machine."
+            items={[
+              "Everything in Tier 2",
+              "Strategic initiative tracking",
+              "Meeting cadence design and optimization",
+              "OKR/goal management and reporting",
+              "Confidential projects (M&A, fundraising, restructuring)",
+              "Vendor evaluation and negotiation",
+              "Hiring coordination",
+              "On-call for urgent matters",
+            ]}
+            bestFor="CEOs and founders who need a strategic operator, not just support."
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Project-Based -->
+    <section class="py-16 md:py-24 bg-warm">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-12" data-reveal>
+          <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Project-Based</p>
+          <h2 class="font-serif text-3xl md:text-4xl text-primary leading-tight">
+            One-time engagements
+          </h2>
+          <p class="text-text-muted text-base mt-4 max-w-xl mx-auto">
+            Fixed-fee projects with a defined scope and deliverable. A great way to start working together before committing to a retainer.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4" data-reveal-stagger>
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-serif text-lg text-primary">Operations Audit &amp; Playbook</h3>
+              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$4,000</span>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Full audit of your current executive operations. You get a playbook with specific recommendations, process maps, and a prioritized action plan.
+            </p>
+            <p class="text-text-muted/60 text-xs mt-3">2-3 week engagement</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-serif text-lg text-primary">Executive Onboarding System</h3>
+              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$3,000</span>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed">
+              A complete onboarding system for new executives joining your team. First 90 days planned, stakeholder introductions mapped, communication rhythms established.
+            </p>
+            <p class="text-text-muted/60 text-xs mt-3">2 week engagement</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-serif text-lg text-primary">Board Meeting Overhaul</h3>
+              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$2,500</span>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Redesign your entire board meeting process. Templates for materials, timelines for prep, minute-taking systems, and action item tracking.
+            </p>
+            <p class="text-text-muted/60 text-xs mt-3">1-2 week engagement</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-serif text-lg text-primary">Inbox Zero System Setup</h3>
+              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$1,500</span>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Custom email triage system, labels, filters, response templates, and escalation rules. You'll never drown in email again.
+            </p>
+            <p class="text-text-muted/60 text-xs mt-3">1 week engagement</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who This Is For -->
+    <section class="py-16 md:py-24 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center mb-10" data-reveal>
+          <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Ideal Clients</p>
+          <h2 class="font-serif text-3xl md:text-4xl text-primary leading-tight">
+            Who this is for
+          </h2>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm p-8" data-reveal>
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <p class="font-semibold text-primary text-sm">C-suite at growth-stage companies</p>
+                <p class="text-text-muted text-sm mt-0.5">who need more than a VA but aren't ready for a full-time hire</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <p class="font-semibold text-primary text-sm">Founders scaling past 50-200+ employees</p>
+                <p class="text-text-muted text-sm mt-0.5">who need operational infrastructure, not just admin support</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <p class="font-semibold text-primary text-sm">Companies preparing for what's next</p>
+                <p class="text-text-muted text-sm mt-0.5">board meetings, fundraising, IPO readiness, or restructuring</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <p class="font-semibold text-primary text-sm">Teams transitioning between EAs</p>
+                <p class="text-text-muted text-sm mt-0.5">who need an experienced operator to bridge the gap and build systems that outlast any single hire</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <FAQ />
+
+    <!-- CTA -->
+    <CTA heading="Let's figure out what you need" subtext="Every engagement starts with a conversation. Tell me what's not working and I'll tell you honestly whether I can help." />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const revealEls = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+  );
+  revealEls.forEach((el) => observer.observe(el));
+</script>
