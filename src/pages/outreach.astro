@@ -16,7 +16,7 @@ const contacts = [
     company: "Nilo Therapeutics",
     industry: "Biotech",
     priority: "A",
-    email: "kim.seth@nilotx.com",
+    email: "kseth@nilotx.com",
     domain: "nilotx.com",
     context: "Just launched with $101M Series A in immunology",
     angle: "biotech_funding",
@@ -42,8 +42,8 @@ linkedin.com/in/leigh-ann-martin`
     company: "OnCusp Therapeutics",
     industry: "Biotech",
     priority: "A",
-    email: "bing.yuan@oncusp.com",
-    domain: "oncusp.com",
+    email: "byuan@oncusptx.com",
+    domain: "oncusptx.com",
     context: "IND approval received, transitioning from pre-clinical to clinical",
     angle: "biotech_transition",
     subject: "The clinical transition and what breaks first",
@@ -65,17 +65,17 @@ CAP Certified | Salesforce Certified
 linkedin.com/in/leigh-ann-martin`
   },
   {
-    name: "Jason Brouwer",
-    title: "Co-founder",
+    name: "Zachary Carpenter",
+    title: "CEO & Co-founder",
     company: "Proxima",
     industry: "AI Drug Discovery",
     priority: "A",
-    email: "jason@proxima.bio",
-    domain: "proxima.bio",
+    email: "zach@proximabio.com",
+    domain: "proximabio.com",
     context: "Just raised $80M, rebranded from VantAI, partnerships with J&J and BMS",
     angle: "scaling_ops",
     subject: "Two cities, three pharma partnerships, and one calendar",
-    body: `Hi Jason,
+    body: `Hi Zach,
 
 Congrats on the $80M raise and the rebrand. Proxima's approach to drug discovery is fascinating, and the J&J and BMS partnerships signal serious traction.
 
@@ -149,8 +149,8 @@ linkedin.com/in/leigh-ann-martin`
     company: "Rain",
     industry: "Fintech",
     priority: "A",
-    email: "farooq@rain.co",
-    domain: "rain.co",
+    email: "farooq@rain.xyz",
+    domain: "rain.xyz",
     context: "Unicorn ($1.95B), $250M Series C, global ops across 5 continents, 200+ partners",
     angle: "global_complexity",
     subject: "Operating across 5 continents and what holds it together",
@@ -175,7 +175,7 @@ linkedin.com/in/leigh-ann-martin`
     company: "Kalshi",
     industry: "Fintech",
     priority: "A",
-    email: "tarek@kalshi.com",
+    email: "tmansour@kalshi.com",
     domain: "kalshi.com",
     context: "$22B valuation, $1B+ raised, CFTC-regulated exchange, trading volumes $1B/week",
     angle: "regulated_exchange",
@@ -282,7 +282,7 @@ linkedin.com/in/leigh-ann-martin`
     company: "Ascend Wellness",
     industry: "Cannabis",
     priority: "A",
-    email: "john.hartmann@awholdings.com",
+    email: "jhartmann@awholdings.com",
     domain: "awholdings.com",
     context: "Former employer. 48 retail locations, multi-state ops, densification strategy.",
     angle: "warm_return",
@@ -309,8 +309,8 @@ linkedin.com/in/leigh-ann-martin`
     company: "Ovid Therapeutics",
     industry: "Biotech",
     priority: "B",
-    email: "meg.alexander@ovidtx.com",
-    domain: "ovidtx.com",
+    email: "malexander@ovidrx.com",
+    domain: "ovidrx.com",
     context: "New CEO as of Jan 2026, promoted from COO, leadership transition",
     angle: "leadership_transition",
     subject: "New CEO transitions and the first 180 days",
@@ -378,8 +378,8 @@ linkedin.com/in/leigh-ann-martin`
     company: "Ethic",
     industry: "Fintech",
     priority: "B",
-    email: "doug@ethic.com",
-    domain: "ethic.com",
+    email: "doug@ethicinvesting.com",
+    domain: "ethicinvesting.com",
     context: "Series D ($64M, $700M valuation), $8B+ AUM, 300+ advisory partners",
     angle: "institutional_relationships",
     subject: "$8B in AUM and the relationship management behind it",
@@ -401,7 +401,7 @@ linkedin.com/in/leigh-ann-martin`
     company: "Spring Health",
     industry: "Mental Health",
     priority: "B",
-    email: "april@springhealth.com",
+    email: "akoh@springhealth.com",
     domain: "springhealth.com",
     context: "$3.3B valuation, acquiring Alma (Q2 2026 close), M&A integration",
     angle: "acquisition_integration",
@@ -440,23 +440,23 @@ Leigh-Ann Martin
 linkedin.com/in/leigh-ann-martin`
   },
   {
-    name: "David Goubert",
-    title: "CEO",
+    name: "Steven M. Cohen",
+    title: "Interim CEO",
     company: "Ayr Wellness",
     industry: "Cannabis",
     priority: "B",
-    email: "david.goubert@ayrwellness.com",
+    email: "steven.cohen@ayrwellness.com",
     domain: "ayrwellness.com",
-    context: "NYC-headquartered MSO, new CEO, multi-state operations",
-    angle: "new_ceo_support",
-    subject: "New CEO operations and getting your rhythm set",
-    body: `Hi David,
+    context: "NYC-headquartered MSO, leadership transition, searching for permanent CEO",
+    angle: "interim_support",
+    subject: "Interim leadership and operational continuity",
+    body: `Hi Steven,
 
-Stepping into the CEO role at a publicly traded MSO during a period of expansion is a lot to navigate. The board dynamics, multi-state regulatory coordination, and investor relations all need a solid operational foundation.
+Leading a publicly traded MSO through a leadership transition is uniquely demanding. The board, the investors, and the multi-state operations all need steady hands while the search for a permanent CEO continues.
 
-I have direct cannabis MSO experience (Ascend Wellness) and 12+ years supporting C-suite executives across regulated industries. Now working fractionally.
+I have direct cannabis MSO experience (Ascend Wellness) and 12+ years supporting C-suite executives across regulated industries. Fractional support during transitions is one of the highest-value engagements I offer, because it provides operational continuity without a long-term commitment.
 
-If you're building out your executive operations infrastructure, I'd love to connect and share some thoughts.
+If this is relevant to how Ayr is structured right now, I'd welcome a brief conversation.
 
 Best,
 Leigh-Ann Martin
@@ -743,7 +743,7 @@ Leigh-Ann</div>
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
-      const card = btn.closest('.outreach-card');
+      const card = btn.closest('.outreach-card') as HTMLElement | null;
       if (card && !card.classList.contains('sent')) {
         card.classList.add('sent');
         card.style.opacity = '0.6';
