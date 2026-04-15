@@ -32,62 +32,68 @@ const roles = [
     dates: "Jan 2025 - Jan 2026",
     industry: "Cannabis MSO (Multi-State Operator)",
     leaders: "Sam Brill (CEO), Frank Parullo (President)",
-    context: `We started digging into this on our first call and got deep into the quarterly earnings overhaul. You described building a 5-6 week pre-earnings timeline from scratch, coordinating across IR, commercial (David Gacom), cultivation teams, and finance (Roman, Laura Warren). You introduced hard and soft deadlines because cannabis leadership "were not accustomed to being held accountable in that way." You managed 200+ stakeholders across 7 markets and handled board/committee/IR operations. We need to finish this deep-dive and cover the other major workstreams.`,
+    context: `We started digging into this on our first call and got deep into the quarterly earnings overhaul. You described building a 5-6 week pre-earnings timeline from scratch, coordinating across IR, commercial (David Gacom), cultivation teams, and finance (Roman, Laura Warren). You introduced hard and soft deadlines because cannabis leadership "were not accustomed to being held accountable in that way." You managed 200+ stakeholders across 7 markets and handled board/committee/IR operations.`,
     questions: [
       {
-        label: "Finish the earnings story",
+        label: "Walk me through one complete earnings call using your new system.",
         tags: ["Process", "Before/After"],
-        q: "Walk me through one specific earnings call start to finish using your new system. Week 1 vs. week 5. Who did what. How it compared to before.",
-        why: "Full arc for a case study: broken state, your system, the result."
+        drilldowns: ["What happened in week 1 of prep?", "What happened in week 5?", "Who owned what in your system?", "What did the actual call day look like vs. before?"],
+        calc: { type: "time-value", id: "asc-earnings", label: "Earnings prep time saved", inputs: [
+          { id: "asc-e-hours", label: "Hours of exec prep saved per quarter", min: 2, max: 40, step: 1, value: 10, unit: "hrs" },
+          { id: "asc-e-rate", label: "CEO hourly rate equivalent", min: 100, max: 1000, step: 25, value: 350, unit: "$" },
+        ], formula: "hours * rate * 4", resultLabel: "Annual exec time recovered" },
       },
       {
-        label: "Exec performance impact",
+        label: "Did Sam or Frank use the public speaking consultant you screened?",
         tags: ["People", "Before/After"],
-        q: "Did Sam or Frank actually use a public speaking consultant? What changed about their performance on earnings calls after your process was in place?",
-        why: "Connecting operational work to executive performance."
+        drilldowns: ["What was their presentation style like before?", "What specifically changed after?", "Did analysts or investors comment on the improvement?"],
       },
       {
-        label: "7-market coordination system",
-        tags: ["Scale", "Process"],
-        q: "Which states? How did you manage communication across 7 markets? Was there a system before you, or did you build it?",
-        why: "Geographic complexity is a strong differentiator."
+        label: "Which states were you covering across the 7 markets?",
+        tags: ["Scale"],
+        drilldowns: ["How many people in each market did you coordinate with?", "What communication tools/systems did you use?", "Did a system exist before you, or did you build it from scratch?"],
+        calc: { type: "scale", id: "asc-markets", label: "Stakeholder communication load", inputs: [
+          { id: "asc-m-people", label: "Stakeholders across all markets", min: 10, max: 500, step: 10, value: 200, unit: "" },
+          { id: "asc-m-touch", label: "Avg. touchpoints per person/month", min: 1, max: 10, step: 1, value: 2, unit: "x" },
+          { id: "asc-m-mins", label: "Minutes per touchpoint", min: 2, max: 30, step: 1, value: 8, unit: "min" },
+        ], formula: "people * touch * mins * 12 / 60", resultLabel: "Communication hours managed/year" },
       },
       {
-        label: "M&A involvement",
+        label: "Give me one specific M&A deal you were involved in.",
         tags: ["Confidential", "Industry"],
-        q: "What was your role in acquisitions? Due diligence logistics, legal coordination, confidential docs? Give me one specific deal.",
-        why: "M&A support at the EA level is rare and valuable."
+        drilldowns: ["What was your exact role in the transaction?", "Were you managing due diligence docs, coordinating legal, or scheduling?", "What would have fallen apart without you?"],
       },
       {
-        label: "Board prep process",
-        tags: ["Process", "Metrics", "Before/After"],
-        q: "How many board meetings per year? What did your prep process look like? How far in advance? Quality of materials before you vs. after?",
-        why: "Board governance is a premium skill."
+        label: "How many board meetings per year did you prep for?",
+        tags: ["Process", "Metrics"],
+        drilldowns: ["How far in advance did you start prep?", "What did the board materials look like before you improved them?", "How many board members?", "Did you also handle committee meetings?"],
+        calc: { type: "board", id: "asc-board", label: "Board prep value", inputs: [
+          { id: "asc-b-meetings", label: "Meetings per year", min: 2, max: 12, step: 1, value: 4, unit: "" },
+          { id: "asc-b-members", label: "Board members", min: 3, max: 15, step: 1, value: 7, unit: "" },
+          { id: "asc-b-saved", label: "Prep hours saved per member per meeting", min: 0.5, max: 8, step: 0.5, value: 2, unit: "hrs" },
+          { id: "asc-b-rate", label: "Board member hourly rate", min: 100, max: 2000, step: 50, value: 500, unit: "$" },
+        ], formula: "meetings * members * saved * rate", resultLabel: "Annual board member time recovered" },
       },
       {
-        label: "Why you left + what broke",
+        label: "What broke when you left Ascend?",
         tags: ["Transition", "Testimonial"],
-        q: "Honest reason you left. What did the transition look like? Did they struggle to replace you? What broke when you were gone?",
-        why: "What breaks when you leave is the strongest proof of value."
+        drilldowns: ["How long did the transition take?", "Did they hire a replacement?", "What's the first thing that fell apart?", "Did anyone reach out afterward asking how you did something?"],
       },
       {
-        label: "Laura Warren & Courtney quotes",
+        label: "What would Laura Warren say about you in one sentence?",
         tags: ["Testimonial", "People"],
-        q: "What specifically would Laura Warren (VP Finance) and Courtney (now at Matteo) say about working with you? What would they say you did that nobody else could?",
-        why: "This language becomes testimonial drafts."
+        drilldowns: ["What about Courtney (now at Matteo)?", "What's the one thing they'd say you did that nobody else could?"],
       },
       {
-        label: "98% satisfaction source",
+        label: "Where does the 98% stakeholder satisfaction rate come from?",
         tags: ["Metrics"],
-        q: "Where does the 98% satisfaction rate come from? Formal survey? Internal review? Your estimate? What's the real evidence?",
-        why: "Need to cite the real source or reframe."
+        drilldowns: ["Was there a formal survey or internal review?", "If it's your estimate, what's the evidence?", "Did anyone ever complain about your work? What happened?"],
       },
       {
-        label: "Something that went wrong",
+        label: "Tell me one thing at Ascend that didn't go as planned.",
         tags: ["Failure"],
-        q: "One thing that didn't work the way you planned at Ascend. What happened and what did you do about it?",
-        why: "Resilience stories beat perfection stories."
-      }
+        drilldowns: ["What caused it?", "How did you find out?", "What did you do to fix it?", "What did you learn?"],
+      },
     ]
   },
   {
@@ -97,68 +103,64 @@ const roles = [
     dates: "Sep 2019 - Jul 2024",
     industry: "Clinical-Stage Biopharmaceutical",
     leaders: "CEO (name TBD), General Counsel, Pam Connelly (first CFO & CHRO), Renee (CFO), Pete Norini",
-    context: `This is your longest tenure and your biggest growth story: nearly 5 years at a clinical-stage biopharma. You went from supporting the CEO to also supporting the General Counsel. You founded and led the Culture Committee (DEI workshops, wellness programs). You designed onboarding for 6 admin professionals with a 20% ramp-up reduction. Your resume claims a 30% improvement in decision-making effectiveness and 22% increase in employee satisfaction. Pam Connelly is someone you want a recommendation from. We have almost no specific stories from this role yet.`,
+    context: `Longest tenure and biggest growth story: nearly 5 years at a clinical-stage biopharma. You went from supporting the CEO to also supporting the General Counsel. You founded and led the Culture Committee. You designed onboarding for 6 admin professionals with a 20% ramp-up reduction. Resume claims 30% decision-making improvement and 22% satisfaction increase. Almost no specific stories yet.`,
     questions: [
       {
-        label: "Startup to scale-up arc",
+        label: "How many people were at Immunovant when you joined vs. when you left?",
         tags: ["Growth", "Metrics"],
-        q: "How big was Immunovant when you joined in 2019 vs. when you left? Headcount, offices, clinical stage. How did your role change as the company grew?",
-        why: "Scaling with a startup is a compelling narrative."
+        drilldowns: ["How many offices?", "What clinical stage were they in at each point?", "When did your role expand from 1 exec to 2?"],
       },
       {
-        label: "Dual-exec support conflict",
-        tags: ["People", "Process"],
-        q: "How did dual support (CEO + General Counsel) work? Give me one example where their needs conflicted and how you handled it.",
-        why: "Dual-exec support is a differentiator."
+        label: "Give me one time the CEO and General Counsel needed you at the same moment.",
+        tags: ["People"],
+        drilldowns: ["What was each person's need?", "How did you decide who got priority?", "Did either of them notice the conflict?"],
       },
       {
-        label: "Culture Committee founding",
+        label: "Whose idea was the Culture Committee?",
         tags: ["Culture", "Metrics"],
-        q: "Whose idea was the Culture Committee? How did you pitch it? What programs? How many participated? What changed that you can point to?",
-        why: "Strategic leadership beyond the EA title."
+        drilldowns: ["How did you pitch it to leadership?", "What specific programs did you run?", "How many people participated?", "What changed that you can point to?"],
       },
       {
-        label: "Onboarding system you built",
-        tags: ["Process", "Before/After", "Metrics"],
-        q: "Onboarding for 6 admin professionals, 20% ramp-up reduction. What did it look like before? What did you build? How did you measure 20%?",
-        why: "Building repeatable systems is exactly what fractional clients need."
+        label: "How many months did it take a new admin to get fully productive before your onboarding system?",
+        tags: ["Process", "Metrics"],
+        drilldowns: ["And how many months after?", "What specific materials or systems did you create?", "How many admins went through your program?"],
+        calc: { type: "ramp", id: "imm-onboard", label: "Onboarding savings", inputs: [
+          { id: "imm-o-people", label: "People onboarded", min: 1, max: 20, step: 1, value: 6, unit: "" },
+          { id: "imm-o-salary", label: "Avg. annual salary", min: 40000, max: 150000, step: 5000, value: 75000, unit: "$" },
+          { id: "imm-o-before", label: "Old ramp-up (months)", min: 1, max: 12, step: 1, value: 5, unit: "mo" },
+          { id: "imm-o-after", label: "New ramp-up (months)", min: 1, max: 12, step: 1, value: 4, unit: "mo" },
+        ], formula: "people * (salary / 12) * (before - after) * 0.5", resultLabel: "Productivity recovered" },
       },
       {
-        label: "30% decision-making claim",
-        tags: ["Metrics"],
-        q: "Where does 30% improvement in decision-making effectiveness come from? What was slow before? What changed? How was it measured?",
-        why: "Bold claim. Need to back it up or reframe."
+        label: "What was happening before you that made decisions slow?",
+        tags: ["Before/After"],
+        drilldowns: ["What specifically did you change?", "Can you give me one decision that moved faster because of you?", "How do you know it was 30% faster?"],
       },
       {
-        label: "22% satisfaction claim",
+        label: "Was there an employee satisfaction survey?",
         tags: ["Metrics", "Culture"],
-        q: "Was there an engagement survey? What was your specific contribution to the 22% increase?",
-        why: "Need the real source."
+        drilldowns: ["What year(s) was it run?", "What was the score before vs. after?", "What did you specifically do that contributed to the increase?"],
       },
       {
-        label: "Pam Connelly's words",
+        label: "What would Pam Connelly say about you if I called her right now?",
         tags: ["Testimonial"],
-        q: "If I called Pam Connelly right now and asked 'What's it like working with Leigh-Ann?', what would she actually say? Not polished. Real.",
-        why: "This becomes the testimonial draft."
+        drilldowns: ["Not the polished version. Her actual words.", "What's the one thing she relied on you for that she couldn't get from anyone else?"],
       },
       {
-        label: "Biggest invisible save",
+        label: "What's the biggest fire you put out that nobody knew about?",
         tags: ["Failure", "Confidential"],
-        q: "Biggest fire you put out that nobody knew about. The thing where if you hadn't stepped in, it would have been a disaster.",
-        why: "Invisible saves are often the best case studies."
+        drilldowns: ["What would have happened if you hadn't caught it?", "Did anyone ever find out?", "How much time/money did it save?"],
       },
       {
-        label: "Biopharma-specific ops",
+        label: "Were you involved in any FDA-related coordination?",
         tags: ["Industry"],
-        q: "Were you involved in FDA timelines, clinical trial milestones, investor updates around data readouts? Any major clinical announcements?",
-        why: "Industry-specific expertise commands premium rates."
+        drilldowns: ["Clinical trial milestones?", "Investor updates around data readouts?", "What was your specific role in those moments?"],
       },
       {
-        label: "Why you left after 5 years",
+        label: "What was the reaction when you gave your notice?",
         tags: ["Transition"],
-        q: "What was the honest trigger? What was the reaction when you gave notice?",
-        why: "How they react tells us your value."
-      }
+        drilldowns: ["What was the honest trigger for leaving?", "Did they try to keep you?", "How long did it take to replace you?"],
+      },
     ]
   },
   {
@@ -168,50 +170,47 @@ const roles = [
     dates: "Oct 2017 - Sep 2019",
     industry: "Expert Network / Financial Services Research",
     leaders: "President (name TBD)",
-    context: `Global role spanning NYC and London. You reduced event costs by 15%, expanded admin teams in both cities, and created onboarding manuals and how-to guides. This was your first role with international scope. We have very little detail beyond resume bullets.`,
+    context: `Global role spanning NYC and London. You reduced event costs by 15%, expanded admin teams in both cities, and created onboarding manuals. First role with international scope. Very little detail beyond resume bullets.`,
     questions: [
       {
-        label: "Expert network business model",
+        label: "Were you coordinating directly with hedge fund and PE firm clients?",
         tags: ["Industry"],
-        q: "Third Bridge connects investors with industry specialists. Did that affect your day-to-day? Were you coordinating with hedge funds/PE firms directly?",
-        why: "Business context enriches the case study."
+        drilldowns: ["Or was your scope purely internal?", "How did the expert-network business model affect your day-to-day?"],
       },
       {
-        label: "NYC + London time zones",
+        label: "What time did your day start to cover the London office?",
         tags: ["Scale", "Process"],
-        q: "How did you manage the time zone gap? What did a typical day look like coordinating across both offices?",
-        why: "Global coordination is a premium skill."
+        drilldowns: ["What did a typical split-timezone day look like?", "How many people were you coordinating with in London?"],
       },
       {
-        label: "15% event cost reduction",
+        label: "What was the total annual event budget you managed?",
         tags: ["Budget", "Metrics"],
-        q: "Which events? How many per year? Total budget? What specifically did you change to cut costs? Was quality maintained?",
-        why: "Need real numbers behind the percentage."
+        drilldowns: ["How many events per year?", "What specifically did you change to cut costs by 15%?", "Was quality maintained or improved?"],
+        calc: { type: "savings", id: "tb-events", label: "Event savings", inputs: [
+          { id: "tb-e-budget", label: "Annual event budget", min: 50000, max: 1000000, step: 10000, value: 200000, unit: "$" },
+          { id: "tb-e-pct", label: "Cost reduction %", min: 1, max: 30, step: 1, value: 15, unit: "%" },
+        ], formula: "budget * pct / 100", resultLabel: "Annual savings" },
       },
       {
-        label: "Admin team expansion",
+        label: "How many people did you hire for the admin teams?",
         tags: ["People", "Growth"],
-        q: "How many people did you hire in NYC and London? Did you build job descriptions, run interviews, make hiring decisions? Team size before vs. after?",
-        why: "Team building is a Chief of Staff function."
+        drilldowns: ["NYC vs. London?", "Did you write the job descriptions?", "Run the interviews?", "What was the team size before vs. after?"],
       },
       {
-        label: "Onboarding manuals legacy",
+        label: "How many onboarding manuals did you create?",
         tags: ["Process"],
-        q: "How many onboarding manuals/guides? What problems were they solving? Are they still in use? Were new admins faster because of them?",
-        why: "Institutional knowledge that outlasts you."
+        drilldowns: ["What processes did they cover?", "Are they still in use?", "How much faster did new admins get up to speed?"],
       },
       {
-        label: "PwC to Third Bridge shift",
+        label: "What's the biggest thing the jump from PwC to Third Bridge taught you?",
         tags: ["Transition"],
-        q: "Biggest difference between Third Bridge and PwC? What did the jump from Big Four to a smaller global company teach you?",
-        why: "Career progression narrative."
+        drilldowns: ["What was harder at a smaller global company?", "What was easier?"],
       },
       {
-        label: "President's one-sentence impact",
+        label: "If the President described your impact in one sentence, what would it be?",
         tags: ["Testimonial"],
-        q: "If the President described your impact in one sentence, what would they say?",
-        why: "Testimonial language."
-      }
+        drilldowns: ["What's the one thing they'd miss most?"],
+      },
     ]
   },
   {
@@ -221,50 +220,47 @@ const roles = [
     dates: "Nov 2012 - Jun 2017",
     industry: "Big Four Professional Services",
     leaders: "Tax partners (names TBD)",
-    context: `Nearly 5 years at PwC supporting the State & Local Tax practice in the NY Metro office. You achieved 98% on-time delivery, managed Fortune 500 workflows, tracked the Marketing & Sales budget, and served as a mentor and onboarding buddy. This is a strong brand name on the resume but we have almost no stories.`,
+    context: `Nearly 5 years at PwC. 98% on-time delivery, Fortune 500 workflows, Marketing & Sales budget tracking, mentor and onboarding buddy. Strong brand name but almost no stories.`,
     questions: [
       {
-        label: "Team size and support ratio",
+        label: "How many partners and senior managers did you support simultaneously?",
         tags: ["Scale", "Metrics"],
-        q: "How many partners and senior managers were you supporting? Only assistant, or part of a team?",
-        why: "Supporting 1 partner vs. 8 is a different story."
+        drilldowns: ["Were you the only assistant for all of them?", "Or part of an admin team? If so, how many admins total?"],
       },
       {
-        label: "Fortune 500 workflows defined",
+        label: "Give me one specific Fortune 500 workflow you managed end to end.",
         tags: ["Process"],
-        q: "What does 'Fortune 500 workflows' actually mean? Engagement letters, billing, audit support? Give me one specific complex workflow.",
-        why: "The resume bullet is vague. Need the real story."
+        drilldowns: ["Engagement letters? Client billing? Audit support?", "What made it complex?", "How often did you run this workflow?"],
       },
       {
-        label: "Marketing & Sales budget",
-        tags: ["Budget", "Before/After"],
-        q: "How large was the budget? What system? What was it like before you took over? Errors or gaps you fixed?",
-        why: "Budget ownership is an operations skill, not admin."
+        label: "How large was the Marketing & Sales budget you tracked?",
+        tags: ["Budget"],
+        drilldowns: ["What system did you use?", "What was the state of the budget tracking before you?", "Did you find and fix any errors?"],
+        calc: { type: "savings", id: "pwc-budget", label: "Budget oversight value", inputs: [
+          { id: "pwc-b-budget", label: "Annual budget managed", min: 50000, max: 2000000, step: 25000, value: 500000, unit: "$" },
+          { id: "pwc-b-error", label: "Error rate you prevented (%)", min: 0.5, max: 10, step: 0.5, value: 2, unit: "%" },
+        ], formula: "budget * error / 100", resultLabel: "Errors prevented annually" },
       },
       {
-        label: "Mentoring and onboarding",
+        label: "How many people did you onboard as a mentor?",
         tags: ["People", "Culture"],
-        q: "How many people did you onboard? Create materials or informal? Formal PwC program or did you volunteer?",
-        why: "Mentorship shows leadership."
+        drilldowns: ["Did you create any materials, or was it informal?", "Was this a formal PwC program or did you volunteer?"],
       },
       {
-        label: "Tax season pressure cooker",
-        tags: ["Industry", "Scale"],
-        q: "What was your role during peak season (Jan-Apr)? How did workload change? What did you handle that nobody else could?",
-        why: "High-pressure environments are what C-suite execs need."
+        label: "What did you handle during tax season that nobody else could?",
+        tags: ["Industry"],
+        drilldowns: ["How did workload change Jan-Apr vs. the rest of the year?", "How many extra hours per week during peak?"],
       },
       {
-        label: "Why 5 years, why leave",
+        label: "What finally made you leave PwC for Third Bridge?",
         tags: ["Transition"],
-        q: "What kept you at PwC for nearly 5 years? What finally made you leave for Third Bridge?",
-        why: "Career transition narrative."
+        drilldowns: ["What kept you for nearly 5 years?", "What was the pull vs. the push?"],
       },
       {
-        label: "PwC references still available",
-        tags: ["Testimonial", "People"],
-        q: "Anyone from PwC who would still vouch for you today? Partner, senior manager, fellow assistant?",
-        why: "Brand-name references carry weight."
-      }
+        label: "Name one person from PwC who would vouch for you today.",
+        tags: ["Testimonial"],
+        drilldowns: ["Partner, senior manager, or fellow assistant?", "What would they specifically say?"],
+      },
     ]
   },
   {
@@ -274,38 +270,33 @@ const roles = [
     dates: "Feb 2010 - Sep 2012",
     industry: "Financial Services / Asset Management",
     leaders: "VP & COO (name TBD)",
-    context: `You supported the VP & COO at a financial services firm. You created procedure manuals, improved accuracy by 20%, reduced training time by 30%, and distributed reports to 100+ brokers. This overlaps with your time at DGB Management.`,
+    context: `Supported the VP & COO. Created procedure manuals, improved accuracy by 20%, reduced training time by 30%, distributed reports to 100+ brokers. Overlaps with DGB Management.`,
     questions: [
       {
-        label: "COO scope: admin or operations?",
+        label: "Were you doing operations-level work or traditional EA work?",
         tags: ["Process", "Scale"],
-        q: "What was the COO responsible for, and where did you fit? Operations-level tasks or traditional EA work?",
-        why: "Scope tells us if this was admin or operations leadership."
+        drilldowns: ["What was the COO responsible for?", "Where exactly did you fit in that structure?"],
       },
       {
-        label: "Procedure manuals created",
+        label: "How many procedure manuals did you write?",
         tags: ["Process", "Before/After"],
-        q: "How many manuals? For what processes? Replacing tribal knowledge with documented systems? Still in use?",
-        why: "Codifying institutional knowledge is a fractional CoS skill."
+        drilldowns: ["What processes did they cover?", "Were people relying on tribal knowledge before?", "Are any of them still in use?"],
       },
       {
-        label: "100+ broker reports",
+        label: "How often did you distribute reports to the 100+ brokers?",
         tags: ["Scale", "Metrics"],
-        q: "Daily or weekly? What was in the reports? What happened if late or wrong? Consequence of an error?",
-        why: "Stakes and volume tell the real story."
+        drilldowns: ["Daily? Weekly?", "What was in the reports?", "What was the consequence if a report was late or wrong?"],
       },
       {
-        label: "20% accuracy / 30% training claims",
+        label: "What was inaccurate before you improved accuracy by 20%?",
         tags: ["Metrics", "Before/After"],
-        q: "Where do these numbers come from? What was inaccurate before? What was taking so long in training?",
-        why: "Need the real before/after."
+        drilldowns: ["What specifically did you change?", "How did you measure the improvement?", "And for the 30% training time reduction, what was taking so long before?"],
       },
       {
-        label: "Balancing two roles simultaneously",
+        label: "How did you balance Reich & Tang and DGB Management at the same time?",
         tags: ["Transition"],
-        q: "You were at Reich & Tang and DGB at the same time. How? Was DGB a side business?",
-        why: "Understanding the entrepreneurial drive."
-      }
+        drilldowns: ["Was DGB a side business?", "How many hours per week on each?"],
+      },
     ]
   },
   {
@@ -315,38 +306,33 @@ const roles = [
     dates: "Aug 2009 - Dec 2011",
     industry: "Independent Consulting",
     leaders: "Your own business",
-    context: `This was your first independent consulting work, running your own virtual operations practice. You achieved a 30% reduction in routine process time for clients. We know almost nothing about this.`,
+    context: `First independent consulting work. 30% reduction in routine process time for clients. We know almost nothing about this.`,
     questions: [
       {
-        label: "What DGB stood for + origin",
+        label: "What does DGB stand for?",
         tags: ["Origin", "Brand"],
-        q: "What does DGB stand for? Registered business? How did you get your first client?",
-        why: "Origin of your consulting practice matters for fractional positioning today."
+        drilldowns: ["Was it a registered LLC?", "How did you get your first client?"],
       },
       {
-        label: "Client roster details",
-        tags: ["Scale", "Industry"],
-        q: "Who were your clients? How many at once? What industries? What size companies?",
-        why: "Fractional pitch today has roots here."
+        label: "How many clients did you have at any given time?",
+        tags: ["Scale"],
+        drilldowns: ["What industries?", "What size companies?", "What were they paying you?"],
       },
       {
-        label: "One specific project",
+        label: "Tell me about one specific project that went well.",
         tags: ["Process"],
-        q: "What services did you actually provide? Give me one specific project that went well.",
-        why: "One good project becomes a case study."
+        drilldowns: ["What was the client's problem?", "What did you build or fix?", "What was the outcome?"],
       },
       {
-        label: "30% process time reduction",
+        label: "Which client saw the 30% process time reduction?",
         tags: ["Metrics"],
-        q: "Which client? Which process? How did you measure 30%?",
-        why: "Specific example beats blanket claim."
+        drilldowns: ["Which process?", "How did you measure it?", "What did you change?"],
       },
       {
-        label: "Why you stopped consulting",
+        label: "Why did you stop and go back to full-time at PwC?",
         tags: ["Transition"],
-        q: "You went from running your own thing back to full-time at PwC. What drove that decision?",
-        why: "Relevant to your fractional pivot today."
-      }
+        drilldowns: ["Was it income stability?", "Burnout?", "An opportunity you couldn't pass up?"],
+      },
     ]
   },
   {
@@ -356,32 +342,33 @@ const roles = [
     dates: "Dec 2007 - Jul 2009",
     industry: "Management & Technology Consulting",
     leaders: "Manager/Director (name TBD)",
-    context: `Your first major US corporate role after arriving from Trinidad. You processed $10M+ in monthly payments with 99% accuracy and reduced billing discrepancies by 20%. BearingPoint was a major consulting firm that went bankrupt in 2009.`,
+    context: `First major US corporate role. Processed $10M+ in monthly payments at 99% accuracy. Reduced billing discrepancies by 20%. BearingPoint went bankrupt in 2009.`,
     questions: [
       {
-        label: "$10M+ monthly payments day-to-day",
+        label: "How many invoices or transactions did you process per month?",
         tags: ["Metrics", "Process"],
-        q: "Walk me through what $10M+ in monthly payments looked like. Systems used? Invoices per month? What happened if something was wrong?",
-        why: "Volume and stakes behind '$10M+' need to be real."
+        drilldowns: ["What systems were you using?", "What happened if you made an error on a payment?", "Who caught mistakes if they happened?"],
+        calc: { type: "accuracy", id: "bp-payments", label: "Payment accuracy value", inputs: [
+          { id: "bp-p-volume", label: "Monthly payment volume ($)", min: 1000000, max: 20000000, step: 500000, value: 10000000, unit: "$" },
+          { id: "bp-p-before", label: "Error rate before (%)", min: 1, max: 10, step: 0.5, value: 5, unit: "%" },
+          { id: "bp-p-after", label: "Error rate after (%)", min: 0, max: 10, step: 0.5, value: 1, unit: "%" },
+        ], formula: "volume * 12 * (before - after) / 100", resultLabel: "Annual risk dollars protected" },
       },
       {
-        label: "Working through the bankruptcy",
+        label: "What was it like working through BearingPoint's bankruptcy?",
         tags: ["Failure", "Growth"],
-        q: "BearingPoint filed bankruptcy Feb 2009, you left Jul 2009. What was it like? What did you handle beyond your normal scope?",
-        why: "Crisis resilience, especially for first US corporate role."
+        drilldowns: ["What extra responsibilities landed on you?", "How did the team respond?", "What did that experience teach you?"],
       },
       {
-        label: "20% billing discrepancy fix",
+        label: "What was causing the billing discrepancies you fixed?",
         tags: ["Before/After", "Process"],
-        q: "What was causing discrepancies? What did you change? Process fix, tool, something else?",
-        why: "The fix is more interesting than the percentage."
+        drilldowns: ["Was it a process problem, a data problem, or a people problem?", "What did you actually change?"],
       },
       {
-        label: "Trinidad to NYC adjustment",
-        tags: ["Origin", "Brand"],
-        q: "Biggest adjustment in your first US corporate role? What surprised you? What skills from Petrotrin transferred?",
-        why: "Immigration + career story is part of brand narrative."
-      }
+        label: "What was the biggest adjustment moving from Trinidad to a US corporate office?",
+        tags: ["Origin"],
+        drilldowns: ["What surprised you most?", "What skills from Petrotrin transferred directly?"],
+      },
     ]
   },
   {
@@ -391,40 +378,35 @@ const roles = [
     dates: "Pre-2006",
     industry: "State-Owned Oil & Gas",
     leaders: "VP of Oil & Refining (name TBD)",
-    context: `Your origin story. Petrotrin was Trinidad's state-owned oil company (merged from Trintoc and Trinmar). You worked in the office of the VP of Oil & Refining before moving to the US. We know almost nothing about this role.`,
+    context: `Your origin story. Petrotrin was Trinidad's state-owned oil company. You worked in the office of the VP of Oil & Refining. We know almost nothing.`,
     questions: [
       {
-        label: "First real office job",
+        label: "How old were you when you started at Petrotrin?",
         tags: ["Origin"],
-        q: "How old were you when you started? How did you get the job? Was this your first real office job?",
-        why: "Where the work ethic was forged."
+        drilldowns: ["How did you get the job?", "Was this your first real office job?"],
       },
       {
-        label: "VP scope and your role",
+        label: "How big was the VP of Oil & Refining's team?",
         tags: ["Scale"],
-        q: "What was the VP of Oil & Refining responsible for? How big was their team? What was your scope?",
-        why: "Supporting a VP at a national oil company is bigger than it sounds."
+        drilldowns: ["What was the VP responsible for?", "What was your scope within that office?"],
       },
       {
-        label: "What Petrotrin taught you",
+        label: "What did you learn at Petrotrin that you still use today?",
         tags: ["Origin", "Brand"],
-        q: "What did you learn at Petrotrin that you still carry with you today?",
-        why: "Formative experiences anchor the career narrative."
+        drilldowns: ["A habit? A way of thinking? A specific skill?"],
       },
       {
-        label: "Decision to leave Trinidad",
-        tags: ["Transition", "Origin"],
-        q: "What made you decide to move to the US? Specific moment or gradual?",
-        why: "The hinge point of your entire career story."
-      },
-      {
-        label: "The 18-month gap (2006-2007)",
+        label: "Was there a specific moment you decided to leave Trinidad?",
         tags: ["Transition"],
-        q: "Between arriving in the US in 2006 and starting at BearingPoint in late 2007, what were you doing?",
-        why: "Filling the gap."
-      }
+        drilldowns: ["Or was it gradual?", "What were you hoping to find in the US?"],
+      },
+      {
+        label: "What did you do between arriving in the US (2006) and starting at BearingPoint (late 2007)?",
+        tags: ["Transition"],
+        drilldowns: ["That's roughly 18 months. Working? Studying? Getting settled?"],
+      },
     ]
-  }
+  },
 ];
 ---
 
@@ -1187,19 +1169,48 @@ const roles = [
 
           <!-- Questions -->
           <div class="space-y-3">
-            {role.questions.map((item, qi) => (
+            {role.questions.map((item: any, qi: number) => (
               <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] px-5 py-4">
                 <div class="flex items-start gap-3">
-                  <span class="text-secondary/40 font-bold text-xs mt-1 flex-shrink-0 w-5 text-right">{qi + 1}</span>
+                  <span class="text-secondary/40 font-bold text-xs mt-1.5 flex-shrink-0 w-5 text-right">{qi + 1}</span>
                   <div class="flex-1 min-w-0">
                     <div class="flex flex-wrap items-center gap-1.5 mb-2">
                       {item.tags.map((tag: string) => (
                         <span class={`inline-block text-[10px] font-semibold px-2 py-0.5 rounded-full ${tagColors[tag] || 'bg-gray-100 text-gray-600'}`}>{tag}</span>
                       ))}
                     </div>
-                    <p class="text-primary font-semibold text-sm leading-snug">{item.label}</p>
-                    <p class="text-text-muted text-xs leading-relaxed mt-1">{item.q}</p>
-                    <p class="text-text-muted/40 text-[11px] mt-2">Case study use: {item.why}</p>
+                    <p class="text-primary font-semibold text-[15px] leading-snug">{item.label}</p>
+
+                    {/* Drill-down follow-ups */}
+                    {item.drilldowns && item.drilldowns.length > 0 && (
+                      <div class="mt-2.5 flex flex-wrap gap-1.5">
+                        {item.drilldowns.map((dd: string) => (
+                          <span class="inline-block text-[11px] text-text-muted bg-cream border border-primary/[0.06] px-2.5 py-1 rounded-lg">{dd}</span>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Inline mini calculator */}
+                    {item.calc && (
+                      <div class="mt-3 bg-cream border border-primary/[0.06] rounded-xl p-4" id={`mini-${item.calc.id}`}>
+                        <p class="text-[10px] font-semibold text-secondary tracking-[0.1em] uppercase mb-3">{item.calc.label}</p>
+                        <div class="grid grid-cols-2 gap-3">
+                          {item.calc.inputs.map((inp: any) => (
+                            <div>
+                              <div class="flex items-baseline justify-between mb-1">
+                                <label class="text-[11px] text-text-muted">{inp.label}</label>
+                                <span id={`${inp.id}-val`} class="text-xs font-semibold text-primary">{inp.unit === '$' ? `$${inp.value.toLocaleString()}` : `${inp.value}${inp.unit}`}</span>
+                              </div>
+                              <input type="range" id={inp.id} min={inp.min} max={inp.max} step={inp.step} value={inp.value} class="calc-slider w-full" data-mini-calc={item.calc.id} />
+                            </div>
+                          ))}
+                        </div>
+                        <div class="mt-3 pt-3 border-t border-primary/[0.08] flex items-baseline justify-between">
+                          <span class="text-[11px] text-text-muted">{item.calc.resultLabel}</span>
+                          <span id={`${item.calc.id}-result`} class="font-serif text-xl text-secondary font-semibold">--</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -1218,27 +1229,30 @@ const roles = [
 
         <div class="space-y-3">
           {[
-            { label: "Your EA superpower", tags: ["Brand"], q: "Gatekeepers, fixers, builders. What do you do differently from every other EA you've worked alongside?", why: "Thesis of your case study library and positioning." },
-            { label: "First 30 days trust pattern", tags: ["Process", "People"], q: "You've supported 6+ execs at C-suite/VP level. What's the pattern in how you build trust with a new leader?", why: "Your onboarding approach is a sellable process." },
-            { label: "When you first knew you were process-driven", tags: ["Origin", "Brand"], q: "Is there a moment at Petrotrin or early in NYC where that instinct showed up and changed how you worked?", why: "Origin stories anchor a personal brand." },
-            { label: "The 'long-winded' and 'flight risk' feedback", tags: ["Failure", "Brand"], q: "Honest reaction to that feedback? If you could go back to those interviews, what would you do differently?", why: "Need to build interview strategies that address this." },
-            { label: "Kitchen to C-suite connection", tags: ["Brand", "Origin"], q: "How does the culinary career (Guarnaschelli's kitchen, NYT feature, pop-ups) show up in your EA work? Direct connection?", why: "Dual-career story makes you memorable." },
-            { label: "What every exec would lose", tags: ["Testimonial"], q: "Line up every executive you've supported. 'What would you lose if Leigh-Ann left tomorrow?' The real answer, not LinkedIn.", why: "The gap you leave behind is your value proposition." },
-            { label: "What actually drives you", tags: ["Origin", "Brand"], q: "Trinidad to US at 21. Corporate career + culinary career + NYT. What's the real answer for what drives you?", why: "Best personal brands are built on something true." },
-            { label: "The thing that's never been on a resume", tags: ["Brand", "Testimonial"], q: "What do you do that's hard to put into words but that everyone who's worked with you would recognize immediately?", why: "The intangible is often the differentiator." },
+            { label: "What's your EA superpower?", tags: ["Brand"], drilldowns: ["Gatekeeper, fixer, or builder?", "What do you do that other EAs you've worked alongside don't?"] },
+            { label: "What do you do in the first 30 days with a new executive?", tags: ["Process", "People"], drilldowns: ["What's the pattern across all 6+ execs you've supported?", "What sets the tone?"] },
+            { label: "When did you first realize you were a process-driven person?", tags: ["Origin", "Brand"], drilldowns: ["A moment at Petrotrin?", "Early in NYC?", "What happened?"] },
+            { label: "What's your honest reaction to the 'long-winded' feedback?", tags: ["Failure", "Brand"], drilldowns: ["And the 'too ambitious / flight risk' concern?", "What would you do differently in those interviews now?"] },
+            { label: "How does running a kitchen connect to running an executive's operations?", tags: ["Brand", "Origin"], drilldowns: ["Is there a direct skill transfer?", "A mindset transfer?", "Or should we keep the two careers separate?"] },
+            { label: "What would each of your former executives lose if you left tomorrow?", tags: ["Testimonial"], drilldowns: ["Not the LinkedIn version. The real one.", "Give me one answer per exec if you can."] },
+            { label: "What actually drives you?", tags: ["Origin", "Brand"], drilldowns: ["Not 'I'm passionate about operations.'", "The real answer. Trinidad to NYC at 21, two careers, NYT feature. Why?"] },
+            { label: "What's the one thing about your work that's never been on a resume?", tags: ["Brand", "Testimonial"], drilldowns: ["The thing that's hard to put into words.", "But everyone who's worked with you would recognize immediately."] },
           ].map((item, i) => (
             <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl px-5 py-4">
               <div class="flex items-start gap-3">
-                <span class="text-white/20 font-bold text-xs mt-1 flex-shrink-0 w-5 text-right">{i + 1}</span>
+                <span class="text-white/20 font-bold text-xs mt-1.5 flex-shrink-0 w-5 text-right">{i + 1}</span>
                 <div class="flex-1 min-w-0">
                   <div class="flex flex-wrap items-center gap-1.5 mb-2">
                     {item.tags.map((tag: string) => (
                       <span class={`inline-block text-[10px] font-semibold px-2 py-0.5 rounded-full ${tagColors[tag] || 'bg-gray-100 text-gray-600'}`}>{tag}</span>
                     ))}
                   </div>
-                  <p class="text-white font-semibold text-sm leading-snug">{item.label}</p>
-                  <p class="text-white/55 text-xs leading-relaxed mt-1">{item.q}</p>
-                  <p class="text-white/25 text-[11px] mt-2">Case study use: {item.why}</p>
+                  <p class="text-white font-semibold text-[15px] leading-snug">{item.label}</p>
+                  <div class="mt-2.5 flex flex-wrap gap-1.5">
+                    {item.drilldowns.map((dd: string) => (
+                      <span class="inline-block text-[11px] text-white/50 bg-white/[0.05] border border-white/[0.08] px-2.5 py-1 rounded-lg">{dd}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -1533,6 +1547,69 @@ const roles = [
   calcRampup();
   calcEvent();
   calcBoard();
+
+  // ── Mini inline calculators ──────────────────────────────────
+  const miniCalcs: Record<string, { inputs: string[], formula: string, resultId: string }> = {
+    'asc-earnings': { inputs: ['asc-e-hours', 'asc-e-rate'], formula: 'v0 * v1 * 4', resultId: 'asc-earnings-result' },
+    'asc-markets': { inputs: ['asc-m-people', 'asc-m-touch', 'asc-m-mins'], formula: 'v0 * v1 * v2 * 12 / 60', resultId: 'asc-markets-result' },
+    'asc-board': { inputs: ['asc-b-meetings', 'asc-b-members', 'asc-b-saved', 'asc-b-rate'], formula: 'v0 * v1 * v2 * v3', resultId: 'asc-board-result' },
+    'imm-onboard': { inputs: ['imm-o-people', 'imm-o-salary', 'imm-o-before', 'imm-o-after'], formula: 'v0 * (v1 / 12) * Math.max(0, v2 - v3) * 0.5', resultId: 'imm-onboard-result' },
+    'tb-events': { inputs: ['tb-e-budget', 'tb-e-pct'], formula: 'v0 * v1 / 100', resultId: 'tb-events-result' },
+    'pwc-budget': { inputs: ['pwc-b-budget', 'pwc-b-error'], formula: 'v0 * v1 / 100', resultId: 'pwc-budget-result' },
+    'bp-payments': { inputs: ['bp-p-volume', 'bp-p-before', 'bp-p-after'], formula: 'v0 * 12 * Math.max(0, v1 - v2) / 100', resultId: 'bp-payments-result' },
+  };
+
+  // Unit formatting for mini calc display values
+  const miniInputMeta: Record<string, { unit: string, prefix?: string }> = {
+    'asc-e-hours': { unit: ' hrs' }, 'asc-e-rate': { unit: '', prefix: '$' },
+    'asc-m-people': { unit: '' }, 'asc-m-touch': { unit: 'x' }, 'asc-m-mins': { unit: ' min' },
+    'asc-b-meetings': { unit: '' }, 'asc-b-members': { unit: '' }, 'asc-b-saved': { unit: ' hrs' }, 'asc-b-rate': { unit: '', prefix: '$' },
+    'imm-o-people': { unit: '' }, 'imm-o-salary': { unit: '', prefix: '$' }, 'imm-o-before': { unit: ' mo' }, 'imm-o-after': { unit: ' mo' },
+    'tb-e-budget': { unit: '', prefix: '$' }, 'tb-e-pct': { unit: '%' },
+    'pwc-b-budget': { unit: '', prefix: '$' }, 'pwc-b-error': { unit: '%' },
+    'bp-p-volume': { unit: '', prefix: '$' }, 'bp-p-before': { unit: '%' }, 'bp-p-after': { unit: '%' },
+  };
+
+  function runMiniCalc(calcId: string) {
+    const config = miniCalcs[calcId];
+    if (!config) return;
+
+    const vals = config.inputs.map((inputId, i) => {
+      const el = document.getElementById(inputId) as HTMLInputElement;
+      if (!el) return 0;
+      const v = parseFloat(el.value);
+      // Update display
+      const meta = miniInputMeta[inputId] || { unit: '' };
+      const dispEl = document.getElementById(inputId + '-val');
+      if (dispEl) {
+        const formatted = meta.prefix === '$' ? '$' + numFmt.format(v) : numFmt.format(v) + meta.unit;
+        dispEl.textContent = formatted;
+      }
+      updateFill(el);
+      return v;
+    });
+
+    // Evaluate formula
+    const result = new Function(...vals.map((_, i) => `v${i}`), `return ${config.formula}`)(...vals);
+    const resultEl = document.getElementById(config.resultId);
+    if (resultEl) {
+      // Determine if result is hours or dollars
+      if (calcId === 'asc-markets') {
+        resultEl.textContent = numFmt.format(Math.round(result)) + ' hrs';
+      } else {
+        resultEl.textContent = fmt.format(Math.round(result));
+      }
+    }
+  }
+
+  // Wire up all mini calc sliders
+  document.querySelectorAll<HTMLInputElement>('[data-mini-calc]').forEach(slider => {
+    const calcId = slider.dataset.miniCalc!;
+    slider.addEventListener('input', () => runMiniCalc(calcId));
+  });
+
+  // Run all mini calcs on load
+  Object.keys(miniCalcs).forEach(runMiniCalc);
 
   // ── Reveal animations ───────────────────────────────────────
   const revealEls = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
