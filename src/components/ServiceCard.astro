@@ -1,15 +1,21 @@
 ---
+interface ServiceItem {
+  title: string;
+  detail?: string;
+}
+
 interface Props {
   tier: string;
   title: string;
   price: string;
   tagline: string;
-  items: string[];
+  items: (string | ServiceItem)[];
   bestFor: string;
   featured?: boolean;
+  outcomes?: string[];
 }
 
-const { tier, title, price, tagline, items, bestFor, featured = false } = Astro.props;
+const { tier, title, price, tagline, items, bestFor, featured = false, outcomes } = Astro.props;
 ---
 
 <div class={`bg-white rounded-2xl ${featured ? 'shadow-md border-2 border-secondary' : 'shadow-sm border border-primary/[0.06]'} p-7 flex flex-col relative`}>
@@ -27,10 +33,28 @@ const { tier, title, price, tagline, items, bestFor, featured = false } = Astro.
     {items.map((item) => (
       <li class="flex items-start gap-2.5">
         <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-        {item}
+        <div>
+          {typeof item === 'string' ? (
+            item
+          ) : (
+            <>
+              <span class="font-medium text-primary">{item.title}</span>
+              {item.detail && <p class="text-text-muted text-xs mt-1 leading-relaxed">{item.detail}</p>}
+            </>
+          )}
+        </div>
       </li>
     ))}
   </ul>
+
+  {outcomes && outcomes.length > 0 && (
+    <div class="mt-6 pt-4 border-t border-primary/[0.06]">
+      <p class="text-xs font-semibold text-secondary uppercase tracking-wide mb-2">Proven Results</p>
+      {outcomes.map((outcome) => (
+        <p class="text-primary/70 text-sm leading-relaxed font-medium">{outcome}</p>
+      ))}
+    </div>
+  )}
 
   <p class="text-text-muted text-xs mt-6 pt-4 border-t border-primary/[0.06]">
     Best for: {bestFor}

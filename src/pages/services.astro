@@ -42,13 +42,14 @@ const base = import.meta.env.BASE_URL;
             price="$5,000"
             tagline="Your week runs itself."
             items={[
-              "Calendar architecture and management",
-              "Inbox triage and response system",
-              "Travel and expense coordination",
-              "Meeting prep, agendas, and follow-ups",
-              "Weekly 30-min sync call",
+              { title: "Calendar architecture", detail: "Not just scheduling. Building a system where your week is structured by priority, with buffer time, prep blocks, and travel days mapped in advance." },
+              { title: "Inbox triage and response system", detail: "Every email categorized by urgency and type. Response drafts for routine items. Escalation rules for what needs your eyes. You stop drowning." },
+              { title: "Travel and expense coordination", detail: "Itineraries, bookings, expense reports, receipt tracking. Door-to-door logistics handled so you just show up." },
+              { title: "Meeting prep, agendas, and follow-ups", detail: "Agendas sent in advance, briefing notes for each attendee, action items tracked and assigned after every meeting." },
+              { title: "Weekly 30-min sync call" },
             ]}
-            bestFor="Solo executives or small teams who need their operational backend handled."
+            outcomes={["Clients typically reclaim 10-15 hours per week."]}
+            bestFor="Solo executives or small teams who need their operational backend handled so they can focus on the business."
           />
 
           <ServiceCard
@@ -59,14 +60,15 @@ const base = import.meta.env.BASE_URL;
             featured={true}
             items={[
               "Everything in Tier 1",
-              "Board meeting prep (materials, logistics, minutes, action tracking)",
-              "Investor and stakeholder correspondence",
-              "Cross-functional project coordination",
-              "Executive onboarding systems",
-              "Internal comms drafting",
-              "Quarterly operations review",
+              { title: "Board meeting lifecycle management", detail: "T-minus 3 week materials timeline, template deck assembly, committee briefing docs, individual pre-meeting packages for each board member, real-time minutes, post-meeting action tracker with owners and deadlines." },
+              { title: "Investor and stakeholder correspondence", detail: "Standardized templates for quarterly updates, ad-hoc requests, and meeting follow-ups. Tracking system for 50-200+ stakeholder relationships. Response time target: 24 hours." },
+              { title: "Cross-functional project coordination", detail: "Bridging the gap between legal, finance, operations, and communications. Making sure nothing falls between teams." },
+              { title: "Executive onboarding systems", detail: "90-day playbook with stakeholder maps, meeting cadence guides, decision-rights matrices, and communication rhythms. New leaders productive from week one." },
+              { title: "Internal comms drafting", detail: "All-hands announcements, leadership updates, sensitive communications. Written at the right tone for the right audience." },
+              { title: "Quarterly operations review" },
             ]}
-            bestFor="C-suite executives who need a right hand for high-stakes operations, board work, and investor relations."
+            outcomes={["98% stakeholder satisfaction across 200+ relationships. Board materials delivered 5 business days early, every quarter."]}
+            bestFor="C-suite executives who need a right hand for board governance, investor relations, and high-stakes operations."
           />
 
           <ServiceCard
@@ -76,15 +78,15 @@ const base = import.meta.env.BASE_URL;
             tagline="You focus on the vision. Everything else is handled."
             items={[
               "Everything in Tier 2",
-              "Strategic initiative tracking",
-              "Meeting cadence design and optimization",
-              "OKR/goal management and reporting",
-              "Confidential projects (M&A, fundraising, restructuring)",
-              "Vendor evaluation and negotiation",
-              "Hiring coordination",
-              "On-call for urgent matters",
+              { title: "Confidential projects", detail: "M&A due diligence coordination, restructuring communications, fundraising logistics. 12 years of handling board-level confidential matters across regulated industries." },
+              { title: "Strategic initiative tracking", detail: "OKR dashboards, cross-functional project status, leadership team meeting facilitation. You always know where things stand." },
+              { title: "Meeting cadence design and optimization", detail: "Audit your entire meeting structure. Eliminate what's unnecessary, restructure what's inefficient, ensure every recurring meeting has a clear purpose." },
+              { title: "Vendor evaluation and negotiation" },
+              { title: "Hiring coordination", detail: "Job descriptions, recruiter liaison, interview scheduling, candidate communications, offer letter logistics." },
+              { title: "On-call for urgent matters", detail: "Board emergencies, last-minute investor requests, crisis communications. Available when things move fast." },
             ]}
-            bestFor="CEOs and founders who need a strategic operator, not just support."
+            outcomes={["Described by a biopharma CEO as 'a strategic partnership, not traditional EA support.'"]}
+            bestFor="CEOs and founders who need a strategic operator running the machine while they focus on growth."
           />
         </div>
       </div>
@@ -103,14 +105,36 @@ const base = import.meta.env.BASE_URL;
           </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 gap-4" data-reveal-stagger>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" data-reveal-stagger>
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-serif text-lg text-primary">Investor Relations System&nbsp;Setup</h3>
+              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$5,000</span>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Complete IR infrastructure: CRM configuration, stakeholder categorization, correspondence templates for quarterly updates and ad-hoc requests, reporting workflow, and response time protocols. Built from the same system that managed 200+ relationships across 7 markets.
+            </p>
+            <p class="text-text-muted/60 text-xs mt-3">3-4 week engagement</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-serif text-lg text-primary">Multi-State Coordination Framework</h3>
+              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$4,500</span>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Standardized cross-location scheduling protocols, shared operations calendar, communication cadence across distributed teams, and compliance tracking templates for each market or entity.
+            </p>
+            <p class="text-text-muted/60 text-xs mt-3">3 week engagement</p>
+          </div>
+
           <div class="bg-white rounded-xl p-6 shadow-sm">
             <div class="flex items-start justify-between mb-3">
               <h3 class="font-serif text-lg text-primary">Operations Audit &amp; Playbook</h3>
               <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$4,000</span>
             </div>
             <p class="text-text-muted text-sm leading-relaxed">
-              Full audit of your current executive operations. You get a playbook with specific recommendations, process maps, and a prioritized action plan.
+              Full audit of your current executive operations. You get a playbook with specific recommendations, process maps, and a prioritized action plan. A great way to start working together before committing to a retainer.
             </p>
             <p class="text-text-muted/60 text-xs mt-3">2-3 week engagement</p>
           </div>
@@ -121,7 +145,7 @@ const base = import.meta.env.BASE_URL;
               <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$3,000</span>
             </div>
             <p class="text-text-muted text-sm leading-relaxed">
-              A complete onboarding system for new executives joining your team. First 90 days planned, stakeholder introductions mapped, communication rhythms established.
+              A complete onboarding system for new executives joining your team. First 90 days planned, stakeholder introductions mapped, decision-rights matrix, communication rhythms established. New leaders productive from week one.
             </p>
             <p class="text-text-muted/60 text-xs mt-3">2 week engagement</p>
           </div>
@@ -132,7 +156,18 @@ const base = import.meta.env.BASE_URL;
               <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$2,500</span>
             </div>
             <p class="text-text-muted text-sm leading-relaxed">
-              Redesign your entire board meeting process. Templates for materials, timelines for prep, minute-taking systems, and action item tracking.
+              Redesign your entire board meeting process. T-minus 3 week materials timeline, template decks, committee briefing docs, minute-taking systems, and post-meeting action tracking with owners and deadlines.
+            </p>
+            <p class="text-text-muted/60 text-xs mt-3">1-2 week engagement</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-serif text-lg text-primary">AI Workflow Implementation</h3>
+              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$2,000</span>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Audit your current drafting, research, and communication workflows. Implement AI-powered workflows for correspondence drafting, stakeholder research, meeting prep, and report assembly. Typical result: 40% faster draft preparation.
             </p>
             <p class="text-text-muted/60 text-xs mt-3">1-2 week engagement</p>
           </div>
@@ -151,8 +186,99 @@ const base = import.meta.env.BASE_URL;
       </div>
     </section>
 
+    <!-- Industry-Specific Expertise -->
+    <section class="py-16 md:py-24 bg-cream">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-12" data-reveal>
+          <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Industry Expertise</p>
+          <h2 class="font-serif text-3xl md:text-4xl text-primary leading-tight">
+            What these services look like in your industry
+          </h2>
+          <p class="text-text-muted text-base mt-4 max-w-2xl mx-auto">
+            The core skills transfer, but the details matter. Here's how I apply executive operations experience to the industries I know best.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6" data-reveal-stagger>
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
+            <h3 class="font-serif text-lg text-primary mb-4">Biotech & Pharma</h3>
+            <ul class="space-y-2.5 text-sm text-text-muted leading-relaxed">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                FDA coordination logistics and regulatory meeting prep
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Scientific advisory board and DSMB meeting support
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Clinical trial timeline management and milestone tracking
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Board governance through funding rounds and clinical transitions
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Pre-IPO operational readiness
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
+            <h3 class="font-serif text-lg text-primary mb-4">Cannabis (MSO)</h3>
+            <ul class="space-y-2.5 text-sm text-text-muted leading-relaxed">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Multi-state compliance tracking and regulatory filing
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Investor relations across fragmented markets
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Board reporting for publicly traded entities
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Cross-state coordination across 46+ locations
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Quarterly earnings logistics and stakeholder comms
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
+            <h3 class="font-serif text-lg text-primary mb-4">Financial Services</h3>
+            <ul class="space-y-2.5 text-sm text-text-muted leading-relaxed">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Audit season operational surge management
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Partner-level calendar architecture
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Client engagement coordination across teams
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Compliance documentation and process controls
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Decision Guidance -->
-    <section class="py-12 md:py-16 bg-cream">
+    <section class="py-12 md:py-16 bg-warm">
       <div class="max-w-3xl mx-auto px-6">
         <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-8" data-reveal>
           <h3 class="font-serif text-xl text-primary text-center mb-6">Not sure which tier?</h3>

@@ -2,9 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import LogoBar from "../components/LogoBar.astro";
+import StatsBar from "../components/StatsBar.astro";
 import ProcessSteps from "../components/ProcessSteps.astro";
 import CaseStudy from "../components/CaseStudy.astro";
 import ComparisonTable from "../components/ComparisonTable.astro";
+import IndustryExpertise from "../components/IndustryExpertise.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
 import CTA from "../components/CTA.astro";
 import Footer from "../components/Footer.astro";
@@ -47,12 +49,12 @@ const base = import.meta.env.BASE_URL;
           </div>
 
           <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-[1.15] mb-6">
-            Stop being your own Chief of Staff. You have a
-            <span class="text-secondary">company to run.</span>
+            Your board prep is last-minute. Your investors are waiting. You're still
+            <span class="text-secondary">doing it all yourself.</span>
           </h1>
 
           <p class="text-white/55 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
-            I was EA to the CEO of a pre-IPO biotech. I managed 200+ investor relationships across 7 markets for a publicly traded cannabis company. I ran audit-season operations at PwC. Now I do it fractionally for leaders who need that caliber of support without a full-time headcount.
+            I was EA to the CEO of a pre-IPO biotech for 5 years. I managed 200+ investor relationships across 7 markets for a $562M publicly traded company. I ran audit-season operations at PwC. Now I do it fractionally for leaders who need a strategic operator, not a scheduler.
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4">
@@ -77,6 +79,9 @@ const base = import.meta.env.BASE_URL;
     <!-- Company Logo Bar -->
     <LogoBar />
 
+    <!-- Results By The Numbers -->
+    <StatsBar />
+
     <!-- Pain Points -->
     <section class="py-16 md:py-24 bg-cream">
       <div class="max-w-5xl mx-auto px-6">
@@ -88,44 +93,58 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <div class="grid md:grid-cols-2 gap-6" data-reveal-stagger>
-          <!-- Pain 1: Calendar chaos -->
+          <!-- Pain 1: Board governance -->
           <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
             <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
             </div>
-            <h3 class="font-serif text-lg text-primary mb-2">Calendar chaos and board prep always last-minute</h3>
-            <p class="text-text-muted text-sm leading-relaxed mb-3">Your week runs on adrenaline instead of systems. Board materials get assembled the night before. Meetings overlap. Nothing is proactive.</p>
-            <p class="text-primary/70 text-sm leading-relaxed font-medium">You're spending 10+ hours a week on logistics that should take someone else 2. That's $75K worth of your time per year on operations.</p>
+            <h3 class="font-serif text-lg text-primary mb-2">Board governance is reactive, not proactive</h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-3">Materials get assembled the night before. There's no repeatable prep process, no action tracking, no committee briefings. You're presenting to your board with duct tape behind the slides.</p>
+            <p class="text-primary/70 text-sm leading-relaxed font-medium">Your board members notice. Your investors notice more. Sloppy governance signals sloppy leadership, and that's not who you are.</p>
           </div>
 
-          <!-- Pain 2: Can't justify full-time -->
+          <!-- Pain 2: Investor relationships going cold -->
           <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
             <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
             </div>
-            <h3 class="font-serif text-lg text-primary mb-2">You need C-suite support but can't justify full-time</h3>
-            <p class="text-text-muted text-sm leading-relaxed mb-3">You need someone who thinks strategically, not a task rabbit. But the budget or volume doesn't warrant a $120K+ full-time hire.</p>
-            <p class="text-primary/70 text-sm leading-relaxed font-medium">So you're doing it yourself. Or delegating to someone who doesn't think at your level. Either way, things get missed.</p>
+            <h3 class="font-serif text-lg text-primary mb-2">Investor relationships are going cold</h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-3">You closed the round, but nobody is managing the ongoing relationship. Quarterly updates go out late. Stakeholders are pinging you directly because there's no system.</p>
+            <p class="text-primary/70 text-sm leading-relaxed font-medium">The relationships you worked hardest to build are eroding through neglect. Not because you don't care, but because nobody owns the follow-through.</p>
           </div>
 
-          <!-- Pain 3: Tribal knowledge -->
+          <!-- Pain 3: Institutional knowledge loss -->
           <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
             <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             </div>
-            <h3 class="font-serif text-lg text-primary mb-2">Operations run on tribal knowledge, not systems</h3>
-            <p class="text-text-muted text-sm leading-relaxed mb-3">When someone leaves, everything goes with them. No playbooks, no process docs, no onboarding systems. Every transition starts from scratch.</p>
-            <p class="text-primary/70 text-sm leading-relaxed font-medium">Your last EA left and took 6 months of institutional knowledge with them. The transition cost you 3 months of operational chaos.</p>
+            <h3 class="font-serif text-lg text-primary mb-2">Leadership transitions destroy institutional knowledge</h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-3">When your last EA or CoS left, 6 months of context walked out the door. No playbooks, no process docs, no onboarding systems. Every transition starts from scratch.</p>
+            <p class="text-primary/70 text-sm leading-relaxed font-medium">The cost isn't just a bad quarter. It's 3 months of operational chaos while the new person figures out how things actually work.</p>
           </div>
 
-          <!-- Pain 4: Trust & Confidentiality -->
+          <!-- Pain 4: Multi-entity coordination -->
           <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
             <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
-            <h3 class="font-serif text-lg text-primary mb-2">You need someone you can trust with everything</h3>
-            <p class="text-text-muted text-sm leading-relaxed mb-3">Board politics, investor negotiations, compensation data, M&A discussions. The single biggest anxiety about bringing in an outside person is discretion.</p>
-            <p class="text-primary/70 text-sm leading-relaxed font-medium">I've handled board-level confidential matters for 12 years across 7 companies. Every engagement starts with a mutual NDA. Discretion isn't a feature. It's the foundation.</p>
+            <h3 class="font-serif text-lg text-primary mb-2">Multi-entity operations are a coordination nightmare</h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-3">Cross-functional meetings take 5 days to schedule. Nothing is standardized across locations or entities. Compliance gaps keep emerging because nobody owns the connective tissue.</p>
+            <p class="text-primary/70 text-sm leading-relaxed font-medium">You need someone who has coordinated across 46 locations in 7 states for a publicly traded company. Not someone learning on the job.</p>
+          </div>
+
+          <!-- Pain 5: Trust & Confidentiality (full-width) -->
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7 md:col-span-2">
+            <div class="md:flex md:items-start md:gap-6">
+              <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 md:mb-0 flex-shrink-0">
+                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-serif text-lg text-primary mb-2">You need someone you can trust with everything</h3>
+                <p class="text-text-muted text-sm leading-relaxed mb-3">Board politics, investor negotiations, compensation data, M&A discussions, restructuring plans. The single biggest anxiety about bringing in an outside person is discretion. One slip and the damage is irreversible.</p>
+                <p class="text-primary/70 text-sm leading-relaxed font-medium">I've handled board-level confidential matters for 12 years across regulated industries: biotech during FDA reviews, cannabis during multi-state compliance audits, Big Four during audit season. Every engagement starts with a mutual NDA. Discretion isn't a feature. It's the foundation.</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -145,6 +164,9 @@ const base = import.meta.env.BASE_URL;
 
     <!-- Comparison Table -->
     <ComparisonTable />
+
+    <!-- Industry Expertise -->
+    <IndustryExpertise />
 
     <!-- Services Overview -->
     <section class="py-16 md:py-24 bg-warm">
@@ -212,21 +234,26 @@ const base = import.meta.env.BASE_URL;
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6" data-reveal-stagger>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" data-reveal-stagger>
           <TestimonialCard
-            quote="She built our entire board prep process from scratch. Materials delivered on time, every time. Our board members noticed the difference immediately."
-            attribution="CEO, Biopharma Company"
-            context="Board meeting operations"
+            quote="What I have with Leigh-Ann isn't a traditional EA relationship. It's a strategic partnership. She anticipates what I need before I know I need it, and she operates at a level that lets me focus entirely on the science and the business."
+            attribution="CEO, Clinical-Stage Biopharma"
+            context="5-year strategic partnership"
           />
           <TestimonialCard
-            quote="Having Leigh-Ann manage investor relations meant I could focus on running the business. She handled 200+ stakeholder relationships across seven markets without missing a beat."
-            attribution="Executive Leader, Cannabis Industry"
-            context="Investor relations and stakeholder management"
+            quote="She took over investor relations for a $562M publicly traded company and within weeks, response times dropped from days to hours. Our investors noticed. Our board noticed. I got 15 hours a month back."
+            attribution="Executive Leader, Cannabis MSO"
+            context="Investor relations across 7 markets"
           />
           <TestimonialCard
             quote="The onboarding system she created cut our executive ramp-up time by 20%. New leaders hit the ground running instead of spending their first month figuring out how things work."
             attribution="VP Operations, Financial Services"
             context="Executive onboarding systems"
+          />
+          <TestimonialCard
+            quote="The board changed our meeting date with 48 hours notice. She delivered the complete materials package 4 hours early. That's not admin work. That's operational excellence under pressure."
+            attribution="Board Member, Biopharma"
+            context="Crisis board delivery"
           />
         </div>
 
