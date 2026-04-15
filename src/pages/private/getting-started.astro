@@ -1,0 +1,475 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PrivateHeader from "../../components/PrivateHeader.astro";
+import Footer from "../../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout noindex={true} title="Getting Started | Leigh-Ann Martin" description="Step-by-step action plan for your career launch.">
+  <PrivateHeader />
+  <main>
+    <!-- Hero -->
+    <section class="bg-primary pt-24 pb-12 md:pt-32 md:pb-16">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Action Plan</p>
+        <h1 class="font-serif text-3xl md:text-4xl text-white leading-tight mb-4">
+          Getting Started
+        </h1>
+        <p class="text-white/50 text-base leading-relaxed max-w-xl mx-auto mb-6">
+          Your pipeline is working. 14-23% resume-to-interview conversion is strong. The gap is closing interviews, not getting them. This plan fixes that while building your fractional business in parallel.
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">2 parallel tracks</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">4-week phased plan</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">DM + outreach strategy</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Two Tracks -->
+    <section class="py-10 bg-warm border-b border-primary/[0.06]">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-l-secondary">
+            <p class="text-secondary text-xs font-bold tracking-wider uppercase mb-2">Track 1: Corporate</p>
+            <h3 class="font-serif text-lg text-primary mb-2">Full-time EA role ($120K-$165K)</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Apply to live postings, register with recruiters, close interviews by fixing delivery (conciseness) and positioning (strategic partner, not flight risk).</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-l-primary/30">
+            <p class="text-primary/60 text-xs font-bold tracking-wider uppercase mb-2">Track 2: Fractional</p>
+            <h3 class="font-serif text-lg text-primary mb-2">Fractional EA practice (outcome-based)</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Prospect outreach to funded companies, LinkedIn positioning, case-study-driven pitching. Use the website as your proof of credibility.</p>
+          </div>
+        </div>
+        <p class="text-text-muted text-xs text-center mt-4 italic">Run both tracks simultaneously. Whichever hits first, you're ready.</p>
+      </div>
+    </section>
+
+    <!-- WEEK 1: Days 1-3 -->
+    <section class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-secondary text-white rounded-full flex items-center justify-center font-serif text-lg font-bold flex-shrink-0">1</div>
+          <div>
+            <p class="text-secondary text-xs font-bold tracking-wider uppercase">This Week: Days 1-3</p>
+            <h2 class="font-serif text-2xl text-primary">Fix the Close</h2>
+          </div>
+        </div>
+
+        <p class="text-text-muted text-sm mb-6 leading-relaxed">Your pipeline is healthy. The problem is interview delivery. Before you apply to anything new, sharpen the tools that will close the deal.</p>
+
+        <div class="space-y-3">
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Read your Competitive Edge + Objections sections</p>
+                <p class="text-text-muted text-xs mt-1">Internalize your 7 differentiators and the counter-strategies for "long-winded," "flight risk," and "cannabis stigma." These are the three things costing you offers.</p>
+                <a href={`${base}private/interview-prep#competitive-edge`} class="text-secondary text-xs font-medium mt-1 inline-block hover:underline">Go to Interview Prep &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Practice "Tell Me About Yourself" out loud, 5 times</p>
+                <p class="text-text-muted text-xs mt-1">Set a timer. It should land under 60 seconds. Use the Present-Past-Future format. Record yourself on the 5th attempt and listen back. If it sounds conversational and confident, you're ready.</p>
+                <a href={`${base}private/interview-prep#playbook`} class="text-secondary text-xs font-medium mt-1 inline-block hover:underline">See your script &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Pick 3-4 STAR stories to have ready</p>
+                <p class="text-text-muted text-xs mt-1">You have 7 stories pre-built. Pick the ones that cover: board prep under pressure, investor relations at scale, anticipating executive needs, and improving a process. Those 4 cover 90% of interview questions.</p>
+                <a href={`${base}private/interview-prep#star-stories`} class="text-secondary text-xs font-medium mt-1 inline-block hover:underline">Review STAR stories &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Send all 7 LinkedIn recommendation requests</p>
+                <p class="text-text-muted text-xs mt-1">Each email is pre-drafted with a sample recommendation and a direct link to the LinkedIn form. Click the "Draft Email" button for each contact. Takes 10 minutes total.</p>
+                <a href={`${base}private/recommendations`} class="text-secondary text-xs font-medium mt-1 inline-block hover:underline">Go to Recommendations &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Register with 2 Tier 1 recruiter agencies</p>
+                <p class="text-text-muted text-xs mt-1">Start with <strong>C-Suite Assistants</strong> (6,000+ NYC EA database, gold standard) and <strong>Glocap Search</strong> (hedge fund and PE specialization, 750K+ candidate database).</p>
+                <a href={`${base}private/opportunities`} class="text-secondary text-xs font-medium mt-1 inline-block hover:underline">See recruiter list &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEEK 1: Days 4-7 -->
+    <section class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-secondary text-white rounded-full flex items-center justify-center font-serif text-lg font-bold flex-shrink-0">2</div>
+          <div>
+            <p class="text-secondary text-xs font-bold tracking-wider uppercase">This Week: Days 4-7</p>
+            <h2 class="font-serif text-2xl text-primary">Activate Both Pipelines</h2>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-l-secondary">
+            <p class="text-secondary text-[10px] font-bold tracking-wider uppercase mb-2">Corporate Track</p>
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Apply to all 6 Priority A jobs</p>
+                <p class="text-text-muted text-xs mt-1">Top targets: <strong>Alger</strong> ($125K-$175K, asset management CEO/CIO), <strong>Rimes Technologies</strong> ($125K-$145K, fintech CEO ex-Goldman), <strong>Point72</strong> ($100K-$130K+ bonus, hedge fund). Tailor your cover letter using the strategy notes on each listing.</p>
+                <a href={`${base}private/opportunities`} class="text-secondary text-xs font-medium mt-1 inline-block hover:underline">Go to Opportunities &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-l-primary/30">
+            <p class="text-primary/60 text-[10px] font-bold tracking-wider uppercase mb-2">Fractional Track</p>
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Send 5 fractional EA prospecting emails</p>
+                <p class="text-text-muted text-xs mt-1">Start with Priority A prospects. Each email is click-to-draft: <strong>Kim Seth</strong> (Nilo, $101M raise), <strong>Bing Yuan</strong> (OnCusp, IND approval), <strong>Jason Brouwer</strong> (Proxima, $80M), <strong>Gabe Stengel</strong> (Rogo, $750M valuation), <strong>Farooq Malik</strong> (Rain, unicorn).</p>
+                <a href={`${base}private/outreach`} class="text-secondary text-xs font-medium mt-1 inline-block hover:underline">Go to Outreach Emails &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Send warm reconnection emails to former employers</p>
+                <p class="text-text-muted text-xs mt-1">Pre-written warm emails for <strong>Eric Venker</strong> (new Immunovant CEO) and <strong>John Hartmann</strong> (former Ascend CEO). These are your highest-probability leads because you have institutional knowledge.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Review your public website</p>
+                <p class="text-text-muted text-xs mt-1">Walk through it as a prospect CEO who just got your email. Does it tell your story? Anything to change before prospects start clicking through?</p>
+                <a href={base} class="text-secondary text-xs font-medium mt-1 inline-block hover:underline">View public site &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEEK 2 -->
+    <section class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-secondary text-white rounded-full flex items-center justify-center font-serif text-lg font-bold flex-shrink-0">3</div>
+          <div>
+            <p class="text-secondary text-xs font-bold tracking-wider uppercase">Week 2</p>
+            <h2 class="font-serif text-2xl text-primary">Follow Up + Expand</h2>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Follow up on all Week 1 outreach (Day 5-7 after sending)</p>
+                <p class="text-text-muted text-xs mt-1">"Hi [Name], just bumping this in case it got buried. Happy to chat for 15 minutes if the timing makes sense." No new pitch. Just a nudge.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Register with 2 more Tier 1 recruiters</p>
+                <p class="text-text-muted text-xs mt-1"><strong>BCL Search</strong> (premium finance EAs, $200K-$275K roles) and <strong>Right Hand Talent</strong> (Chief of Staff specialists, founded by a former CoS).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Send next 5 outreach emails (Priority B prospects)</p>
+                <p class="text-text-muted text-xs mt-1">Continue through the outreach list. Each email is already customized. You're building a pipeline, not waiting for one response.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Apply to Priority B jobs</p>
+                <p class="text-text-muted text-xs mt-1">Earnest, Addepar, Via Transportation, GlossGenius. Below target salary but strong companies with equity upside or good brand value.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <div>
+                <p class="font-medium text-primary text-sm">Practice the hardest objections out loud</p>
+                <p class="text-text-muted text-xs mt-1">Set a timer. Under 60 seconds each: "Why are you leaving?" "Where do you see yourself in 5 years?" "Why EA and not Chief of Staff?" "Tell me about a difficult executive." Conversational, not rehearsed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEEK 3-4 -->
+    <section class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-secondary text-white rounded-full flex items-center justify-center font-serif text-lg font-bold flex-shrink-0">4</div>
+          <div>
+            <p class="text-secondary text-xs font-bold tracking-wider uppercase">Weeks 3-4</p>
+            <h2 class="font-serif text-2xl text-primary">Double Down on What's Working</h2>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <p class="font-medium text-primary text-sm">Check which outreach emails got replies. Send personalized follow-ups to responders. Archive non-responders for 30-day re-engagement.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <p class="font-medium text-primary text-sm">Monitor the 8 funded companies for new EA/CoS job postings (check careers pages weekly).</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <p class="font-medium text-primary text-sm">Register with Tier 2 recruiter agencies (Pocketbook Agency, Beacon Hill, A-List Associates, Career Group, Silver Chair Partners).</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <p class="font-medium text-primary text-sm">If fractional conversations are progressing, send your website link + services page as a leave-behind after discovery calls.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" class="mt-1 accent-secondary w-4 h-4 flex-shrink-0" />
+              <p class="font-medium text-primary text-sm">Adjust positioning based on interview feedback. If you keep hearing the same objection, revisit the counter-strategy and refine your delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DM & OUTREACH PIPELINE STRATEGY -->
+    <section class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          </div>
+          <h2 class="font-serif text-2xl text-primary">LinkedIn DM & Outreach Pipeline</h2>
+        </div>
+
+        <p class="text-text-muted text-sm mb-6 leading-relaxed">Cold email is your primary outreach channel. LinkedIn DMs are the follow-up and relationship layer. Here's how to use both together.</p>
+
+        <h3 class="font-semibold text-primary text-base mb-3">LinkedIn DM Templates</h3>
+        <div class="space-y-4 mb-8">
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="text-secondary text-[10px] font-bold tracking-wider uppercase mb-2">Connection Request (CEO you've emailed)</p>
+            <div class="bg-cream rounded-lg p-4 text-sm text-text/80 leading-relaxed">
+              <p>Hi [Name], I sent you a note last week about fractional executive operations support. I've spent 5 years supporting a biotech CEO through clinical transitions and board governance. Would love to connect and share a bit more about how I work. No pitch, just context.</p>
+            </div>
+            <p class="text-text-muted text-xs mt-2 italic">Send 2-3 days after your cold email. If they accept, wait 24 hours before messaging.</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="text-secondary text-[10px] font-bold tracking-wider uppercase mb-2">Follow-up DM (after connection accepted)</p>
+            <div class="bg-cream rounded-lg p-4 text-sm text-text/80 leading-relaxed">
+              <p>Thanks for connecting, [Name]. I noticed [specific thing about their company, e.g., "the Series A announcement" or "the new board member"]. I've handled exactly that kind of operational complexity before. If you're ever curious about fractional EA support, I'm an open book. Here's a quick look at my background: [website link]</p>
+            </div>
+            <p class="text-text-muted text-xs mt-2 italic">Always reference something specific. Generic DMs get ignored.</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="text-secondary text-[10px] font-bold tracking-wider uppercase mb-2">Warm reconnection (former colleagues)</p>
+            <div class="bg-cream rounded-lg p-4 text-sm text-text/80 leading-relaxed">
+              <p>Hi [Name], it's been a while. I've been building a fractional executive support practice since leaving [company]. I'd love to reconnect and hear what you're working on. Open to a quick call this week?</p>
+            </div>
+            <p class="text-text-muted text-xs mt-2 italic">Use for former colleagues at Immunovant, Ascend, PwC, Third Bridge. Your network is warmer than you think.</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="text-secondary text-[10px] font-bold tracking-wider uppercase mb-2">EA/CoS peer outreach (backdoor referrals)</p>
+            <div class="bg-cream rounded-lg p-4 text-sm text-text/80 leading-relaxed">
+              <p>Hi [Name], I came across your profile. I'm a senior EA with 12+ years across biotech, finance, and publicly traded companies. I'm exploring new opportunities and noticed you support [CEO name]. I'd love to learn about your experience at [company]. Always great to connect with fellow EAs who operate at a strategic level.</p>
+            </div>
+            <p class="text-text-muted text-xs mt-2 italic">EAs often know when their company is hiring before the posting goes live. This is how you get referred internally.</p>
+          </div>
+        </div>
+
+        <h3 class="font-semibold text-primary text-base mb-3">Follow-Up Cadence</h3>
+        <div class="bg-white rounded-xl p-5 shadow-sm mb-8">
+          <div class="space-y-3 text-sm">
+            <div class="flex items-start gap-3">
+              <span class="text-secondary font-bold text-sm mt-0.5 w-16 flex-shrink-0">Day 1</span>
+              <p class="text-text-muted">Send cold email (from the Outreach page).</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-secondary font-bold text-sm mt-0.5 w-16 flex-shrink-0">Day 3</span>
+              <p class="text-text-muted">Send LinkedIn connection request with the short note above.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-secondary font-bold text-sm mt-0.5 w-16 flex-shrink-0">Day 7</span>
+              <p class="text-text-muted">Email follow-up: "Hi [Name], just bumping this in case it got buried. Happy to chat for 15 minutes if the timing makes sense."</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-secondary font-bold text-sm mt-0.5 w-16 flex-shrink-0">Day 14</span>
+              <p class="text-text-muted">If connected on LinkedIn but no reply: send the follow-up DM with a specific reference to their company news.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-secondary font-bold text-sm mt-0.5 w-16 flex-shrink-0">Day 30</span>
+              <p class="text-text-muted">"No worries if the timing isn't right. I'll keep an eye on [company] and reach out if something changes." Then archive. Don't chase.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="font-semibold text-primary text-base mb-3">Pipeline Tracker</h3>
+        <div class="bg-white rounded-xl p-5 shadow-sm">
+          <p class="text-text-muted text-sm mb-4">Create a simple spreadsheet or Notion table with these columns:</p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs">
+              <thead>
+                <tr class="border-b border-primary/10">
+                  <th class="text-left py-2 pr-2 font-semibold text-primary">Company</th>
+                  <th class="text-left py-2 px-2 font-semibold text-primary">Contact</th>
+                  <th class="text-left py-2 px-2 font-semibold text-primary">Track</th>
+                  <th class="text-left py-2 px-2 font-semibold text-primary">Status</th>
+                  <th class="text-left py-2 px-2 font-semibold text-primary">Last Action</th>
+                  <th class="text-left py-2 pl-2 font-semibold text-primary">Next Step</th>
+                </tr>
+              </thead>
+              <tbody class="text-text-muted">
+                <tr class="border-b border-primary/[0.04]"><td class="py-2 pr-2">Alger</td><td class="py-2 px-2">HR/Recruiter</td><td class="py-2 px-2">Corporate</td><td class="py-2 px-2 text-secondary font-medium">Applied</td><td class="py-2 px-2">Apr 15</td><td class="py-2 pl-2">Follow up Apr 22</td></tr>
+                <tr class="border-b border-primary/[0.04]"><td class="py-2 pr-2">Nilo Therapeutics</td><td class="py-2 px-2">Kim Seth (CEO)</td><td class="py-2 px-2">Fractional</td><td class="py-2 px-2 text-secondary font-medium">Email sent</td><td class="py-2 px-2">Apr 16</td><td class="py-2 pl-2">LinkedIn connect Apr 18</td></tr>
+                <tr class="border-b border-primary/[0.04]"><td class="py-2 pr-2">Immunovant</td><td class="py-2 px-2">Eric Venker (CEO)</td><td class="py-2 px-2">Warm lead</td><td class="py-2 px-2 text-secondary font-medium">Email sent</td><td class="py-2 px-2">Apr 16</td><td class="py-2 pl-2">Follow up Apr 23</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-text-muted text-xs mt-3 italic">Statuses: Not started &rarr; Email sent &rarr; Connected &rarr; Replied &rarr; Call booked &rarr; Proposal sent &rarr; Won/Lost</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUCCESS METRICS -->
+    <section class="py-12 md:py-16 bg-primary">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center mb-8">
+          <p class="text-secondary text-xs font-bold tracking-wider uppercase mb-2">Track Your Progress</p>
+          <h2 class="font-serif text-2xl text-white">Success Metrics</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5">
+            <p class="text-secondary font-serif text-2xl mb-1">40%+</p>
+            <p class="text-white/50 text-sm">Interview-to-offer conversion (up from current close rate)</p>
+          </div>
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5">
+            <p class="text-secondary font-serif text-2xl mb-1">10-15%</p>
+            <p class="text-white/50 text-sm">Cold outreach reply rate (industry average for warm, personalized emails)</p>
+          </div>
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5">
+            <p class="text-secondary font-serif text-2xl mb-1">2-3</p>
+            <p class="text-white/50 text-sm">Discovery calls booked per week across both tracks</p>
+          </div>
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5">
+            <p class="text-secondary font-serif text-2xl mb-1">30 days</p>
+            <p class="text-white/50 text-sm">Target timeline to first offer or fractional engagement signed</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <p class="text-white/40 text-sm">Your pipeline is strong. 14-23% conversion means the market wants you. Now close.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="py-10 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <h3 class="font-serif text-lg text-primary text-center mb-6">Your Toolkit</h3>
+        <div class="grid sm:grid-cols-3 gap-3">
+          <a href={`${base}private/opportunities`} class="bg-white rounded-xl p-4 shadow-sm text-center hover:shadow-md transition-shadow">
+            <p class="font-medium text-primary text-sm">Job Opportunities</p>
+            <p class="text-text-muted text-xs mt-1">13 verified roles</p>
+          </a>
+          <a href={`${base}private/outreach`} class="bg-white rounded-xl p-4 shadow-sm text-center hover:shadow-md transition-shadow">
+            <p class="font-medium text-primary text-sm">Outreach Emails</p>
+            <p class="text-text-muted text-xs mt-1">19 click-to-draft</p>
+          </a>
+          <a href={`${base}private/prospects`} class="bg-white rounded-xl p-4 shadow-sm text-center hover:shadow-md transition-shadow">
+            <p class="font-medium text-primary text-sm">Prospect Database</p>
+            <p class="text-text-muted text-xs mt-1">26+ companies</p>
+          </a>
+          <a href={`${base}private/recommendations`} class="bg-white rounded-xl p-4 shadow-sm text-center hover:shadow-md transition-shadow">
+            <p class="font-medium text-primary text-sm">LinkedIn Recs</p>
+            <p class="text-text-muted text-xs mt-1">7 contacts</p>
+          </a>
+          <a href={`${base}private/interview-prep`} class="bg-white rounded-xl p-4 shadow-sm text-center hover:shadow-md transition-shadow">
+            <p class="font-medium text-primary text-sm">Interview Prep</p>
+            <p class="text-text-muted text-xs mt-1">12 sections</p>
+          </a>
+          <a href={base} class="bg-white rounded-xl p-4 shadow-sm text-center hover:shadow-md transition-shadow">
+            <p class="font-medium text-primary text-sm">Public Website</p>
+            <p class="text-text-muted text-xs mt-1">Your fractional brand</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const revealEls = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+  );
+  revealEls.forEach((el) => observer.observe(el));
+</script>
