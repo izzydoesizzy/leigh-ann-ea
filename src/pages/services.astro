@@ -5,9 +5,11 @@ import ServiceCard from "../components/ServiceCard.astro";
 import FAQ from "../components/FAQ.astro";
 import CTA from "../components/CTA.astro";
 import Footer from "../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Services | Leigh-Ann Martin — Fractional Executive Partner">
+<Layout title="Services | Leigh-Ann Martin — Fractional Executive Assistant & Chief of Staff">
   <Header />
   <main>
     <!-- Hero -->
@@ -71,7 +73,7 @@ import Footer from "../components/Footer.astro";
             tier="Tier 3"
             title="Fractional Chief of Staff"
             price="$12,500"
-            tagline="A strategic operator running the machine."
+            tagline="You focus on the vision. Everything else is handled."
             items={[
               "Everything in Tier 2",
               "Strategic initiative tracking",
@@ -146,6 +148,47 @@ import Footer from "../components/Footer.astro";
             <p class="text-text-muted/60 text-xs mt-3">1 week engagement</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Decision Guidance -->
+    <section class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-8" data-reveal>
+          <h3 class="font-serif text-xl text-primary text-center mb-6">Not sure which tier?</h3>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="text-secondary font-serif text-lg font-bold mt-0.5">1</span>
+              <p class="text-text-muted text-sm leading-relaxed"><span class="text-primary font-medium">Your calendar and inbox are a fire drill?</span> Start with Tier 1.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-secondary font-serif text-lg font-bold mt-0.5">2</span>
+              <p class="text-text-muted text-sm leading-relaxed"><span class="text-primary font-medium">You have a board or investors?</span> You need Tier 2.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-secondary font-serif text-lg font-bold mt-0.5">3</span>
+              <p class="text-text-muted text-sm leading-relaxed"><span class="text-primary font-medium">You need someone who can run a leadership meeting when you're traveling?</span> That's Tier 3.</p>
+            </div>
+            <div class="flex items-start gap-3 pt-2 border-t border-primary/[0.06]">
+              <span class="text-secondary font-serif text-lg font-bold mt-0.5">?</span>
+              <p class="text-text-muted text-sm leading-relaxed"><span class="text-primary font-medium">Still not sure?</span> Start with the Operations Audit ($4,000). I'll tell you exactly what you need.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mid-page CTA -->
+    <section class="py-10 bg-primary">
+      <div class="max-w-2xl mx-auto px-6 text-center">
+        <p class="text-white/60 text-sm mb-4">Every engagement starts with a conversation.</p>
+        <a
+          href={`${base}contact`}
+          class="inline-flex items-center gap-2 bg-secondary text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20"
+        >
+          Book a 30-Minute Call
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
       </div>
     </section>
 

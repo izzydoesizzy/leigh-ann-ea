@@ -1,7 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-import StatsBar from "../components/StatsBar.astro";
+import LogoBar from "../components/LogoBar.astro";
+import ProcessSteps from "../components/ProcessSteps.astro";
+import CaseStudy from "../components/CaseStudy.astro";
+import ComparisonTable from "../components/ComparisonTable.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
 import CTA from "../components/CTA.astro";
 import Footer from "../components/Footer.astro";
@@ -28,6 +31,11 @@ const base = import.meta.env.BASE_URL;
                 class="w-full h-full object-cover"
               />
             </div>
+            <!-- LinkedIn link near photo -->
+            <a href="https://linkedin.com/in/leigh-ann-martin" target="_blank" rel="noopener noreferrer" class="absolute -bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-3 py-1.5 text-white/60 hover:text-white/90 transition-colors text-xs">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
           </div>
         </div>
 
@@ -35,16 +43,16 @@ const base = import.meta.env.BASE_URL;
         <div class="md:col-span-8">
           <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 mb-6">
             <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-            <span class="text-white/70 text-xs font-medium tracking-widest uppercase">Available for new engagements</span>
+            <span class="text-white/70 text-xs font-medium tracking-widest uppercase">Taking on 1 new client</span>
           </div>
 
           <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-[1.15] mb-6">
-            Your executive operations, handled by someone who's done it at the
-            <span class="text-secondary">highest level.</span>
+            Stop being your own Chief of Staff. You have a
+            <span class="text-secondary">company to run.</span>
           </h1>
 
           <p class="text-white/55 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
-            12+ years supporting C-suite leaders across biotech, finance, Big Four, and cannabis. Board prep, investor relations, stakeholder management, and the operational backbone that keeps everything running.
+            I was EA to the CEO of a pre-IPO biotech. I managed 200+ investor relationships across 7 markets for a publicly traded cannabis company. I ran audit-season operations at PwC. Now I do it fractionally for leaders who need that caliber of support without a full-time headcount.
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4">
@@ -66,8 +74,8 @@ const base = import.meta.env.BASE_URL;
       </div>
     </section>
 
-    <!-- Stats Bar -->
-    <StatsBar />
+    <!-- Company Logo Bar -->
+    <LogoBar />
 
     <!-- Pain Points -->
     <section class="py-16 md:py-24 bg-cream">
@@ -79,33 +87,64 @@ const base = import.meta.env.BASE_URL;
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6" data-reveal-stagger>
+        <div class="grid md:grid-cols-2 gap-6" data-reveal-stagger>
+          <!-- Pain 1: Calendar chaos -->
           <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
             <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
             </div>
             <h3 class="font-serif text-lg text-primary mb-2">Calendar chaos and board prep always last-minute</h3>
-            <p class="text-text-muted text-sm leading-relaxed">Your week runs on adrenaline instead of systems. Board materials get assembled the night before. Meetings overlap. Nothing is proactive.</p>
+            <p class="text-text-muted text-sm leading-relaxed mb-3">Your week runs on adrenaline instead of systems. Board materials get assembled the night before. Meetings overlap. Nothing is proactive.</p>
+            <p class="text-primary/70 text-sm leading-relaxed font-medium">You're spending 10+ hours a week on logistics that should take someone else 2. That's $75K worth of your time per year on operations.</p>
           </div>
 
+          <!-- Pain 2: Can't justify full-time -->
           <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
             <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
             </div>
             <h3 class="font-serif text-lg text-primary mb-2">You need C-suite support but can't justify full-time</h3>
-            <p class="text-text-muted text-sm leading-relaxed">You need someone who thinks strategically, not a task rabbit. But the budget or volume doesn't warrant a $120K+ full-time hire.</p>
+            <p class="text-text-muted text-sm leading-relaxed mb-3">You need someone who thinks strategically, not a task rabbit. But the budget or volume doesn't warrant a $120K+ full-time hire.</p>
+            <p class="text-primary/70 text-sm leading-relaxed font-medium">So you're doing it yourself. Or delegating to someone who doesn't think at your level. Either way, things get missed.</p>
           </div>
 
+          <!-- Pain 3: Tribal knowledge -->
           <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
             <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             </div>
             <h3 class="font-serif text-lg text-primary mb-2">Operations run on tribal knowledge, not systems</h3>
-            <p class="text-text-muted text-sm leading-relaxed">When someone leaves, everything goes with them. No playbooks, no process docs, no onboarding systems. Every transition starts from scratch.</p>
+            <p class="text-text-muted text-sm leading-relaxed mb-3">When someone leaves, everything goes with them. No playbooks, no process docs, no onboarding systems. Every transition starts from scratch.</p>
+            <p class="text-primary/70 text-sm leading-relaxed font-medium">Your last EA left and took 6 months of institutional knowledge with them. The transition cost you 3 months of operational chaos.</p>
           </div>
+
+          <!-- Pain 4: Trust & Confidentiality -->
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
+            <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            </div>
+            <h3 class="font-serif text-lg text-primary mb-2">You need someone you can trust with everything</h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-3">Board politics, investor negotiations, compensation data, M&A discussions. The single biggest anxiety about bringing in an outside person is discretion.</p>
+            <p class="text-primary/70 text-sm leading-relaxed font-medium">I've handled board-level confidential matters for 12 years across 7 companies. Every engagement starts with a mutual NDA. Discretion isn't a feature. It's the foundation.</p>
+          </div>
+        </div>
+
+        <!-- EA Just Left callout -->
+        <div class="mt-8 bg-secondary/5 border border-secondary/15 rounded-2xl p-6 text-center" data-reveal>
+          <p class="text-primary font-serif text-lg mb-2">Your EA just gave notice?</p>
+          <p class="text-text-muted text-sm leading-relaxed max-w-2xl mx-auto">I can step in this week, not in 90 days after a recruiting process. Start with an <a href={`${base}services`} class="text-secondary font-medium hover:underline">Operations Audit</a> to bridge the gap, or go straight to a retainer for immediate support.</p>
         </div>
       </div>
     </section>
+
+    <!-- How It Works -->
+    <ProcessSteps />
+
+    <!-- Case Studies -->
+    <CaseStudy />
+
+    <!-- Comparison Table -->
+    <ComparisonTable />
 
     <!-- Services Overview -->
     <section class="py-16 md:py-24 bg-warm">
@@ -153,7 +192,7 @@ const base = import.meta.env.BASE_URL;
             <p class="text-secondary text-xs font-semibold tracking-wide uppercase mb-2">Tier 3</p>
             <h3 class="font-serif text-xl text-primary mb-1 group-hover:text-secondary transition-colors">Fractional Chief of Staff</h3>
             <p class="font-serif text-3xl text-primary mb-3">$12,500<span class="text-text-muted text-sm font-sans">/mo</span></p>
-            <p class="text-text-muted text-sm leading-relaxed flex-1">A strategic operator embedded in your leadership team. OKRs, confidential projects, hiring coordination, and on-call support.</p>
+            <p class="text-text-muted text-sm leading-relaxed flex-1">You focus on the vision. Everything else is handled. OKRs, confidential projects, hiring coordination, and on-call support.</p>
             <p class="text-secondary text-sm font-medium mt-4 flex items-center gap-1">
               Learn more
               <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -163,68 +202,8 @@ const base = import.meta.env.BASE_URL;
       </div>
     </section>
 
-    <!-- Proof / Metrics -->
-    <section class="py-16 md:py-24 bg-primary">
-      <div class="max-w-5xl mx-auto px-6">
-        <div class="text-center mb-12" data-reveal>
-          <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Track Record</p>
-          <h2 class="font-serif text-3xl md:text-4xl text-white leading-tight">
-            Results from real engagements
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4" data-reveal-stagger>
-          <div class="bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-6 text-center">
-            <p class="font-serif text-2xl md:text-3xl text-white">$10M+</p>
-            <p class="text-white/50 text-sm mt-1">Payment processing managed at 99% accuracy</p>
-          </div>
-          <div class="bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-6 text-center">
-            <p class="font-serif text-2xl md:text-3xl text-secondary">200+</p>
-            <p class="text-white/50 text-sm mt-1">Stakeholders managed across 7 markets</p>
-          </div>
-          <div class="bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-6 text-center">
-            <p class="font-serif text-2xl md:text-3xl text-white">30%</p>
-            <p class="text-white/50 text-sm mt-1">Improvement in decision-making speed</p>
-          </div>
-          <div class="bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-6 text-center">
-            <p class="font-serif text-2xl md:text-3xl text-secondary">20%</p>
-            <p class="text-white/50 text-sm mt-1">Faster executive onboarding</p>
-          </div>
-          <div class="bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-6 text-center">
-            <p class="font-serif text-2xl md:text-3xl text-white">100%</p>
-            <p class="text-white/50 text-sm mt-1">Regulatory compliance maintained</p>
-          </div>
-          <div class="bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-6 text-center">
-            <p class="font-serif text-2xl md:text-3xl text-secondary">95-98%</p>
-            <p class="text-white/50 text-sm mt-1">Stakeholder satisfaction rate</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Industries -->
-    <section class="py-16 md:py-24 bg-cream">
-      <div class="max-w-5xl mx-auto px-6">
-        <div class="text-center mb-12" data-reveal>
-          <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Industry Experience</p>
-          <h2 class="font-serif text-3xl md:text-4xl text-primary leading-tight">
-            Deep experience where it matters
-          </h2>
-        </div>
-
-        <div class="flex flex-wrap justify-center gap-3" data-reveal>
-          <span class="bg-primary/5 border border-primary/10 text-primary text-sm font-medium px-5 py-2.5 rounded-full">Biotech / Biopharma</span>
-          <span class="bg-primary/5 border border-primary/10 text-primary text-sm font-medium px-5 py-2.5 rounded-full">Cannabis</span>
-          <span class="bg-primary/5 border border-primary/10 text-primary text-sm font-medium px-5 py-2.5 rounded-full">Big Four Accounting</span>
-          <span class="bg-primary/5 border border-primary/10 text-primary text-sm font-medium px-5 py-2.5 rounded-full">Finance / Fintech</span>
-          <span class="bg-primary/5 border border-primary/10 text-primary text-sm font-medium px-5 py-2.5 rounded-full">Consulting</span>
-          <span class="bg-primary/5 border border-primary/10 text-primary text-sm font-medium px-5 py-2.5 rounded-full">Oil and Gas</span>
-        </div>
-      </div>
-    </section>
-
     <!-- Testimonials -->
-    <section class="py-16 md:py-24 bg-warm">
+    <section class="py-16 md:py-24 bg-cream">
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-12" data-reveal>
           <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">What People Say</p>
@@ -252,13 +231,13 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <p class="text-center text-text-muted text-sm mt-10" data-reveal>
-          Testimonials represent the quality of work delivered. Names available upon request.
+          References provided during consultation.
         </p>
       </div>
     </section>
 
     <!-- CTA -->
-    <CTA />
+    <CTA heading="I work with 3-4 clients at a time." subtext="If you need senior-level executive operations support without a full-time hire, let's talk. Book a free 30-minute call. No pitch, no pressure." />
   </main>
   <Footer />
 </Layout>

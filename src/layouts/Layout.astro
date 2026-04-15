@@ -2,11 +2,13 @@
 interface Props {
   title: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
   description = "Fractional Executive Assistant and Chief of Staff services for growth-stage companies. 12+ years across biotech, finance, Big Four, and cannabis.",
+  noindex = false,
 } = Astro.props;
 ---
 
@@ -15,6 +17,8 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {noindex && <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />}
+    {noindex && <meta name="googlebot" content="noindex, nofollow" />}
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

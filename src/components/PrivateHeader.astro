@@ -1,0 +1,76 @@
+---
+const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname;
+
+const privatePages = [
+  { label: "Prospects", href: `${base}private/prospects` },
+  { label: "Outreach", href: `${base}private/outreach` },
+  { label: "Opportunities", href: `${base}private/opportunities` },
+  { label: "Recommendations", href: `${base}private/recommendations` },
+  { label: "Interview Prep", href: `${base}private/interview-prep` },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-lg shadow-sm">
+  <nav class="max-w-6xl mx-auto px-6 flex items-center justify-between h-14">
+    <div class="flex items-center gap-3">
+      <a href={base} class="font-serif text-lg text-white/60 hover:text-white/80 transition-colors">Leigh-Ann Martin</a>
+      <span class="text-white/20">|</span>
+      <span class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase">Private</span>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button id="private-mobile-menu-btn" class="md:hidden text-white/60 hover:text-white transition-colors" aria-label="Toggle menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-1">
+      {privatePages.map(page => (
+        <a
+          href={page.href}
+          class={`text-xs font-medium px-3 py-1.5 rounded-full transition-colors ${
+            currentPath.includes(page.href.replace(base, '').replace('private/', ''))
+              ? 'bg-white/10 text-white'
+              : 'text-white/50 hover:text-white/80 hover:bg-white/5'
+          }`}
+        >
+          {page.label}
+        </a>
+      ))}
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div id="private-mobile-menu" class="hidden md:hidden border-t border-white/[0.08] bg-primary/95 backdrop-blur-lg">
+    <div class="px-6 py-4 space-y-2">
+      {privatePages.map(page => (
+        <a
+          href={page.href}
+          class={`block text-sm font-medium transition-colors py-1 ${
+            currentPath.includes(page.href.replace(base, '').replace('private/', ''))
+              ? 'text-white'
+              : 'text-white/50 hover:text-white/80'
+          }`}
+        >
+          {page.label}
+        </a>
+      ))}
+      <div class="pt-2 border-t border-white/[0.08]">
+        <a href={base} class="block text-xs text-white/30 hover:text-white/50 transition-colors py-1">
+          Back to public site
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('private-mobile-menu-btn');
+  const menu = document.getElementById('private-mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

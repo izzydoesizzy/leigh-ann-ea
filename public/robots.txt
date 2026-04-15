@@ -1,0 +1,35 @@
+User-agent: *
+Disallow: /private/
+Disallow: /leigh-ann-ea/private/
+
+User-agent: GPTBot
+Disallow: /private/
+Disallow: /leigh-ann-ea/private/
+
+User-agent: ChatGPT-User
+Disallow: /private/
+Disallow: /leigh-ann-ea/private/
+
+User-agent: Claude-Web
+Disallow: /private/
+Disallow: /leigh-ann-ea/private/
+
+User-agent: anthropic-ai
+Disallow: /private/
+Disallow: /leigh-ann-ea/private/
+
+User-agent: CCBot
+Disallow: /private/
+Disallow: /leigh-ann-ea/private/
+
+User-agent: Google-Extended
+Disallow: /private/
+Disallow: /leigh-ann-ea/private/
+
+User-agent: PerplexityBot
+Disallow: /private/
+Disallow: /leigh-ann-ea/private/
+
+User-agent: Bytespider
+Disallow: /private/
+Disallow: /leigh-ann-ea/private/

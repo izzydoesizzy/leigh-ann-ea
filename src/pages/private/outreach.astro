@@ -1,7 +1,7 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+import PrivateHeader from "../../components/PrivateHeader.astro";
+import Footer from "../../components/Footer.astro";
 
 const base = import.meta.env.BASE_URL;
 
@@ -497,8 +497,8 @@ function buildMailto(email: string, subject: string, body: string) {
 }
 ---
 
-<Layout title="Click-to-Send Outreach | Leigh-Ann Martin">
-  <Header />
+<Layout noindex={true} title="Click-to-Send Outreach | Leigh-Ann Martin">
+  <PrivateHeader />
   <main>
     <!-- Hero -->
     <section class="bg-primary pt-28 pb-16 md:pt-36 md:pb-20">

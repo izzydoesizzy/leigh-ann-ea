@@ -1,0 +1,481 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PrivateHeader from "../../components/PrivateHeader.astro";
+import Footer from "../../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout noindex={true} title="Interview Prep | Leigh-Ann Martin" description="Interview preparation guide for Executive Assistant roles in NYC.">
+  <PrivateHeader />
+  <main>
+    <!-- Hero -->
+    <section class="bg-primary pt-24 pb-12 md:pt-32 md:pb-16">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Interview Prep Guide</p>
+        <h1 class="font-serif text-3xl md:text-4xl text-white leading-tight mb-4">
+          Executive Assistant Roles in New York City
+        </h1>
+        <p class="text-white/55 text-base leading-relaxed max-w-xl mx-auto mb-6">
+          12 sections covering market research, custom questions, STAR stories, salary strategy, and more. Everything you need to walk into interviews confident and ready.
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">12 Sections</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">Market Research</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">Custom Questions</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">STAR Stories</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">Salary Strategy</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Nav -->
+    <section class="bg-primary/95 border-t border-white/[0.06] py-4 sticky top-14 z-40">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="flex flex-wrap justify-center gap-2 text-xs">
+          <a href="#how-to-prepare" class="text-white/40 hover:text-white/70 transition-colors">Prep Checklist</a>
+          <span class="text-white/15">|</span>
+          <a href="#role-landscape" class="text-white/40 hover:text-white/70 transition-colors">1. Role Landscape</a>
+          <span class="text-white/15">|</span>
+          <a href="#market-intel" class="text-white/40 hover:text-white/70 transition-colors">2. Market Intel</a>
+          <span class="text-white/15">|</span>
+          <a href="#target-companies" class="text-white/40 hover:text-white/70 transition-colors">3. Targets</a>
+          <span class="text-white/15">|</span>
+          <a href="#competitive-edge" class="text-white/40 hover:text-white/70 transition-colors">4. Your Edge</a>
+          <span class="text-white/15">|</span>
+          <a href="#objections" class="text-white/40 hover:text-white/70 transition-colors">5. Objections</a>
+          <span class="text-white/15">|</span>
+          <a href="#playbook" class="text-white/40 hover:text-white/70 transition-colors">6. Playbook</a>
+          <span class="text-white/15">|</span>
+          <a href="#star-stories" class="text-white/40 hover:text-white/70 transition-colors">7. STAR Stories</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Prepare -->
+    <section id="how-to-prepare" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="font-serif text-2xl text-primary mb-6">How to Prepare</h2>
+        <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 space-y-4">
+          <div class="flex gap-3">
+            <span class="text-secondary font-bold text-sm mt-0.5">1.</span>
+            <div><span class="font-semibold text-primary text-sm">The day before:</span> <span class="text-text-muted text-sm">Read sections 1-3 to internalize the market knowledge. You want this information to feel natural, not memorized.</span></div>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-secondary font-bold text-sm mt-0.5">2.</span>
+            <div><span class="font-semibold text-primary text-sm">Rehearse out loud:</span> <span class="text-text-muted text-sm">Practice your "Tell Me About Yourself" answer (section 6) at least 3-5 times. Time yourself. It should feel conversational and land under 60 seconds.</span></div>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-secondary font-bold text-sm mt-0.5">3.</span>
+            <div><span class="font-semibold text-primary text-sm">Pick your stories:</span> <span class="text-text-muted text-sm">Review your STAR stories (section 7) and pick 3-4 that cover the most ground. Be ready to use them.</span></div>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-secondary font-bold text-sm mt-0.5">4.</span>
+            <div><span class="font-semibold text-primary text-sm">Prepare your questions:</span> <span class="text-text-muted text-sm">Skim section 8 and pick your top 3-4 questions to ask.</span></div>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-secondary font-bold text-sm mt-0.5">5.</span>
+            <div><span class="font-semibold text-primary text-sm">Review objections:</span> <span class="text-text-muted text-sm">Read section 5 so you are ready if any tough questions come up. Having a counter-strategy removes the anxiety.</span></div>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-secondary font-bold text-sm mt-0.5">6.</span>
+            <div><span class="font-semibold text-primary text-sm">Morning of:</span> <span class="text-text-muted text-sm">Re-read sections 4 and 10 for a confidence boost and strategic clarity.</span></div>
+          </div>
+        </div>
+        <p class="text-text-muted text-sm mt-4 text-center italic">You have got this.</p>
+      </div>
+    </section>
+
+    <!-- 1. Role Landscape -->
+    <section id="role-landscape" class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 1</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">Role Landscape</h2>
+
+        <h3 class="font-semibold text-primary text-lg mb-3">Common Responsibilities</h3>
+        <div class="bg-white rounded-xl p-5 shadow-sm mb-6">
+          <ol class="space-y-2 text-sm text-text-muted list-decimal list-inside">
+            <li><span class="font-medium text-primary">Calendar and schedule management</span> for one or more C-suite executives, including complex multi-timezone coordination</li>
+            <li><span class="font-medium text-primary">Board meeting preparation</span> including agenda creation, materials coordination, minute-taking, and follow-up action tracking</li>
+            <li><span class="font-medium text-primary">Travel planning and logistics</span> for domestic and international trips</li>
+            <li><span class="font-medium text-primary">Stakeholder communication</span> acting as the primary point of contact between executives and internal/external stakeholders</li>
+            <li><span class="font-medium text-primary">Confidential information handling</span> including HR matters, M&A activity, investor communications, and legal documents</li>
+            <li><span class="font-medium text-primary">Project management</span> for cross-functional initiatives, often serving as the executive's proxy</li>
+            <li><span class="font-medium text-primary">Gatekeeping and access management</span> controlling the executive's time and prioritizing requests</li>
+            <li><span class="font-medium text-primary">Event coordination</span> for off-sites, team events, client dinners, and board meetings</li>
+            <li><span class="font-medium text-primary">Document preparation</span> including presentations, reports, memos, and correspondence</li>
+            <li><span class="font-medium text-primary">Office operations oversight</span> including vendor management, supply ordering, and facilities coordination</li>
+          </ol>
+        </div>
+
+        <h3 class="font-semibold text-primary text-lg mb-3">What Hiring Managers Actually Look For</h3>
+        <div class="bg-white rounded-xl p-5 shadow-sm mb-6">
+          <ul class="space-y-2 text-sm text-text-muted">
+            <li><span class="font-medium text-primary">Anticipation:</span> Can you see what the executive needs before they ask?</li>
+            <li><span class="font-medium text-primary">Judgment:</span> Can you make decisions on behalf of the executive when they are unavailable?</li>
+            <li><span class="font-medium text-primary">Emotional intelligence:</span> Can you read the room, manage difficult personalities, and de-escalate situations?</li>
+            <li><span class="font-medium text-primary">Ownership:</span> Do you treat the executive's priorities as your own?</li>
+            <li><span class="font-medium text-primary">Communication conciseness:</span> Can you brief someone in 30 seconds or write a clear email in 3 sentences?</li>
+          </ul>
+        </div>
+
+        <h3 class="font-semibold text-primary text-lg mb-3">Salary Data</h3>
+        <div class="overflow-x-auto mb-4">
+          <table class="w-full text-sm bg-white rounded-xl shadow-sm overflow-hidden">
+            <thead>
+              <tr class="bg-primary/5">
+                <th class="text-left text-primary font-semibold p-3 text-xs uppercase tracking-wide">Level</th>
+                <th class="text-left text-primary font-semibold p-3 text-xs uppercase tracking-wide">Base Salary (NYC)</th>
+                <th class="text-left text-primary font-semibold p-3 text-xs uppercase tracking-wide">Total Comp</th>
+              </tr>
+            </thead>
+            <tbody class="text-text-muted">
+              <tr class="border-t border-primary/[0.06]"><td class="p-3">Entry-Level EA</td><td class="p-3">$55,000 - $70,000</td><td class="p-3">$58,000 - $75,000</td></tr>
+              <tr class="border-t border-primary/[0.06]"><td class="p-3">Mid-Level EA (5-7 yrs)</td><td class="p-3">$75,000 - $95,000</td><td class="p-3">$80,000 - $105,000</td></tr>
+              <tr class="border-t border-primary/[0.06]"><td class="p-3 font-medium text-primary">Senior EA (8-12 yrs)</td><td class="p-3">$95,000 - $130,000</td><td class="p-3">$105,000 - $145,000</td></tr>
+              <tr class="border-t border-primary/[0.06] bg-secondary/5"><td class="p-3 font-semibold text-primary">EA to CEO / C-Suite</td><td class="p-3 font-medium">$120,000 - $165,000</td><td class="p-3 font-medium">$135,000 - $185,000</td></tr>
+              <tr class="border-t border-primary/[0.06]"><td class="p-3">Chief of Staff</td><td class="p-3">$150,000 - $300,000</td><td class="p-3">$170,000 - $350,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-text-muted text-xs italic">Your positioning: With 10+ years, C-suite and board-level support, and investor relations expertise, you sit firmly in the EA to C-Suite range. Your target of $120K-$165K base is well within market.</p>
+      </div>
+    </section>
+
+    <!-- 2. Market Intel -->
+    <section id="market-intel" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 2</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">Market Intel</h2>
+
+        <div class="grid sm:grid-cols-2 gap-4 mb-6">
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="font-serif text-2xl text-secondary mb-1">12%</p>
+            <p class="text-text-muted text-sm">Increase in EA job listings, especially tech and finance</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="font-serif text-2xl text-secondary mb-1">755+</p>
+            <p class="text-text-muted text-sm">Open EA positions in NYC on Glassdoor alone (March 2026)</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-5 shadow-sm mb-6">
+          <h3 class="font-semibold text-primary text-sm mb-3">Key Trends</h3>
+          <ul class="space-y-2 text-sm text-text-muted">
+            <li><span class="font-medium text-primary">Shrinking talent pool:</span> CEOs are asking more of their support staff, yet the pool of qualified professionals is shrinking</li>
+            <li><span class="font-medium text-primary">Compensation climbing:</span> Salaries for top EA talent continue to rise, especially in NYC</li>
+            <li><span class="font-medium text-primary">AI-fluent preferred:</span> Employers increasingly looking for EAs who can use Claude, ChatGPT, or Copilot</li>
+          </ul>
+        </div>
+
+        <h3 class="font-semibold text-primary text-lg mb-3">Remote vs. Hybrid vs. In-Office</h3>
+        <div class="bg-white rounded-xl p-5 shadow-sm">
+          <ul class="space-y-2 text-sm text-text-muted">
+            <li><span class="font-medium text-primary">Hybrid (3 days in-office):</span> Most common, roughly 55-60% of postings</li>
+            <li><span class="font-medium text-primary">Fully in-office:</span> Still required for ~30% of roles, especially in finance, legal, and healthcare</li>
+            <li><span class="font-medium text-primary">Fully remote:</span> Rare for traditional roles (~10-15%), more common for "virtual EA" or fractional</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Target Companies -->
+    <section id="target-companies" class="py-12 md:py-16 bg-warm">
+      <div class="max-w-4xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 3</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">Target Companies</h2>
+        <p class="text-text-muted text-sm mb-6">12 companies in NYC worth targeting, based on your background in investor relations, biotech, and finance.</p>
+
+        <h3 class="font-semibold text-primary text-base mb-3">Biotech and Biopharma</h3>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm bg-white rounded-xl shadow-sm overflow-hidden">
+            <thead><tr class="bg-primary/5"><th class="text-left p-3 text-xs uppercase tracking-wide text-primary font-semibold">Company</th><th class="text-left p-3 text-xs uppercase tracking-wide text-primary font-semibold">Why It Could Fit</th></tr></thead>
+            <tbody class="text-text-muted">
+              <tr class="border-t border-primary/[0.06]"><td class="p-3 font-medium text-primary">Regeneron</td><td class="p-3">Major biopharma with NYC presence. Your biopharma EA experience is directly transferable. Strong IR function.</td></tr>
+              <tr class="border-t border-primary/[0.06]"><td class="p-3 font-medium text-primary">Bristol-Myers Squibb</td><td class="p-3">NYC office with large executive team. IR-heavy. Your board meeting and C-suite experience fits well.</td></tr>
+              <tr class="border-t border-primary/[0.06]"><td class="p-3 font-medium text-primary">Pfizer</td><td class="p-3">HQ in NYC (Hudson Yards). Multiple EA openings across divisions.</td></tr>
+              <tr class="border-t border-primary/[0.06]"><td class="p-3 font-medium text-primary">Genmab</td><td class="p-3">Danish biotech with growing NYC office. Fast-growth stage means more responsibility.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="font-semibold text-primary text-base mb-3">Finance and Fintech</h3>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm bg-white rounded-xl shadow-sm overflow-hidden">
+            <thead><tr class="bg-primary/5"><th class="text-left p-3 text-xs uppercase tracking-wide text-primary font-semibold">Company</th><th class="text-left p-3 text-xs uppercase tracking-wide text-primary font-semibold">Why It Could Fit</th></tr></thead>
+            <tbody class="text-text-muted">
+              <tr class="border-t border-primary/[0.06]"><td class="p-3 font-medium text-primary">JPMorgan Chase</td><td class="p-3">Massive EA function. Your PwC finance background and IR experience are a strong cultural fit.</td></tr>
+              <tr class="border-t border-primary/[0.06]"><td class="p-3 font-medium text-primary">Goldman Sachs</td><td class="p-3">EAs supporting MDs and Partners are treated as strategic partners. Board-level experience valued.</td></tr>
+              <tr class="border-t border-primary/[0.06]"><td class="p-3 font-medium text-primary">Stripe</td><td class="p-3">Growing NYC office. Tech-forward culture values AI-savvy EAs. Fast-paced, high-impact.</td></tr>
+              <tr class="border-t border-primary/[0.06]"><td class="p-3 font-medium text-primary">Plaid</td><td class="p-3">Smaller team means broader scope and more strategic involvement.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="font-semibold text-primary text-base mb-3">Strategic EA / Chief of Staff Adjacent</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm bg-white rounded-xl shadow-sm overflow-hidden">
+            <thead><tr class="bg-primary/5"><th class="text-left p-3 text-xs uppercase tracking-wide text-primary font-semibold">Company</th><th class="text-left p-3 text-xs uppercase tracking-wide text-primary font-semibold">Why It Could Fit</th></tr></thead>
+            <tbody class="text-text-muted">
+              <tr class="border-t border-primary/[0.06]"><td class="p-3 font-medium text-primary">Blackstone</td><td class="p-3">EAs supporting senior MDs handle investor relations, board prep, and stakeholder management daily.</td></tr>
+              <tr class="border-t border-primary/[0.06]"><td class="p-3 font-medium text-primary">KKR</td><td class="p-3">Known for treating EAs as partners to senior leadership. Investor relations is core.</td></tr>
+              <tr class="border-t border-primary/[0.06]"><td class="p-3 font-medium text-primary">Two Sigma</td><td class="p-3">Tech-meets-finance culture values process-driven, organized professionals. Competitive comp.</td></tr>
+              <tr class="border-t border-primary/[0.06]"><td class="p-3 font-medium text-primary">BNY Mellon</td><td class="p-3">Large EA function with clear progression paths. Your PwC/accounting background resonates.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Your Competitive Edge -->
+    <section id="competitive-edge" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 4</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">Your Competitive Edge</h2>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 mb-6">
+          <h3 class="font-semibold text-primary text-base mb-3">7 Key Differentiators</h3>
+          <div class="space-y-4">
+            <div class="border-l-2 border-secondary pl-4">
+              <p class="font-medium text-primary text-sm">1. Investor relations is your superpower.</p>
+              <p class="text-text-muted text-sm">Most EAs support executives. You supported entire investor communication functions. This is rare and highly valued in finance, PE, and publicly traded companies.</p>
+            </div>
+            <div class="border-l-2 border-secondary pl-4">
+              <p class="font-medium text-primary text-sm">2. Three industries, one skill set.</p>
+              <p class="text-text-muted text-sm">Accounting/finance, biopharma, cannabis. Hiring managers see this as evidence of versatility, not instability.</p>
+            </div>
+            <div class="border-l-2 border-secondary pl-4">
+              <p class="font-medium text-primary text-sm">3. Communication skills proven in public.</p>
+              <p class="text-text-muted text-sm">NYT feature, Washington Post coverage, podcast appearances, CIA Worlds of Flavor workshop. Published evidence.</p>
+            </div>
+            <div class="border-l-2 border-secondary pl-4">
+              <p class="font-medium text-primary text-sm">4. AI-fluent before it was required.</p>
+              <p class="text-text-muted text-sm">Using Claude and Perplexity since 2024. 1-2 years ahead of most EA candidates on AI adoption.</p>
+            </div>
+            <div class="border-l-2 border-secondary pl-4">
+              <p class="font-medium text-primary text-sm">5. Executive presence.</p>
+              <p class="text-text-muted text-sm">Running a nationally recognized pop-up dinner series, sitting on a nonprofit board. Leadership beyond typical EA experience.</p>
+            </div>
+            <div class="border-l-2 border-secondary pl-4">
+              <p class="font-medium text-primary text-sm">6. 14-23% resume-to-interview conversion rate.</p>
+              <p class="text-text-muted text-sm">Your resume is strong. The issue is not getting interviews. This guide addresses closing them.</p>
+            </div>
+            <div class="border-l-2 border-secondary pl-4">
+              <p class="font-medium text-primary text-sm">7. You are a builder, not just a doer.</p>
+              <p class="text-text-muted text-sm">Creating a consulting proposal, building a pop-up business, producing culinary events. Initiative beyond the job description.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Employer Objections -->
+    <section id="objections" class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 5</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">Employer Objections & Counter-Strategies</h2>
+
+        <div class="space-y-4">
+          <!-- Objection 1 -->
+          <details class="bg-white rounded-xl shadow-sm border border-primary/[0.06] overflow-hidden">
+            <summary class="p-5 font-medium text-primary text-[15px] cursor-pointer flex items-center justify-between">
+              <span>"She's Long-Winded" <span class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full ml-2">HIGH</span></span>
+              <svg class="w-5 h-5 text-text-muted flex-shrink-0 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 space-y-3">
+              <p class="text-text-muted text-sm"><span class="font-semibold text-primary">The Concern:</span> A recruiter specifically said your interview answers run too long. Hiring managers value conciseness above almost everything else.</p>
+              <p class="text-text-muted text-sm"><span class="font-semibold text-primary">Counter-Strategy:</span> Use the <span class="font-medium">Headline-Evidence-Result</span> framework: lead with the conclusion (1 sentence), support with one specific example (2-3 sentences), close with the outcome (1 sentence). Total: 45-60 seconds.</p>
+              <div class="bg-secondary/5 rounded-lg p-4">
+                <p class="text-sm text-primary font-medium mb-1">Recovery Phrase:</p>
+                <p class="text-text-muted text-sm italic">"Let me cut to what matters most here..."</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- Objection 2 -->
+          <details class="bg-white rounded-xl shadow-sm border border-primary/[0.06] overflow-hidden">
+            <summary class="p-5 font-medium text-primary text-[15px] cursor-pointer flex items-center justify-between">
+              <span>"She Seems Too Ambitious / Flight Risk" <span class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full ml-2">HIGH</span></span>
+              <svg class="w-5 h-5 text-text-muted flex-shrink-0 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 space-y-3">
+              <p class="text-text-muted text-sm"><span class="font-semibold text-primary">The Concern:</span> When you talk about consulting goals or your culinary career, hiring managers hear: "She will leave in 6 months."</p>
+              <p class="text-text-muted text-sm"><span class="font-semibold text-primary">Counter-Strategy:</span> Reframe ambition as a benefit. Never mention freelance consulting goals in interviews. Position ambition as something you channel INTO the role.</p>
+              <div class="bg-secondary/5 rounded-lg p-4">
+                <p class="text-sm text-primary font-medium mb-1">Talking Point:</p>
+                <p class="text-text-muted text-sm italic">"I thrive when I am growing within a role, not jumping between them. I stayed at my last company through their IPO because I was invested in the mission. What I am looking for is a role where I can go deep, build trust, and take on increasing responsibility over time."</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- Objection 3 -->
+          <details class="bg-white rounded-xl shadow-sm border border-primary/[0.06] overflow-hidden">
+            <summary class="p-5 font-medium text-primary text-[15px] cursor-pointer flex items-center justify-between">
+              <span>Cannabis Industry Stigma <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full ml-2">MEDIUM</span></span>
+              <svg class="w-5 h-5 text-text-muted flex-shrink-0 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 space-y-3">
+              <p class="text-text-muted text-sm"><span class="font-semibold text-primary">Counter-Strategy:</span> Lead with the business complexity, not the industry. AWH was publicly traded, $562M revenue, multi-state, SEC-adjacent compliance.</p>
+              <div class="bg-secondary/5 rounded-lg p-4">
+                <p class="text-sm text-primary font-medium mb-1">Talking Point:</p>
+                <p class="text-text-muted text-sm italic">"I supported investor relations for a publicly traded, multi-state company with over half a billion in revenue. The regulatory complexity and stakeholder management required were significant, and that experience translates directly to any highly regulated industry."</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- Objection 4 -->
+          <details class="bg-white rounded-xl shadow-sm border border-primary/[0.06] overflow-hidden">
+            <summary class="p-5 font-medium text-primary text-[15px] cursor-pointer flex items-center justify-between">
+              <span>Employment Gap Since January 2026 <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full ml-2">MEDIUM</span></span>
+              <svg class="w-5 h-5 text-text-muted flex-shrink-0 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 space-y-3">
+              <p class="text-text-muted text-sm"><span class="font-semibold text-primary">Counter-Strategy:</span> Frame as intentional. You left voluntarily. You've been completing Salesforce training, refining career focus, and being selective.</p>
+              <div class="bg-secondary/5 rounded-lg p-4">
+                <p class="text-sm text-primary font-medium mb-1">Talking Point:</p>
+                <p class="text-text-muted text-sm italic">"I left my last role intentionally and have been using this time to sharpen my skills, including completing Salesforce training, and being very deliberate about my next move."</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- Objection 5 -->
+          <details class="bg-white rounded-xl shadow-sm border border-primary/[0.06] overflow-hidden">
+            <summary class="p-5 font-medium text-primary text-[15px] cursor-pointer flex items-center justify-between">
+              <span>Dual-Career Identity (Chef Online Presence) <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full ml-2">MEDIUM</span></span>
+              <svg class="w-5 h-5 text-text-muted flex-shrink-0 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 space-y-3">
+              <p class="text-text-muted text-sm"><span class="font-semibold text-primary">Counter-Strategy:</span> Own it, but briefly. Your culinary work demonstrates transferable skills: event coordination, project management, stakeholder communication.</p>
+              <div class="bg-secondary/5 rounded-lg p-4">
+                <p class="text-sm text-primary font-medium mb-1">Talking Point:</p>
+                <p class="text-text-muted text-sm italic">"You might see my culinary background if you Google me. I am a trained chef and food writer, and it is a personal passion I pursue outside of work. What it has given me professionally is exceptional event coordination skills, a strong network, and the ability to manage complex logistics."</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Interview Playbook -->
+    <section id="playbook" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 6</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">Interview Playbook</h2>
+
+        <h3 class="font-semibold text-primary text-lg mb-3">"Tell Me About Yourself"</h3>
+        <div class="bg-secondary/5 border border-secondary/15 rounded-xl p-6 mb-6">
+          <p class="text-primary text-sm leading-relaxed mb-4">
+            I am a Senior Executive Assistant with over 10 years of experience supporting C-suite executives across finance, biopharma, and investor relations. Most recently, I led EA operations and investor relations support for a publicly traded, multi-state company with over half a billion dollars in annual revenue.
+          </p>
+          <p class="text-primary text-sm leading-relaxed mb-4">
+            What I do best is anticipate what an executive needs before they ask for it. Whether that is preparing board materials, coordinating across 7 states and 46 locations, or managing complex stakeholder communications, I bring structure to chaos and make sure nothing falls through the cracks.
+          </p>
+          <p class="text-primary text-sm leading-relaxed">
+            I am looking for a role where I can be a true strategic partner to a senior executive, someone who values a proactive EA who takes ownership and grows with the organization.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3 text-xs text-text-muted mb-8">
+          <span class="bg-white border border-primary/[0.06] px-3 py-1.5 rounded-full">Format: Present-Past-Future</span>
+          <span class="bg-white border border-primary/[0.06] px-3 py-1.5 rounded-full">128 words / ~51 seconds</span>
+          <span class="bg-white border border-primary/[0.06] px-3 py-1.5 rounded-full">Practice with a timer</span>
+        </div>
+
+        <h3 class="font-semibold text-primary text-lg mb-3">Custom Interview Questions</h3>
+        <div class="space-y-3">
+          {[
+            { q: "How do you prioritize when multiple executives need your help at the same time?", topic: "Prioritization", answer: "I triage by urgency, deadline, and who is client-facing. At AWH I supported multiple VPs alongside IR duties and used a color-coded priority matrix in Asana to keep everything visible." },
+            { q: "Describe a time you had to prepare for a board meeting with a tight deadline.", topic: "Board prep", answer: "I once had 48 hours to compile a full board deck for our quarterly investor meeting. I created a materials checklist, assigned sections to department leads, and delivered a final package 4 hours early." },
+            { q: "How do you handle confidential information?", topic: "Discretion", answer: "I treat everything as confidential by default. At my biopharma role, I managed CEO correspondence during a sensitive M&A period using encrypted channels and need-to-know access controls." },
+            { q: "Tell me about a time you anticipated your executive's needs before they asked.", topic: "Anticipation", answer: "During earnings season at AWH, I learned the rhythm of what my executive needed. By Q3, I was pre-drafting investor talking points, scheduling prep calls, and flagging calendar conflicts before he even looked at his calendar." },
+            { q: "How do you manage a complex travel itinerary?", topic: "Travel logistics", answer: "I build a single-page itinerary with travel times between meetings, backup options, and local contact numbers. For international trips, I include visa requirements, currency notes, and timezone overlays." },
+            { q: "How would you handle a situation where your executive double-booked themselves?", topic: "Problem-solving", answer: "I would assess which meeting is higher-priority, propose a reschedule for the other, and draft the rescheduling message. I would also add a buffer process to prevent it from happening again." },
+            { q: "What is your greatest weakness?", topic: "Self-awareness", answer: "Honestly, I have been working on being more concise. I am naturally thorough, and in past roles where detail was valued, that served me well. But I have learned that executives need the headline first and details only when asked. I have been actively practicing shorter answers and leading with the bottom line." },
+            { q: "Where do you see yourself in 5 years?", topic: "Commitment", answer: "In five years, I want to be the person my executive trusts to handle anything, from board prep to representing them in meetings. I am not looking to jump roles. I am looking to deepen my impact within one organization." },
+            { q: "Why are you leaving your current role?", topic: "Motivation", answer: "I left my role at a publicly traded cannabis company in January to refocus my career on industries where I can leverage my investor relations and biopharma experience long-term. It was a strategic decision, and I have been using the time to complete Salesforce training." },
+            { q: "Describe a time you improved a process or system at work.", topic: "Initiative", answer: "At AWH, I noticed our board materials were always assembled last-minute. I created a shared template and timeline that started 3 weeks before each board meeting, which cut our prep stress in half and eliminated last-minute scrambles." },
+          ].map(item => (
+            <details class="bg-white rounded-xl shadow-sm border border-primary/[0.06] overflow-hidden">
+              <summary class="p-4 text-sm font-medium text-primary cursor-pointer flex items-center justify-between gap-2">
+                <span class="flex-1">{item.q}</span>
+                <span class="text-xs bg-primary/5 text-text-muted px-2 py-0.5 rounded-full flex-shrink-0">{item.topic}</span>
+              </summary>
+              <div class="px-4 pb-4">
+                <p class="text-text-muted text-sm leading-relaxed italic">"{item.answer}"</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. STAR Stories -->
+    <section id="star-stories" class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 7</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">Your STAR Stories</h2>
+
+        <div class="space-y-4">
+          <!-- STAR 1 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-serif text-lg text-primary">Board Materials Under Pressure</h3>
+              <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">Board prep, deadlines</span>
+            </div>
+            <div class="space-y-3 text-sm">
+              <p><span class="font-bold text-secondary">S:</span> <span class="text-text-muted">At Ascend Wellness Holdings, a publicly traded cannabis company with $562M in revenue, I was responsible for coordinating quarterly board meeting materials across 7 states and 46 locations.</span></p>
+              <p><span class="font-bold text-secondary">T:</span> <span class="text-text-muted">Compile a complete board deck with financial reports, operational updates, and investor-ready materials within a 48-hour turnaround after a last-minute date change.</span></p>
+              <p><span class="font-bold text-secondary">A:</span> <span class="text-text-muted">I created a prioritized checklist, assigned sections to department leads with specific deadlines, set up a shared drive with version control, and ran two 15-minute check-in calls to keep everyone on track.</span></p>
+              <p><span class="font-bold text-secondary">R:</span> <span class="text-text-muted">Delivered the completed board package 4 hours ahead of the new deadline. The CEO specifically noted the smooth turnaround in his board meeting opening remarks.</span></p>
+            </div>
+          </div>
+
+          <!-- STAR 2 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-serif text-lg text-primary">Investor Relations Engine</h3>
+              <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">IR, stakeholders</span>
+            </div>
+            <div class="space-y-3 text-sm">
+              <p><span class="font-bold text-secondary">S:</span> <span class="text-text-muted">At AWH, the investor relations function needed structure as the company scaled across multiple markets.</span></p>
+              <p><span class="font-bold text-secondary">T:</span> <span class="text-text-muted">Build and maintain a stakeholder tracking system for 200+ investor relationships across 7 markets.</span></p>
+              <p><span class="font-bold text-secondary">A:</span> <span class="text-text-muted">Created a CRM-style tracking system, standardized correspondence templates, and built a quarterly reporting workflow.</span></p>
+              <p><span class="font-bold text-secondary">R:</span> <span class="text-text-muted">95-98% stakeholder satisfaction rate. CEO freed up 15+ hours per month. System still in use.</span></p>
+            </div>
+          </div>
+
+          <!-- STAR 3 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-serif text-lg text-primary">Custom One-Pager That Blew Them Away</h3>
+              <span class="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full">Initiative, communication</span>
+            </div>
+            <div class="space-y-3 text-sm">
+              <p><span class="font-bold text-secondary">S:</span> <span class="text-text-muted">The CEO was preparing for a high-stakes investor meeting and had a loose set of talking points but no polished materials.</span></p>
+              <p><span class="font-bold text-secondary">T:</span> <span class="text-text-muted">Create a presentation-quality one-pager without being asked, anticipating the CEO's need.</span></p>
+              <p><span class="font-bold text-secondary">A:</span> <span class="text-text-muted">Synthesized financial data, market positioning, and strategic priorities into a single branded one-pager. Formatted for both print and screen.</span></p>
+              <p><span class="font-bold text-secondary">R:</span> <span class="text-text-muted">The CEO used it as his primary leave-behind. Became the template for all future investor meetings.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const revealEls = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+  );
+  revealEls.forEach((el) => observer.observe(el));
+</script>
