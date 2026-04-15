@@ -1,0 +1,171 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL;
+
+const prospects = [
+  {
+    category: "Biotech / Biopharma",
+    companies: [
+      { name: "Nilo Therapeutics", industry: "Immunology", location: "New York, NY", stage: "Series A ($101M)", ceo: "Kim Seth, Ph.D.", why: "Brand new company, building from scratch. CEO needs board coordination, IR support, and operational infrastructure as the team scales.", hook: "5 years at Immunovant in the same therapeutic area (autoimmune/immunology) gives instant credibility.", tier: "$8.5K/mo", priority: "A" },
+      { name: "OnCusp Therapeutics", industry: "Oncology / ADC", location: "New York, NY", stage: "Series A ($139M)", ceo: "Bing Yuan, Ph.D.", why: "IND approval received. Transitioning from pre-clinical to clinical means regulatory meetings, CRO coordination, and board reporting ramp up fast.", hook: "Biotech experience at Immunovant spans the same clinical-stage transition.", tier: "$8.5K/mo", priority: "A" },
+      { name: "Proxima", industry: "AI Drug Discovery", location: "New York + Boston", stage: "Seed ($80M)", ceo: "Jason Brouwer (founder)", why: "Just raised $80M and rebranded. Partnerships with J&J, BMS, Blueprint Medicines. Two-city operation adds complexity.", hook: "200+ stakeholder management at Immunovant maps directly to a company juggling pharma partnerships and a distributed team.", tier: "$8.5K/mo", priority: "A" },
+      { name: "Ovid Therapeutics", industry: "CNS / Rare Disease", location: "New York, NY", stage: "Public (NASDAQ: OVID)", ceo: "Meg Alexander", why: "Leadership transition: new CEO as of Jan 2026, founder moving to Executive Chairman. Operational restructuring in progress.", hook: "Experience supporting C-suite through transitions at PwC and BearingPoint.", tier: "$5K/mo", priority: "B" },
+      { name: "Immunovant", industry: "Autoimmune / FcRn", location: "New York + Durham", stage: "Public (NASDAQ: IMVT)", ceo: "Eric Venker, MD", why: "Former employer. New CEO and CFO mean institutional knowledge gaps. Dual-site operation.", hook: "Warm lead. 5 years of institutional knowledge, board relationships, pipeline understanding.", tier: "$12.5K/mo", priority: "A" },
+    ]
+  },
+  {
+    category: "Fintech",
+    companies: [
+      { name: "Spade", industry: "Transaction Data", location: "New York, NY", stage: "Series B ($40M)", ceo: "Oban MacTavish", why: "Just raised Series B. Multi-founder team. Rapid enterprise customer onboarding.", hook: "Salesforce certification relevant to data platform scaling enterprise sales.", tier: "$5K/mo", priority: "B" },
+      { name: "Rogo", industry: "AI for Finance", location: "New York, NY", stage: "Series C ($75M, $750M valuation)", ceo: "Gabe Stengel", why: "Opening London office. Henry Kravis and Wells Fargo as investors. Global expansion.", hook: "Finance background (Reich & Tang, BearingPoint) means she speaks the language of Rogo's clients.", tier: "$12.5K/mo", priority: "A" },
+      { name: "Tabs", industry: "B2B Revenue Automation", location: "New York, NY", stage: "Series B ($55M)", ceo: "Ali Hussain", why: "5X ARR growth, 200+ customers. Three co-founders. Hypergrowth coordination chaos.", hook: "PwC and publicly traded company experience matches financial rigor needed.", tier: "$5K/mo", priority: "B" },
+      { name: "Rain", industry: "Stablecoin Payments", location: "New York, NY", stage: "Series C ($250M, $1.95B)", ceo: "Farooq Malik", why: "Unicorn. Global expansion across 5 continents. 200+ partners. $3B+ in transactions.", hook: "Big Four experience and multi-market regulatory comfort from cannabis.", tier: "$12.5K/mo", priority: "A" },
+      { name: "Kalshi", industry: "Prediction Markets", location: "New York, NY", stage: "Series E ($1B+, $22B)", ceo: "Tarek Mansour", why: "Hypergrowth. CFTC-regulated exchange. Trading volumes over $1B/week. Likely pre-IPO.", hook: "Regulated industry comfort and public company IR/board experience.", tier: "$12.5K/mo", priority: "A" },
+      { name: "Ethic", industry: "ESG Asset Management", location: "New York, NY", stage: "Series D ($64M, $700M)", ceo: "Doug Scott", why: "$8B+ AUM, 300+ advisory partners. Institutional relationship management at scale.", hook: "Finance background and institutional investor relations from Immunovant.", tier: "$5K/mo", priority: "B" },
+    ]
+  },
+  {
+    category: "Healthtech",
+    companies: [
+      { name: "Pomelo Care", industry: "Women's Healthcare", location: "New York, NY", stage: "Series C ($92M, $1.7B)", ceo: "Marta Bralic Kerns", why: "Unicorn. Supporting 7% of all US births. Expanding beyond maternity.", hook: "200+ stakeholder management maps to coordinating health plans, employers, and clinical teams.", tier: "$8.5K/mo", priority: "A" },
+      { name: "Grow Therapy", industry: "Mental Health", location: "New York, NY", stage: "Series D ($150M, $3B)", ceo: "Jake Cooper", why: "$1B revenue. Recent acquisitions (Neosync, Tenor). Three co-founders.", hook: "Post-acquisition integration experience from cannabis and consulting.", tier: "$12.5K/mo", priority: "A" },
+      { name: "Spring Health", industry: "Mental Healthcare", location: "New York, NY", stage: "Series E ($100M, $3.3B)", ceo: "April Koh", why: "Acquiring Alma (Q2 2026 close). M&A integration is operationally demanding.", hook: "M&A experience from cannabis consolidation and Big Four consulting.", tier: "$8.5K/mo", priority: "B" },
+    ]
+  },
+  {
+    category: "Cannabis MSOs",
+    companies: [
+      { name: "Ascend Wellness", industry: "Cannabis MSO", location: "New York, NY", stage: "Public (CSE: AAWH.U)", ceo: "John Hartmann", why: "Former employer. 48 retail locations, multi-state ops, densification strategy.", hook: "Warm lead. Institutional knowledge of operations, culture, and compliance.", tier: "$8.5K/mo", priority: "A" },
+      { name: "Curaleaf Holdings", industry: "Cannabis MSO", location: "Stamford, CT", stage: "Public (CSE: CURA)", ceo: "Matt Darin", why: "23 states, 150+ dispensaries, $1.2B revenue. Regional VPs need EA support.", hook: "Direct cannabis experience at a competitor (Ascend).", tier: "$5K/mo", priority: "B" },
+      { name: "Ayr Wellness", industry: "Cannabis MSO", location: "New York, NY", stage: "Public (CSE: AYR.A)", ceo: "David Goubert", why: "NYC-headquartered. New CEO establishing operating rhythm. Multi-state ops.", hook: "Cannabis background + NYC presence match. New CEO needs operational infrastructure.", tier: "$5K/mo", priority: "B" },
+    ]
+  },
+  {
+    category: "Cybersecurity / Insurtech",
+    companies: [
+      { name: "Outtake", industry: "AI Cybersecurity", location: "New York, NY", stage: "Series B ($40M)", ceo: "Alex Dhillon", why: "6x ARR growth. Angel investors include Satya Nadella, Bill Ackman, Nikesh Arora. Fortune 500 clients.", hook: "Big Four background and comfort with high-profile stakeholders.", tier: "$8.5K/mo", priority: "A" },
+      { name: "Sixfold AI", industry: "Insurtech", location: "New York, NY", stage: "Series B ($30M)", ceo: "Alex Schmelkin", why: "Three co-founders. Expanding leadership team. Enterprise insurer clients.", hook: "Multi-founder team support experience and Salesforce certification.", tier: "$5K/mo", priority: "B" },
+    ]
+  },
+];
+---
+
+<Layout title="Target Prospects | Leigh-Ann Martin">
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="bg-primary pt-28 pb-16 md:pt-36 md:pb-20">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Business Development</p>
+        <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-6">
+          Fractional EA Target Prospects
+        </h1>
+        <p class="text-white/55 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+          26 companies across biotech, fintech, healthtech, cannabis, and cybersecurity that are primed for fractional executive support.
+        </p>
+      </div>
+    </section>
+
+    <!-- Priority Summary -->
+    <section class="py-10 bg-warm border-b border-primary/[0.06]">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div class="bg-white rounded-xl p-4 shadow-sm">
+            <p class="font-serif text-3xl text-secondary">11</p>
+            <p class="text-text-muted text-sm mt-1">A-Priority (outreach now)</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-sm">
+            <p class="font-serif text-3xl text-primary">13</p>
+            <p class="text-text-muted text-sm mt-1">B-Priority (week 2-3)</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-sm">
+            <p class="font-serif text-3xl text-text-muted">2</p>
+            <p class="text-text-muted text-sm mt-1">C-Priority (monitor)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prospects by Category -->
+    {prospects.map((group) => (
+      <section class="py-12 md:py-16 bg-cream border-b border-primary/[0.06]">
+        <div class="max-w-5xl mx-auto px-6">
+          <h2 class="font-serif text-2xl md:text-3xl text-primary mb-8">{group.category}</h2>
+          <div class="space-y-4">
+            {group.companies.map((c) => (
+              <div class={`bg-white rounded-xl p-6 shadow-sm border-l-4 ${c.priority === 'A' ? 'border-l-secondary' : c.priority === 'B' ? 'border-l-primary/30' : 'border-l-text-muted/20'}`}>
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                  <div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                      <h3 class="font-serif text-lg text-primary">{c.name}</h3>
+                      <span class={`text-xs font-bold px-2 py-0.5 rounded-full ${c.priority === 'A' ? 'bg-secondary/10 text-secondary' : c.priority === 'B' ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-text-muted'}`}>
+                        Priority {c.priority}
+                      </span>
+                    </div>
+                    <p class="text-text-muted text-sm">{c.industry} · {c.location} · {c.stage}</p>
+                  </div>
+                  <p class="font-serif text-lg text-secondary whitespace-nowrap">{c.tier}</p>
+                </div>
+                <p class="text-sm text-primary font-medium mb-1">Contact: {c.ceo}</p>
+                <p class="text-sm text-text-muted mb-2"><strong class="text-primary/80">Why they need help:</strong> {c.why}</p>
+                <p class="text-sm text-text-muted"><strong class="text-secondary">Your angle:</strong> {c.hook}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- Timing Notes -->
+    <section class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="font-serif text-2xl text-primary mb-6">Outreach Timing</h2>
+        <div class="space-y-4">
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="font-semibold text-primary text-sm mb-1">Post-Funding Window (60-90 days)</p>
+            <p class="text-text-muted text-sm">Companies that raised in Q4 2025 or Q1 2026 have budget but are starting to feel the operational strain. This is when the CEO realizes they need help.</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="font-semibold text-primary text-sm mb-1">M&A Integration (90-day window)</p>
+            <p class="text-text-muted text-sm">Companies in active acquisition mode (Spring Health/Alma, Canopy/Acreage) have an immediate window where fractional support is most valuable.</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="font-semibold text-primary text-sm mb-1">Leadership Transitions (first 6-12 months)</p>
+            <p class="text-text-muted text-sm">New CEOs (Ovid Therapeutics, Immunovant) are most open to bringing in their own support during their first year.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 bg-primary">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-white/50 text-sm mb-3">Ready to start outreach?</p>
+        <a href={`${base}outreach`} class="inline-flex items-center gap-2 bg-secondary text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all">
+          Go to Click-to-Send Emails
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const revealEls = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+  );
+  revealEls.forEach((el) => observer.observe(el));
+</script>

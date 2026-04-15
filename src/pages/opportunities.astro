@@ -1,0 +1,257 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL;
+
+const priorityA = [
+  { title: "Executive Assistant to CEO", company: "Immunovant", industry: "Biotech", location: "NYC (hybrid)", salary: "~$110-140K", reportsTo: "CEO", source: "Built In / Greenhouse", sourceUrl: "https://builtin.com/job/executive-assistant-ceo/3312714", strengths: "Former employer. 5 years of institutional knowledge, culture, and leadership understanding.", strategy: "Reach out to former colleagues directly. Frame return as 'coming home' with broader experience." },
+  { title: "EA to CEO & President", company: "Ascend Wellness", industry: "Cannabis", location: "Remote", salary: "TBD", reportsTo: "CEO & President", source: "AWH Careers", sourceUrl: "https://awholdings.com/careers/", strengths: "Former employer. Knows cannabis regulatory environment, leadership team, and board governance.", strategy: "Leverage former employer connections. Contact HR or former colleagues directly." },
+  { title: "EA to CEO, Midtown Hedge Fund", company: "BCL Search", industry: "Finance", location: "Midtown Manhattan (hybrid 4x)", salary: "$200K-$275K", reportsTo: "CEO", source: "Glassdoor", sourceUrl: "https://www.glassdoor.com/job-listing/executive-assistant-to-ceo-of-midtown-hedge-fund-hybrid-4x-a-week-in-office-bcl-search-JV_IC1132348_KO0,75_KE76,86.htm", strengths: "12+ years EA experience, finance background, publicly traded company experience.", strategy: "Apply through BCL Search. Emphasize strategic partnership and finance industry experience." },
+  { title: "EA (Head of Capital Markets)", company: "Point72", industry: "Hedge Fund", location: "NYC (hybrid 4-5 days)", salary: "$100-130K + bonus", reportsTo: "Head of Capital Markets", source: "Greenhouse", sourceUrl: "https://job-boards.greenhouse.io/point72/jobs/8340933002", strengths: "Finance background (Reich & Tang, BearingPoint), regulated industries, fast-paced environments.", strategy: "Apply through Greenhouse. Emphasize finance background and discretion from PwC/Big Four." },
+  { title: "Executive Assistant", company: "Formation Bio", industry: "Biotech", location: "Manhattan (hybrid 1-3 days)", salary: "$91-115K + equity", reportsTo: "Senior leadership", source: "Built In NYC", sourceUrl: "https://www.builtinnyc.com/job/executive-assistant/284606", strengths: "Direct biotech experience (Immunovant, 5 years). Backed by a16z and growing fast.", strategy: "Apply directly. Negotiate salary above posted range. Equity at high-growth biotech could be significant." },
+  { title: "EA to Founder/CEO", company: "Bertner Advisors", industry: "Healthcare Consulting", location: "Manhattan (on-site)", salary: "~$100-140K", reportsTo: "Founder & CEO", source: "Greenhouse", sourceUrl: "https://boards.greenhouse.io/bertneradvisors/jobs/5171493002", strengths: "Healthcare/biotech experience maps to client base. Consulting background aligns with boutique firm.", strategy: "Lead with healthcare/biotech narrative. Publicly traded health company experience is key." },
+];
+
+const priorityB = [
+  { title: "EA to CCO", company: "Addepar", industry: "Fintech", location: "NYC", salary: "$80-132K + equity", source: "Greenhouse", sourceUrl: "https://job-boards.greenhouse.io/addepar1/jobs/8398628002", note: "Salesforce cert is rare for EAs, valuable at tech platform. Push for upper salary range." },
+  { title: "EA to CEO", company: "Via Transportation", industry: "Transport Tech", location: "NYC", salary: "~$95-130K", source: "Greenhouse", sourceUrl: "https://job-boards.greenhouse.io/via/jobs/8425409002", note: "'Strategic partner' framing matches her senior EA approach." },
+  { title: "EA", company: "Datadog", industry: "Tech", location: "NYC", salary: "$83-115K", source: "Greenhouse", sourceUrl: "https://job-boards.greenhouse.io/datadog/jobs/7368862", note: "Below target salary. Strong brand name. Backup option." },
+  { title: "EA to CEO & Founder", company: "GlossGenius", industry: "Beauty Tech", location: "NYC (hybrid)", salary: "$90-120K + equity", source: "Greenhouse", sourceUrl: "https://boards.greenhouse.io/glossgenius/jobs/5668243003", note: "Hybrid schedule. Negotiate toward top of range." },
+  { title: "EA (CEO + COO)", company: "Pryon", industry: "AI / Enterprise", location: "NYC Metro / CT", salary: "TBD", source: "Base HQ EA Search", sourceUrl: "https://boards.greenhouse.io/basehqeasearch/jobs/6671945002", note: "Dual-executive support matches Ascend Wellness experience." },
+];
+
+const priorityC = [
+  { title: "Proactive outreach", company: "Nuvation Bio", industry: "Biotech", location: "NYC", note: "No EA role posted. Email hr@nuvationbio.com. Biotech EA specialist pitch." },
+  { title: "EA", company: "Angi", industry: "Tech", location: "Remote", note: "Industry not aligned. Remote flexibility and brand name are valuable." },
+  { title: "EA to CHRO", company: "New York Times", industry: "Media", location: "NYC", note: "Prestigious employer. Supporting CHRO, not CEO. Brand play." },
+];
+
+const salaryBenchmarks = [
+  { role: "Executive Assistant (general)", p25: "$79K", median: "$96K", p75: "$119K", p90: "$135K+" },
+  { role: "EA to CEO", p25: "$85K", median: "$105K", p75: "$133K", p90: "$150K+" },
+  { role: "Senior EA", p25: "$90K", median: "$112K", p75: "$135K", p90: "$160K+" },
+  { role: "Chief of Staff (biotech)", p25: "$93K", median: "$124K", p75: "$146K", p90: "$180K+" },
+  { role: "EA (hedge fund, senior)", p25: "$100K", median: "$130K", p75: "$175K", p90: "$275K+" },
+];
+
+const fundedCompanies = [
+  { name: "Kalshi", industry: "Fintech", funding: "$1B+, $22B val", careers: "kalshi.com/careers", note: "30 open roles. Proactive outreach." },
+  { name: "Ramp", industry: "Fintech", funding: "$300M, $32B val", careers: "ramp.com/careers", note: "110+ open roles. Check for EA/CoS." },
+  { name: "Formation Bio", industry: "Biotech", funding: "a16z-backed", careers: "formation.bio/careers", note: "Active EA posting. Apply now." },
+  { name: "LB Pharmaceuticals", industry: "Biopharma", funding: "$285M IPO (Sep 2025)", careers: "Check website", note: "Post-IPO. Needs board governance support." },
+  { name: "Pomelo Care", industry: "Healthtech", funding: "$92M, $1.7B val", careers: "Check website", note: "Unicorn. Complex stakeholder map." },
+  { name: "Grow Therapy", industry: "Mental Health", funding: "$150M, $3B val", careers: "Check website", note: "Post-acquisition integration underway." },
+  { name: "Rain", industry: "Fintech", funding: "$250M, $1.95B val", careers: "Check website", note: "Global expansion across 5 continents." },
+  { name: "Ethic", industry: "Fintech", funding: "$64M, $700M val", careers: "Check website", note: "$8B+ AUM. Institutional relationship management." },
+];
+
+const recruiters = [
+  { name: "C-Suite Assistants", specialty: "EA-only placement", highlight: "6,000+ NYC EA database. Gold standard.", url: "csuiteassistants.com", tier: 1 },
+  { name: "Glocap Search", specialty: "Finance (hedge funds, PE)", highlight: "750,000+ candidate database. 20,000+ placed.", url: "glocap.com", tier: 1 },
+  { name: "BCL Search", specialty: "Premium finance EAs", highlight: "$200K-$275K roles. Top-end market.", url: "jobs.bclsearch.com", tier: 1 },
+  { name: "Right Hand Talent", specialty: "Chiefs of Staff", highlight: "Founded by former CoS. Deep CoS network.", url: "righthandtalent.com", tier: 1 },
+  { name: "Kathy Macdonald & Associates", specialty: "EA + CoS", highlight: "30+ years. Nationwide.", url: "kathymacdonaldassociates.com", tier: 1 },
+  { name: "Pocketbook Agency", specialty: "Fintech, VC, PE", highlight: "Forbes-recognized. Award-winning.", url: "pocketbookagency.com", tier: 2 },
+  { name: "Beacon Hill", specialty: "General + Finance", highlight: "$140K+ finance EA listings. 80% repeat rate.", url: "bhsg.com", tier: 2 },
+  { name: "A-List Associates", specialty: "NYC EAs", highlight: "Boutique. Top NYC reputation.", url: "alistassociates.com", tier: 2 },
+  { name: "Career Group", specialty: "Admin staffing", highlight: "40+ years in NYC.", url: "careergroupcompanies.com", tier: 2 },
+  { name: "Silver Chair Partners", specialty: "EA placement", highlight: "Finance, media, tech, consulting.", url: "silverchairpartners.com", tier: 2 },
+];
+---
+
+<Layout title="Job Opportunities & Market Intelligence | Leigh-Ann Martin">
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="bg-primary pt-28 pb-16 md:pt-36 md:pb-20">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Market Intelligence</p>
+        <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-6">
+          Job Opportunities, Funded Companies, and Recruiters
+        </h1>
+        <p class="text-white/55 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+          14 open roles, 8 recently funded targets, and 10 recruiter agencies. Updated April 2026.
+        </p>
+      </div>
+    </section>
+
+    <!-- Salary Context -->
+    <section class="py-10 bg-warm border-b border-primary/[0.06]">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="font-serif text-xl text-primary mb-4">NYC EA Salary Benchmarks (April 2026)</h2>
+        <p class="text-text-muted text-sm mb-4">Target range of $120K-$165K places you in the 60th-85th percentile. Finance and hedge fund roles pay highest.</p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-primary/10">
+                <th class="text-left py-2 pr-4 font-semibold text-primary">Role</th>
+                <th class="text-right py-2 px-2 font-semibold text-primary">25th</th>
+                <th class="text-right py-2 px-2 font-semibold text-primary">Median</th>
+                <th class="text-right py-2 px-2 font-semibold text-primary">75th</th>
+                <th class="text-right py-2 pl-2 font-semibold text-secondary">90th</th>
+              </tr>
+            </thead>
+            <tbody>
+              {salaryBenchmarks.map((row) => (
+                <tr class="border-b border-primary/[0.04]">
+                  <td class="py-2 pr-4 text-text-muted">{row.role}</td>
+                  <td class="text-right py-2 px-2 text-text-muted">{row.p25}</td>
+                  <td class="text-right py-2 px-2 text-text-muted">{row.median}</td>
+                  <td class="text-right py-2 px-2 text-text-muted">{row.p75}</td>
+                  <td class="text-right py-2 pl-2 font-medium text-primary">{row.p90}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Priority A Roles -->
+    <section class="py-12 md:py-16 bg-cream">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-2">Priority A: Apply Now</h2>
+        <p class="text-text-muted text-sm mb-8">Strong matches. Apply this week.</p>
+        <div class="space-y-4">
+          {priorityA.map((job) => (
+            <div class="bg-white rounded-xl p-6 shadow-sm border-l-4 border-l-secondary">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                <div>
+                  <h3 class="font-serif text-lg text-primary">{job.title}</h3>
+                  <p class="text-text-muted text-sm">{job.company} · {job.industry} · {job.location}</p>
+                </div>
+                <p class="font-serif text-lg text-secondary whitespace-nowrap">{job.salary}</p>
+              </div>
+              <p class="text-sm text-text-muted mb-1"><strong class="text-primary/80">Reports to:</strong> {job.reportsTo}</p>
+              <p class="text-sm text-text-muted mb-1"><strong class="text-primary/80">Match:</strong> {job.strengths}</p>
+              <p class="text-sm text-text-muted mb-3"><strong class="text-secondary">Strategy:</strong> {job.strategy}</p>
+              <a href={job.sourceUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-secondary text-sm font-medium hover:underline">
+                View on {job.source}
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Priority B Roles -->
+    <section class="py-12 md:py-16 bg-warm">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="font-serif text-2xl text-primary mb-2">Priority B: Good Matches</h2>
+        <p class="text-text-muted text-sm mb-8">Worth applying with tailoring.</p>
+        <div class="space-y-3">
+          {priorityB.map((job) => (
+            <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-l-primary/30">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+                <div>
+                  <h3 class="font-serif text-base text-primary">{job.title} at {job.company}</h3>
+                  <p class="text-text-muted text-xs">{job.industry} · {job.location} · {job.salary}</p>
+                </div>
+                <a href={job.sourceUrl} target="_blank" rel="noopener noreferrer" class="text-secondary text-sm font-medium hover:underline whitespace-nowrap flex items-center gap-1">
+                  Apply
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </div>
+              <p class="text-text-muted text-sm">{job.note}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Priority C -->
+    <section class="py-10 bg-cream border-b border-primary/[0.06]">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="font-serif text-xl text-primary mb-4">Priority C: Monitor</h2>
+        <div class="grid sm:grid-cols-3 gap-3">
+          {priorityC.map((job) => (
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+              <p class="font-semibold text-primary text-sm">{job.company}</p>
+              <p class="text-text-muted text-xs mb-1">{job.industry} · {job.location}</p>
+              <p class="text-text-muted text-xs">{job.note}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Recently Funded Companies -->
+    <section class="py-12 md:py-16 bg-warm">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="font-serif text-2xl text-primary mb-2">Recently Funded Companies</h2>
+        <p class="text-text-muted text-sm mb-8">Companies that raised and likely need EA support. Check careers pages weekly.</p>
+        <div class="grid sm:grid-cols-2 gap-3">
+          {fundedCompanies.map((c) => (
+            <div class="bg-white rounded-xl p-5 shadow-sm">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <div>
+                  <h3 class="font-semibold text-primary text-sm">{c.name}</h3>
+                  <p class="text-text-muted text-xs">{c.industry}</p>
+                </div>
+                <span class="text-secondary text-xs font-semibold whitespace-nowrap">{c.funding}</span>
+              </div>
+              <p class="text-text-muted text-xs">{c.note}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Recruiters -->
+    <section class="py-12 md:py-16 bg-cream">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="font-serif text-2xl text-primary mb-2">EA Recruiters and Agencies</h2>
+        <p class="text-text-muted text-sm mb-8">Register with Tier 1 firms this week. Tier 2 in weeks 2-3.</p>
+
+        <h3 class="font-semibold text-primary text-sm mb-3 uppercase tracking-wider">Tier 1: Register This Week</h3>
+        <div class="space-y-3 mb-8">
+          {recruiters.filter(r => r.tier === 1).map((r) => (
+            <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-l-secondary">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                <div>
+                  <h4 class="font-serif text-base text-primary">{r.name}</h4>
+                  <p class="text-text-muted text-xs">{r.specialty}</p>
+                  <p class="text-text-muted text-sm mt-1">{r.highlight}</p>
+                </div>
+                <a href={`https://${r.url}`} target="_blank" rel="noopener noreferrer" class="text-secondary text-sm font-medium hover:underline whitespace-nowrap flex items-center gap-1">
+                  Visit site
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h3 class="font-semibold text-primary text-sm mb-3 uppercase tracking-wider">Tier 2: Register Weeks 2-3</h3>
+        <div class="grid sm:grid-cols-2 gap-3">
+          {recruiters.filter(r => r.tier === 2).map((r) => (
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+              <h4 class="font-semibold text-primary text-sm">{r.name}</h4>
+              <p class="text-text-muted text-xs">{r.specialty}</p>
+              <p class="text-text-muted text-xs mt-1">{r.highlight}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 bg-primary">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href={`${base}prospects`} class="inline-flex items-center gap-2 text-white/60 px-7 py-3 rounded-full text-sm font-medium border border-white/15 hover:border-white/30 hover:text-white/80 transition-all">
+            View Fractional EA Prospects
+          </a>
+          <a href={`${base}outreach`} class="inline-flex items-center gap-2 bg-secondary text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all">
+            Go to Click-to-Send Emails
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
