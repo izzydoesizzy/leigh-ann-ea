@@ -515,12 +515,40 @@ function buildMailto(email: string, subject: string, body: string) {
 
     <!-- Instructions -->
     <section class="py-6 bg-secondary/10 border-b border-secondary/20">
-      <div class="max-w-3xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto px-6 space-y-4">
         <div class="flex items-start gap-3">
           <svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <div class="text-sm text-primary">
             <p class="font-semibold mb-1">How to use</p>
             <p class="text-text-muted">Click any "Draft Email" button to open a pre-written email in your default mail app. <strong>Before sending:</strong> review the email, add any personal touches, and make sure the tone feels right. These are conversation starters, not pitches.</p>
+          </div>
+        </div>
+
+        <!-- Email Tracking Setup -->
+        <div class="flex items-start gap-3 bg-white/60 rounded-xl p-4 border border-secondary/15">
+          <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          <div class="text-sm">
+            <p class="font-semibold text-primary mb-1.5">Before you send: install an email tracker</p>
+            <p class="text-text-muted mb-3">These emails should not go into the void. Install one of these free Gmail extensions so you know exactly who opened, clicked, and forwarded your emails. This tells you who is warm and who needs a follow-up.</p>
+            <div class="grid sm:grid-cols-2 gap-2">
+              <a href="https://mailtrack.io" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-white rounded-lg px-3 py-2 border border-primary/10 hover:border-secondary/30 transition-colors group">
+                <span class="font-semibold text-primary text-sm group-hover:text-secondary transition-colors">Mailtrack</span>
+                <span class="text-text-muted text-xs">Free. Simple open tracking. Double-check marks like WhatsApp.</span>
+              </a>
+              <a href="https://www.streak.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-white rounded-lg px-3 py-2 border border-primary/10 hover:border-secondary/30 transition-colors group">
+                <span class="font-semibold text-primary text-sm group-hover:text-secondary transition-colors">Streak</span>
+                <span class="text-text-muted text-xs">Free CRM built into Gmail. Track opens, schedule sends, build pipelines.</span>
+              </a>
+              <a href="https://www.lavender.ai" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-white rounded-lg px-3 py-2 border border-primary/10 hover:border-secondary/30 transition-colors group">
+                <span class="font-semibold text-primary text-sm group-hover:text-secondary transition-colors">Lavender</span>
+                <span class="text-text-muted text-xs">AI email coach. Scores your email before you send. Tracks opens.</span>
+              </a>
+              <a href="https://snov.io" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-white rounded-lg px-3 py-2 border border-primary/10 hover:border-secondary/30 transition-colors group">
+                <span class="font-semibold text-primary text-sm group-hover:text-secondary transition-colors">Snov.io</span>
+                <span class="text-text-muted text-xs">Email finder + tracker. Verify emails before sending. Drip campaigns.</span>
+              </a>
+            </div>
+            <p class="text-text-muted text-xs mt-2.5"><strong class="text-primary">Recommended:</strong> Start with <strong>Mailtrack</strong> (simplest, free forever) or <strong>Streak</strong> (if you want a full CRM pipeline to track your outreach stages). Install the Chrome extension, then send your emails through Gmail as normal. You'll get notifications when someone opens or forwards.</p>
           </div>
         </div>
       </div>
