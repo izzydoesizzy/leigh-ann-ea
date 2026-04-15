@@ -1,14 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import CTA from "../components/CTA.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+import PrivateHeader from "../../components/PrivateHeader.astro";
+import CTA from "../../components/CTA.astro";
+import Footer from "../../components/Footer.astro";
 
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="The Case for Fractional Executive Support | Leigh-Ann Martin" description="Research, statistics, and data on fractional executive assistant services, market trends, cost analysis, and ROI.">
-  <Header />
+<Layout noindex={true} title="The Case for Fractional Executive Support | Leigh-Ann Martin" description="Research, statistics, and data on fractional executive assistant services, market trends, cost analysis, and ROI.">
+  <PrivateHeader />
   <main>
     <!-- Hero -->
     <section class="bg-primary pt-28 pb-16 md:pt-36 md:pb-20">
