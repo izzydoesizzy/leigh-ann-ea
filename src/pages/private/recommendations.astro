@@ -12,6 +12,7 @@ const contacts = [
     name: "Dr. Pete Salzmann",
     title: "Former CEO",
     company: "Immunovant",
+    linkedin: "https://www.linkedin.com/in/pete-salzmann-md",
     relationship: "Leigh-Ann was Pete's Senior Executive Assistant for ~5 years, supporting him through clinical-stage transitions, board governance, and investor relations.",
     email: "pete.salzmann@immunovant.com",
     altEmails: [],
@@ -45,6 +46,7 @@ Leigh-Ann`
     name: "Renee Barnett",
     title: "Former CFO",
     company: "Immunovant",
+    linkedin: "https://www.linkedin.com/in/renee-barnett",
     relationship: "Leigh-Ann worked closely with Renee on financial reporting, board materials, investor communications, and SEC filing coordination during their overlapping tenure at Immunovant (2021-2024).",
     email: "renee.barnett@immunovant.com",
     altEmails: [],
@@ -78,6 +80,7 @@ Leigh-Ann`
     name: "John Hartmann",
     title: "Former CEO",
     company: "Ascend Wellness Holdings",
+    linkedin: "https://www.linkedin.com/in/johnhartmann",
     relationship: "Leigh-Ann served as EA and Investor Relations support to John during his tenure as CEO (2023-2024), managing operations across 7 markets and 48 retail locations.",
     email: "john.hartmann@awholdings.com",
     altEmails: [],
@@ -111,6 +114,7 @@ Leigh-Ann`
     name: "Abner Kurtin",
     title: "Executive Chairman & Founder",
     company: "Ascend Wellness Holdings",
+    linkedin: "https://www.linkedin.com/in/abnerkurtin",
     relationship: "Leigh-Ann worked with Abner in his capacity as founder and Executive Chairman, supporting board-level operations, governance, and investor relations.",
     email: "abner.kurtin@awholdings.com",
     altEmails: [],
@@ -144,6 +148,7 @@ Leigh-Ann`
     name: "Frank Perullo",
     title: "President & Co-Founder",
     company: "Ascend Wellness Holdings",
+    linkedin: "https://www.linkedin.com/in/frankperullo",
     relationship: "Leigh-Ann worked with Frank across real estate expansion strategy, cross-functional coordination, and executive operations during the company's rapid growth phase.",
     email: "frank.perullo@awholdings.com",
     altEmails: [],
@@ -177,6 +182,7 @@ Leigh-Ann`
     name: "Dan Neville",
     title: "Former CFO & Interim Co-CEO",
     company: "Ascend Wellness Holdings",
+    linkedin: "https://www.linkedin.com/in/dan-neville-cpa",
     relationship: "Leigh-Ann worked closely with Dan on financial reporting, investor communications, and quarterly operations during the company's time as a publicly traded entity.",
     email: "dan.neville@awholdings.com",
     altEmails: [],
@@ -210,6 +216,7 @@ Leigh-Ann`
     name: "David Gacom",
     title: "Former COO",
     company: "Ascend Wellness Holdings",
+    linkedin: "https://www.linkedin.com/in/davidgacom",
     relationship: "Leigh-Ann partnered with David on operational coordination, supply chain logistics, and multi-state execution across Ascend's 48+ retail locations.",
     email: "david.gacom@awholdings.com",
     altEmails: [],
@@ -280,7 +287,7 @@ function buildMailtoLink(email: string, subject: string, body: string): string {
             <span class="text-secondary text-sm font-bold">I</span>
           </div>
           <div>
-            <h2 class="font-serif text-2xl text-primary">Immunovant</h2>
+            <h2 class="font-serif text-2xl text-primary"><a href="https://www.linkedin.com/company/immunovant" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">Immunovant</a></h2>
             <p class="text-text-muted text-sm">Biotech / Biopharma &middot; 5 years &middot; EA to the CEO</p>
           </div>
         </div>
@@ -292,7 +299,7 @@ function buildMailtoLink(email: string, subject: string, body: string): string {
               <div class="p-6 pb-4">
                 <div class="flex items-start justify-between gap-4">
                   <div>
-                    <h3 class="font-serif text-lg text-primary">{contact.name}</h3>
+                    <h3 class="font-serif text-lg text-primary">{contact.linkedin ? <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">{contact.name}</a> : contact.name}</h3>
                     <p class="text-secondary text-sm font-medium">{contact.title}, {contact.company}</p>
                     <p class="text-text-muted text-xs mt-1">{contact.relationship}</p>
                   </div>
@@ -344,7 +351,7 @@ function buildMailtoLink(email: string, subject: string, body: string): string {
             <span class="text-secondary text-sm font-bold">A</span>
           </div>
           <div>
-            <h2 class="font-serif text-2xl text-primary">Ascend Wellness Holdings</h2>
+            <h2 class="font-serif text-2xl text-primary"><a href="https://www.linkedin.com/company/ascend-wellness-holdings" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">Ascend Wellness Holdings</a></h2>
             <p class="text-text-muted text-sm">Cannabis MSO &middot; EA, Investor Relations &middot; 48 retail locations, 7 markets</p>
           </div>
         </div>
@@ -356,7 +363,7 @@ function buildMailtoLink(email: string, subject: string, body: string): string {
               <div class="p-6 pb-4">
                 <div class="flex items-start justify-between gap-4">
                   <div>
-                    <h3 class="font-serif text-lg text-primary">{contact.name}</h3>
+                    <h3 class="font-serif text-lg text-primary">{contact.linkedin ? <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">{contact.name}</a> : contact.name}</h3>
                     <p class="text-secondary text-sm font-medium">{contact.title}, {contact.company}</p>
                     <p class="text-text-muted text-xs mt-1">{contact.relationship}</p>
                   </div>
