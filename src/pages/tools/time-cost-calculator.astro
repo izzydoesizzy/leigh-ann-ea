@@ -1,0 +1,410 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import CTA from "../../components/CTA.astro";
+import Footer from "../../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Time Cost Calculator | Leigh-Ann Martin — What's Your Time Actually Costing You?">
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="bg-primary pt-28 pb-12 md:pt-36 md:pb-16">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Calculator</p>
+        <h1 class="font-serif text-3xl md:text-4xl text-white leading-tight mb-4">
+          What's your time actually costing you?
+        </h1>
+        <p class="text-white/55 text-base leading-relaxed max-w-xl mx-auto">
+          Every hour you spend on operations is an hour not spent on growth, strategy, or the work only you can do. Adjust the sliders to see the real number.
+        </p>
+      </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="py-12 md:py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+          <!-- Inputs -->
+          <div>
+            <h2 class="font-serif text-xl text-primary mb-8">Your Numbers</h2>
+
+            <!-- Compensation Slider -->
+            <div class="mb-8">
+              <div class="flex items-baseline justify-between mb-3">
+                <label for="comp-slider" class="text-sm font-medium text-primary">Annual Compensation</label>
+                <span id="comp-display" class="font-serif text-2xl text-primary">$250,000</span>
+              </div>
+              <input
+                type="range"
+                id="comp-slider"
+                min="100000"
+                max="1000000"
+                step="10000"
+                value="250000"
+                class="calc-slider w-full"
+              />
+              <div class="flex justify-between text-xs text-text-muted mt-1">
+                <span>$100K</span>
+                <span>$1M</span>
+              </div>
+            </div>
+
+            <!-- Hours Slider -->
+            <div class="mb-8">
+              <div class="flex items-baseline justify-between mb-3">
+                <label for="hours-slider" class="text-sm font-medium text-primary">Hours/Week on Operations</label>
+                <span id="hours-display" class="font-serif text-2xl text-primary">12 hrs</span>
+              </div>
+              <input
+                type="range"
+                id="hours-slider"
+                min="2"
+                max="40"
+                step="1"
+                value="12"
+                class="calc-slider w-full"
+              />
+              <div class="flex justify-between text-xs text-text-muted mt-1">
+                <span>2 hrs</span>
+                <span>40 hrs</span>
+              </div>
+            </div>
+
+            <!-- Task Checkboxes -->
+            <div>
+              <p class="text-sm font-medium text-primary mb-3">What are you spending time on?</p>
+              <div class="flex flex-wrap gap-2">
+                <div>
+                  <input type="checkbox" id="task-calendar" name="task" class="calc-checkbox" />
+                  <label for="task-calendar" class="calc-pill">Calendar & Scheduling</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="task-email" name="task" class="calc-checkbox" />
+                  <label for="task-email" class="calc-pill">Email Triage</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="task-board" name="task" class="calc-checkbox" />
+                  <label for="task-board" class="calc-pill">Board Prep</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="task-investor" name="task" class="calc-checkbox" />
+                  <label for="task-investor" class="calc-pill">Investor Follow-up</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="task-travel" name="task" class="calc-checkbox" />
+                  <label for="task-travel" class="calc-pill">Travel Coordination</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="task-meeting" name="task" class="calc-checkbox" />
+                  <label for="task-meeting" class="calc-pill">Meeting Prep</label>
+                </div>
+              </div>
+              <p class="text-xs text-text-muted mt-2">Select what applies. This helps illustrate the scope but doesn't change the calculation.</p>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div>
+            <div class="md:sticky md:top-24">
+              <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
+                <h2 class="font-serif text-xl text-primary mb-6">The Cost of Doing It Yourself</h2>
+
+                <!-- Big Number -->
+                <div class="text-center mb-6 pb-6 border-b border-primary/[0.06]">
+                  <p class="text-text-muted text-xs font-medium uppercase tracking-wide mb-1">You're spending</p>
+                  <p id="result-annual" class="font-serif text-4xl md:text-5xl text-primary">$75,000</p>
+                  <p class="text-text-muted text-sm mt-1"><span id="result-monthly" class="font-medium">$6,250</span>/month of your time on operations</p>
+                </div>
+
+                <!-- Tier Comparisons -->
+                <div class="space-y-4">
+                  <p class="text-xs font-semibold text-text-muted uppercase tracking-wide">Compared to Leigh-Ann's retainers</p>
+
+                  <!-- Tier 1 -->
+                  <div id="tier1-row" class="rounded-xl p-4 border border-primary/[0.06] transition-all">
+                    <div class="flex items-center justify-between mb-2">
+                      <div>
+                        <p class="text-sm font-medium text-primary">Tier 1: Executive Operations</p>
+                        <p class="text-xs text-text-muted">$5,000/mo ($60,000/yr)</p>
+                      </div>
+                      <span id="tier1-badge" class="hidden bg-secondary text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">Recommended</span>
+                    </div>
+                    <!-- Bars -->
+                    <div class="space-y-1.5">
+                      <div class="flex items-center gap-2">
+                        <span class="text-[10px] text-text-muted w-12 flex-shrink-0">You</span>
+                        <div class="flex-1 bg-primary/[0.06] rounded-full h-3 overflow-hidden">
+                          <div id="tier1-bar-you" class="h-full bg-primary/30 rounded-full transition-all duration-300" style="width:100%"></div>
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-[10px] text-text-muted w-12 flex-shrink-0">Tier 1</span>
+                        <div class="flex-1 bg-primary/[0.06] rounded-full h-3 overflow-hidden">
+                          <div id="tier1-bar-la" class="h-full bg-secondary rounded-full transition-all duration-300" style="width:80%"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="text-sm mt-2"><span id="tier1-savings" class="font-semibold text-secondary">$15,000</span> <span class="text-text-muted">saved per year</span> <span id="tier1-roi" class="text-xs text-text-muted">(1.3x ROI)</span></p>
+                  </div>
+
+                  <!-- Tier 2 -->
+                  <div id="tier2-row" class="rounded-xl p-4 border border-primary/[0.06] transition-all">
+                    <div class="flex items-center justify-between mb-2">
+                      <div>
+                        <p class="text-sm font-medium text-primary">Tier 2: Strategic Executive Partner</p>
+                        <p class="text-xs text-text-muted">$8,500/mo ($102,000/yr)</p>
+                      </div>
+                      <span id="tier2-badge" class="hidden bg-secondary text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">Recommended</span>
+                    </div>
+                    <div class="space-y-1.5">
+                      <div class="flex items-center gap-2">
+                        <span class="text-[10px] text-text-muted w-12 flex-shrink-0">You</span>
+                        <div class="flex-1 bg-primary/[0.06] rounded-full h-3 overflow-hidden">
+                          <div id="tier2-bar-you" class="h-full bg-primary/30 rounded-full transition-all duration-300" style="width:100%"></div>
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-[10px] text-text-muted w-12 flex-shrink-0">Tier 2</span>
+                        <div class="flex-1 bg-primary/[0.06] rounded-full h-3 overflow-hidden">
+                          <div id="tier2-bar-la" class="h-full bg-secondary rounded-full transition-all duration-300" style="width:80%"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="text-sm mt-2"><span id="tier2-savings" class="font-semibold text-secondary">$15,000</span> <span class="text-text-muted">saved per year</span> <span id="tier2-roi" class="text-xs text-text-muted">(1.3x ROI)</span></p>
+                  </div>
+
+                  <!-- Tier 3 -->
+                  <div id="tier3-row" class="rounded-xl p-4 border border-primary/[0.06] transition-all">
+                    <div class="flex items-center justify-between mb-2">
+                      <div>
+                        <p class="text-sm font-medium text-primary">Tier 3: Fractional Chief of Staff</p>
+                        <p class="text-xs text-text-muted">$12,500/mo ($150,000/yr)</p>
+                      </div>
+                      <span id="tier3-badge" class="hidden bg-secondary text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">Recommended</span>
+                    </div>
+                    <div class="space-y-1.5">
+                      <div class="flex items-center gap-2">
+                        <span class="text-[10px] text-text-muted w-12 flex-shrink-0">You</span>
+                        <div class="flex-1 bg-primary/[0.06] rounded-full h-3 overflow-hidden">
+                          <div id="tier3-bar-you" class="h-full bg-primary/30 rounded-full transition-all duration-300" style="width:100%"></div>
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-[10px] text-text-muted w-12 flex-shrink-0">Tier 3</span>
+                        <div class="flex-1 bg-primary/[0.06] rounded-full h-3 overflow-hidden">
+                          <div id="tier3-bar-la" class="h-full bg-secondary rounded-full transition-all duration-300" style="width:80%"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="text-sm mt-2"><span id="tier3-savings" class="font-semibold text-secondary">$15,000</span> <span class="text-text-muted">saved per year</span> <span id="tier3-roi" class="text-xs text-text-muted">(1.3x ROI)</span></p>
+                  </div>
+                </div>
+
+                <!-- CTA -->
+                <a
+                  id="result-cta"
+                  href={`${base}contact`}
+                  class="mt-6 w-full inline-flex items-center justify-center gap-2 bg-secondary text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20"
+                >
+                  Book a Call to Discuss
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+              </div>
+
+              <!-- Disclaimer -->
+              <p class="text-center text-text-muted text-xs mt-4">
+                Based on the value of your time at your compensation level. Actual engagement scope discussed during consultation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <CTA heading="Ready to reclaim your time?" subtext="Book a free 30-minute call. We'll look at your specific operations load and figure out the right level of support." />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* Range slider styling */
+  .calc-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 9999px;
+    background: linear-gradient(to right, #C4873B var(--fill, 50%), rgba(27, 42, 74, 0.1) var(--fill, 50%));
+    outline: none;
+    cursor: pointer;
+  }
+  .calc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #C4873B;
+    border: 3px solid white;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  .calc-slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #C4873B;
+    border: 3px solid white;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+
+  /* Checkbox pill styling */
+  .calc-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .calc-pill {
+    display: inline-flex;
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(27, 42, 74, 0.1);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.8125rem;
+    color: #6B6B6B;
+    user-select: none;
+  }
+  .calc-pill:hover {
+    border-color: rgba(27, 42, 74, 0.2);
+    color: #1A1A1A;
+  }
+  .calc-checkbox:checked + .calc-pill {
+    background: rgba(196, 135, 59, 0.1);
+    border-color: #C4873B;
+    color: #1B2A4A;
+    font-weight: 500;
+  }
+</style>
+
+<script>
+  const fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+  const compSlider = document.getElementById('comp-slider') as HTMLInputElement;
+  const hoursSlider = document.getElementById('hours-slider') as HTMLInputElement;
+  const compDisplay = document.getElementById('comp-display')!;
+  const hoursDisplay = document.getElementById('hours-display')!;
+
+  const resultAnnual = document.getElementById('result-annual')!;
+  const resultMonthly = document.getElementById('result-monthly')!;
+
+  const tiers = [
+    { idx: 1, monthly: 5000, annual: 60000 },
+    { idx: 2, monthly: 8500, annual: 102000 },
+    { idx: 3, monthly: 12500, annual: 150000 },
+  ];
+
+  function updateSliderFill(slider: HTMLInputElement) {
+    const min = parseFloat(slider.min);
+    const max = parseFloat(slider.max);
+    const val = parseFloat(slider.value);
+    const pct = ((val - min) / (max - min)) * 100;
+    slider.style.setProperty('--fill', pct + '%');
+  }
+
+  function calculate() {
+    const comp = parseInt(compSlider.value);
+    const hours = parseInt(hoursSlider.value);
+
+    // Update displays
+    compDisplay.textContent = fmt.format(comp);
+    hoursDisplay.textContent = hours + ' hrs';
+
+    // Update slider fills
+    updateSliderFill(compSlider);
+    updateSliderFill(hoursSlider);
+
+    // Core calculation
+    const annualCost = comp * (hours / 40);
+    const monthlyCost = annualCost / 12;
+
+    resultAnnual.textContent = fmt.format(annualCost);
+    resultMonthly.textContent = fmt.format(monthlyCost);
+
+    // Recommended tier
+    let recommended = 0;
+    if (hours > 20) recommended = 2;
+    else if (hours > 8) recommended = 1;
+
+    // Max value for bar scaling
+    const maxVal = Math.max(annualCost, 150000);
+
+    tiers.forEach((tier, i) => {
+      const savings = annualCost - tier.annual;
+      const roi = annualCost / tier.annual;
+      const isRec = i === recommended;
+
+      const row = document.getElementById(`tier${tier.idx}-row`)!;
+      const badge = document.getElementById(`tier${tier.idx}-badge`)!;
+      const barYou = document.getElementById(`tier${tier.idx}-bar-you`)!;
+      const barLa = document.getElementById(`tier${tier.idx}-bar-la`)!;
+      const savingsEl = document.getElementById(`tier${tier.idx}-savings`)!;
+      const roiEl = document.getElementById(`tier${tier.idx}-roi`)!;
+
+      // Bar widths
+      barYou.style.width = Math.round((annualCost / maxVal) * 100) + '%';
+      barLa.style.width = Math.round((tier.annual / maxVal) * 100) + '%';
+
+      // Savings text
+      if (savings > 0) {
+        savingsEl.textContent = fmt.format(savings);
+        roiEl.textContent = `(${roi.toFixed(1)}x ROI)`;
+        savingsEl.classList.remove('text-red-500');
+        savingsEl.classList.add('text-secondary');
+      } else {
+        savingsEl.textContent = fmt.format(Math.abs(savings)) + ' more';
+        roiEl.textContent = '';
+        savingsEl.classList.remove('text-secondary');
+        savingsEl.classList.add('text-red-500');
+      }
+
+      // Recommended highlight
+      if (isRec) {
+        row.classList.add('ring-2', 'ring-secondary', 'bg-secondary/[0.03]');
+        badge.classList.remove('hidden');
+      } else {
+        row.classList.remove('ring-2', 'ring-secondary', 'bg-secondary/[0.03]');
+        badge.classList.add('hidden');
+      }
+    });
+  }
+
+  // Event listeners
+  compSlider.addEventListener('input', calculate);
+  hoursSlider.addEventListener('input', calculate);
+  document.querySelectorAll('[name="task"]').forEach(cb => {
+    cb.addEventListener('change', calculate);
+  });
+
+  // Initial calculation
+  calculate();
+
+  // Reveal animations
+  const revealEls = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+  );
+  revealEls.forEach((el) => observer.observe(el));
+</script>

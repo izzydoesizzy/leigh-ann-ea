@@ -1,0 +1,430 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import CTA from "../../components/CTA.astro";
+import Footer from "../../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Full-Time vs. Fractional Calculator | Leigh-Ann Martin">
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="bg-primary pt-28 pb-12 md:pt-36 md:pb-16">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Calculator</p>
+        <h1 class="font-serif text-3xl md:text-4xl text-white leading-tight mb-4">
+          Full-time hire vs. fractional partner
+        </h1>
+        <p class="text-white/55 text-base leading-relaxed max-w-xl mx-auto">
+          The sticker price of a full-time EA is just the beginning. Benefits, recruiting, ramp-up time, and turnover risk add up fast. See the real Year 1 cost side by side.
+        </p>
+      </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="py-12 md:py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+          <!-- Inputs -->
+          <div>
+            <h2 class="font-serif text-xl text-primary mb-8">Tell me about your needs</h2>
+
+            <!-- Services Needed -->
+            <div class="mb-8">
+              <p class="text-sm font-medium text-primary mb-3">What do you need help with?</p>
+              <div class="flex flex-wrap gap-2">
+                <div>
+                  <input type="checkbox" id="need-calendar" name="need" value="calendar" class="calc-checkbox" checked />
+                  <label for="need-calendar" class="calc-pill">Calendar Management</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="need-board" name="need" value="board-prep" class="calc-checkbox" />
+                  <label for="need-board" class="calc-pill">Board Prep</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="need-ir" name="need" value="investor-relations" class="calc-checkbox" />
+                  <label for="need-ir" class="calc-pill">Investor Relations</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="need-onboarding" name="need" value="exec-onboarding" class="calc-checkbox" />
+                  <label for="need-onboarding" class="calc-pill">Executive Onboarding</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="need-confidential" name="need" value="confidential" class="calc-checkbox" />
+                  <label for="need-confidential" class="calc-pill">Confidential Projects</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="need-multistate" name="need" value="multi-state" class="calc-checkbox" />
+                  <label for="need-multistate" class="calc-pill">Multi-State Coordination</label>
+                </div>
+              </div>
+              <p class="text-xs text-text-muted mt-2">Select all that apply. More complex needs shift the comparison.</p>
+            </div>
+
+            <!-- Company Stage -->
+            <div class="mb-8">
+              <p class="text-sm font-medium text-primary mb-3">Company stage</p>
+              <div class="grid grid-cols-3 gap-3">
+                <div>
+                  <input type="radio" id="stage-early" name="stage" value="early" class="calc-radio" />
+                  <label for="stage-early" class="calc-radio-card">
+                    <span class="block text-sm font-medium">Early-stage</span>
+                    <span class="block text-xs text-text-muted mt-0.5">Seed to Series A</span>
+                  </label>
+                </div>
+                <div>
+                  <input type="radio" id="stage-growth" name="stage" value="growth" class="calc-radio" checked />
+                  <label for="stage-growth" class="calc-radio-card">
+                    <span class="block text-sm font-medium">Growth</span>
+                    <span class="block text-xs text-text-muted mt-0.5">Series B+</span>
+                  </label>
+                </div>
+                <div>
+                  <input type="radio" id="stage-preipo" name="stage" value="preipo" class="calc-radio" />
+                  <label for="stage-preipo" class="calc-radio-card">
+                    <span class="block text-sm font-medium">Pre-IPO / Public</span>
+                    <span class="block text-xs text-text-muted mt-0.5">Late stage</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stakeholder Count -->
+            <div class="mb-8">
+              <p class="text-sm font-medium text-primary mb-3">How many stakeholders do you manage?</p>
+              <div class="flex flex-wrap gap-2">
+                <div>
+                  <input type="radio" id="sh-lt25" name="stakeholders" value="lt25" class="calc-radio" checked />
+                  <label for="sh-lt25" class="calc-pill">Under 25</label>
+                </div>
+                <div>
+                  <input type="radio" id="sh-25-100" name="stakeholders" value="25-100" class="calc-radio" />
+                  <label for="sh-25-100" class="calc-pill">25 - 100</label>
+                </div>
+                <div>
+                  <input type="radio" id="sh-100-200" name="stakeholders" value="100-200" class="calc-radio" />
+                  <label for="sh-100-200" class="calc-pill">100 - 200</label>
+                </div>
+                <div>
+                  <input type="radio" id="sh-200plus" name="stakeholders" value="200plus" class="calc-radio" />
+                  <label for="sh-200plus" class="calc-pill">200+</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div>
+            <div class="md:sticky md:top-24">
+              <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-7">
+                <h2 class="font-serif text-xl text-primary mb-6">Year 1 Cost Comparison</h2>
+
+                <!-- Full-Time Breakdown -->
+                <div class="mb-6">
+                  <p class="text-xs font-semibold text-text-muted uppercase tracking-wide mb-3">Full-Time EA Hire</p>
+                  <div class="space-y-2">
+                    <div class="flex justify-between text-sm">
+                      <span class="text-text-muted">Base salary</span>
+                      <span id="ft-salary" class="text-primary font-medium">$105,000</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                      <span class="text-text-muted">Benefits (28%)</span>
+                      <span id="ft-benefits" class="text-primary font-medium">$29,400</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                      <span class="text-text-muted">Recruiting (22%)</span>
+                      <span id="ft-recruiting" class="text-primary font-medium">$23,100</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                      <span class="text-text-muted">Ramp-up productivity loss</span>
+                      <span id="ft-rampup" class="text-primary font-medium">$17,500</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                      <span class="text-text-muted">Turnover risk (annualized)</span>
+                      <span id="ft-turnover" class="text-primary font-medium">$15,750</span>
+                    </div>
+                    <div class="flex justify-between text-sm font-semibold pt-2 border-t border-primary/[0.06]">
+                      <span class="text-primary">Total Year 1</span>
+                      <span id="ft-total" class="text-primary">$190,750</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Comparison Bars -->
+                <div class="mb-6 pb-6 border-b border-primary/[0.06]">
+                  <div class="space-y-3">
+                    <div>
+                      <div class="flex justify-between text-xs mb-1">
+                        <span class="text-text-muted">Full-time hire</span>
+                        <span id="bar-ft-label" class="text-primary font-medium">$190,750</span>
+                      </div>
+                      <div class="bg-primary/[0.06] rounded-full h-4 overflow-hidden">
+                        <div id="bar-ft" class="h-full bg-primary/30 rounded-full transition-all duration-300" style="width:100%"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between text-xs mb-1">
+                        <span class="text-text-muted">Leigh-Ann (<span id="bar-tier-name">Tier 2</span>)</span>
+                        <span id="bar-la-label" class="text-secondary font-medium">$102,000</span>
+                      </div>
+                      <div class="bg-primary/[0.06] rounded-full h-4 overflow-hidden">
+                        <div id="bar-la" class="h-full bg-secondary rounded-full transition-all duration-300" style="width:53%"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Savings callout -->
+                  <div class="mt-4 bg-secondary/5 rounded-lg p-3 text-center">
+                    <p class="text-sm"><span class="font-bold text-secondary" id="savings-amount">$88,750</span> saved in Year 1</p>
+                    <p class="text-xs text-text-muted mt-0.5">That's <span class="font-semibold text-primary" id="savings-pct">47%</span> less than a full-time hire</p>
+                  </div>
+                </div>
+
+                <!-- Qualitative Comparison -->
+                <div class="mb-6">
+                  <p class="text-xs font-semibold text-text-muted uppercase tracking-wide mb-3">Beyond the numbers</p>
+                  <div class="space-y-2">
+                    <div class="flex items-start gap-3 text-sm">
+                      <span class="text-text-muted w-28 flex-shrink-0">Ramp-up</span>
+                      <span class="text-text-muted/60 flex-1">3-6 months</span>
+                      <span class="text-primary font-medium flex-1">30 days or less</span>
+                    </div>
+                    <div class="flex items-start gap-3 text-sm">
+                      <span class="text-text-muted w-28 flex-shrink-0">Strategic ability</span>
+                      <span class="text-text-muted/60 flex-1">Depends on hire</span>
+                      <span class="text-primary font-medium flex-1">Built-in, day one</span>
+                    </div>
+                    <div class="flex items-start gap-3 text-sm">
+                      <span class="text-text-muted w-28 flex-shrink-0">Confidentiality</span>
+                      <span class="text-text-muted/60 flex-1">Internal policies</span>
+                      <span class="text-primary font-medium flex-1">NDA from day one</span>
+                    </div>
+                    <div class="flex items-start gap-3 text-sm">
+                      <span class="text-text-muted w-28 flex-shrink-0">Board experience</span>
+                      <span class="text-text-muted/60 flex-1">Maybe</span>
+                      <span class="text-primary font-medium flex-1">12 years of it</span>
+                    </div>
+                    <div class="flex items-start gap-3 text-sm">
+                      <span class="text-text-muted w-28 flex-shrink-0">Flexibility</span>
+                      <span class="text-text-muted/60 flex-1">Fixed salary</span>
+                      <span class="text-primary font-medium flex-1">Scale up or down monthly</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CTA -->
+                <a
+                  href={`${base}contact`}
+                  class="w-full inline-flex items-center justify-center gap-2 bg-secondary text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20"
+                >
+                  <span>Book a Call to Discuss <span id="cta-tier">Tier 2</span></span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+              </div>
+
+              <p class="text-center text-text-muted text-xs mt-4">
+                Salary estimates based on NYC market data for executive assistants (April 2026). Benefits, recruiting, and ramp-up costs use industry standard percentages.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <CTA heading="Want the full breakdown for your situation?" subtext="Book a free 30-minute call. I'll walk through your specific needs and give you an honest recommendation." />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* Checkbox pill styling */
+  .calc-checkbox, .calc-radio {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .calc-pill {
+    display: inline-flex;
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(27, 42, 74, 0.1);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.8125rem;
+    color: #6B6B6B;
+    user-select: none;
+  }
+  .calc-pill:hover {
+    border-color: rgba(27, 42, 74, 0.2);
+    color: #1A1A1A;
+  }
+  .calc-checkbox:checked + .calc-pill,
+  .calc-radio:checked + .calc-pill {
+    background: rgba(196, 135, 59, 0.1);
+    border-color: #C4873B;
+    color: #1B2A4A;
+    font-weight: 500;
+  }
+
+  /* Radio card styling */
+  .calc-radio-card {
+    display: block;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(27, 42, 74, 0.1);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    user-select: none;
+    background: white;
+  }
+  .calc-radio-card:hover {
+    border-color: rgba(27, 42, 74, 0.2);
+  }
+  .calc-radio:checked + .calc-radio-card {
+    background: rgba(196, 135, 59, 0.1);
+    border-color: #C4873B;
+  }
+</style>
+
+<script>
+  const fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+  // Salary matrix: [stage][complexityBucket] where bucket = 0 (1-2 checks), 1 (3-4), 2 (5-6)
+  const salaryMatrix: Record<string, number[]> = {
+    early:  [65000, 80000, 95000],
+    growth: [85000, 105000, 125000],
+    preipo: [110000, 135000, 160000],
+  };
+
+  const stakeholderMult: Record<string, number> = {
+    lt25: 1.0, '25-100': 1.1, '100-200': 1.2, '200plus': 1.3,
+  };
+
+  const rampMonths: Record<string, number> = {
+    early: 3, growth: 4, preipo: 6,
+  };
+
+  const checkboxWeights: Record<string, number> = {
+    calendar: 1, 'board-prep': 2, 'investor-relations': 2,
+    'exec-onboarding': 1, confidential: 3, 'multi-state': 2,
+  };
+
+  const tierNames = ['Tier 1', 'Tier 2', 'Tier 3'];
+  const tierAnnuals = [60000, 102000, 150000];
+  const tierMonthlies = [5000, 8500, 12500];
+
+  function getCheckedNeeds(): string[] {
+    return Array.from(document.querySelectorAll<HTMLInputElement>('[name="need"]:checked')).map(el => el.value);
+  }
+
+  function getStage(): string {
+    return (document.querySelector<HTMLInputElement>('[name="stage"]:checked'))?.value || 'growth';
+  }
+
+  function getStakeholders(): string {
+    return (document.querySelector<HTMLInputElement>('[name="stakeholders"]:checked'))?.value || 'lt25';
+  }
+
+  function calculate() {
+    const needs = getCheckedNeeds();
+    const stage = getStage();
+    const sh = getStakeholders();
+
+    // Complexity bucket
+    const numChecks = needs.length;
+    let bucket = 0;
+    if (numChecks >= 5) bucket = 2;
+    else if (numChecks >= 3) bucket = 1;
+
+    // Base salary
+    const baseSalary = Math.round(salaryMatrix[stage][bucket] * stakeholderMult[sh]);
+    const benefits = Math.round(baseSalary * 0.28);
+    const recruiting = Math.round(baseSalary * 0.22);
+    const rampUp = Math.round(baseSalary * (rampMonths[stage] / 12) * 0.5);
+    const turnover = Math.round(baseSalary * 0.15);
+    const totalFT = baseSalary + benefits + recruiting + rampUp + turnover;
+
+    // Tier recommendation
+    let score = 0;
+    needs.forEach(n => { score += checkboxWeights[n] || 0; });
+    if (stage === 'growth') score += 1;
+    if (stage === 'preipo') score += 3;
+    if (sh === '100-200') score += 1;
+    if (sh === '200plus') score += 2;
+
+    let tierIdx = 0;
+    if (score >= 10) tierIdx = 2;
+    else if (score >= 5) tierIdx = 1;
+
+    const tierAnnual = tierAnnuals[tierIdx];
+    const savings = totalFT - tierAnnual;
+    const savingsPct = Math.round((savings / totalFT) * 100);
+
+    // Update DOM - FT breakdown
+    document.getElementById('ft-salary')!.textContent = fmt.format(baseSalary);
+    document.getElementById('ft-benefits')!.textContent = fmt.format(benefits);
+    document.getElementById('ft-recruiting')!.textContent = fmt.format(recruiting);
+    document.getElementById('ft-rampup')!.textContent = fmt.format(rampUp);
+    document.getElementById('ft-turnover')!.textContent = fmt.format(turnover);
+    document.getElementById('ft-total')!.textContent = fmt.format(totalFT);
+
+    // Bars
+    const maxVal = Math.max(totalFT, tierAnnual);
+    document.getElementById('bar-ft')!.style.width = Math.round((totalFT / maxVal) * 100) + '%';
+    document.getElementById('bar-la')!.style.width = Math.round((tierAnnual / maxVal) * 100) + '%';
+    document.getElementById('bar-ft-label')!.textContent = fmt.format(totalFT);
+    document.getElementById('bar-la-label')!.textContent = fmt.format(tierAnnual);
+    document.getElementById('bar-tier-name')!.textContent = tierNames[tierIdx];
+
+    // Savings
+    const savingsAmountEl = document.getElementById('savings-amount')!;
+    const savingsPctEl = document.getElementById('savings-pct')!;
+
+    if (savings > 0) {
+      savingsAmountEl.textContent = fmt.format(savings);
+      savingsPctEl.textContent = savingsPct + '%';
+      savingsAmountEl.parentElement!.parentElement!.classList.remove('bg-red-50');
+      savingsAmountEl.parentElement!.parentElement!.classList.add('bg-secondary/5');
+      savingsAmountEl.classList.remove('text-red-500');
+      savingsAmountEl.classList.add('text-secondary');
+      savingsAmountEl.parentElement!.innerHTML = `<span class="font-bold text-secondary" id="savings-amount">${fmt.format(savings)}</span> saved in Year 1`;
+      savingsPctEl.parentElement!.innerHTML = `That's <span class="font-semibold text-primary" id="savings-pct">${savingsPct}%</span> less than a full-time hire`;
+    } else {
+      savingsAmountEl.parentElement!.parentElement!.classList.add('bg-red-50');
+      savingsAmountEl.parentElement!.parentElement!.classList.remove('bg-secondary/5');
+      savingsAmountEl.parentElement!.innerHTML = `<span class="font-bold text-primary" id="savings-amount">${fmt.format(Math.abs(savings))}</span> more than full-time`;
+      savingsPctEl.parentElement!.innerHTML = `But you get 12 years of board-level experience from <span class="font-semibold text-primary" id="savings-pct">day one</span>`;
+    }
+
+    // CTA tier name
+    document.getElementById('cta-tier')!.textContent = tierNames[tierIdx];
+  }
+
+  // Event listeners
+  document.querySelectorAll('[name="need"], [name="stage"], [name="stakeholders"]').forEach(el => {
+    el.addEventListener('change', calculate);
+  });
+
+  // Initial calculation
+  calculate();
+
+  // Reveal animations
+  const revealEls = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+  );
+  revealEls.forEach((el) => observer.observe(el));
+</script>
