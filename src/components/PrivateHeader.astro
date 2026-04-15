@@ -3,71 +3,162 @@ const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
 
 const privatePages = [
-  { label: "Getting Started", href: `${base}private/getting-started` },
-  { label: "Prospects", href: `${base}private/prospects` },
-  { label: "Outreach", href: `${base}private/outreach` },
-  { label: "Opportunities", href: `${base}private/opportunities` },
-  { label: "Recommendations", href: `${base}private/recommendations` },
-  { label: "Interview Prep", href: `${base}private/interview-prep` },
-  { label: "Research", href: `${base}private/research` },
+  {
+    label: "Dashboard",
+    href: `${base}private`,
+    match: /\/private\/?$/,
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>`,
+  },
+  {
+    label: "Case Study Questions",
+    href: `${base}private/case-study-questions`,
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+  },
+  {
+    label: "Getting Started",
+    href: `${base}private/getting-started`,
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>`,
+  },
+  {
+    label: "Prospects",
+    href: `${base}private/prospects`,
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>`,
+  },
+  {
+    label: "Outreach",
+    href: `${base}private/outreach`,
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+  },
+  {
+    label: "Opportunities",
+    href: `${base}private/opportunities`,
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+  },
+  {
+    label: "Recommendations",
+    href: `${base}private/recommendations`,
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>`,
+  },
+  {
+    label: "Interview Prep",
+    href: `${base}private/interview-prep`,
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>`,
+  },
+  {
+    label: "Research",
+    href: `${base}private/research`,
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>`,
+  },
 ];
+
+function isActive(page: typeof privatePages[0]): boolean {
+  if ('match' in page && page.match) {
+    return (page.match as RegExp).test(currentPath);
+  }
+  const slug = page.href.replace(base, '').replace(/\/$/, '');
+  return currentPath.includes(slug.split('/').pop() || '');
+}
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-lg shadow-sm">
-  <nav class="max-w-6xl mx-auto px-6 flex items-center justify-between h-14">
-    <div class="flex items-center gap-3">
-      <a href={base} class="font-serif text-lg text-white/60 hover:text-white/80 transition-colors">Leigh-Ann Martin</a>
-      <span class="text-white/20">|</span>
-      <span class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase">Private</span>
-    </div>
+<!-- Desktop Sidebar -->
+<aside class="hidden md:flex fixed top-0 left-0 w-60 h-screen bg-primary flex-col z-50">
+  <!-- Brand -->
+  <div class="px-5 pt-6 pb-4 border-b border-white/[0.08]">
+    <a href={base} class="font-serif text-lg text-white/70 hover:text-white/90 transition-colors leading-tight block">
+      Leigh-Ann Martin
+    </a>
+    <span class="text-secondary text-[10px] font-semibold tracking-[0.2em] uppercase mt-1 block">Private Toolkit</span>
+  </div>
 
-    <!-- Mobile menu button -->
-    <button id="private-mobile-menu-btn" class="md:hidden text-white/60 hover:text-white transition-colors" aria-label="Toggle menu">
+  <!-- Nav -->
+  <nav class="flex-1 overflow-y-auto py-4 px-3 space-y-0.5">
+    {privatePages.map(page => (
+      <a
+        href={page.href}
+        class={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
+          isActive(page)
+            ? 'bg-white/10 text-white border-l-2 border-secondary ml-0 pl-[10px]'
+            : 'text-white/45 hover:text-white/75 hover:bg-white/[0.04] border-l-2 border-transparent ml-0 pl-[10px]'
+        }`}
+      >
+        <span class={`flex-shrink-0 ${isActive(page) ? 'text-secondary' : ''}`}>
+          <Fragment set:html={page.icon} />
+        </span>
+        <span class="truncate">{page.label}</span>
+      </a>
+    ))}
+  </nav>
+
+  <!-- Footer -->
+  <div class="px-5 py-4 border-t border-white/[0.08]">
+    <a href={base} class="text-white/25 text-xs hover:text-white/50 transition-colors">
+      &larr; Back to public site
+    </a>
+  </div>
+</aside>
+
+<!-- Mobile Top Bar -->
+<header class="md:hidden fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-lg shadow-sm">
+  <nav class="px-5 flex items-center justify-between h-14">
+    <div class="flex items-center gap-2.5">
+      <a href={base} class="font-serif text-lg text-white/60 hover:text-white/80 transition-colors">Leigh-Ann Martin</a>
+      <span class="text-secondary text-[10px] font-semibold tracking-[0.15em] uppercase">Private</span>
+    </div>
+    <button id="private-mobile-menu-btn" class="text-white/60 hover:text-white transition-colors p-1" aria-label="Toggle menu">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
-
-    <!-- Desktop nav -->
-    <div class="hidden md:flex items-center gap-1">
-      {privatePages.map(page => (
-        <a
-          href={page.href}
-          class={`text-xs font-medium px-3 py-1.5 rounded-full transition-colors ${
-            currentPath.includes(page.href.replace(base, '').replace('private/', ''))
-              ? 'bg-white/10 text-white'
-              : 'text-white/50 hover:text-white/80 hover:bg-white/5'
-          }`}
-        >
-          {page.label}
-        </a>
-      ))}
-    </div>
   </nav>
+</header>
 
-  <!-- Mobile nav -->
-  <div id="private-mobile-menu" class="hidden md:hidden border-t border-white/[0.08] bg-primary/95 backdrop-blur-lg">
-    <div class="px-6 py-4 space-y-2">
+<!-- Mobile Slide-Out Overlay -->
+<div id="private-mobile-overlay" class="md:hidden fixed inset-0 z-[60] hidden">
+  <!-- Backdrop -->
+  <div id="private-mobile-backdrop" class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Drawer -->
+  <aside id="private-mobile-drawer" class="absolute top-0 left-0 w-72 h-full bg-primary shadow-2xl flex flex-col transform -translate-x-full transition-transform duration-300">
+    <!-- Drawer header -->
+    <div class="px-5 pt-6 pb-4 border-b border-white/[0.08] flex items-start justify-between">
+      <div>
+        <span class="font-serif text-lg text-white/70 block leading-tight">Leigh-Ann Martin</span>
+        <span class="text-secondary text-[10px] font-semibold tracking-[0.2em] uppercase mt-1 block">Private Toolkit</span>
+      </div>
+      <button id="private-mobile-close" class="text-white/40 hover:text-white/70 transition-colors p-1 -mr-1 mt-0.5" aria-label="Close menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Drawer nav -->
+    <nav class="flex-1 overflow-y-auto py-4 px-3 space-y-0.5">
       {privatePages.map(page => (
         <a
           href={page.href}
-          class={`block text-sm font-medium transition-colors py-1 ${
-            currentPath.includes(page.href.replace(base, '').replace('private/', ''))
-              ? 'text-white'
-              : 'text-white/50 hover:text-white/80'
+          class={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm transition-all ${
+            isActive(page)
+              ? 'bg-white/10 text-white border-l-2 border-secondary pl-[10px]'
+              : 'text-white/45 hover:text-white/75 hover:bg-white/[0.04] border-l-2 border-transparent pl-[10px]'
           }`}
         >
-          {page.label}
+          <span class={`flex-shrink-0 ${isActive(page) ? 'text-secondary' : ''}`}>
+            <Fragment set:html={page.icon} />
+          </span>
+          <span>{page.label}</span>
         </a>
       ))}
-      <div class="pt-2 border-t border-white/[0.08]">
-        <a href={base} class="block text-xs text-white/30 hover:text-white/50 transition-colors py-1">
-          Back to public site
-        </a>
-      </div>
+    </nav>
+
+    <!-- Drawer footer -->
+    <div class="px-5 py-4 border-t border-white/[0.08]">
+      <a href={base} class="text-white/25 text-xs hover:text-white/50 transition-colors">
+        &larr; Back to public site
+      </a>
     </div>
-  </div>
-</header>
+  </aside>
+</div>
 
 <!-- Password Gate -->
 <div id="private-gate" class="fixed inset-0 z-[100] bg-primary flex items-center justify-center">
@@ -97,39 +188,52 @@ const privatePages = [
 </div>
 
 <script>
-  // Mobile menu toggle
-  const btn = document.getElementById('private-mobile-menu-btn');
-  const menu = document.getElementById('private-mobile-menu');
-  btn?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
-  });
+  // ── Mobile menu ─────────────────────────────────────────────
+  const menuBtn = document.getElementById('private-mobile-menu-btn');
+  const overlay = document.getElementById('private-mobile-overlay');
+  const backdrop = document.getElementById('private-mobile-backdrop');
+  const drawer = document.getElementById('private-mobile-drawer');
+  const closeBtn = document.getElementById('private-mobile-close');
 
-  // Password gate
+  function openDrawer() {
+    overlay?.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      drawer?.classList.remove('-translate-x-full');
+    });
+  }
+
+  function closeDrawer() {
+    drawer?.classList.add('-translate-x-full');
+    setTimeout(() => {
+      overlay?.classList.add('hidden');
+    }, 300);
+  }
+
+  menuBtn?.addEventListener('click', openDrawer);
+  closeBtn?.addEventListener('click', closeDrawer);
+  backdrop?.addEventListener('click', closeDrawer);
+
+  // ── Password gate ──────────────────────────────────────────
   const STORAGE_KEY = 'la-private-access';
   const gate = document.getElementById('private-gate') as HTMLElement;
   const form = document.getElementById('gate-form') as HTMLFormElement;
   const input = document.getElementById('gate-input') as HTMLInputElement;
   const error = document.getElementById('gate-error') as HTMLElement;
 
-  // Simple hash for client-side check (not real security, just a gate)
   async function hashCode(str: string): Promise<string> {
     const data = new TextEncoder().encode(str.trim().toLowerCase());
     const buf = await crypto.subtle.digest('SHA-256', data);
     return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
   }
 
-  // The hash of the access code — change the password by updating this hash
-  // Current password: "leighann2026"
   const VALID_HASH = '9f0c5836bfc78b2a02c28bac2bc98e0c1fb0102a3c6a3e0e8c7a4e3bdfc3e4a7';
 
   async function checkAccess() {
-    // Already authenticated
     if (localStorage.getItem(STORAGE_KEY) === 'granted') {
       gate.style.display = 'none';
       document.body.style.overflow = '';
       return;
     }
-    // Show gate
     gate.style.display = 'flex';
     document.body.style.overflow = 'hidden';
     input.focus();
@@ -140,22 +244,15 @@ const privatePages = [
     const val = input.value;
     const hash = await hashCode(val);
 
-    if (hash === VALID_HASH) {
+    if (hash === VALID_HASH || val.trim().toLowerCase() === 'leighann2026') {
       localStorage.setItem(STORAGE_KEY, 'granted');
       gate.style.display = 'none';
       document.body.style.overflow = '';
     } else {
-      // Also allow plain comparison as fallback for simple passwords
-      if (val.trim().toLowerCase() === 'leighann2026') {
-        localStorage.setItem(STORAGE_KEY, 'granted');
-        gate.style.display = 'none';
-        document.body.style.overflow = '';
-      } else {
-        error.classList.remove('hidden');
-        input.value = '';
-        input.focus();
-        setTimeout(() => error.classList.add('hidden'), 3000);
-      }
+      error.classList.remove('hidden');
+      input.value = '';
+      input.focus();
+      setTimeout(() => error.classList.add('hidden'), 3000);
     }
   });
 
