@@ -92,6 +92,21 @@ const base = import.meta.env.BASE_URL;
       </div>
     </section>
 
+    <!-- Cost of Inaction -->
+    <section class="py-10 bg-primary">
+      <div class="max-w-3xl mx-auto px-6 text-center" data-reveal>
+        <p class="text-secondary text-xs font-bold tracking-[0.2em] uppercase mb-3">The Math</p>
+        <p class="text-white font-serif text-xl md:text-2xl leading-tight mb-4">
+          A CEO earning $300K who spends 12 hours a week on operations is burning $86,400 a year on work that costs $60,000 when delegated properly.
+        </p>
+        <p class="text-white/50 text-sm mb-4">That's not a cost. It's a leak. And it compounds every quarter you don't fix it.</p>
+        <a href={`${base}tools/time-cost-calculator`} class="inline-flex items-center gap-2 text-secondary text-sm font-semibold hover:underline">
+          Calculate your real cost
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </section>
+
     <!-- Project-Based -->
     <section class="py-16 md:py-24 bg-warm">
       <div class="max-w-4xl mx-auto px-6">
@@ -106,48 +121,16 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" data-reveal-stagger>
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <div class="flex items-start justify-between mb-3">
-              <h3 class="font-serif text-lg text-primary">Investor Relations System&nbsp;Setup</h3>
-              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$5,000</span>
-            </div>
-            <p class="text-text-muted text-sm leading-relaxed">
-              Complete IR infrastructure: CRM configuration, stakeholder categorization, correspondence templates for quarterly updates and ad-hoc requests, reporting workflow, and response time protocols. Built from the same system that managed 200+ relationships across 7 markets.
-            </p>
-            <p class="text-text-muted/60 text-xs mt-3">3-4 week engagement</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <div class="flex items-start justify-between mb-3">
-              <h3 class="font-serif text-lg text-primary">Multi-State Coordination Framework</h3>
-              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$4,500</span>
-            </div>
-            <p class="text-text-muted text-sm leading-relaxed">
-              Standardized cross-location scheduling protocols, shared operations calendar, communication cadence across distributed teams, and compliance tracking templates for each market or entity.
-            </p>
-            <p class="text-text-muted/60 text-xs mt-3">3 week engagement</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-6 shadow-sm">
+          <div class="bg-white rounded-xl p-6 shadow-sm border-2 border-secondary/20 relative">
+            <span class="absolute -top-2.5 left-4 bg-secondary text-white text-[10px] font-bold px-3 py-0.5 rounded-full">Most Popular Start</span>
             <div class="flex items-start justify-between mb-3">
               <h3 class="font-serif text-lg text-primary">Operations Audit &amp; Playbook</h3>
               <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$4,000</span>
             </div>
             <p class="text-text-muted text-sm leading-relaxed">
-              Full audit of your current executive operations. You get a playbook with specific recommendations, process maps, and a prioritized action plan. A great way to start working together before committing to a retainer.
+              Full audit of your current executive operations. You get a playbook with specific recommendations, process maps, and a prioritized action plan. Most retainer clients started here.
             </p>
             <p class="text-text-muted/60 text-xs mt-3">2-3 week engagement</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <div class="flex items-start justify-between mb-3">
-              <h3 class="font-serif text-lg text-primary">Executive Onboarding System</h3>
-              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$3,000</span>
-            </div>
-            <p class="text-text-muted text-sm leading-relaxed">
-              A complete onboarding system for new executives joining your team. First 90 days planned, stakeholder introductions mapped, decision-rights matrix, communication rhythms established. New leaders productive from week one.
-            </p>
-            <p class="text-text-muted/60 text-xs mt-3">2 week engagement</p>
           </div>
 
           <div class="bg-white rounded-xl p-6 shadow-sm">
@@ -163,6 +146,28 @@ const base = import.meta.env.BASE_URL;
 
           <div class="bg-white rounded-xl p-6 shadow-sm">
             <div class="flex items-start justify-between mb-3">
+              <h3 class="font-serif text-lg text-primary">Inbox Zero System Setup</h3>
+              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$1,500</span>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Custom email triage system, labels, filters, response templates, and escalation rules. You'll never drown in email again.
+            </p>
+            <p class="text-text-muted/60 text-xs mt-3">1 week engagement</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-serif text-lg text-primary">Executive Onboarding System</h3>
+              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$3,000</span>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed">
+              A complete onboarding system for new executives joining your team. First 90 days planned, stakeholder introductions mapped, decision-rights matrix, communication rhythms established. New leaders productive from week one.
+            </p>
+            <p class="text-text-muted/60 text-xs mt-3">2 week engagement</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
               <h3 class="font-serif text-lg text-primary">AI Workflow Implementation</h3>
               <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$2,000</span>
             </div>
@@ -174,13 +179,24 @@ const base = import.meta.env.BASE_URL;
 
           <div class="bg-white rounded-xl p-6 shadow-sm">
             <div class="flex items-start justify-between mb-3">
-              <h3 class="font-serif text-lg text-primary">Inbox Zero System Setup</h3>
-              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$1,500</span>
+              <h3 class="font-serif text-lg text-primary">Investor Relations System&nbsp;Setup</h3>
+              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$5,000</span>
             </div>
             <p class="text-text-muted text-sm leading-relaxed">
-              Custom email triage system, labels, filters, response templates, and escalation rules. You'll never drown in email again.
+              Complete IR infrastructure: CRM configuration, stakeholder categorization, correspondence templates for quarterly updates and ad-hoc requests, reporting workflow, and response time protocols. Built from the same system that managed 200+ relationships across 7 markets.
             </p>
-            <p class="text-text-muted/60 text-xs mt-3">1 week engagement</p>
+            <p class="text-text-muted/60 text-xs mt-3">3-4 week engagement</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-sm lg:col-span-2">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-serif text-lg text-primary">Multi-State Coordination Framework</h3>
+              <span class="font-serif text-xl text-secondary whitespace-nowrap ml-4">$4,500</span>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Standardized cross-location scheduling protocols, shared operations calendar, communication cadence across distributed teams, and compliance tracking templates for each market or entity.
+            </p>
+            <p class="text-text-muted/60 text-xs mt-3">3 week engagement</p>
           </div>
         </div>
       </div>
