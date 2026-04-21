@@ -7,22 +7,69 @@ const base = import.meta.env.BASE_URL;
 
 const linkedinRecommendationUrl = "https://www.linkedin.com/in/leigh-ann-martin/edit/forms/recommendation/write";
 
-const contacts = [
+// Status key:
+//   live         = recommendation already posted on LinkedIn
+//   sent         = email sent, awaiting response
+//   ready        = draft ready to send, contact + email confirmed
+//   needs-info   = draft ready, but contact info (email or last name) still being gathered
+//   draft-needed = fresh draft required, no template reuse
+//   second-tier  = send if priorities above respond well
+
+type Status = "live" | "sent" | "ready" | "needs-info" | "draft-needed" | "second-tier";
+
+interface Contact {
+  name: string;
+  title: string;
+  company: string;
+  status: Status;
+  priority: "P1" | "P2" | "P3";
+  linkedin: string | null;
+  relationship: string;
+  email: string;
+  emailNote?: string;
+  recommendation: string;
+  emailSubject: string;
+  emailBody: string;
+  statusNote?: string;
+}
+
+const contacts: Contact[] = [
+  // =================================================================
+  // IMMUNOVANT (priority per 2026-04-21 call: "spent more years there, way more impactful")
+  // =================================================================
   {
-    name: "Dr. Pete Salzmann",
-    title: "Former CEO",
+    name: "Pam Connealy",
+    title: "Former CFO & COO",
     company: "Immunovant",
-    linkedin: "https://www.linkedin.com/in/pete-salzmann-md",
-    relationship: "Leigh-Ann was Pete's Senior Executive Assistant for ~5 years, supporting him through clinical-stage transitions, board governance, and investor relations.",
-    email: "pete.salzmann@immunovant.com",
-    altEmails: [],
-    recommendation: `Leigh-Ann supported me for five years at Immunovant through some of the most operationally demanding phases a biotech CEO faces. She improved our executive decision-making effectiveness by 30% by implementing structured problem-solving and change management frameworks that replaced the ad hoc processes we had been relying on. She built onboarding and development programs for 6 administrative professionals, cutting ramp-up time by 20%. She also founded and led our internal Culture Committee, spearheading DEI workshops, employee wellness programs, and hybrid connectivity initiatives that measurably improved employee satisfaction scores by 22%. What set her apart was not just execution but anticipation. During clinical-stage transitions, she kept everything running before I had to ask. I would recommend her without hesitation to any CEO who needs a true strategic partner, not just an assistant.`,
+    status: "live",
+    priority: "P1",
+    linkedin: "https://www.linkedin.com/in/pam-connealy",
+    relationship: "Leigh-Ann supported Pam across her CFO and COO tenure at Immunovant (pre-pandemic through pre-IPO), covering reporting accuracy, hiring, and executive operations.",
+    email: "pam.connealy@immunovant.com",
+    emailNote: "Email placeholder. Pam's recommendation is already live on LinkedIn, no email needed.",
+    statusNote: "Recommendation already posted on LinkedIn. Pam used the draft and added specifics on earnings and IR work.",
+    recommendation: `I worked alongside Leigh-Ann for several years at Immunovant, and she was one of the most reliable operational partners I've had. As CFO and later COO, I depended on precise coordination for board materials, quarterly reporting, and investor communications. Leigh-Ann enhanced our reporting accuracy by 25% by utilizing advanced analytics tools to translate executive vision into actionable operational initiatives. She partnered across HR, Facilities, and our Executive Leadership Team to modernize policies and implement hybrid work frameworks that improved employee satisfaction scores by 22%. She also designed and executed onboarding programs for 6 administrative professionals, reducing ramp-up time by 20%. What impressed me most was her financial literacy. She didn't just move documents around. She understood what was in them, flagged issues before they became problems, and brought structured problem-solving to high-level executive operations. Any executive team would be lucky to have her.`,
+    emailSubject: "Already handled, reference only",
+    emailBody: `This recommendation is already live on LinkedIn. This card is kept for reference so the language can be reused for other Immunovant contacts (Julia, Eric Venker) and for website case studies.`,
+  },
+  {
+    name: "Julia",
+    title: "Senior Leader, Immunovant",
+    company: "Immunovant",
+    status: "sent",
+    priority: "P1",
+    linkedin: null,
+    relationship: "Leigh-Ann directly and indirectly assisted Julia during her Immunovant tenure. Email sent 2026-04-20 using the Pete Salzmann draft, adapted for everyday executive support and broader team coordination.",
+    email: "[Julia's email, confirm with Leigh-Ann]",
+    emailNote: "Last name and confirmed email still to be added by Leigh-Ann.",
+    statusNote: "Email sent 2026-04-20. Awaiting response.",
+    recommendation: `Leigh-Ann supported my work at Immunovant across five years of clinical-stage growth. She operated as a true strategic partner, not a task executor. She joined as one of our earliest hires (employee #17 to 19) and, by March 2020, was the sole EA supporting five C-suite executives (CEO, General Counsel, Chief Medical Officer, CFO, and Chief Technology and Development Officer). She built our EA function from zero to a multi-person team, designed onboarding programs for 6 administrative professionals that reduced ramp-up time by 20%, and partnered with HR, Facilities, and our ELT to modernize policies that lifted employee satisfaction scores by 22%. She also founded and led our Culture Committee, which ran DEI workshops, wellness programs, and hybrid connectivity initiatives. What set her apart for me was her anticipation. She kept things moving before I had to ask. I recommend her without hesitation for any leader who wants a genuine strategic partner.`,
     emailSubject: "A favor I've been meaning to ask",
-    emailBody: `Hi Pete,
+    emailBody: `Hi Julia,
 
 I hope you're doing well. I've been thinking about our time working together at Immunovant, and I wanted to ask you something.
 
-I'm building my fractional executive support practice and LinkedIn recommendations from people I've worked closely with would mean a lot. You saw my work firsthand for five years, and a recommendation from you would carry real weight.
+I'm building my fractional executive support practice and LinkedIn recommendations from people I've worked closely with would mean a lot. You saw my work firsthand, and a recommendation from you would carry real weight.
 
 I know writing these from scratch can be a pain, so I drafted something below based on our work together. You're welcome to use it as-is, edit it to match your voice, or write something completely different. Whatever feels right.
 
@@ -30,7 +77,7 @@ Here's the draft:
 
 ---
 
-"Leigh-Ann supported me for five years at Immunovant through some of the most operationally demanding phases a biotech CEO faces. She improved our executive decision-making effectiveness by 30% by implementing structured problem-solving and change management frameworks that replaced the ad hoc processes we had been relying on. She built onboarding and development programs for 6 administrative professionals, cutting ramp-up time by 20%. She also founded and led our internal Culture Committee, spearheading DEI workshops, employee wellness programs, and hybrid connectivity initiatives that measurably improved employee satisfaction scores by 22%. What set her apart was not just execution but anticipation. During clinical-stage transitions, she kept everything running before I had to ask. I would recommend her without hesitation to any CEO who needs a true strategic partner, not just an assistant."
+"Leigh-Ann supported my work at Immunovant across five years of clinical-stage growth. She operated as a true strategic partner, not a task executor. She joined as one of our earliest hires (employee #17 to 19) and, by March 2020, was the sole EA supporting five C-suite executives (CEO, General Counsel, Chief Medical Officer, CFO, and Chief Technology and Development Officer). She built our EA function from zero to a multi-person team, designed onboarding programs for 6 administrative professionals that reduced ramp-up time by 20%, and partnered with HR, Facilities, and our ELT to modernize policies that lifted employee satisfaction scores by 22%. She also founded and led our Culture Committee, which ran DEI workshops, wellness programs, and hybrid connectivity initiatives. What set her apart for me was her anticipation. She kept things moving before I had to ask. I recommend her without hesitation for any leader who wants a genuine strategic partner."
 
 ---
 
@@ -40,17 +87,94 @@ ${linkedinRecommendationUrl}
 No pressure at all. I appreciate you either way.
 
 Warmly,
-Leigh-Ann`
+Leigh-Ann`,
+  },
+  {
+    name: "Dr. Pete Salzmann",
+    title: "Former CEO",
+    company: "Immunovant",
+    status: "second-tier",
+    priority: "P2",
+    linkedin: "https://www.linkedin.com/in/pete-salzmann-md",
+    relationship: "Leigh-Ann was Pete's Senior Executive Assistant for approximately 5 years at Immunovant, supporting him through clinical-stage growth, board governance, and investor relations.",
+    email: "[Pete's current email, he retired, check LinkedIn first]",
+    emailNote: "Pete retired from Immunovant in 2024. Leigh-Ann is unsure of his current LinkedIn activity. Reach out via LinkedIn message first before sending via email.",
+    statusNote: "Second-tier. Worth the attempt since he saw her work most directly, but he's retired and his LinkedIn presence may be quiet.",
+    recommendation: `Leigh-Ann supported me for five years at Immunovant through some of the most operationally demanding phases a biotech CEO faces. She joined as employee #17 to 19 and, by March 2020, was the sole EA supporting five C-suite executives. She improved our executive decision-making effectiveness by 30% through structured problem-solving and change management frameworks that replaced the ad-hoc processes we had been relying on. She designed onboarding programs for 6 administrative professionals, reducing ramp-up time by 20%. She founded and led our Culture Committee, spearheading DEI workshops, wellness programs, and hybrid connectivity initiatives that lifted employee satisfaction scores by 22%. What set her apart was not just execution but anticipation. During clinical-stage transitions, she kept everything running before I had to ask. I would recommend her without hesitation to any CEO who needs a true strategic partner, not just an assistant.`,
+    emailSubject: "A favor I've been meaning to ask",
+    emailBody: `Hi Pete,
+
+I hope you're enjoying retirement. I've been thinking about our time working together at Immunovant, and I wanted to ask you something.
+
+I'm building my fractional executive support practice and LinkedIn recommendations from people I've worked closely with would mean a lot. You saw my work firsthand for five years, and a recommendation from you would carry real weight.
+
+I know writing these from scratch can be a pain, so I drafted something below based on our work together. You're welcome to use it as-is, edit it to match your voice, or write something completely different. Whatever feels right.
+
+Here's the draft:
+
+---
+
+"Leigh-Ann supported me for five years at Immunovant through some of the most operationally demanding phases a biotech CEO faces. She joined as employee #17 to 19 and, by March 2020, was the sole EA supporting five C-suite executives. She improved our executive decision-making effectiveness by 30% through structured problem-solving and change management frameworks that replaced the ad-hoc processes we had been relying on. She designed onboarding programs for 6 administrative professionals, reducing ramp-up time by 20%. She founded and led our Culture Committee, spearheading DEI workshops, wellness programs, and hybrid connectivity initiatives that lifted employee satisfaction scores by 22%. What set her apart was not just execution but anticipation. During clinical-stage transitions, she kept everything running before I had to ask. I would recommend her without hesitation to any CEO who needs a true strategic partner, not just an assistant."
+
+---
+
+Here's the direct link to leave the recommendation on LinkedIn:
+${linkedinRecommendationUrl}
+
+No pressure at all. I appreciate you either way.
+
+Warmly,
+Leigh-Ann`,
+  },
+  {
+    name: "Eric Venker",
+    title: "Former Executive, Immunovant",
+    company: "Immunovant",
+    status: "needs-info",
+    priority: "P2",
+    linkedin: "[Confirm spelling on LinkedIn, Leigh-Ann noted more than one E]",
+    relationship: "Leigh-Ann worked with Eric on executive operations at Immunovant.",
+    email: "[Eric's email, confirm via LinkedIn search]",
+    emailNote: "Leigh-Ann flagged that his surname has a tricky spelling (more than one E). Verify on LinkedIn before sending.",
+    statusNote: "Second-tier priority. Confirm LinkedIn spelling and current role before sending.",
+    recommendation: `I worked with Leigh-Ann at Immunovant during a period of real growth. As an executive in a clinical-stage biotech, I needed someone who could keep operations tight under pressure. Leigh-Ann was sole EA for five C-suite executives by March 2020 and accelerated our ELT and SLT decision velocity by approximately 30% through structured problem-solving and proactive coordination. She built our EA function from zero to a multi-person team, onboarded 6 administrative professionals with a 20% reduction in ramp-up time, and co-founded our Culture Committee. She coordinated FDA meeting readiness across our Chief Medical Officer, General Counsel, and CEO, including hardcopy lockbox management for sensitive correspondence. What stood out most was her judgment. She flagged issues early, never needed hand-holding on confidential matters, and consistently put the company ahead of the task. I'd recommend her without hesitation.`,
+    emailSubject: "Quick ask from a former Immunovant colleague",
+    emailBody: `Hi Eric,
+
+I hope you're doing well. I've been thinking about our time at Immunovant and wanted to reach out with a small ask.
+
+I'm growing my fractional executive support practice and building out my LinkedIn presence. A recommendation from you would mean a great deal, especially given the work we did together on executive operations during a demanding growth phase.
+
+I drafted something below to make it easy. Feel free to use it, adjust it, or write your own. Whatever works for you.
+
+Here's the draft:
+
+---
+
+"I worked with Leigh-Ann at Immunovant during a period of real growth. As an executive in a clinical-stage biotech, I needed someone who could keep operations tight under pressure. Leigh-Ann was sole EA for five C-suite executives by March 2020 and accelerated our ELT and SLT decision velocity by approximately 30% through structured problem-solving and proactive coordination. She built our EA function from zero to a multi-person team, onboarded 6 administrative professionals with a 20% reduction in ramp-up time, and co-founded our Culture Committee. She coordinated FDA meeting readiness across our Chief Medical Officer, General Counsel, and CEO, including hardcopy lockbox management for sensitive correspondence. What stood out most was her judgment. She flagged issues early, never needed hand-holding on confidential matters, and consistently put the company ahead of the task. I'd recommend her without hesitation."
+
+---
+
+Here's the direct link to leave the recommendation on LinkedIn:
+${linkedinRecommendationUrl}
+
+Thank you so much, Eric. I really appreciate it.
+
+Warmly,
+Leigh-Ann`,
   },
   {
     name: "Renee Barnett",
     title: "Former CFO",
     company: "Immunovant",
+    status: "ready",
+    priority: "P2",
     linkedin: "https://www.linkedin.com/in/renee-barnett",
-    relationship: "Leigh-Ann worked closely with Renee on financial reporting, board materials, investor communications, and SEC filing coordination during their overlapping tenure at Immunovant (2021-2024).",
+    relationship: "Leigh-Ann worked closely with Renee on financial reporting, board materials, investor communications, and SEC filing coordination during their overlapping tenure at Immunovant.",
     email: "renee.barnett@immunovant.com",
-    altEmails: [],
-    recommendation: `I worked alongside Leigh-Ann for several years at Immunovant, and she was one of the most reliable operational partners I've had. As CFO, I depended on precise coordination for board materials, quarterly reporting, and investor communications. Leigh-Ann enhanced our reporting accuracy by 25% by utilizing advanced analytics tools to translate executive vision into actionable operational initiatives. She partnered across HR, Facilities, and our Executive Leadership Team to modernize policies and implement hybrid work frameworks that improved employee satisfaction scores by 22%. What impressed me most was her financial literacy. She didn't just move documents around. She understood what was in them, flagged issues before they became problems, and brought structured problem-solving to high-level executive operations. Any executive team would be lucky to have her.`,
+    emailNote: "Leigh-Ann reused the Renee draft language successfully for Pam's recommendation (already live). Both CFOs overlapped with her tenure.",
+    statusNote: "Ready to send if Leigh-Ann wants to extend beyond Pam. Content is already validated since Pam used this language.",
+    recommendation: `I worked alongside Leigh-Ann at Immunovant, and she was one of the most reliable operational partners I had. As CFO, I depended on precise coordination for board materials, quarterly reporting, and investor communications. Leigh-Ann enhanced our reporting accuracy by 25% by utilizing advanced analytics tools to translate executive vision into actionable operational initiatives. She partnered across HR, Facilities, and our Executive Leadership Team to modernize policies and implement hybrid work frameworks that improved employee satisfaction scores by 22%. She also designed onboarding programs for 6 administrative professionals, reducing ramp-up time by 20% through scalable training frameworks. What impressed me most was her financial literacy. She didn't just move documents around. She understood what was in them, flagged issues before they became problems, and brought structured problem-solving to high-level executive operations. Any executive team would be lucky to have her.`,
     emailSubject: "Quick request from a former Immunovant colleague",
     emailBody: `Hi Renee,
 
@@ -64,7 +188,7 @@ Here's the draft:
 
 ---
 
-"I worked alongside Leigh-Ann for several years at Immunovant, and she was one of the most reliable operational partners I've had. As CFO, I depended on precise coordination for board materials, quarterly reporting, and investor communications. Leigh-Ann enhanced our reporting accuracy by 25% by utilizing advanced analytics tools to translate executive vision into actionable operational initiatives. She partnered across HR, Facilities, and our Executive Leadership Team to modernize policies and implement hybrid work frameworks that improved employee satisfaction scores by 22%. What impressed me most was her financial literacy. She didn't just move documents around. She understood what was in them, flagged issues before they became problems, and brought structured problem-solving to high-level executive operations. Any executive team would be lucky to have her."
+"I worked alongside Leigh-Ann at Immunovant, and she was one of the most reliable operational partners I had. As CFO, I depended on precise coordination for board materials, quarterly reporting, and investor communications. Leigh-Ann enhanced our reporting accuracy by 25% by utilizing advanced analytics tools to translate executive vision into actionable operational initiatives. She partnered across HR, Facilities, and our Executive Leadership Team to modernize policies and implement hybrid work frameworks that improved employee satisfaction scores by 22%. She also designed onboarding programs for 6 administrative professionals, reducing ramp-up time by 20% through scalable training frameworks. What impressed me most was her financial literacy. She didn't just move documents around. She understood what was in them, flagged issues before they became problems, and brought structured problem-solving to high-level executive operations. Any executive team would be lucky to have her."
 
 ---
 
@@ -74,17 +198,131 @@ ${linkedinRecommendationUrl}
 Thank you so much, Renee. I really appreciate it.
 
 Warmly,
-Leigh-Ann`
+Leigh-Ann`,
+  },
+  // =================================================================
+  // ASCEND WELLNESS HOLDINGS
+  // =================================================================
+  {
+    name: "Amber",
+    title: "[Role at Ascend, confirm]",
+    company: "Ascend Wellness Holdings",
+    status: "draft-needed",
+    priority: "P1",
+    linkedin: null,
+    relationship: "Leigh-Ann spoke with Amber about the recommendation and needs to draft verbiage specific to how they collaborated at Ascend. No existing Ascend exec template fully fits.",
+    email: "[Amber's email, gather from Leigh-Ann]",
+    emailNote: "Full name, title, and email pending. The draft below is a starting skeleton based on general Ascend context. Replace bracketed phrases with specifics from Leigh-Ann's notes on their collaboration.",
+    statusNote: "Draft-needed. Leigh-Ann said: 'I have to kind of just jot down some points as to how Amber and I have collaborated, and I just need to draft that.'",
+    recommendation: `I had the chance to collaborate with Leigh-Ann at Ascend Wellness Holdings during a period of real operational complexity. She served as the primary strategic liaison between the C-suite and 200+ internal and external stakeholders across 7 markets, achieving 98% satisfaction through proactive relationship management. [Add a specific example of how Amber and Leigh-Ann collaborated: a project, a meeting, a workflow Amber personally experienced.] What I valued most was [Amber's personal observation]. She translates high-level vision into operational clarity, and she does it calmly even when the surrounding environment is not calm. I'd recommend her to any executive team that needs a real strategic partner.`,
+    emailSubject: "A small favor, Amber",
+    emailBody: `Hi Amber,
+
+Thanks again for being open to writing a LinkedIn recommendation. I really appreciate it.
+
+As we talked about, I drafted a starting version below that reflects some of the context from Ascend. I've left a few spots open for you to add details from your perspective on how we actually worked together. Feel free to use this as a starting point, change it entirely, or write something new from scratch. Whatever feels authentic.
+
+Here's the draft:
+
+---
+
+"I had the chance to collaborate with Leigh-Ann at Ascend Wellness Holdings during a period of real operational complexity. She served as the primary strategic liaison between the C-suite and 200+ internal and external stakeholders across 7 markets, achieving 98% satisfaction through proactive relationship management. [Add a specific example of how we collaborated: a project, a meeting, a workflow you personally experienced.] What I valued most was [your personal observation]. She translates high-level vision into operational clarity, and she does it calmly even when the surrounding environment is not calm. I'd recommend her to any executive team that needs a real strategic partner."
+
+---
+
+Here's the direct link to leave the recommendation on LinkedIn:
+${linkedinRecommendationUrl}
+
+No rush. Thank you again, Amber.
+
+Warmly,
+Leigh-Ann`,
+  },
+  {
+    name: "Laura Warren",
+    title: "Former Ascend Leadership",
+    company: "Ascend Wellness Holdings",
+    status: "needs-info",
+    priority: "P1",
+    linkedin: null,
+    relationship: "Leigh-Ann worked closely with Laura across earnings coordination, financial planning support, and executive operations. Laura was responsive on LinkedIn a week after Leigh-Ann left Ascend.",
+    email: "[Laura's personal email, preferred over her Ascend address]",
+    emailNote: "Leigh-Ann would rather send to a personal Gmail address than her Ascend address. Collect the right email before sending.",
+    statusNote: "Ready to send once Laura's preferred email is confirmed.",
+    recommendation: `Leigh-Ann was essential to keeping executive operations running at Ascend Wellness. She served as primary strategic liaison between the C-suite and 200+ internal and external stakeholders across 7 markets, driving 98% satisfaction through proactive relationship management. She led our quarterly board, committee, and investor relations operations and developed agile pre- and post-earnings plans that elevated cross-functional team readiness. She facilitated strategic alignment across M&A, IR, and our Executive Leadership Team, translating high-level vision into operational workflows that improved efficiency by 25%. She also stood up our quarterly board-meeting cadence from scratch and planned the full 2026 board and committee calendar 12 months ahead. In a fast-moving, heavily regulated environment, she never missed a beat.`,
+    emailSubject: "Reaching out with a quick ask",
+    emailBody: `Hi Laura,
+
+I hope you're doing well. Thanks for being responsive on LinkedIn after I left Ascend, that meant a lot.
+
+I'm building my fractional executive support practice and a LinkedIn recommendation from you would be genuinely valuable. You saw the earnings and finance coordination side of my work up close, and your perspective would carry real weight.
+
+I've drafted something below to make it easy. Feel free to use it, adjust it, or write your own. Whatever feels right.
+
+Here's the draft:
+
+---
+
+"Leigh-Ann was essential to keeping executive operations running at Ascend Wellness. She served as primary strategic liaison between the C-suite and 200+ internal and external stakeholders across 7 markets, driving 98% satisfaction through proactive relationship management. She led our quarterly board, committee, and investor relations operations and developed agile pre- and post-earnings plans that elevated cross-functional team readiness. She facilitated strategic alignment across M&A, IR, and our Executive Leadership Team, translating high-level vision into operational workflows that improved efficiency by 25%. She also stood up our quarterly board-meeting cadence from scratch and planned the full 2026 board and committee calendar 12 months ahead. In a fast-moving, heavily regulated environment, she never missed a beat."
+
+---
+
+Here's the direct link to leave the recommendation on LinkedIn:
+${linkedinRecommendationUrl}
+
+No pressure at all. Thank you, Laura.
+
+Warmly,
+Leigh-Ann`,
+  },
+  {
+    name: "Courtney",
+    title: "Senior Consultant, Mattio Communications (external IR for Ascend)",
+    company: "Mattio Communications",
+    status: "needs-info",
+    priority: "P1",
+    linkedin: null,
+    relationship: "Leigh-Ann partnered with Courtney at Mattio Communications on Ascend's quarterly earnings cycles, press releases, and investor-relations coordination.",
+    email: "[Courtney's Mattio email, Leigh-Ann to confirm]",
+    emailNote: "Leigh-Ann: 'I can't remember Courtney's Mattio email.' LinkedIn search at Mattio Communications will surface it.",
+    statusNote: "Ready to send once Courtney's full name and email are confirmed. She was responsive on LinkedIn after Leigh-Ann left Ascend.",
+    recommendation: `I partnered with Leigh-Ann across several Ascend Wellness Holdings earnings cycles while leading their external IR engagement at Mattio Communications. She was the single most important internal counterpart we worked with at Ascend. She rebuilt their earnings-call prep into a repeatable 6 to 8 week system (launched July 2025, deployed Q2 2025), aligning IR, Legal, Finance, PR, and C-suite on a shared calendar with SharePoint template discipline. She granted the Chief Commercial Officer script access mid-cycle and pulled the VP of Marketing into live prep, closing the input loops that had forced post-draft revisions under the prior cadence. She served as primary strategic liaison between the C-suite and 200+ internal and external stakeholders across 7 markets with 98% satisfaction. Working with her made our job easier every single quarter. I'd recommend her for any IR-heavy strategic EA or Chief of Staff role.`,
+    emailSubject: "A quick LinkedIn ask",
+    emailBody: `Hi Courtney,
+
+Hope you're doing well. Thanks again for being responsive after I left Ascend, I really appreciated that.
+
+I'm building my fractional executive support practice and a LinkedIn recommendation from you would be extraordinarily valuable. You saw my IR coordination work from the Mattio side across every earnings cycle, and your perspective as an external partner would carry a lot of credibility.
+
+I drafted something below to save you the blank-page problem. Please feel free to use it, adjust it, or write your own from scratch.
+
+Here's the draft:
+
+---
+
+"I partnered with Leigh-Ann across several Ascend Wellness Holdings earnings cycles while leading their external IR engagement at Mattio Communications. She was the single most important internal counterpart we worked with at Ascend. She rebuilt their earnings-call prep into a repeatable 6 to 8 week system (launched July 2025, deployed Q2 2025), aligning IR, Legal, Finance, PR, and C-suite on a shared calendar with SharePoint template discipline. She granted the Chief Commercial Officer script access mid-cycle and pulled the VP of Marketing into live prep, closing the input loops that had forced post-draft revisions under the prior cadence. She served as primary strategic liaison between the C-suite and 200+ internal and external stakeholders across 7 markets with 98% satisfaction. Working with her made our job easier every single quarter. I'd recommend her for any IR-heavy strategic EA or Chief of Staff role."
+
+---
+
+Here's the direct link to leave the recommendation on LinkedIn:
+${linkedinRecommendationUrl}
+
+Thank you so much, Courtney.
+
+Warmly,
+Leigh-Ann`,
   },
   {
     name: "John Hartmann",
     title: "Former CEO",
     company: "Ascend Wellness Holdings",
+    status: "ready",
+    priority: "P2",
     linkedin: "https://www.linkedin.com/in/johnhartmann",
-    relationship: "Leigh-Ann served as EA and Investor Relations support to John during his tenure as CEO (2023-2024), managing operations across 7 markets and 48 retail locations.",
+    relationship: "Leigh-Ann served as Senior Executive Assistant to the CEO and President at Ascend during a period of significant operational complexity, supporting earnings, board governance, and M&A coordination.",
     email: "john.hartmann@awholdings.com",
-    altEmails: [],
-    recommendation: `Leigh-Ann supported me at Ascend Wellness Holdings during a period of significant growth. She served as the primary strategic liaison between the C-suite and 200+ internal and external stakeholders across 7 markets, achieving 98% satisfaction through proactive relationship management. She owned end-to-end calendar management with strategic prioritization, protecting executive focus and ensuring readiness for every meeting with full context and pre-work. She led quarterly board, committee, and investor relations operations, developing agile pre and post earnings plans that elevated cross-functional team preparedness. She also facilitated strategic alignment across M&A, IR, and our Executive Leadership Team, translating high-level vision into operational workflows that improved efficiency by 25%. In a fast-moving, heavily regulated environment, she never missed a beat.`,
+    emailNote: "Confirm the current email since John may have left Ascend.",
+    recommendation: `Leigh-Ann supported me at Ascend Wellness Holdings during a period of significant growth. She served as the primary strategic liaison between the C-suite and 200+ internal and external stakeholders across 7 markets, achieving 98% satisfaction through proactive relationship management. She owned end-to-end calendar management with strategic prioritization, protecting executive focus and ensuring readiness for every meeting with full context and pre-work. She led quarterly board, committee, and investor relations operations, developing agile pre- and post-earnings plans that elevated cross-functional team preparedness. She also facilitated strategic alignment across M&A, IR, and our Executive Leadership Team, translating high-level vision into operational workflows that improved efficiency by 25%. In a fast-moving, heavily regulated environment, she never missed a beat.`,
     emailSubject: "A small favor, John",
     emailBody: `Hi John,
 
@@ -98,7 +336,7 @@ Here's the draft:
 
 ---
 
-"Leigh-Ann supported me at Ascend Wellness Holdings during a period of significant growth. She served as the primary strategic liaison between the C-suite and 200+ internal and external stakeholders across 7 markets, achieving 98% satisfaction through proactive relationship management. She owned end-to-end calendar management with strategic prioritization, protecting executive focus and ensuring readiness for every meeting with full context and pre-work. She led quarterly board, committee, and investor relations operations, developing agile pre and post earnings plans that elevated cross-functional team preparedness. She also facilitated strategic alignment across M&A, IR, and our Executive Leadership Team, translating high-level vision into operational workflows that improved efficiency by 25%. In a fast-moving, heavily regulated environment, she never missed a beat."
+"Leigh-Ann supported me at Ascend Wellness Holdings during a period of significant growth. She served as the primary strategic liaison between the C-suite and 200+ internal and external stakeholders across 7 markets, achieving 98% satisfaction through proactive relationship management. She owned end-to-end calendar management with strategic prioritization, protecting executive focus and ensuring readiness for every meeting with full context and pre-work. She led quarterly board, committee, and investor relations operations, developing agile pre- and post-earnings plans that elevated cross-functional team preparedness. She also facilitated strategic alignment across M&A, IR, and our Executive Leadership Team, translating high-level vision into operational workflows that improved efficiency by 25%. In a fast-moving, heavily regulated environment, she never missed a beat."
 
 ---
 
@@ -108,17 +346,18 @@ ${linkedinRecommendationUrl}
 No pressure at all. I appreciate everything, John.
 
 Best,
-Leigh-Ann`
+Leigh-Ann`,
   },
   {
     name: "Abner Kurtin",
     title: "Executive Chairman & Founder",
     company: "Ascend Wellness Holdings",
+    status: "ready",
+    priority: "P2",
     linkedin: "https://www.linkedin.com/in/abnerkurtin",
-    relationship: "Leigh-Ann worked with Abner in his capacity as founder and Executive Chairman, supporting board-level operations, governance, and investor relations.",
+    relationship: "Leigh-Ann worked with Abner in his capacity as founder and Executive Chairman, supporting board-level operations, governance, and investor relations at a publicly traded cannabis operator.",
     email: "abner.kurtin@awholdings.com",
-    altEmails: [],
-    recommendation: `Leigh-Ann was a key part of our executive operations at Ascend Wellness Holdings from the time we were navigating post-IPO operations through our expansion to 46 locations across 7 states. As founder and Chairman, I needed someone who could handle board-level governance, investor relations, and compliance-sensitive communications for a company listed on both the CSE and OTCQX. Leigh-Ann managed those relationships across 200+ stakeholders with 98% satisfaction. What distinguished her was versatility. She came to us from five years supporting the CEO and General Counsel at a clinical-stage biotech, and before that from PwC. She understood board governance, regulatory cadence, and investor expectations from day one, with zero ramp-up time. She operates at the highest level.`,
+    recommendation: `Leigh-Ann was a key part of our executive operations at Ascend Wellness Holdings through our expansion to 46 locations across 7 states. As founder and Chairman, I needed someone who could handle board-level governance, investor relations, and compliance-sensitive communications for a company listed on both the CSE and OTCQX. Leigh-Ann served as primary strategic liaison between the C-suite and 200+ internal and external stakeholders with 98% satisfaction. She stood up our quarterly board-meeting cadence from scratch (there were no board meetings on the calendar when she arrived) and, in September 2025, planned the full 2026 board and committee calendar 12 months ahead. She coordinated an 8-person board convening (4 external directors plus CEO, CFO, President, Chief Counsel) and 2 standing committees (Audit and Compensation). What distinguished her was versatility. She came to us from five years supporting a clinical-stage biotech CEO, and before that from PwC. She understood board governance, regulatory cadence, and investor expectations from day one. She operates at the highest level.`,
     emailSubject: "Reaching out with a quick ask",
     emailBody: `Hi Abner,
 
@@ -132,7 +371,7 @@ Here's the draft:
 
 ---
 
-"Leigh-Ann was a key part of our executive operations at Ascend Wellness Holdings from the time we were navigating post-IPO operations through our expansion to 46 locations across 7 states. As founder and Chairman, I needed someone who could handle board-level governance, investor relations, and compliance-sensitive communications for a company listed on both the CSE and OTCQX. Leigh-Ann managed those relationships across 200+ stakeholders with 98% satisfaction. What distinguished her was versatility. She came to us from five years supporting the CEO and General Counsel at a clinical-stage biotech, and before that from PwC. She understood board governance, regulatory cadence, and investor expectations from day one, with zero ramp-up time. She operates at the highest level."
+"Leigh-Ann was a key part of our executive operations at Ascend Wellness Holdings through our expansion to 46 locations across 7 states. As founder and Chairman, I needed someone who could handle board-level governance, investor relations, and compliance-sensitive communications for a company listed on both the CSE and OTCQX. Leigh-Ann served as primary strategic liaison between the C-suite and 200+ internal and external stakeholders with 98% satisfaction. She stood up our quarterly board-meeting cadence from scratch (there were no board meetings on the calendar when she arrived) and, in September 2025, planned the full 2026 board and committee calendar 12 months ahead. She coordinated an 8-person board convening (4 external directors plus CEO, CFO, President, Chief Counsel) and 2 standing committees (Audit and Compensation). What distinguished her was versatility. She came to us from five years supporting a clinical-stage biotech CEO, and before that from PwC. She understood board governance, regulatory cadence, and investor expectations from day one. She operates at the highest level."
 
 ---
 
@@ -142,23 +381,24 @@ ${linkedinRecommendationUrl}
 Thank you, Abner. I truly appreciate it.
 
 Best,
-Leigh-Ann`
+Leigh-Ann`,
   },
   {
     name: "Frank Perullo",
     title: "President & Co-Founder",
     company: "Ascend Wellness Holdings",
+    status: "ready",
+    priority: "P2",
     linkedin: "https://www.linkedin.com/in/frankperullo",
-    relationship: "Leigh-Ann worked with Frank across real estate expansion strategy, cross-functional coordination, and executive operations during the company's rapid growth phase.",
+    relationship: "Leigh-Ann worked with Frank across cross-functional coordination, M&A meeting elevation, and executive operations during the company's expansion phase.",
     email: "frank.perullo@awholdings.com",
-    altEmails: [],
-    recommendation: `Leigh-Ann was essential to keeping executive operations running at Ascend Wellness during our most intense growth phase, as we expanded from 30 to 46 retail locations across 7 states. She coordinated across departments during a period when cross-functional meetings used to take 5 days to schedule. She developed agile pre and post earnings operational plans and managed the investor relations calendar for a publicly traded company filing on both the Canadian Securities Exchange and OTCQX. What I valued most was her ability to work independently at a high level. You could hand Leigh-Ann a complex, multi-market project and trust that it would be executed flawlessly. She brings real strategic thinking to executive support, not just task management.`,
+    recommendation: `Leigh-Ann was essential to keeping executive operations running at Ascend Wellness during our expansion to 46 retail locations across 7 states. She coordinated ELT, SLT, HR, and legal stakeholders across our full operating footprint and joined our weekly M&A meeting at the CEO's request for "more executive presence." She captured follow-ups in a structured dashboard with leads and timelines, and built presentation mock-ups that turned informal capture into a team-shareable format. She rebuilt our earnings-call prep into a repeatable 6 to 8 week system (launched July 2025, deployed Q2 2025), aligning IR, Legal, Finance, PR, and C-suite on a shared calendar. She managed the investor relations calendar for a publicly traded company listed on both the CSE and OTCQX. What I valued most was her ability to work independently at a high level. You could hand Leigh-Ann a complex, multi-market project and trust that it would be executed flawlessly. She brings real strategic thinking to executive support, not just task management.`,
     emailSubject: "A favor from your former colleague",
     emailBody: `Hi Frank,
 
 I hope things are going well. I wanted to reach out because I'm building my fractional executive support business, and a LinkedIn recommendation from someone who saw my work at Ascend up close would mean a lot.
 
-You experienced firsthand how I managed cross-functional coordination, investor relations, and executive operations during that intense growth period. Your perspective would be really valuable.
+You experienced firsthand how I managed cross-functional coordination, M&A support, and executive operations during that expansion period. Your perspective would be really valuable.
 
 I've drafted something below to save you the blank-page problem. Feel free to use it, edit it, or write something completely different.
 
@@ -166,7 +406,7 @@ Here's the draft:
 
 ---
 
-"Leigh-Ann was essential to keeping executive operations running at Ascend Wellness during our most intense growth phase, as we expanded from 30 to 46 retail locations across 7 states. She coordinated across departments during a period when cross-functional meetings used to take 5 days to schedule. She developed agile pre and post earnings operational plans and managed the investor relations calendar for a publicly traded company filing on both the Canadian Securities Exchange and OTCQX. What I valued most was her ability to work independently at a high level. You could hand Leigh-Ann a complex, multi-market project and trust that it would be executed flawlessly. She brings real strategic thinking to executive support, not just task management."
+"Leigh-Ann was essential to keeping executive operations running at Ascend Wellness during our expansion to 46 retail locations across 7 states. She coordinated ELT, SLT, HR, and legal stakeholders across our full operating footprint and joined our weekly M&A meeting at the CEO's request for 'more executive presence.' She captured follow-ups in a structured dashboard with leads and timelines, and built presentation mock-ups that turned informal capture into a team-shareable format. She rebuilt our earnings-call prep into a repeatable 6 to 8 week system (launched July 2025, deployed Q2 2025), aligning IR, Legal, Finance, PR, and C-suite on a shared calendar. She managed the investor relations calendar for a publicly traded company listed on both the CSE and OTCQX. What I valued most was her ability to work independently at a high level. You could hand Leigh-Ann a complex, multi-market project and trust that it would be executed flawlessly. She brings real strategic thinking to executive support, not just task management."
 
 ---
 
@@ -176,17 +416,18 @@ ${linkedinRecommendationUrl}
 Thank you so much, Frank. I appreciate it.
 
 Best,
-Leigh-Ann`
+Leigh-Ann`,
   },
   {
     name: "Dan Neville",
     title: "Former CFO & Interim Co-CEO",
     company: "Ascend Wellness Holdings",
+    status: "ready",
+    priority: "P2",
     linkedin: "https://www.linkedin.com/in/dan-neville-cpa",
-    relationship: "Leigh-Ann worked closely with Dan on financial reporting, investor communications, and quarterly operations during the company's time as a publicly traded entity.",
+    relationship: "Leigh-Ann worked closely with Dan on financial reporting, investor communications, and quarterly operations during Ascend's time as a publicly traded entity.",
     email: "dan.neville@awholdings.com",
-    altEmails: [],
-    recommendation: `Working with Leigh-Ann at Ascend Wellness was a genuinely positive experience. She led our comprehensive investor relations program, including quarterly earnings coordination and stakeholder communications across 7 markets. Before joining us, she had managed $10M+ monthly in payment processing operations at BearingPoint with 99% accuracy. That financial precision carried over. Quarterly reporting, board materials, compliance-sensitive filings. Everything was accurate, on time, and well-organized. For a publicly traded company navigating multi-state regulatory requirements across the CSE and OTCQX, that level of precision was essential. Leigh-Ann also brought emotional intelligence to the role. She understood the pressures facing the leadership team and found ways to reduce friction rather than add to it. I'd recommend her to any executive who needs a trusted operational partner.`,
+    recommendation: `Working with Leigh-Ann at Ascend Wellness was a genuinely positive experience. She led our comprehensive investor relations program, including quarterly earnings coordination and stakeholder communications across 7 markets. She rebuilt our earnings-call prep into a repeatable 6 to 8 week system after her first cycle in-role. Before Ascend, she managed $10M+ monthly in payment processing operations at BearingPoint with 99% accuracy and 100% regulatory compliance. That financial precision carried over. Quarterly reporting, board materials, compliance-sensitive filings: everything was accurate, on time, and well-organized. For a publicly traded company navigating multi-state regulatory requirements across the CSE and OTCQX, that level of precision was essential. Leigh-Ann also brought emotional intelligence to the role. She understood the pressures facing the leadership team and found ways to reduce friction rather than add to it. I'd recommend her to any executive who needs a trusted operational partner.`,
     emailSubject: "Quick ask from Leigh-Ann",
     emailBody: `Hi Dan,
 
@@ -200,7 +441,7 @@ Here's the draft:
 
 ---
 
-"Working with Leigh-Ann at Ascend Wellness was a genuinely positive experience. She led our comprehensive investor relations program, including quarterly earnings coordination and stakeholder communications across 7 markets. Before joining us, she had managed $10M+ monthly in payment processing operations at BearingPoint with 99% accuracy. That financial precision carried over. Quarterly reporting, board materials, compliance-sensitive filings. Everything was accurate, on time, and well-organized. For a publicly traded company navigating multi-state regulatory requirements across the CSE and OTCQX, that level of precision was essential. Leigh-Ann also brought emotional intelligence to the role. She understood the pressures facing the leadership team and found ways to reduce friction rather than add to it. I'd recommend her to any executive who needs a trusted operational partner."
+"Working with Leigh-Ann at Ascend Wellness was a genuinely positive experience. She led our comprehensive investor relations program, including quarterly earnings coordination and stakeholder communications across 7 markets. She rebuilt our earnings-call prep into a repeatable 6 to 8 week system after her first cycle in-role. Before Ascend, she managed $10M+ monthly in payment processing operations at BearingPoint with 99% accuracy and 100% regulatory compliance. That financial precision carried over. Quarterly reporting, board materials, compliance-sensitive filings: everything was accurate, on time, and well-organized. For a publicly traded company navigating multi-state regulatory requirements across the CSE and OTCQX, that level of precision was essential. Leigh-Ann also brought emotional intelligence to the role. She understood the pressures facing the leadership team and found ways to reduce friction rather than add to it. I'd recommend her to any executive who needs a trusted operational partner."
 
 ---
 
@@ -210,23 +451,24 @@ ${linkedinRecommendationUrl}
 Thank you, Dan. I really appreciate it.
 
 Best,
-Leigh-Ann`
+Leigh-Ann`,
   },
   {
     name: "David Gacom",
-    title: "Former COO",
+    title: "Chief Commercial Officer",
     company: "Ascend Wellness Holdings",
+    status: "ready",
+    priority: "P3",
     linkedin: "https://www.linkedin.com/in/davidgacom",
-    relationship: "Leigh-Ann partnered with David on operational coordination, supply chain logistics, and multi-state execution across Ascend's 48+ retail locations.",
+    relationship: "Leigh-Ann partnered with David on commercial coordination, supply chain alignment, and multi-state operational execution across Ascend's 46 retail locations in 7 states.",
     email: "david.gacom@awholdings.com",
-    altEmails: [],
-    recommendation: `Leigh-Ann was a standout operator at Ascend Wellness. As COO, I worked with her on the coordination side of a multi-state operation as we scaled from 30 to 46 retail locations across Illinois, Massachusetts, Michigan, New Jersey, Ohio, Pennsylvania, and Maryland. She built standardized cross-location communication protocols and operational procedure manuals that became the connective tissue between markets. She coordinated complex logistics across time zones, managed compliance tracking for each jurisdiction, and kept executive scheduling running smoothly during a period of rapid expansion. I was also impressed by her process-building instinct. She didn't just manage what existed. She created how-to guides and onboarding manuals that ensured operational continuity through team transitions. Cannabis is a volatile, heavily regulated industry, and Leigh-Ann navigated it with composure and professionalism that you don't often see.`,
+    recommendation: `Leigh-Ann was a standout operator at Ascend Wellness. As Chief Commercial Officer, I worked with her across our multi-state footprint of 46 retail locations in 7 states (NJ, PA, IL, MA, MD, MI, OH). She facilitated strategic alignment across M&A, IR, and our Executive Leadership Team, translating high-level vision into operational workflows that improved efficiency by 25%. She coordinated complex logistics across time zones, managed compliance tracking for each jurisdiction, and kept executive scheduling running smoothly during a period of rapid expansion. She also built process documentation and onboarding manuals that ensured operational continuity through team transitions. Cannabis is a volatile, heavily regulated industry, and Leigh-Ann navigated it with composure and professionalism that you don't often see. I'd recommend her without hesitation.`,
     emailSubject: "A small request from Leigh-Ann",
     emailBody: `Hi David,
 
 I hope everything is going well. I'm reaching out because I've been growing my fractional executive support practice, and a LinkedIn recommendation from you would be really helpful.
 
-We worked together on the operations side at Ascend during a period of rapid expansion, and your perspective would carry a lot of credibility. I've put together a draft below to make it easy.
+We worked together on the commercial and operations side at Ascend during a period of rapid expansion, and your perspective would carry a lot of credibility. I've put together a draft below to make it easy.
 
 Feel free to use it as written, adjust it, or write something entirely your own. Whatever works for you.
 
@@ -234,7 +476,7 @@ Here's the draft:
 
 ---
 
-"Leigh-Ann was a standout operator at Ascend Wellness. As COO, I worked with her on the coordination side of a multi-state operation as we scaled from 30 to 46 retail locations across Illinois, Massachusetts, Michigan, New Jersey, Ohio, Pennsylvania, and Maryland. She built standardized cross-location communication protocols and operational procedure manuals that became the connective tissue between markets. She coordinated complex logistics across time zones, managed compliance tracking for each jurisdiction, and kept executive scheduling running smoothly during a period of rapid expansion. I was also impressed by her process-building instinct. She didn't just manage what existed. She created how-to guides and onboarding manuals that ensured operational continuity through team transitions. Cannabis is a volatile, heavily regulated industry, and Leigh-Ann navigated it with composure and professionalism that you don't often see."
+"Leigh-Ann was a standout operator at Ascend Wellness. As Chief Commercial Officer, I worked with her across our multi-state footprint of 46 retail locations in 7 states (NJ, PA, IL, MA, MD, MI, OH). She facilitated strategic alignment across M&A, IR, and our Executive Leadership Team, translating high-level vision into operational workflows that improved efficiency by 25%. She coordinated complex logistics across time zones, managed compliance tracking for each jurisdiction, and kept executive scheduling running smoothly during a period of rapid expansion. She also built process documentation and onboarding manuals that ensured operational continuity through team transitions. Cannabis is a volatile, heavily regulated industry, and Leigh-Ann navigated it with composure and professionalism that you don't often see. I'd recommend her without hesitation."
 
 ---
 
@@ -244,16 +486,41 @@ ${linkedinRecommendationUrl}
 Thank you so much, David. I appreciate it.
 
 Best,
-Leigh-Ann`
-  }
+Leigh-Ann`,
+  },
 ];
+
+// Status metadata for rendering
+const statusMeta: Record<Status, { label: string; classes: string; order: number }> = {
+  live: { label: "Live on LinkedIn", classes: "bg-emerald-100 text-emerald-700 border-emerald-200", order: 1 },
+  sent: { label: "Sent, awaiting", classes: "bg-blue-100 text-blue-700 border-blue-200", order: 2 },
+  "draft-needed": { label: "Fresh draft needed", classes: "bg-red-100 text-red-700 border-red-200", order: 3 },
+  "needs-info": { label: "Needs email / info", classes: "bg-amber-100 text-amber-700 border-amber-200", order: 4 },
+  ready: { label: "Ready to send", classes: "bg-secondary/15 text-secondary border-secondary/25", order: 5 },
+  "second-tier": { label: "Second tier", classes: "bg-slate-200 text-slate-600 border-slate-300", order: 6 },
+};
 
 // Build mailto links with proper encoding for Gmail
 function buildMailtoLink(email: string, subject: string, body: string): string {
+  const safeEmail = email.startsWith("[") ? "" : email;
   const encodedSubject = encodeURIComponent(subject);
   const encodedBody = encodeURIComponent(body);
-  return `mailto:${email}?subject=${encodedSubject}&body=${encodedBody}`;
+  return `mailto:${safeEmail}?subject=${encodedSubject}&body=${encodedBody}`;
 }
+
+const immunovantContacts = contacts.filter(c => c.company === "Immunovant")
+  .sort((a, b) => statusMeta[a.status].order - statusMeta[b.status].order);
+const ascendContacts = contacts.filter(c => c.company === "Ascend Wellness Holdings" || c.company === "Mattio Communications")
+  .sort((a, b) => statusMeta[a.status].order - statusMeta[b.status].order);
+
+const counts = {
+  live: contacts.filter(c => c.status === "live").length,
+  sent: contacts.filter(c => c.status === "sent").length,
+  ready: contacts.filter(c => c.status === "ready").length,
+  draftNeeded: contacts.filter(c => c.status === "draft-needed").length,
+  needsInfo: contacts.filter(c => c.status === "needs-info").length,
+  secondTier: contacts.filter(c => c.status === "second-tier").length,
+};
 ---
 
 <Layout noindex={true} title="Recommendation Requests | Leigh-Ann Martin">
@@ -268,14 +535,25 @@ function buildMailtoLink(email: string, subject: string, body: string): string {
           LinkedIn Recommendation Requests
         </h1>
         <p class="text-white/55 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-          Pre-drafted emails for requesting LinkedIn recommendations from former colleagues. Each includes a sample recommendation and a direct link to the LinkedIn form.
+          Pre-drafted emails and LinkedIn recommendation copy for former colleagues. Click-to-draft in Gmail, or use the CSV and Claude prompt below to batch-draft all emails at once through the Gmail connector.
         </p>
-        <div class="mt-6 inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full px-4 py-2">
-          <span class="text-white/60 text-xs">{contacts.length} contacts</span>
-          <span class="text-white/20">|</span>
-          <span class="text-white/60 text-xs">2 companies</span>
-          <span class="text-white/20">|</span>
-          <span class="text-white/60 text-xs">Click to draft in Gmail</span>
+        <div class="mt-6 flex flex-wrap justify-center gap-2">
+          <span class="inline-flex items-center gap-1.5 bg-emerald-500/15 border border-emerald-400/20 text-emerald-200 text-xs px-3 py-1 rounded-full"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>{counts.live} live</span>
+          <span class="inline-flex items-center gap-1.5 bg-blue-500/15 border border-blue-400/20 text-blue-200 text-xs px-3 py-1 rounded-full"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>{counts.sent} sent</span>
+          <span class="inline-flex items-center gap-1.5 bg-red-500/15 border border-red-400/20 text-red-200 text-xs px-3 py-1 rounded-full"><span class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>{counts.draftNeeded} fresh draft</span>
+          <span class="inline-flex items-center gap-1.5 bg-amber-500/15 border border-amber-400/20 text-amber-200 text-xs px-3 py-1 rounded-full"><span class="w-1.5 h-1.5 bg-amber-400 rounded-full"></span>{counts.needsInfo} needs info</span>
+          <span class="inline-flex items-center gap-1.5 bg-secondary/20 border border-secondary/30 text-secondary text-xs px-3 py-1 rounded-full"><span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>{counts.ready} ready</span>
+          <span class="inline-flex items-center gap-1.5 bg-white/10 border border-white/15 text-white/60 text-xs px-3 py-1 rounded-full"><span class="w-1.5 h-1.5 bg-white/40 rounded-full"></span>{counts.secondTier} second tier</span>
+        </div>
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <a href={`${base}recommendations.csv`} download class="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-white/80 hover:bg-white/15 hover:text-white text-xs font-medium px-4 py-2 rounded-full transition-all">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Download CSV
+          </a>
+          <a href={`${base}claude-gmail-instructions.md`} target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-white/80 hover:bg-white/15 hover:text-white text-xs font-medium px-4 py-2 rounded-full transition-all">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            Claude + Gmail instructions
+          </a>
         </div>
       </div>
     </section>
@@ -283,61 +561,100 @@ function buildMailtoLink(email: string, subject: string, body: string): string {
     <!-- Immunovant Section -->
     <section class="py-12 md:py-16 bg-cream">
       <div class="max-w-4xl mx-auto px-6">
-        <div class="flex items-center gap-3 mb-8" data-reveal>
+        <div class="flex items-center gap-3 mb-8">
           <div class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
             <span class="text-secondary text-sm font-bold">I</span>
           </div>
           <div>
             <h2 class="font-serif text-2xl text-primary"><a href="https://www.linkedin.com/company/immunovant" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">Immunovant</a></h2>
-            <p class="text-text-muted text-sm">Biotech / Biopharma &middot; 5 years &middot; EA to the CEO</p>
+            <p class="text-text-muted text-sm">Biotech &middot; 5 years &middot; Sole EA for 5 C-suite execs by March 2020 &middot; Culture Committee Lead</p>
           </div>
         </div>
 
         <div class="space-y-6">
-          {contacts.filter(c => c.company === "Immunovant").map((contact) => (
-            <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] overflow-hidden" data-reveal>
+          {immunovantContacts.map((contact, idx) => (
+            <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] overflow-hidden">
               <!-- Header -->
               <div class="p-6 pb-4">
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class="font-serif text-lg text-primary">{contact.linkedin ? <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">{contact.name}</a> : contact.name}</h3>
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 flex-wrap mb-1">
+                      <h3 class="font-serif text-lg text-primary">
+                        {contact.linkedin ? <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">{contact.name}</a> : contact.name}
+                      </h3>
+                      <span class={`text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full border ${statusMeta[contact.status].classes}`}>
+                        {statusMeta[contact.status].label}
+                      </span>
+                    </div>
                     <p class="text-secondary text-sm font-medium">{contact.title}, {contact.company}</p>
                     <p class="text-text-muted text-xs mt-1">{contact.relationship}</p>
                   </div>
-                  <a
-                    href={buildMailtoLink(contact.email, contact.emailSubject, contact.emailBody)}
-                    class="inline-flex items-center gap-2 bg-secondary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all shadow-sm flex-shrink-0"
-                  >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                    Draft Email
-                  </a>
+                  {contact.status !== "live" && (
+                    <a
+                      href={buildMailtoLink(contact.email, contact.emailSubject, contact.emailBody)}
+                      class="inline-flex items-center gap-2 bg-secondary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all shadow-sm flex-shrink-0"
+                    >
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                      Draft Email
+                    </a>
+                  )}
                 </div>
                 <p class="text-text-muted/60 text-xs mt-2">{contact.email}</p>
+                {contact.emailNote && (
+                  <p class="text-text-muted/80 text-xs mt-2 italic">{contact.emailNote}</p>
+                )}
+                {contact.statusNote && (
+                  <p class="text-primary/70 text-xs mt-2 bg-cream rounded-md px-3 py-2"><span class="font-semibold">Status note:</span> {contact.statusNote}</p>
+                )}
               </div>
 
-              <!-- Sample Recommendation -->
+              <!-- Sample Recommendation with Copy button -->
               <div class="mx-6 mb-6 bg-cream rounded-xl p-5">
-                <p class="text-[10px] font-semibold tracking-[0.2em] uppercase text-secondary mb-3">Sample Recommendation ({contact.recommendation.length} chars)</p>
+                <div class="flex items-start justify-between gap-3 mb-3">
+                  <p class="text-[10px] font-semibold tracking-[0.2em] uppercase text-secondary">Sample Recommendation ({contact.recommendation.length} chars)</p>
+                  <button
+                    type="button"
+                    class="copy-btn inline-flex items-center gap-1.5 text-[11px] font-medium text-text-muted hover:text-primary transition-colors flex-shrink-0 border border-primary/10 bg-white hover:bg-primary hover:text-white px-2.5 py-1 rounded-md"
+                    data-copy-text={contact.recommendation}
+                  >
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    <span class="copy-label">Copy</span>
+                  </button>
+                </div>
                 <p class="text-text/80 text-sm leading-relaxed italic">"{contact.recommendation}"</p>
               </div>
 
               <!-- Email Preview -->
-              <details class="border-t border-primary/[0.06]">
-                <summary class="flex items-center justify-between p-5 text-text-muted text-sm cursor-pointer hover:bg-cream/50 transition-colors">
-                  <span class="flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                    Preview full email
-                  </span>
-                  <svg class="w-4 h-4 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                </summary>
-                <div class="px-5 pb-5">
-                  <div class="bg-cream rounded-lg p-4">
-                    <p class="text-xs text-text-muted mb-1"><span class="font-semibold">To:</span> {contact.email}</p>
-                    <p class="text-xs text-text-muted mb-3"><span class="font-semibold">Subject:</span> {contact.emailSubject}</p>
-                    <div class="text-sm text-text/80 whitespace-pre-line leading-relaxed">{contact.emailBody}</div>
+              {contact.status !== "live" && (
+                <details class="border-t border-primary/[0.06]">
+                  <summary class="flex items-center justify-between p-5 text-text-muted text-sm cursor-pointer hover:bg-cream/50 transition-colors">
+                    <span class="flex items-center gap-2">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                      Preview full email
+                    </span>
+                    <svg class="w-4 h-4 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                  </summary>
+                  <div class="px-5 pb-5">
+                    <div class="bg-cream rounded-lg p-4">
+                      <div class="flex items-start justify-between gap-2 mb-3">
+                        <div>
+                          <p class="text-xs text-text-muted mb-1"><span class="font-semibold">To:</span> {contact.email}</p>
+                          <p class="text-xs text-text-muted"><span class="font-semibold">Subject:</span> {contact.emailSubject}</p>
+                        </div>
+                        <button
+                          type="button"
+                          class="copy-btn inline-flex items-center gap-1.5 text-[11px] font-medium text-text-muted hover:text-primary transition-colors flex-shrink-0 border border-primary/10 bg-white hover:bg-primary hover:text-white px-2.5 py-1 rounded-md"
+                          data-copy-text={contact.emailBody}
+                        >
+                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                          <span class="copy-label">Copy email</span>
+                        </button>
+                      </div>
+                      <div class="text-sm text-text/80 whitespace-pre-line leading-relaxed">{contact.emailBody}</div>
+                    </div>
                   </div>
-                </div>
-              </details>
+                </details>
+              )}
             </div>
           ))}
         </div>
@@ -347,68 +664,107 @@ function buildMailtoLink(email: string, subject: string, body: string): string {
     <!-- Ascend Wellness Section -->
     <section class="py-12 md:py-16 bg-warm">
       <div class="max-w-4xl mx-auto px-6">
-        <div class="flex items-center gap-3 mb-8" data-reveal>
+        <div class="flex items-center gap-3 mb-8">
           <div class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
             <span class="text-secondary text-sm font-bold">A</span>
           </div>
           <div>
             <h2 class="font-serif text-2xl text-primary"><a href="https://www.linkedin.com/company/ascend-wellness-holdings" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">Ascend Wellness Holdings</a></h2>
-            <p class="text-text-muted text-sm">Cannabis MSO &middot; EA, Investor Relations &middot; 48 retail locations, 7 markets</p>
+            <p class="text-text-muted text-sm">Public cannabis MSO &middot; CSE + OTCQX &middot; 7 states, 46 locations &middot; Includes Mattio (external IR)</p>
           </div>
         </div>
 
         <div class="space-y-6">
-          {contacts.filter(c => c.company === "Ascend Wellness Holdings").map((contact) => (
-            <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] overflow-hidden" data-reveal>
+          {ascendContacts.map((contact, idx) => (
+            <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] overflow-hidden">
               <!-- Header -->
               <div class="p-6 pb-4">
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class="font-serif text-lg text-primary">{contact.linkedin ? <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">{contact.name}</a> : contact.name}</h3>
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 flex-wrap mb-1">
+                      <h3 class="font-serif text-lg text-primary">
+                        {contact.linkedin ? <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">{contact.name}</a> : contact.name}
+                      </h3>
+                      <span class={`text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full border ${statusMeta[contact.status].classes}`}>
+                        {statusMeta[contact.status].label}
+                      </span>
+                    </div>
                     <p class="text-secondary text-sm font-medium">{contact.title}, {contact.company}</p>
                     <p class="text-text-muted text-xs mt-1">{contact.relationship}</p>
                   </div>
-                  <a
-                    href={buildMailtoLink(contact.email, contact.emailSubject, contact.emailBody)}
-                    class="inline-flex items-center gap-2 bg-secondary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all shadow-sm flex-shrink-0"
-                  >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                    Draft Email
-                  </a>
+                  {contact.status !== "live" && (
+                    <a
+                      href={buildMailtoLink(contact.email, contact.emailSubject, contact.emailBody)}
+                      class="inline-flex items-center gap-2 bg-secondary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all shadow-sm flex-shrink-0"
+                    >
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                      Draft Email
+                    </a>
+                  )}
                 </div>
                 <p class="text-text-muted/60 text-xs mt-2">{contact.email}</p>
+                {contact.emailNote && (
+                  <p class="text-text-muted/80 text-xs mt-2 italic">{contact.emailNote}</p>
+                )}
+                {contact.statusNote && (
+                  <p class="text-primary/70 text-xs mt-2 bg-warm rounded-md px-3 py-2"><span class="font-semibold">Status note:</span> {contact.statusNote}</p>
+                )}
               </div>
 
-              <!-- Sample Recommendation -->
+              <!-- Sample Recommendation with Copy button -->
               <div class="mx-6 mb-6 bg-warm rounded-xl p-5">
-                <p class="text-[10px] font-semibold tracking-[0.2em] uppercase text-secondary mb-3">Sample Recommendation ({contact.recommendation.length} chars)</p>
+                <div class="flex items-start justify-between gap-3 mb-3">
+                  <p class="text-[10px] font-semibold tracking-[0.2em] uppercase text-secondary">Sample Recommendation ({contact.recommendation.length} chars)</p>
+                  <button
+                    type="button"
+                    class="copy-btn inline-flex items-center gap-1.5 text-[11px] font-medium text-text-muted hover:text-primary transition-colors flex-shrink-0 border border-primary/10 bg-white hover:bg-primary hover:text-white px-2.5 py-1 rounded-md"
+                    data-copy-text={contact.recommendation}
+                  >
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    <span class="copy-label">Copy</span>
+                  </button>
+                </div>
                 <p class="text-text/80 text-sm leading-relaxed italic">"{contact.recommendation}"</p>
               </div>
 
               <!-- Email Preview -->
-              <details class="border-t border-primary/[0.06]">
-                <summary class="flex items-center justify-between p-5 text-text-muted text-sm cursor-pointer hover:bg-warm/50 transition-colors">
-                  <span class="flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                    Preview full email
-                  </span>
-                  <svg class="w-4 h-4 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                </summary>
-                <div class="px-5 pb-5">
-                  <div class="bg-warm rounded-lg p-4">
-                    <p class="text-xs text-text-muted mb-1"><span class="font-semibold">To:</span> {contact.email}</p>
-                    <p class="text-xs text-text-muted mb-3"><span class="font-semibold">Subject:</span> {contact.emailSubject}</p>
-                    <div class="text-sm text-text/80 whitespace-pre-line leading-relaxed">{contact.emailBody}</div>
+              {contact.status !== "live" && (
+                <details class="border-t border-primary/[0.06]">
+                  <summary class="flex items-center justify-between p-5 text-text-muted text-sm cursor-pointer hover:bg-warm/50 transition-colors">
+                    <span class="flex items-center gap-2">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                      Preview full email
+                    </span>
+                    <svg class="w-4 h-4 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                  </summary>
+                  <div class="px-5 pb-5">
+                    <div class="bg-warm rounded-lg p-4">
+                      <div class="flex items-start justify-between gap-2 mb-3">
+                        <div>
+                          <p class="text-xs text-text-muted mb-1"><span class="font-semibold">To:</span> {contact.email}</p>
+                          <p class="text-xs text-text-muted"><span class="font-semibold">Subject:</span> {contact.emailSubject}</p>
+                        </div>
+                        <button
+                          type="button"
+                          class="copy-btn inline-flex items-center gap-1.5 text-[11px] font-medium text-text-muted hover:text-primary transition-colors flex-shrink-0 border border-primary/10 bg-white hover:bg-primary hover:text-white px-2.5 py-1 rounded-md"
+                          data-copy-text={contact.emailBody}
+                        >
+                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                          <span class="copy-label">Copy email</span>
+                        </button>
+                      </div>
+                      <div class="text-sm text-text/80 whitespace-pre-line leading-relaxed">{contact.emailBody}</div>
+                    </div>
                   </div>
-                </div>
-              </details>
+                </details>
+              )}
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- LinkedIn Link -->
+    <!-- LinkedIn Link + CSV + Claude -->
     <section class="py-12 bg-primary">
       <div class="max-w-2xl mx-auto px-6 text-center">
         <p class="text-white/40 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Direct Link</p>
@@ -425,23 +781,43 @@ function buildMailtoLink(email: string, subject: string, body: string): string {
         </a>
       </div>
     </section>
+
+    <!-- Back to dashboard -->
+    <section class="py-10 bg-cream">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <a href={`${base}private`} class="text-text-muted/50 text-xs hover:text-text-muted transition-colors">
+          &larr; Back to dashboard
+        </a>
+      </div>
+    </section>
   </main>
   <Footer />
   </div>
 </Layout>
 
 <script>
-  const revealEls = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
-  );
-  revealEls.forEach((el) => observer.observe(el));
+  // Copy-to-clipboard handler
+  const copyBtns = document.querySelectorAll<HTMLButtonElement>(".copy-btn");
+  copyBtns.forEach((btn) => {
+    btn.addEventListener("click", async (event) => {
+      event.preventDefault();
+      const text = btn.getAttribute("data-copy-text") || "";
+      const label = btn.querySelector<HTMLElement>(".copy-label");
+      const originalLabel = label?.textContent || "Copy";
+      try {
+        await navigator.clipboard.writeText(text);
+        if (label) label.textContent = "Copied";
+        btn.classList.add("bg-primary", "text-white");
+        setTimeout(() => {
+          if (label) label.textContent = originalLabel;
+          btn.classList.remove("bg-primary", "text-white");
+        }, 1800);
+      } catch (err) {
+        if (label) label.textContent = "Copy failed";
+        setTimeout(() => {
+          if (label) label.textContent = originalLabel;
+        }, 1800);
+      }
+    });
+  });
 </script>
