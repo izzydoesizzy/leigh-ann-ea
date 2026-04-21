@@ -10,7 +10,8 @@ const base = import.meta.env.BASE_URL;
 // Drill-down questions per achievement live on /private/case-study-questions (richer, with inline calculators).
 // No em dashes anywhere on this page.
 
-const transcripts = [
+// Source order is chronological (oldest first) for readability; displayed in reverse-chronological order.
+const transcriptsChronological = [
   {
     id: "petrotrin",
     company: "Petrotrin",
@@ -92,6 +93,8 @@ const transcripts = [
     signal: "High. Most defensible board, governance, and earnings-system narrative.",
   },
 ];
+
+const transcripts = transcriptsChronological.toReversed();
 
 const signalStyles: Record<string, string> = {
   "High": "bg-emerald-100 text-emerald-700",
