@@ -26,7 +26,16 @@
     "alt_emails": ["bing.yuan@oncusptx.com"],
     "priority": "A",
     "outreach_angle": "biotech_funding",
-    "company_context": "Raised oversubscribed $100M Series A. Oncology focus. 20+ years biopharma experience, contributed to 14 approved oncology brands including Keytruda."
+    "company_context": "Raised oversubscribed $100M Series A. Oncology focus. 20+ years biopharma experience, contributed to 14 approved oncology brands including Keytruda.",
+    "hr_contact": {
+      "name": "Rebecca Klouwers",
+      "title": "HR & Operations Manager",
+      "linkedin_url": "https://www.linkedin.com/company/oncusp-therapeutics",
+      "likely_email": "rklouwers@oncusptx.com",
+      "alt_emails": ["rebecca@oncusptx.com", "rebecca.klouwers@oncusptx.com"],
+      "email_confidence": "medium",
+      "email_pattern_source": "Inferred from documented flast@oncusptx.com pattern (75% per RocketReach). Rebecca handles both HR and Ops at this stage of the company."
+    }
   },
   {
     "company": "Proxima (formerly VantAI)",
@@ -87,7 +96,16 @@
     "alt_emails": ["oban@spade.dev"],
     "priority": "A",
     "outreach_angle": "fintech_growth",
-    "company_context": "YC-backed fintech. Transaction data enrichment API. Domain is spade.com (not getspade.com). Also uses spade.dev."
+    "company_context": "YC-backed fintech. Transaction data enrichment API. Domain is spade.com (not getspade.com). Also uses spade.dev.",
+    "hr_contact": {
+      "name": "Tess Bloch",
+      "title": "Co-Founder & Head of Operations (oversees People)",
+      "linkedin_url": "https://www.linkedin.com/company/spadedata",
+      "likely_email": "tess@spade.com",
+      "alt_emails": ["tess@spade.dev"],
+      "email_confidence": "high",
+      "email_pattern_source": "Spade confirmed first@spade.com pattern at 88.7% (RocketReach). Tess Bloch leads operations, finance, sales, and people teams per public Wharton FinTech interview — there's no dedicated People leader yet."
+    }
   },
   {
     "company": "Rogo",
@@ -225,7 +243,16 @@
     "alt_emails": ["jake.cooper@growtherapy.com"],
     "priority": "A",
     "outreach_angle": "healthtech_growth",
-    "company_context": "Mental health platform. $75M Series B. Transformation Capital portfolio. Making therapy more affordable and accessible."
+    "company_context": "Mental health platform. $75M Series B. Transformation Capital portfolio. Making therapy more affordable and accessible.",
+    "hr_contact": {
+      "name": "Keshar Sheridan",
+      "title": "Head of People",
+      "linkedin_url": "https://www.linkedin.com/company/growtherapy",
+      "likely_email": "keshar.sheridan@growtherapy.com",
+      "alt_emails": ["keshar@growtherapy.com"],
+      "email_confidence": "high",
+      "email_pattern_source": "first.last@growtherapy.com pattern confirmed at 77.7% (RocketReach). first@ also used by founders (e.g., jake@growtherapy.com)."
+    }
   },
   {
     "company": "Spring Health",
@@ -239,7 +266,16 @@
     "alt_emails": ["april.koh@springhealth.com", "april@springhealth.com"],
     "priority": "A",
     "outreach_angle": "healthtech_growth",
-    "company_context": "Major mental health benefits platform. Well-funded. April Koh is a prominent healthcare CEO."
+    "company_context": "Major mental health benefits platform. Well-funded. April Koh is a prominent healthcare CEO.",
+    "hr_contact": {
+      "name": "Karishma Patel Buford",
+      "title": "Chief People Officer",
+      "linkedin_url": "https://www.linkedin.com/company/spring-health",
+      "likely_email": "kbuford@springhealth.com",
+      "alt_emails": ["kpatelbuford@springhealth.com", "karishma.buford@springhealth.com", "karishma@springhealth.com"],
+      "email_confidence": "medium",
+      "email_pattern_source": "Spring Health confirmed flast@springhealth.com at 84% (RocketReach). Compound surname (Patel Buford) means the most likely is kbuford@; alternates use the full compound or first-name pattern."
+    }
   },
   {
     "company": "Ascend Wellness Holdings",
@@ -322,7 +358,16 @@
     "alt_emails": ["alex.schmelkin@sixfold.ai"],
     "priority": "A",
     "outreach_angle": "insurtech_growth",
-    "company_context": "AI for insurance underwriters. Founded 2023. Salesforce Ventures portfolio. NYC-based."
+    "company_context": "AI for insurance underwriters. Founded 2023. Salesforce Ventures portfolio. NYC-based.",
+    "hr_contact": {
+      "name": "Kavya Jonnavithula",
+      "title": "Head of Talent Acquisition",
+      "linkedin_url": "https://www.linkedin.com/in/kavya-jonnavithula-000911105/",
+      "likely_email": "kavya@sixfold.ai",
+      "alt_emails": ["kavya.jonnavithula@sixfold.ai"],
+      "email_confidence": "high",
+      "email_pattern_source": "Sixfold confirmed first@sixfold.ai at 87.1% (RocketReach). Kavya leads talent acquisition since Dec 2024 (per The Org and RocketReach)."
+    }
   },
   {
     "company": "Benepass",
@@ -394,7 +439,16 @@
     ],
     "priority": "A",
     "outreach_angle": "fintech_growth",
-    "company_context": "Leading corporate card and expense management platform. One of the fastest-growing fintechs. NYC-based. Co-founded with Karim Atiyeh and Gene Lee."
+    "company_context": "Leading corporate card and expense management platform. One of the fastest-growing fintechs. NYC-based. Co-founded with Karim Atiyeh and Gene Lee.",
+    "hr_contact": {
+      "name": "Jacob Wallenberg",
+      "title": "VP, People & Talent",
+      "linkedin_url": "https://www.linkedin.com/company/ramp",
+      "likely_email": "jwallenberg@ramp.com",
+      "alt_emails": ["jacob@ramp.com", "jacob.wallenberg@ramp.com"],
+      "email_confidence": "high",
+      "email_pattern_source": "Ramp confirmed flast@ramp.com at 72.2% (RocketReach). Jacob Wallenberg listed as VP People & Talent on theorg.com Ramp org chart."
+    }
   },
   {
     "company": "LB Pharmaceuticals",
@@ -408,7 +462,16 @@
     "alt_emails": ["heather.turner@lbpharma.us"],
     "priority": "B",
     "outreach_angle": "biotech_funding",
-    "company_context": "Development stage CNS company. Novel versions of successful overseas treatments for US market. Schizophrenia focus. NYC-based. Recently filed S-1 with SEC."
+    "company_context": "Development stage CNS company. Novel versions of successful overseas treatments for US market. Schizophrenia focus. NYC-based. Recently filed S-1 with SEC.",
+    "hr_contact": {
+      "name": "Lindsay Beaupre",
+      "title": "SVP, People & Culture",
+      "linkedin_url": "https://www.linkedin.com/company/lb-pharmaceuticals-inc",
+      "likely_email": "lindsay@lbpharma.us",
+      "alt_emails": ["lindsay.beaupre@lbpharma.us", "lbeaupre@lbpharma.us"],
+      "email_confidence": "high",
+      "email_pattern_source": "LB Pharma confirmed first@lbpharma.us at 70% (RocketReach). Lindsay appointed SVP People & Culture on Jan 6, 2026 per company press release on globenewswire."
+    }
   },
   {
     "company": "Nuvation Bio",
