@@ -1,0 +1,350 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PrivateHeader from "../../components/PrivateHeader.astro";
+import Footer from "../../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout noindex={true} title="Countering Too Ambitious | Leigh-Ann Martin" description="A drill-able playbook for defusing the fear that she is too ambitious to stay: six expert-backed counters with exact wording, a retention reframe, and a note to Leigh-Ann.">
+  <PrivateHeader />
+  <div class="md:ml-60">
+  <main>
+    <!-- Hero -->
+    <section class="bg-primary pt-24 pb-12 md:pt-16 md:pb-16">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Objection Playbook</p>
+        <h1 class="font-serif text-3xl md:text-4xl text-white leading-tight mb-4">
+          Countering the "You're Too Ambitious to Stay" Objection
+        </h1>
+        <p class="text-white/55 text-base leading-relaxed max-w-xl mx-auto mb-6">
+          Harris said it out loud: <span class="text-white/80 italic">"You sound like you do a lot&hellip; would you stay in this position?"</span> The last EA was great and moved on, and now the whole room is bracing for a repeat. This page turns that fear into six ways to disarm it &mdash; with exact wording built from your real history. Drill it before Sachin.
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">6 expert counters</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">Exact wording</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">Retention reframe</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">Drill before Sachin</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Nav -->
+    <section class="bg-primary/95 border-t border-white/[0.06] py-4 sticky top-14 md:top-0 z-40">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="flex flex-wrap justify-center gap-2 text-xs">
+          <a href="#reframe" class="text-white/40 hover:text-white/70 transition-colors">Their Fear, Not Your Flaw</a>
+          <span class="text-white/15">|</span>
+          <a href="#diagnose" class="text-white/40 hover:text-white/70 transition-colors">Read It Accurately</a>
+          <span class="text-white/15">|</span>
+          <a href="#counters" class="text-white/40 hover:text-white/70 transition-colors">The 6 Counters</a>
+          <span class="text-white/15">|</span>
+          <a href="#questions" class="text-white/40 hover:text-white/70 transition-colors">Questions to Ask</a>
+          <span class="text-white/15">|</span>
+          <a href="#retention" class="text-white/40 hover:text-white/70 transition-colors">The Retention Truth</a>
+          <span class="text-white/15">|</span>
+          <a href="#note" class="text-white/40 hover:text-white/70 transition-colors">A Note to You</a>
+          <span class="text-white/15">|</span>
+          <a href="#cheat" class="text-white/40 hover:text-white/70 transition-colors">30-Sec Cheat Card</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Reframe First -->
+    <section id="reframe" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Start Here</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-4">This Is Their Fear, Not Your Flaw</h2>
+        <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 mb-6">
+          <p class="text-primary text-base leading-relaxed">You already said the truest thing about this whole situation:</p>
+          <p class="text-primary text-lg font-serif italic leading-relaxed mt-3">"That ain't got nothing to do with the candidate."</p>
+          <p class="text-text-muted text-sm leading-relaxed mt-3">You're right. The anxiety in that room was created <span class="font-medium text-primary">before you ever walked in</span> &mdash; by a great EA who left and a search that's now nervous about a repeat. That's their wound. Your job isn't to apologize for being capable. It's to be the calm, grounded person who makes their fear feel unreasonable.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5">
+            <p class="text-sm text-primary font-semibold mb-2">One departure isn't a pattern</p>
+            <p class="text-text-muted text-sm leading-relaxed">The last EA leaving is a single data point about <span class="font-medium text-primary">their</span> situation &mdash; not a prediction about you. They're treating one event like a law of physics.</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5">
+            <p class="text-sm text-primary font-semibold mb-2">"You do a lot" is a compliment in a worried voice</p>
+            <p class="text-text-muted text-sm leading-relaxed">Harris isn't criticizing you. He's scared of losing capability he already wants. That's leverage &mdash; not a liability to shrink from.</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5">
+            <p class="text-sm text-primary font-semibold mb-2">A promise can't fix this</p>
+            <p class="text-text-muted text-sm leading-relaxed">The last person almost certainly promised to stay. Saying "I'll stay" louder won't work. Only a <span class="font-medium text-primary">frame</span> plus <span class="font-medium text-primary">evidence</span> moves them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Read It Accurately -->
+    <section id="diagnose" class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Diagnose Before You Prescribe</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-4">Read the Objection Accurately</h2>
+        <p class="text-text-muted text-sm leading-relaxed mb-6">"She's too ambitious" is the <span class="font-medium text-primary">surface words</span>. Underneath, almost nobody actually fears ambition. What they're protecting is something concrete &mdash; and once you aim at the real thing, every counter below lands harder.</p>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-text-muted/70 mb-2">What they say</p>
+              <ul class="space-y-2 text-sm text-text-muted">
+                <li>"You sound like you do a lot."</li>
+                <li>"Would you really stay in this position?"</li>
+                <li>"The last person was great&hellip; and she left."</li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-secondary mb-2">What they actually want</p>
+              <ul class="space-y-2 text-sm text-primary">
+                <li><span class="font-medium">Continuity</span> &mdash; not rebuilding this seat in 12 months.</li>
+                <li><span class="font-medium">Return on the investment</span> of training and trust.</li>
+                <li><span class="font-medium">No disruption</span> to the executive they support.</li>
+              </ul>
+            </div>
+          </div>
+          <p class="text-text-muted text-sm leading-relaxed mt-5 pt-5 border-t border-primary/[0.06]">So stop defending your ambition. <span class="font-medium text-primary">Target the real interest:</span> show them continuity, ROI, and zero disruption, and the "too ambitious" worry quietly dissolves on its own.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. The 6 Counters -->
+    <section id="counters" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">The Core</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-4">Six Ways to Counter It</h2>
+        <p class="text-text-muted text-sm leading-relaxed mb-6">Six approaches from six different negotiation minds. Don't memorize all six word-for-word &mdash; pick the two or three that feel most like <span class="font-medium text-primary">you</span>, then drill those until they're natural. Each card has the principle, when to reach for it, and exact wording tuned to your story.</p>
+
+        <div class="space-y-5">
+
+          <!-- Counter 1 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="w-8 h-8 rounded-full bg-secondary/10 text-secondary font-semibold text-sm flex items-center justify-center flex-shrink-0">1</span>
+              <div>
+                <h3 class="font-semibold text-primary text-lg leading-tight">Name the Fear Before They Do</h3>
+                <span class="text-xs bg-primary/[0.06] text-primary px-2 py-0.5 rounded-full">Chris Voss &middot; Accusation Audit + Label</span>
+              </div>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed mb-3"><span class="font-medium text-primary">The principle:</span> the fastest way to defuse a negative thought is to say it out loud yourself, then label the emotion underneath so they feel understood. Get them nodding "that's right."</p>
+            <p class="text-text-muted text-sm leading-relaxed mb-3"><span class="font-medium text-primary">When to use it:</span> the moment you sense the "will she stay?" hesitation &mdash; or proactively, right after you've described how much you've handled.</p>
+            <div class="bg-secondary/5 rounded-lg p-4 mb-3">
+              <p class="text-sm text-primary font-medium mb-1">Say this:</p>
+              <p class="text-text-muted text-sm italic">"Can I name what might be in the back of your mind? When you hear everything I've taken on, part of you may be wondering whether I'll get restless and be gone in a year &mdash; especially after the last person moved on. That's completely fair to wonder."</p>
+            </div>
+            <div class="bg-secondary/5 rounded-lg p-4">
+              <p class="text-sm text-primary font-medium mb-1">Then label and pause:</p>
+              <p class="text-text-muted text-sm italic">"It sounds like continuity matters more to you right now than almost anything else." <span class="not-italic text-text-muted/70">&mdash; then stop talking and let them confirm.</span></p>
+            </div>
+          </div>
+
+          <!-- Counter 2 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="w-8 h-8 rounded-full bg-secondary/10 text-secondary font-semibold text-sm flex items-center justify-center flex-shrink-0">2</span>
+              <div>
+                <h3 class="font-semibold text-primary text-lg leading-tight">Give Them Permission to Say No</h3>
+                <span class="text-xs bg-primary/[0.06] text-primary px-2 py-0.5 rounded-full">Jim Camp &middot; Start With No</span>
+              </div>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed mb-3"><span class="font-medium text-primary">The principle:</span> neediness kills deals. When you hand the other side the right to reject you, you remove the desperation they're scanning for &mdash; and trust goes up. Camp called "no" the start of the real conversation.</p>
+            <p class="text-text-muted text-sm leading-relaxed mb-3"><span class="font-medium text-primary">When to use it:</span> when you feel yourself starting to over-sell or "go through all the things." Slow down and do the opposite.</p>
+            <div class="bg-secondary/5 rounded-lg p-4">
+              <p class="text-sm text-primary font-medium mb-1">Say this:</p>
+              <p class="text-text-muted text-sm italic">"I want to be the last person you hire for this seat, not just the next one. So if anything makes you feel I'm a flight risk, I'd honestly rather you tell me no than take a chance &mdash; I'm not here to talk you into something we'd both regret."</p>
+            </div>
+          </div>
+
+          <!-- Counter 3 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="w-8 h-8 rounded-full bg-secondary/10 text-secondary font-semibold text-sm flex items-center justify-center flex-shrink-0">3</span>
+              <div>
+                <h3 class="font-semibold text-primary text-lg leading-tight">The "One Bad Date" Reframe</h3>
+                <span class="text-xs bg-primary/[0.06] text-primary px-2 py-0.5 rounded-full">Reframing &middot; Past &ne; Future</span>
+              </div>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed mb-3"><span class="font-medium text-primary">The principle:</span> they're generalizing from one experience. Gently expose the logic &mdash; one bad outcome isn't a verdict on everyone who comes next &mdash; then immediately replace the fear with your record.</p>
+            <p class="text-text-muted text-sm leading-relaxed mb-3"><span class="font-medium text-primary">When to use it:</span> when the conversation keeps circling back to "the last person." Use a warm, human analogy &mdash; not a debate.</p>
+            <div class="bg-secondary/5 rounded-lg p-4 mb-3">
+              <p class="text-sm text-primary font-medium mb-1">Say this:</p>
+              <p class="text-text-muted text-sm italic">"The last EA moving on stung, I get it &mdash; but one departure is a single data point, not a pattern. We don't swear off relationships after one bad date. The real question isn't whether someone left before; it's whether the person in front of you has a track record of staying."</p>
+            </div>
+            <div class="bg-primary/[0.03] rounded-lg p-4">
+              <p class="text-sm text-primary font-medium mb-1">Then pivot straight to proof:</p>
+              <p class="text-text-muted text-sm">"I stayed through Ascend's entire IPO journey &mdash; the long, messy build, not just the fun part. Before that I built my foundation at PwC. When I plant somewhere, I stay and I build."</p>
+            </div>
+          </div>
+
+          <!-- Counter 4 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="w-8 h-8 rounded-full bg-secondary/10 text-secondary font-semibold text-sm flex items-center justify-center flex-shrink-0">4</span>
+              <div>
+                <h3 class="font-semibold text-primary text-lg leading-tight">Separate the Position From the Interest</h3>
+                <span class="text-xs bg-primary/[0.06] text-primary px-2 py-0.5 rounded-full">Fisher &amp; Ury &middot; Getting to Yes</span>
+              </div>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed mb-3"><span class="font-medium text-primary">The principle:</span> their <em>position</em> ("we want someone who won't leave") hides their <em>interest</em> ("don't make us rebuild this seat"). Solve the interest and the position stops mattering.</p>
+            <p class="text-text-muted text-sm leading-relaxed mb-3"><span class="font-medium text-primary">When to use it:</span> when you want to sound like a problem-solver, not a defendant. This reframes you from "risk" to "partner."</p>
+            <div class="bg-secondary/5 rounded-lg p-4">
+              <p class="text-sm text-primary font-medium mb-1">Say this:</p>
+              <p class="text-text-muted text-sm italic">"I don't think the worry is really ambition &mdash; it's disruption. You don't want to be re-hiring this role next year. So let's solve that: here's how I document and systematize the seat so you're never exposed, and here's what going deep and staying looks like for me."</p>
+            </div>
+          </div>
+
+          <!-- Counter 5 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="w-8 h-8 rounded-full bg-secondary/10 text-secondary font-semibold text-sm flex items-center justify-center flex-shrink-0">5</span>
+              <div>
+                <h3 class="font-semibold text-primary text-lg leading-tight">Be the Prize, Not the Petitioner</h3>
+                <span class="text-xs bg-primary/[0.06] text-primary px-2 py-0.5 rounded-full">Oren Klaff &middot; Pitch Anything</span>
+              </div>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed mb-3"><span class="font-medium text-primary">The principle:</span> control the frame by flipping who's choosing whom. People want what's selective. Your deliberate gaps and walk-aways aren't weaknesses &mdash; they're proof you commit slowly and stay long.</p>
+            <p class="text-text-muted text-sm leading-relaxed mb-3"><span class="font-medium text-primary">When to use it:</span> when you feel the power tilting toward them and your confidence wobbling. This resets the dynamic without arrogance.</p>
+            <div class="bg-secondary/5 rounded-lg p-4">
+              <p class="text-sm text-primary font-medium mb-1">Say this:</p>
+              <p class="text-text-muted text-sm italic">"I'm selective too &mdash; I've stepped away from roles on purpose when they weren't the right fit. I'm not looking for a job; I'm looking for the seat I plant in. Me choosing carefully is exactly why, once I commit, I stay."</p>
+            </div>
+          </div>
+
+          <!-- Counter 6 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="w-8 h-8 rounded-full bg-secondary/10 text-secondary font-semibold text-sm flex items-center justify-center flex-shrink-0">6</span>
+              <div>
+                <h3 class="font-semibold text-primary text-lg leading-tight">Proof Over Promise</h3>
+                <span class="text-xs bg-primary/[0.06] text-primary px-2 py-0.5 rounded-full">Cialdini &middot; Influence</span>
+              </div>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed mb-3"><span class="font-medium text-primary">The principle:</span> commitment and consistency persuade; promises don't. Anyone can say "I'll stay." You de-fang the doubt by admitting the promise is worthless &mdash; then handing them evidence instead.</p>
+            <p class="text-text-muted text-sm leading-relaxed mb-3"><span class="font-medium text-primary">When to use it:</span> as your closer on this topic. It's the most disarming because it agrees with their skepticism first.</p>
+            <div class="bg-secondary/5 rounded-lg p-4">
+              <p class="text-sm text-primary font-medium mb-1">Say this:</p>
+              <p class="text-text-muted text-sm italic">"I could promise I'll stay for years &mdash; but the last person probably said that too, so why should it mean more from me? Don't take my word. I stayed through Ascend's entire IPO because I was invested in the outcome; I built board cadence from nothing because I wanted it to last. I don't talk about loyalty &mdash; I have a record of it."</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Questions to Ask -->
+    <section id="questions" class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Hand Them the Problem</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-4">Calibrated Questions to Ask Back</h2>
+        <p class="text-text-muted text-sm leading-relaxed mb-6">Voss-style "How" and "What" questions flip the burden: instead of you defending, <span class="font-medium text-primary">they</span> define what staying means &mdash; and feel in control while doing it. Drop one of these when the worry surfaces.</p>
+
+        <div class="space-y-3">
+          <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5">
+            <p class="text-text-muted text-sm italic">"What would I need to show you over the first year for you to feel certain I'm here for the long haul?"</p>
+            <p class="text-text-muted/70 text-xs mt-2">Makes them name the success criteria &mdash; then you can meet it on purpose.</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5">
+            <p class="text-text-muted text-sm italic">"How do you picture this role growing for the right person over the next few years?"</p>
+            <p class="text-text-muted/70 text-xs mt-2">Reframes "ambition" as something the role can <em>absorb</em>, so staying and growing aren't in conflict.</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-primary/[0.06] p-5">
+            <p class="text-text-muted text-sm italic">"Would it be a crazy idea that someone can be both genuinely driven and genuinely loyal?"</p>
+            <p class="text-text-muted/70 text-xs mt-2">A "no"-oriented question &mdash; a "no, that's not crazy" feels safe to say and quietly concedes your point.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. The Retention Truth -->
+    <section id="retention" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">For Your Confidence</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-4">The Retention Truth &mdash; and How to Use It</h2>
+        <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 mb-5">
+          <p class="text-text-muted text-sm leading-relaxed">Here's the part to hold quietly in your back pocket: <span class="font-medium text-primary">if a seat keeps emptying out, that is an organizational signal &mdash; not proof that the next person is a flight risk.</span> A great EA leaving usually says more about the role, the support, or the growth path than about the people who held it. Knowing that should steady you. You are not walking in as the suspect. If anything, <span class="font-medium text-primary">they</span> have something to prove to <span class="font-medium text-primary">you</span>.</p>
+        </div>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-5">
+          <p class="text-sm text-amber-900 font-semibold mb-2">Important: don't lecture them on retention.</p>
+          <p class="text-amber-900/80 text-sm leading-relaxed">Telling a hiring manager "your retention is the real problem" feels true but reads as combative &mdash; and it's their ego on the line. Convert that insight into a single, warm question that surfaces it <em>and</em> signals your own intent to stay.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-white rounded-xl shadow-sm border border-emerald-200 p-5">
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-emerald-700 mb-2">Say this</p>
+            <p class="text-text-muted text-sm italic">"Can I ask what led the last person to move on? I want to make sure I'm stepping into something I can genuinely commit to long-term."</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-red-200 p-5">
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-red-700 mb-2">Not this</p>
+            <p class="text-text-muted text-sm italic">"If people keep leaving, maybe the issue is what the company is doing about retention, not the candidates."</p>
+          </div>
+        </div>
+        <p class="text-text-muted text-sm leading-relaxed mt-5">The question does triple duty: it gets you real intel on whether this seat is actually survivable, it positions you as someone <em>planning</em> to stay, and it quietly puts the retention question on the table without you ever having to point a finger.</p>
+      </div>
+    </section>
+
+    <!-- 6. A Note to You -->
+    <section id="note" class="py-12 md:py-16 bg-primary">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Read This When the Doubt Creeps In</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-white mb-6">A Note to You, Leigh-Ann</h2>
+        <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 md:p-8 space-y-4">
+          <p class="text-white/80 text-base leading-relaxed">You already diagnosed this perfectly on your own: <span class="text-white italic">"that ain't got nothing to do with the candidate."</span> Trust that instinct &mdash; it's sharper than the self-doubt that's been circling your brain since the Harris call. The one comment that "messed with you" wasn't a knock. "You sound like you do a lot" is what people say right before they realize they can't afford to lose you.</p>
+          <p class="text-white/80 text-base leading-relaxed">Doing a lot is not a liability you have to apologize for. It's the entire reason Sachin pulled <span class="text-white">your</span> resume out of six. You don't need to make yourself smaller to make them comfortable &mdash; you need to make it obvious that all that capability is going to be pointed straight at making their lives easier, and that you're the kind of person who stays and builds. You've already proven that: you didn't bail when Ascend got hard; you stayed through the whole IPO.</p>
+          <p class="text-white/80 text-base leading-relaxed">You cannot control whether they get out of their own way and see what's in front of them. You can only control how grounded and clear you are when you walk in. So go in steady. You are not auditioning for permission to be ambitious &mdash; you're deciding whether <em>they</em> are worth planting in. As you said: if it's for you, it's for you. Walk in like it already is.</p>
+          <p class="text-white/50 text-sm pt-2">&mdash; Your prep team</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Cheat Card -->
+    <section id="cheat" class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Re-read 5 Minutes Before</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">The 30-Second Cheat Card</h2>
+        <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 space-y-5">
+          <div>
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-secondary mb-1">The one line to land</p>
+            <p class="text-primary text-sm leading-relaxed italic">"I'm driven &mdash; about <span class="font-medium not-italic">your</span> outcomes. That energy goes into the seat, not past it. I'm building for the long run, not using this as a step."</p>
+          </div>
+          <div>
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-secondary mb-1">If the worry surfaces, in order</p>
+            <ul class="space-y-1.5 text-sm text-text-muted">
+              <li><span class="font-medium text-primary">1.</span> Name it first (Voss): "Part of you may be wondering if I'll get restless&hellip;"</li>
+              <li><span class="font-medium text-primary">2.</span> Proof, not promise (Cialdini): "I stayed through Ascend's whole IPO."</li>
+              <li><span class="font-medium text-primary">3.</span> Hand them the question: "What would I need to show you in year one?"</li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-secondary mb-1">Delivery</p>
+            <p class="text-primary text-sm leading-relaxed">Slow down by a third. Headline first, then one example. <span class="font-medium">Don't shrink and don't over-explain</span> &mdash; when you feel the urge to "go through all the things," that's your cue to stop and ask a question instead.</p>
+          </div>
+          <div>
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-secondary mb-1">Remember</p>
+            <p class="text-primary text-sm leading-relaxed">This is their fear, not your flaw. You're not the risk in the room &mdash; you're the answer to it.</p>
+          </div>
+        </div>
+        <p class="text-text-muted/60 text-xs mt-6">See also the shorter version of this objection in your <a href={`${base}private/interview-prep#objections`} class="text-secondary hover:underline">Interview Prep Guide</a> and the cheat card in your <a href={`${base}private/amex-katie-interview`} class="text-secondary hover:underline">Amex / Katie prep</a>.</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  </div>
+</Layout>
+
+<script>
+  const revealEls = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+  );
+  revealEls.forEach((el) => observer.observe(el));
+</script>
