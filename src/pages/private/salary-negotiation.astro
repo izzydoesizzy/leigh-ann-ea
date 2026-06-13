@@ -1,0 +1,685 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PrivateHeader from "../../components/PrivateHeader.astro";
+import Footer from "../../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout noindex={true} title="Salary Negotiation Plan | Leigh-Ann Martin" description="A comprehensive, multi-source salary research and negotiation plan for the Senior EA to Sachin Devand role at American Express.">
+  <PrivateHeader />
+  <div class="md:ml-60">
+  <main>
+    <!-- Hero -->
+    <section class="bg-primary pt-24 pb-12 md:pt-16 md:pb-16">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-[11px] font-semibold tracking-[0.2em] uppercase text-secondary mb-4">Compensation Strategy</p>
+        <h1 class="font-serif text-3xl md:text-4xl text-white leading-tight mb-4">
+          The Salary Negotiation Plan
+          <span class="block text-white/55 text-2xl md:text-3xl mt-2">Senior EA to Sachin Devand &middot; American Express</span>
+        </h1>
+        <p class="text-white/55 text-base leading-relaxed max-w-xl mx-auto mb-6">
+          Eight sources of market data, the peer-company benchmark, and a step-by-step plan built around one fact you already know from the inside: Amex pays below market, and that is exactly why this seat keeps turning over. Use it.
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">8 data sources</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">Walk-away $120K</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">Target $135&ndash;150K base</span>
+          <span class="bg-white/10 border border-white/10 text-white/60 text-xs px-3 py-1 rounded-full">Anchor $155&ndash;165K</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Nav -->
+    <section class="bg-primary/95 border-t border-white/[0.06] py-4 sticky top-14 md:top-0 z-40">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="flex flex-wrap justify-center gap-2 text-xs">
+          <a href="#tldr" class="text-white/40 hover:text-white/70 transition-colors">The Number</a>
+          <span class="text-white/15">|</span>
+          <a href="#market" class="text-white/40 hover:text-white/70 transition-colors">1. Market Data</a>
+          <span class="text-white/15">|</span>
+          <a href="#peers" class="text-white/40 hover:text-white/70 transition-colors">2. Peer Benchmark</a>
+          <span class="text-white/15">|</span>
+          <a href="#below-market" class="text-white/40 hover:text-white/70 transition-colors">3. Below-Market Intel</a>
+          <span class="text-white/15">|</span>
+          <a href="#machinery" class="text-white/40 hover:text-white/70 transition-colors">4. Amex's Comp Machinery</a>
+          <span class="text-white/15">|</span>
+          <a href="#architecture" class="text-white/40 hover:text-white/70 transition-colors">5. Your Number</a>
+          <span class="text-white/15">|</span>
+          <a href="#plan" class="text-white/40 hover:text-white/70 transition-colors">6. The Plan</a>
+          <span class="text-white/15">|</span>
+          <a href="#scripts" class="text-white/40 hover:text-white/70 transition-colors">7. Scripts</a>
+          <span class="text-white/15">|</span>
+          <a href="#levers" class="text-white/40 hover:text-white/70 transition-colors">8. Levers Beyond Base</a>
+          <span class="text-white/15">|</span>
+          <a href="#pushback" class="text-white/40 hover:text-white/70 transition-colors">9. Pushback</a>
+          <span class="text-white/15">|</span>
+          <a href="#reframe" class="text-white/40 hover:text-white/70 transition-colors">10. The Reframe</a>
+          <span class="text-white/15">|</span>
+          <a href="#sources" class="text-white/40 hover:text-white/70 transition-colors">Sources</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TL;DR: The Number -->
+    <section id="tldr" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">If You Read One Thing</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">The Number, At a Glance</h2>
+
+        <div class="grid sm:grid-cols-3 gap-4 mb-6">
+          <div class="bg-white rounded-xl p-5 shadow-sm text-center">
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-rose-700 mb-1">Walk-Away</p>
+            <p class="font-serif text-3xl text-primary">$120K</p>
+            <p class="text-text-muted text-xs mt-1">base. Below this, the 4-days-in-office trade against fractional flexibility stops making sense.</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm text-center ring-2 ring-secondary/30">
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-secondary mb-1">Target</p>
+            <p class="font-serif text-3xl text-primary">$135&ndash;150K</p>
+            <p class="text-text-muted text-xs mt-1">base. Where the market data lands for a Senior EA to an EVP in NYC financial services.</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm text-center">
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-emerald-700 mb-1">Anchor</p>
+            <p class="font-serif text-3xl text-primary">$155&ndash;165K</p>
+            <p class="text-text-muted text-xs mt-1">base. Open here if scope includes managing other support or any FP&amp;A-adjacent coordination.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6 space-y-5">
+          <div>
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-secondary mb-1">The one frame to hold</p>
+            <p class="text-primary text-sm leading-relaxed">You are not asking Amex to overpay. You are asking them to <span class="font-medium">pay the market</span> for a seat that has already churned once and is sitting empty while Katie drowns. The expensive outcome for them is not your salary &mdash; it's re-running this search in eighteen months. <span class="font-medium">Getting the number right is the cheapest retention insurance they can buy.</span></p>
+          </div>
+          <div>
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-secondary mb-1">Total-comp target (not just base)</p>
+            <p class="text-primary text-sm leading-relaxed">Base + Amex annual incentive (target ~10&ndash;15%) puts you at <span class="font-medium">~$155K&ndash;$180K all-in</span> at the target band. Negotiate the <em>whole</em> package &mdash; base, bonus target, and a sign-on &mdash; because Amex's base bands are rigid and the movement often lives in the other two levers.<sup><a href="#ref-12" class="text-secondary">12</a></sup></p>
+          </div>
+          <div>
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-secondary mb-1">Never do this</p>
+            <p class="text-primary text-sm leading-relaxed">Don't name a number first if you can avoid it. Don't accept on the call. Don't reveal Sai or anyone internal as the source of the "below market" intel &mdash; you cite <span class="font-medium">public market data</span>, never a person. And don't let the negotiation read as money-chasing; every ask is framed as "let's set it right once so I can stay and stop being a problem you revisit."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Market Data -->
+    <section id="market" class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 1</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">What the Market Actually Pays</h2>
+        <p class="text-text-muted text-sm mb-6">Every major salary source, pulled fresh for a Senior EA / EA-to-EVP in New York City, 2026. They cluster tighter than you'd expect: the credible center of gravity for <em>this</em> role &mdash; senior, financial services, EVP principal &mdash; sits in the <span class="font-medium text-primary">$120K&ndash;$133K base</span> range, with total pay reaching into the <span class="font-medium text-primary">$150K&ndash;$155K</span> territory at the top.</p>
+
+        <div class="overflow-x-auto mb-4">
+          <table class="w-full text-sm bg-white rounded-xl shadow-sm overflow-hidden">
+            <thead>
+              <tr class="bg-primary/5">
+                <th class="text-left text-primary font-semibold p-3 text-xs uppercase tracking-wide">Source (2026)</th>
+                <th class="text-left text-primary font-semibold p-3 text-xs uppercase tracking-wide">Role / Cut</th>
+                <th class="text-right text-primary font-semibold p-3 text-xs uppercase tracking-wide">Range</th>
+                <th class="text-right text-primary font-semibold p-3 text-xs uppercase tracking-wide">Mid / Median</th>
+              </tr>
+            </thead>
+            <tbody class="text-text-muted">
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Robert Half Salary Guide<sup><a href="#ref-1" class="text-secondary">1</a></sup></td>
+                <td class="p-3">Senior Executive Assistant, NYC</td>
+                <td class="text-right p-3">$104,764 &ndash; $132,746</td>
+                <td class="text-right p-3 font-medium text-secondary">~$118K</td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Glassdoor<sup><a href="#ref-3" class="text-secondary">3</a></sup></td>
+                <td class="p-3">Senior EA, NYC (total pay)</td>
+                <td class="text-right p-3">$93,503 &ndash; $132,321 <span class="text-text-muted/60">(90th: $155,079)</span></td>
+                <td class="text-right p-3 font-medium text-secondary">~$110,581</td>
+              </tr>
+              <tr class="border-t border-primary/[0.06] bg-secondary/[0.04]">
+                <td class="p-3 font-medium text-primary">Glassdoor<sup><a href="#ref-3" class="text-secondary">3</a></sup></td>
+                <td class="p-3"><span class="font-medium">Senior EA, NYC &mdash; Financial Services</span></td>
+                <td class="text-right p-3">&mdash;</td>
+                <td class="text-right p-3 font-medium text-secondary">$119,313</td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Salary.com<sup><a href="#ref-5" class="text-secondary">5</a></sup></td>
+                <td class="p-3">Executive Assistant to EVP, NYC</td>
+                <td class="text-right p-3">$82,096 &ndash; $127,267 <span class="text-text-muted/60">(IQR $92K&ndash;$116K)</span></td>
+                <td class="text-right p-3 font-medium text-secondary">~$103,802</td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Robert Half<sup><a href="#ref-2" class="text-secondary">2</a></sup></td>
+                <td class="p-3">Executive Assistant (non-senior), NYC</td>
+                <td class="text-right p-3">$79,511 &ndash; $118,414</td>
+                <td class="text-right p-3 font-medium text-secondary">~$99K</td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Glassdoor<sup><a href="#ref-4" class="text-secondary">4</a></sup></td>
+                <td class="p-3">EA, NYC &mdash; Financial Services (top-paying industry)</td>
+                <td class="text-right p-3">&mdash;</td>
+                <td class="text-right p-3 font-medium text-secondary">$112,438</td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Comparably<sup><a href="#ref-6" class="text-secondary">6</a></sup></td>
+                <td class="p-3"><span class="font-medium">Amex</span> Senior Executive Assistant, NYC</td>
+                <td class="text-right p-3">&mdash;</td>
+                <td class="text-right p-3 font-medium text-secondary">~$106,791</td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Glassdoor<sup><a href="#ref-7" class="text-secondary">7</a></sup></td>
+                <td class="p-3"><span class="font-medium">Amex</span> Executive Assistant, NYC (total pay)</td>
+                <td class="text-right p-3">$68,651 &ndash; $105,193 <span class="text-text-muted/60">(90th: $127,468)</span></td>
+                <td class="text-right p-3 font-medium text-secondary">~$84,508</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="text-text-muted text-xs italic mb-6">Sources vary in how they title the role and whether they report base only or total pay. Robert Half and Salary.com report base; Glassdoor and Comparably report self-submitted total pay, which skews lower because the sample includes earlier-career and non-financial EAs. The two financial-services cuts (Glassdoor) are the closest comparators to this seat.</p>
+
+        <div class="bg-secondary/5 border border-secondary/15 rounded-xl p-5">
+          <p class="text-sm text-primary"><span class="font-semibold">Read it this way:</span> <span class="text-text-muted">The generalist EA number drags everything down. Strip to <em>your</em> coordinates &mdash; senior title, NYC, financial services, EVP principal, public-company governance background &mdash; and the right anchor is the <span class="font-medium">Robert Half senior-EA ceiling ($132.7K) plus a financial-services premium</span>, which is exactly how you justify opening at $155K&ndash;$165K base without sounding unmoored from data.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Peer Benchmark -->
+    <section id="peers" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 2</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">The Peer Benchmark: Amex vs. Its Own Competitors</h2>
+        <p class="text-text-muted text-sm mb-6">This is the most important table on the page. Same role, same city, same industry &mdash; just different employers. Amex's EA pay sits <span class="font-medium text-primary">visibly below Goldman Sachs and JPMorgan</span>, the two firms whose talent it competes for directly. Sachin came <em>from</em> Goldman's Marcus. This isn't an opinion; it's the comparison set.</p>
+
+        <div class="overflow-x-auto mb-4">
+          <table class="w-full text-sm bg-white rounded-xl shadow-sm overflow-hidden">
+            <thead>
+              <tr class="bg-primary/5">
+                <th class="text-left text-primary font-semibold p-3 text-xs uppercase tracking-wide">Employer</th>
+                <th class="text-right text-primary font-semibold p-3 text-xs uppercase tracking-wide">EA Total Pay Range</th>
+                <th class="text-right text-primary font-semibold p-3 text-xs uppercase tracking-wide">Median Total</th>
+              </tr>
+            </thead>
+            <tbody class="text-text-muted">
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Goldman Sachs<sup><a href="#ref-8" class="text-secondary">8</a></sup></td>
+                <td class="text-right p-3">$101K &ndash; $141K</td>
+                <td class="text-right p-3 font-semibold text-emerald-700">$119K</td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">JPMorgan Chase<sup><a href="#ref-9" class="text-secondary">9</a></sup></td>
+                <td class="text-right p-3">$91K &ndash; $127K</td>
+                <td class="text-right p-3 font-semibold text-emerald-700">$107K</td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Mastercard<sup><a href="#ref-10" class="text-secondary">10</a></sup></td>
+                <td class="text-right p-3">$83K &ndash; $117K <span class="text-text-muted/60">(base avg $92K)</span></td>
+                <td class="text-right p-3">~$98K</td>
+              </tr>
+              <tr class="border-t border-primary/[0.06] bg-rose-50">
+                <td class="p-3 font-medium text-primary">American Express<sup><a href="#ref-7" class="text-secondary">7</a></sup></td>
+                <td class="text-right p-3">$68,651 &ndash; $105,193 <span class="text-text-muted/60">(90th: $127K)</span></td>
+                <td class="text-right p-3 font-semibold text-rose-700">~$84,508</td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Citi<sup><a href="#ref-11" class="text-secondary">11</a></sup></td>
+                <td class="text-right p-3">~$73K base / $80,796 total</td>
+                <td class="text-right p-3">~$81K</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-text-muted text-xs italic mb-6">Glassdoor self-reported total pay, 2026. Note Amex's <em>median</em> ($84.5K) sits roughly $35K below Goldman's and $23K below JPMorgan's, even though they hire from the same NYC talent pool. The Amex 90th percentile ($127K) only just reaches the others' medians.</p>
+
+        <div class="bg-secondary/5 border border-secondary/15 rounded-xl p-5">
+          <p class="text-sm text-primary"><span class="font-semibold">How to wield this (carefully):</span> <span class="text-text-muted">You never say "you pay less than Goldman." You say: <em>"For a senior EA supporting an EVP in financial services in New York, the market sits around $120K to $135K on base, and the top of the range runs higher at firms competing for the same talent."</em> That's true, sourced, and it quietly tells them you know exactly where they sit without making it an accusation.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Below-Market Intel -->
+    <section id="below-market" class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 3 &middot; Your Edge</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">The Below-Market Reality &mdash; and Why It's Leverage</h2>
+        <p class="text-text-muted text-sm mb-6">You already know from the inside that Amex pays under market and that it's feeding their retention problem. The public record corroborates it line for line. Hold this section privately &mdash; it shapes your <em>strategy</em>, not your <em>script</em>.</p>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <h3 class="font-semibold text-primary text-base mb-3">What the reviews say<sup><a href="#ref-13" class="text-secondary">13</a></sup><sup><a href="#ref-14" class="text-secondary">14</a></sup></h3>
+            <ul class="space-y-2 text-sm text-text-muted">
+              <li>&ldquo;Pay is consistently <span class="font-medium text-primary">below market</span> compared to competitors.&rdquo;</li>
+              <li>Standard raises run about <span class="font-medium text-primary">3% a year</span>, so salaries drift further under market the longer you stay.</li>
+              <li>&ldquo;The majority of employees fall below the salary guideline, and there is <span class="font-medium text-primary">no room for negotiation</span>&rdquo; once you're in.</li>
+              <li>&ldquo;Internal promotions happen, but you often have to <span class="font-medium text-primary">look external for better pay</span>.&rdquo;</li>
+              <li>Compensation rating: <span class="font-medium text-primary">3.9/5</span> &mdash; respectable, propped up by work/life balance and brand, not by cash.</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <h3 class="font-semibold text-primary text-base mb-3">What you know about this seat</h3>
+            <ul class="space-y-2 text-sm text-text-muted">
+              <li>The <span class="font-medium text-primary">previous EA left after two years</span> &mdash; the exact short-stay churn the data predicts.</li>
+              <li>The current support person is <span class="font-medium text-primary">on a PIP and out on medical leave</span>; the seat is effectively empty.</li>
+              <li>Katie is <span class="font-medium text-primary">running everything solo</span>, brand-new to the CoS role, and underwater.</li>
+              <li>Sachin <span class="font-medium text-primary">already singled out your resume</span> from six candidates. Demand for you is real and the clock is theirs, not yours.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-primary rounded-2xl p-6 mb-2">
+          <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">The flip</p>
+          <p class="text-white/85 text-sm leading-relaxed">Below-market pay <span class="font-medium text-white">is</span> the retention problem. A seat that pays under market churns every ~2 years; every churn costs Amex <span class="font-medium text-white">50&ndash;80% of the salary</span> to replace<sup><a href="#ref-15" class="text-secondary">15</a></sup> &mdash; call it <span class="font-medium text-white">$60K&ndash;$96K</span> in hard and soft costs &mdash; plus months of Katie covering a vacant desk. Paying you $15K&ndash;$25K above their reflex offer to <em>keep</em> you is not a premium. It's the discount.</p>
+        </div>
+        <p class="text-text-muted text-xs italic">You won't say this out loud as bluntly as it's written here. But it is the logic underneath every number you ask for, and it's why your ask is reasonable, not greedy.</p>
+      </div>
+    </section>
+
+    <!-- 4. Amex's Comp Machinery -->
+    <section id="machinery" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 4</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">How Amex Actually Pays: Know the Machinery</h2>
+        <p class="text-text-muted text-sm mb-6">Negotiating well means knowing which dials the recruiter can turn. At Amex, the base band is the rigid one; the movement tends to live in the incentive target and the sign-on.</p>
+
+        <div class="space-y-4 mb-6">
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <h3 class="font-semibold text-primary text-base mb-2">1. Base salary &mdash; band-locked, but bands have a top</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Each grade has a defined salary range. Recruiters resist going over the band midpoint for an external hire, but the <span class="font-medium text-primary">top of the band is real money you can reach</span> with the right justification (financial-services premium, EVP scope, public-company governance, AI fluency). Your job is to be priced at the top of the correct band, not bumped into a higher one.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <h3 class="font-semibold text-primary text-base mb-2">2. Annual incentive (bonus) &mdash; the negotiable percentage<sup><a href="#ref-12" class="text-secondary">12</a></sup></h3>
+            <p class="text-text-muted text-sm leading-relaxed">Non-officer Amex roles carry an annual incentive target, commonly reported in the <span class="font-medium text-primary">~10&ndash;15% range</span> (one colleague cited a 12% target, weighted by performance); <span class="font-medium text-primary">89% of Amex EAs report receiving an annual bonus</span>. On a ~$140K base, a 12&ndash;15% target adds <span class="font-medium text-primary">~$17K&ndash;$21K</span>. The <em>target percentage</em> is sometimes flexible even when base isn't &mdash; ask for it explicitly.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <h3 class="font-semibold text-primary text-base mb-2">3. Sign-on bonus &mdash; the pressure-release valve</h3>
+            <p class="text-text-muted text-sm leading-relaxed">When base is capped by the band, a <span class="font-medium text-primary">one-time sign-on of $10K&ndash;$20K</span> is the cleanest way for them to close the gap without breaking the band structure. It also legitimately offsets the cost of winding down your fractional clients. This is your highest-probability win.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <h3 class="font-semibold text-primary text-base mb-2">4. Equity / RSUs &mdash; rare at EA level, but ask once</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Restricted stock is uncommon for an EA-grade role, but confirm rather than assume. Frame it as a question, not a demand: <em>"Is there any equity or long-term-incentive component at this level?"</em> If no, you've spent nothing; if yes, you've found money you'd otherwise have left on the table.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <h3 class="font-semibold text-primary text-base mb-2">5. Grade / title &mdash; the lever that pays you for years</h3>
+            <p class="text-text-muted text-sm leading-relaxed">If the seat can be slotted at a <span class="font-medium text-primary">"Senior" or band-35-equivalent grade</span> rather than a generic EA grade, every future 3% raise and bonus compounds off a higher base. Ask what grade the role is posted at and whether the senior scope (EVP support, managing other support staff) maps to a higher band.</p>
+          </div>
+        </div>
+
+        <div class="bg-secondary/5 border border-secondary/15 rounded-xl p-5">
+          <p class="text-sm text-primary"><span class="font-semibold">The strategic implication:</span> <span class="text-text-muted">Because Amex famously gives "no room for negotiation" <em>after</em> you're hired and raises are only ~3%, <span class="font-medium">your starting number is almost the entire game.</span> You will likely never claw back ground later. Anchor high now, protect the base, and treat the sign-on and bonus target as the give-and-take.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Your Number Architecture -->
+    <section id="architecture" class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 5</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">Your Number Architecture</h2>
+        <p class="text-text-muted text-sm mb-6">Three numbers, each tied to data so you can defend it without flinching. Memorize the reasoning, not just the figure.</p>
+
+        <div class="space-y-4 mb-6">
+          <div class="bg-white rounded-2xl shadow-sm border border-emerald-200 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-serif text-lg text-primary">Anchor (open here): $155K&ndash;$165K base</h3>
+              <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full whitespace-nowrap">First number</span>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed mb-2"><span class="font-medium text-primary">Justification:</span> Robert Half senior-EA ceiling ($132.7K) + a financial-services premium + EVP scope + public-company governance experience + leading other support staff. The Glassdoor senior-EA 90th percentile ($155K) sits right at the floor of this anchor, so it's defensible, not theatrical.</p>
+            <p class="text-text-muted text-sm leading-relaxed"><span class="font-medium text-primary">Use when:</span> scope confirms managing/coordinating other EAs or any FP&amp;A-adjacent work. If you give the first number, give this one &mdash; you can always come down; you can never go back up.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm border-2 border-secondary/30 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-serif text-lg text-primary">Target (land here): $135K&ndash;$150K base</h3>
+              <span class="text-xs bg-secondary/15 text-secondary px-2 py-0.5 rounded-full whitespace-nowrap">The win</span>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed mb-2"><span class="font-medium text-primary">Justification:</span> Sits between the Robert Half senior-EA midpoint ($118K) and ceiling ($132.7K), lifted by the financial-services cut (Glassdoor FS senior-EA median total $119K) and the EVP-principal premium. This is a number a recruiter can actually get approved.</p>
+            <p class="text-text-muted text-sm leading-relaxed"><span class="font-medium text-primary">All-in:</span> at $140K base + ~12&ndash;15% bonus you're at <span class="font-medium text-primary">~$157K&ndash;$161K</span>; add a $15K sign-on in year one and you clear <span class="font-medium text-primary">~$172K</span>.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm border border-rose-200 p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-serif text-lg text-primary">Walk-away (floor): $120K base</h3>
+              <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full whitespace-nowrap">The line</span>
+            </div>
+            <p class="text-text-muted text-sm leading-relaxed mb-2"><span class="font-medium text-primary">Justification:</span> Above the Robert Half senior-EA <em>floor</em> ($104.7K) and roughly at the financial-services median. Below $120K, a 4-day in-office commitment at a known below-market payer doesn't beat keeping your fractional flexibility.</p>
+            <p class="text-text-muted text-sm leading-relaxed"><span class="font-medium text-primary">Nuance:</span> if base genuinely can't clear $120K but they load a strong sign-on + 15% bonus target + a 6-month review commitment, that's a conversation &mdash; the floor is on <em>total comp and trajectory</em>, not base alone.</p>
+          </div>
+        </div>
+
+        <div class="bg-secondary/5 border border-secondary/15 rounded-xl p-5">
+          <p class="text-sm text-primary"><span class="font-semibold">The spread is deliberate:</span> <span class="text-text-muted">$165K anchor &rarr; $140K target leaves room for them to "win" a $25K concession that still lands you exactly where you wanted. People value what they negotiate down to. Let them earn the target.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. The Plan -->
+    <section id="plan" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 6</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">The Step-by-Step Plan</h2>
+        <p class="text-text-muted text-sm mb-6">Negotiation is sequencing, not a single brave sentence. Here's the order of operations from "what's your range?" to signed offer.</p>
+
+        <div class="space-y-3">
+          <div class="bg-white rounded-xl p-5 shadow-sm flex items-start gap-4">
+            <span class="text-secondary font-serif text-xl font-bold mt-0.5 flex-shrink-0">1</span>
+            <div>
+              <p class="text-primary text-sm font-semibold mb-1">Deflect the early "what are you looking for?"</p>
+              <p class="text-text-muted text-sm leading-relaxed">Recruiters ask early to anchor <em>you</em> low. Bounce it back to range first. Only give a number if pressed twice &mdash; and then give the anchor band, not a single figure. (Script in Section 7.)</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm flex items-start gap-4">
+            <span class="text-secondary font-serif text-xl font-bold mt-0.5 flex-shrink-0">2</span>
+            <div>
+              <p class="text-primary text-sm font-semibold mb-1">Establish scope before price</p>
+              <p class="text-text-muted text-sm leading-relaxed">Confirm the things that justify the top of band: Does the seat coordinate other support staff? Any FP&amp;A-adjacent or board-prep work? How senior is the grade? Scope agreed first means your number reads as fair, not aggressive.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm flex items-start gap-4">
+            <span class="text-secondary font-serif text-xl font-bold mt-0.5 flex-shrink-0">3</span>
+            <div>
+              <p class="text-primary text-sm font-semibold mb-1">Anchor with market data, not a wish</p>
+              <p class="text-text-muted text-sm leading-relaxed">When you name the band, attach the source in the same breath ("the market for a senior EA to an EVP in financial services in New York runs..."). Data makes a high number sound like a fact instead of a demand.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm flex items-start gap-4">
+            <span class="text-secondary font-serif text-xl font-bold mt-0.5 flex-shrink-0">4</span>
+            <div>
+              <p class="text-primary text-sm font-semibold mb-1">Get the full offer in writing &mdash; then go quiet</p>
+              <p class="text-text-muted text-sm leading-relaxed">Never accept or counter on the call. "This is exciting &mdash; can you send the full package in writing and give me 48 hours?" Then text Izzy. You two run a strategy call before any response.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm flex items-start gap-4">
+            <span class="text-secondary font-serif text-xl font-bold mt-0.5 flex-shrink-0">5</span>
+            <div>
+              <p class="text-primary text-sm font-semibold mb-1">Counter once, cleanly, bundled</p>
+              <p class="text-text-muted text-sm leading-relaxed">Make one counter that packages base + sign-on + bonus target together, so they solve the whole thing at once instead of nickel-and-diming. Lead with enthusiasm, then the gap, then the specific asks.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm flex items-start gap-4">
+            <span class="text-secondary font-serif text-xl font-bold mt-0.5 flex-shrink-0">6</span>
+            <div>
+              <p class="text-primary text-sm font-semibold mb-1">If base is stuck, trade down the band, not off the cliff</p>
+              <p class="text-text-muted text-sm leading-relaxed">Pivot to the levers Amex can move: sign-on, bonus target %, grade, a 6-month comp review, flexibility on the in-office days. Concede slowly; make each give-back buy something.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm flex items-start gap-4">
+            <span class="text-secondary font-serif text-xl font-bold mt-0.5 flex-shrink-0">7</span>
+            <div>
+              <p class="text-primary text-sm font-semibold mb-1">Close warm, tie it to staying</p>
+              <p class="text-text-muted text-sm leading-relaxed">Land every negotiation on the retention note: you're getting the number right <em>once</em> so you can commit for the long run and never make it a thing again. That sentence turns "she negotiates hard" into "she's planning to stay." (Section 10.)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Scripts -->
+    <section id="scripts" class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 7</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">Scripts &amp; Exact Language</h2>
+        <p class="text-text-muted text-sm mb-6">Absorb the posture, then say it in your own voice. Over-rehearsed comp language sounds defensive. Slow down, headline first, pause after the number.</p>
+
+        <div class="space-y-3">
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="text-xs uppercase tracking-wider text-text-muted mb-1">When they ask your number early (deflect)</p>
+            <p class="text-primary text-sm italic">"I want to make sure I understand the full scope before I put a number on it &mdash; and I'd genuinely love to hear the range you have budgeted for the role. What were you thinking?"</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="text-xs uppercase tracking-wider text-text-muted mb-1">If pressed a second time (anchor with data)</p>
+            <p class="text-primary text-sm italic">"For a senior EA supporting an EVP in financial services here in New York, the market lands around $135K to $155K on base, with total comp higher. Given the public-company governance background and that I'd be supporting at the EVP level, I'd want to be toward the upper end of that &mdash; but I care about the whole package, and I'm flexible on how we get there."</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="text-xs uppercase tracking-wider text-text-muted mb-1">Deploying the "below market" intel without burning the source</p>
+            <p class="text-primary text-sm italic">"I've done my homework on where this kind of role pays across the New York financial-services market, including at the firms competing for the same people. I'm not trying to be at the top of the whole market &mdash; I just want to land at a number that's fair for the scope, and that means neither of us is revisiting this in a year."</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="text-xs uppercase tracking-wider text-text-muted mb-1">Getting it in writing (end of call)</p>
+            <p class="text-primary text-sm italic">"This is really exciting and I think I can take a lot off Katie's and Sachin's plates fast. Could you put the full package in writing &mdash; base, bonus target, sign-on &mdash; and give me 48 hours to review? I want to come back to you thoughtfully, not off the cuff."</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="text-xs uppercase tracking-wider text-text-muted mb-1">The bundled counter (after the strategy call with Izzy)</p>
+            <p class="text-primary text-sm italic">"I'm in &mdash; I want this. To get there cleanly: could we land base at $150K, a sign-on of $15K to offset winding down my current clients, and confirm the bonus target? If base has a ceiling I should know about, I'm open &mdash; let's solve it across those three pieces."</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="text-xs uppercase tracking-wider text-text-muted mb-1">If they say "this is the band, we can't move base"</p>
+            <p class="text-primary text-sm italic">"I understand bands are bands. Then let's make the rest work: a stronger sign-on, the bonus target at the top of its range, and a comp review at six months tied to how the seat's running. If we get there, I'm ready to commit."</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 shadow-sm">
+            <p class="text-xs uppercase tracking-wider text-text-muted mb-1">On start date (you have client wind-down)</p>
+            <p class="text-primary text-sm italic">"Two to four weeks is standard, and I want to wind my current clients down cleanly so nothing's left messy &mdash; that's the same care I'd bring to this seat. Happy to map the exact date once we're aligned."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Levers Beyond Base -->
+    <section id="levers" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 8</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">Levers Beyond Base Salary</h2>
+        <p class="text-text-muted text-sm mb-6">If base hits the band ceiling, these are where the rest of the value lives. Rank them by what matters to you and lead with the top two.</p>
+
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm bg-white rounded-xl shadow-sm overflow-hidden">
+            <thead>
+              <tr class="bg-primary/5">
+                <th class="text-left text-primary font-semibold p-3 text-xs uppercase tracking-wide">Lever</th>
+                <th class="text-left text-primary font-semibold p-3 text-xs uppercase tracking-wide">Ask For</th>
+                <th class="text-left text-primary font-semibold p-3 text-xs uppercase tracking-wide">Likelihood</th>
+              </tr>
+            </thead>
+            <tbody class="text-text-muted">
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Sign-on bonus</td>
+                <td class="p-3">$10K&ndash;$20K, to offset client wind-down</td>
+                <td class="p-3"><span class="text-emerald-700 font-medium">High</span></td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Bonus target %</td>
+                <td class="p-3">Top of the band (~15% vs. default ~10&ndash;12%)</td>
+                <td class="p-3"><span class="text-emerald-700 font-medium">Medium-High</span></td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Grade / title</td>
+                <td class="p-3">"Senior" grade so raises &amp; bonus compound higher</td>
+                <td class="p-3"><span class="text-amber-700 font-medium">Medium</span></td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">6-month comp review</td>
+                <td class="p-3">Written commitment to revisit base once seat is proven</td>
+                <td class="p-3"><span class="text-amber-700 font-medium">Medium</span></td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">In-office flexibility</td>
+                <td class="p-3">Occasional remote day on light-calendar weeks</td>
+                <td class="p-3"><span class="text-amber-700 font-medium">Medium</span></td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">PTO / vacation</td>
+                <td class="p-3">Extra week above the standard accrual</td>
+                <td class="p-3"><span class="text-amber-700 font-medium">Low-Medium</span></td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Equity / LTI</td>
+                <td class="p-3">Confirm whether any exists at this level</td>
+                <td class="p-3"><span class="text-rose-700 font-medium">Low (but ask)</span></td>
+              </tr>
+              <tr class="border-t border-primary/[0.06]">
+                <td class="p-3 font-medium text-primary">Professional development</td>
+                <td class="p-3">L&amp;D / AI-tooling budget, conference access</td>
+                <td class="p-3"><span class="text-emerald-700 font-medium">High (cheap for them)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-secondary/5 border border-secondary/15 rounded-xl p-5">
+          <p class="text-sm text-primary"><span class="font-semibold">Priority order for you:</span> <span class="text-text-muted">1) base (compounds forever and is band-limited), 2) sign-on (highest-probability cash), 3) bonus target %, 4) grade/title (compounds), 5) the 6-month review (a fallback when base truly won't move). Don't ask for all eight &mdash; pick the three or four that move the needle and bundle them.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Pushback -->
+    <section id="pushback" class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 9</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">Handling the Pushback</h2>
+        <p class="text-text-muted text-sm mb-6">The likely objections from a band-constrained recruiter, and the calm, non-defensive counter for each.</p>
+
+        <div class="space-y-4">
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <h3 class="font-serif text-lg text-primary mb-2">"That's above our range for this role."</h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-2"><span class="font-semibold text-primary">Counter:</span> Don't retreat to base alone &mdash; widen to total comp and scope. "I hear you. Where can we get on total comp &mdash; base, sign-on, and bonus together? And is the range set for the senior scope we discussed, or the standard EA grade?"</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <h3 class="font-serif text-lg text-primary mb-2">"What are you making now?"</h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-2"><span class="font-semibold text-primary">Counter (NY law is on your side &mdash; they can't require it):</span> "My fractional work is structured really differently, so it's not a clean comparison. I'd rather anchor to the market rate for this role and scope, which is around $135K to $155K base in New York."</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <h3 class="font-serif text-lg text-primary mb-2">"We pay in other ways &mdash; brand, stability, work/life balance."</h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-2"><span class="font-semibold text-primary">Counter:</span> Agree warmly, then redirect. "Those matter to me &mdash; they're part of why I'm here and not just chasing the highest bidder. And precisely because I want to stay and go deep, I want the base to be right from day one so it's never a distraction."</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <h3 class="font-serif text-lg text-primary mb-2">"Bands are bands &mdash; there's no flexibility."</h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-2"><span class="font-semibold text-primary">Counter:</span> Accept the constraint, move the conversation. "Totally fair on base, then. Let's make the sign-on and bonus target do the work, and put a six-month review in writing. If we land there, I'm ready to sign."</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <h3 class="font-serif text-lg text-primary mb-2">"We have other strong candidates."</h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-2"><span class="font-semibold text-primary">Counter (stay calm &mdash; Sachin already picked you):</span> "I understand &mdash; and I'm confident I'm the right fit for what Katie needs right now. I'm not trying to squeeze you; I'm trying to land somewhere we both feel good about so I can commit for the long run."</p>
+          </div>
+        </div>
+
+        <div class="bg-secondary/5 border border-secondary/15 rounded-xl p-5 mt-6">
+          <p class="text-sm text-primary"><span class="font-semibold">Tone rule:</span> <span class="text-text-muted">Never adversarial. Every counter pairs a warm agreement ("I hear you," "totally fair") with a redirect. You're solving a shared problem with them, not extracting from them. Calm + collaborative + specific beats forceful every time at this level.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. The Reframe -->
+    <section id="reframe" class="py-12 md:py-16 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">Section 10</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-primary mb-6">The Reframe That Protects You</h2>
+        <p class="text-text-muted text-sm mb-6">Here's the tension you have to manage: Katie's whole worry is that you're a <em>flight risk</em> &mdash; too ambitious, will leave in a year. Negotiating hard can <em>feed</em> that fear if you let it read as money-chasing. The fix is to fuse the two stories so your negotiation actually <em>proves</em> your commitment.</p>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-rose-700 mb-3">Reads as flight risk</p>
+            <ul class="space-y-2 text-sm text-text-muted">
+              <li>"I need to hit a certain number."</li>
+              <li>"This is below what I could get elsewhere."</li>
+              <li>Negotiating base in isolation, hard, with no mention of staying.</li>
+              <li>Treating comp as a transaction to win.</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm border border-primary/[0.06] p-6">
+            <p class="text-[11px] font-semibold tracking-[0.15em] uppercase text-emerald-700 mb-3">Reads as commitment</p>
+            <ul class="space-y-2 text-sm text-text-muted">
+              <li>"I want to get this right <em>once</em> so it's never a distraction."</li>
+              <li>"I'm planning to be here for the long run, so let's set a base I'll be happy with for years."</li>
+              <li>Bundling base + sign-on + a six-month review &mdash; structured, not grabby.</li>
+              <li>Treating comp as the foundation of a long stay.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-primary rounded-2xl p-6 mb-2">
+          <p class="text-secondary text-xs font-semibold tracking-[0.15em] uppercase mb-2">The line that does the most work</p>
+          <p class="text-white/90 text-base italic leading-relaxed">"I'm not optimizing for the biggest number on the market &mdash; if I were, I'd stay fractional. I'm optimizing for a seat I can settle into and master for years. Getting the base right at the start is how I make sure money never becomes the reason I'd look elsewhere. I'd rather we set it fairly now and then I just put my head down and make you both look great."</p>
+        </div>
+        <p class="text-text-muted text-xs italic">This single move converts your strongest objection (flight risk) into the <em>reason</em> the right number matters. The below-market data isn't a complaint &mdash; it's the diagnosis of why the last person left, and the case for why paying you correctly is how Katie finally stops the churn.</p>
+
+        <div class="bg-secondary/5 border border-secondary/15 rounded-xl p-5 mt-6">
+          <p class="text-sm text-primary"><span class="font-semibold">Cross-reference:</span> <span class="text-text-muted">This dovetails with your <a href={`${base}private/ambition-objection`} class="text-secondary underline hover:no-underline">"Too Ambitious" playbook</a> and the commitment scripting in the <a href={`${base}private/amex-katie-interview`} class="text-secondary underline hover:no-underline">Katie interview prep</a>. Same posture, applied to money: depth over trajectory, here for the long run.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Takeaways -->
+    <section class="py-16 md:py-24 bg-primary">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center mb-10">
+          <h2 class="font-serif text-2xl md:text-3xl text-white">The Plan in Six Lines</h2>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5 flex items-start gap-4">
+            <span class="text-secondary font-serif text-xl font-bold mt-0.5">1</span>
+            <p class="text-white/80 text-sm leading-relaxed">The market for this seat is <span class="font-medium text-white">$120K&ndash;$133K base</span>, reaching ~$155K total at the top. Anchor $155K&ndash;$165K, target $135K&ndash;$150K, walk away below $120K.</p>
+          </div>
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5 flex items-start gap-4">
+            <span class="text-secondary font-serif text-xl font-bold mt-0.5">2</span>
+            <p class="text-white/80 text-sm leading-relaxed">Amex pays <span class="font-medium text-white">below its own peers</span> (Goldman $119K median, JPMorgan $107K vs. Amex $84.5K). That gap is the retention problem you already know about from the inside.</p>
+          </div>
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5 flex items-start gap-4">
+            <span class="text-secondary font-serif text-xl font-bold mt-0.5">3</span>
+            <p class="text-white/80 text-sm leading-relaxed">Base is band-locked and post-hire raises are ~3%, so <span class="font-medium text-white">your starting number is the whole game.</span> Anchor high now; you won't claw it back later.</p>
+          </div>
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5 flex items-start gap-4">
+            <span class="text-secondary font-serif text-xl font-bold mt-0.5">4</span>
+            <p class="text-white/80 text-sm leading-relaxed">When base sticks, move to the <span class="font-medium text-white">sign-on ($10K&ndash;$20K), bonus target (~15%), grade, and a six-month review.</span> Bundle the asks; never nickel-and-dime.</p>
+          </div>
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5 flex items-start gap-4">
+            <span class="text-secondary font-serif text-xl font-bold mt-0.5">5</span>
+            <p class="text-white/80 text-sm leading-relaxed">Cite <span class="font-medium text-white">public market data, never a person.</span> Get the offer in writing, take 48 hours, run a strategy call with Izzy before any counter.</p>
+          </div>
+          <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5 flex items-start gap-4">
+            <span class="text-secondary font-serif text-xl font-bold mt-0.5">6</span>
+            <p class="text-white/80 text-sm leading-relaxed">Frame every ask as <span class="font-medium text-white">"set it right once so I can stay."</span> That turns hard negotiation into proof of commitment &mdash; the exact opposite of flight risk.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sources -->
+    <section id="sources" class="py-16 md:py-24 bg-cream">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="font-serif text-2xl text-primary mb-8">Sources &amp; References</h2>
+        <ol class="space-y-3 text-sm text-text-muted leading-relaxed list-decimal list-inside">
+          <li id="ref-1"><a href="https://www.roberthalf.com/us/en/job-details/senior-executive-assistant/new-york-ny" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Robert Half, "Senior Executive Assistant Salary in New York, NY (Updated for 2026)."</a> Base range $104,764&ndash;$132,746.</li>
+          <li id="ref-2"><a href="https://www.roberthalf.com/us/en/job-details/executive-assistant/new-york-ny" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Robert Half, "Executive Assistant Salary in New York, NY (Updated for 2026)."</a> Base range $79,511&ndash;$118,414.</li>
+          <li id="ref-3"><a href="https://www.glassdoor.com/Salaries/new-york-city-ny-senior-executive-assistant-salary-SRCH_IL.0,16_IM615_KO17,43.htm" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Glassdoor, "Senior Executive Assistant Salary in New York City, NY 2026."</a> Avg total pay ~$110,581; 25th $93,503, 75th $132,321, 90th $155,079. Financial-services median total $119,313.</li>
+          <li id="ref-4"><a href="https://www.glassdoor.com/Salaries/new-york-city-ny-executive-assistant-salary-SRCH_IL.0,16_IM615_KO17,36.htm" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Glassdoor, "Executive Assistant Salary in New York City, NY 2026."</a> Top-paying industry: Financial Services, median total $112,438.</li>
+          <li id="ref-5"><a href="https://www.salary.com/research/salary/listing/executive-assistant-to-evp-salary/new-york-ny" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Salary.com, "Executive Assistant to EVP Salary in New York, NY."</a> Avg $103,802; range $82,096&ndash;$127,267, IQR $92,440&ndash;$116,085.</li>
+          <li id="ref-6"><a href="https://www.comparably.com/companies/americanexpress/salaries/executive-assistant" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Comparably, "American Express Executive / Senior Executive Assistant Salary."</a> Amex Senior EA NYC ~$106,791.</li>
+          <li id="ref-7"><a href="https://www.glassdoor.com/Salary/American-Express-Executive-Assistant-New-York-City-Salaries-EJI_IE35.0,16_KO17,36_IL.37,50_IM615.htm" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Glassdoor, "American Express Executive Assistant Salaries in New York City."</a> Avg ~$84,508; 25th $68,651, 75th $105,193, 90th $127,468 (90 salaries). NYC comp/benefits rating 4.2/5.</li>
+          <li id="ref-8"><a href="https://www.glassdoor.com/Salary/Goldman-Sachs-Executive-Assistant-New-York-City-Salaries-EJI_IE2800.0,13_KO14,33_IL.34,47_IM615.htm" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Glassdoor, "Goldman Sachs Executive Assistant Salaries in New York City."</a> $101K&ndash;$141K, median total $119K.</li>
+          <li id="ref-9"><a href="https://www.glassdoor.com/Salary/J-P-Morgan-New-York-City-Salaries-EI_IE145.0,10_IL.11,24_IM615.htm" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Glassdoor, "JPMorgan Chase Executive Assistant Salaries."</a> $91K&ndash;$127K, median total $107K.</li>
+          <li id="ref-10"><a href="https://www.glassdoor.com/Salary/Mastercard-Executive-Assistant-Salaries-E3677_D_KO11,30.htm" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Glassdoor, "Mastercard Executive Assistant Salaries."</a> Total pay $83K&ndash;$117K; base avg $92K, additional ~$6K.</li>
+          <li id="ref-11"><a href="https://www.glassdoor.com/Salary/Citi-Executive-Assistant-Salaries-E8843_D_KO5,24.htm" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Glassdoor, "Citi Executive Assistant Salaries."</a> Total ~$80,796; base ~$73,485, additional ~$7,311.</li>
+          <li id="ref-12"><a href="https://www.comparably.com/companies/americanexpress/questions/412435/does-the-company-give-bonuses-what-are-they-on-average" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Comparably &amp; Fishbowl, "American Express bonus structure."</a> Non-officer incentive targets commonly ~10&ndash;15% (12% reported, performance-weighted); 89% of Amex EAs report receiving an annual bonus; avg Amex bonus ~$17K (PayScale). Officer-level Annual Incentive Award Plan caps at 200% of guideline (SEC filing).</li>
+          <li id="ref-13"><a href="https://www.comparably.com/companies/americanexpress/reviews/compensation" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Comparably, "American Express Compensation Employee Reviews."</a> Below-market pay vs. competitors; ~3% raises; majority below salary guideline with "no room for negotiation." Comp rating 3.9/5.</li>
+          <li id="ref-14"><a href="https://www.indeed.com/cmp/American-Express/reviews?fcountry=US&floc=New+York%2C+NY&ftext=Pay" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Indeed, "Working at American Express in New York, NY &mdash; Reviews (Pay)."</a> Pay below market; employees note looking external for better pay; work/life balance cited as the offset.</li>
+          <li id="ref-15"><a href="https://www.applauz.me/resources/costs-of-employee-turnover" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">Applauz, "The Real Costs of Employee Turnover in 2026."</a> Replacement cost for administrative/clerical roles ~50&ndash;80% of annual salary (30&ndash;40% hard, 60&ndash;70% soft).</li>
+          <li id="ref-16">Internal context (private): Sai's June 2026 calls &mdash; prior EA left after ~2 years, current support person on a PIP and medical leave, Katie running solo, Sachin singled out Leigh-Ann's resume from six candidates. <span class="italic">Strategy input only; never cite a person as the source of the "below market" claim in negotiation.</span></li>
+        </ol>
+
+        <p class="text-text-muted text-xs mt-6 italic">Salary figures are drawn from public aggregators (Robert Half, Glassdoor, Salary.com, Comparably, PayScale) pulled June 2026 and represent self-reported and modeled data; treat them as directional ranges, not guarantees. The financial-services and senior-EA cuts are the most relevant comparators for this seat.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 md:py-16 bg-warm">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-text-muted text-sm leading-relaxed mb-2">When an offer lands, don't respond on the call.</p>
+        <p class="font-serif text-xl text-primary mb-4">Get it in writing, take 48 hours, text Izzy. We run the counter together.</p>
+        <a href={`${base}private/amex-sachin-devand#salary`} class="inline-flex items-center gap-2 text-secondary text-sm font-semibold hover:underline">
+          See the original salary note in the Sachin dossier
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  </div>
+</Layout>
+
+<script>
+  const revealEls = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+  );
+  revealEls.forEach((el) => observer.observe(el));
+</script>
